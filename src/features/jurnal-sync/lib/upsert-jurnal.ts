@@ -1,0 +1,91 @@
+import { db } from '@/shared/lib/db'
+import { jurnal } from '../../../../drizzle/schema'
+import { eq } from 'drizzle-orm'
+
+interface IncomingDokumen {
+  nama: string
+  url: string
+  tipe: string
+}
+
+interface JurnalPayload {
+  source_id: string
+  judul: string
+  tanggal_kegiatan: string
+  kategori: string
+  link_publikasi?: string | null
+  dokumentasi?: any[]
+  dokumen_pendukung?: IncomingDokumen[]
+  pihak_terkait?: any[]
+  custom_fields?: any[]
+}
+
+export async function upsertJurnal(payload: JurnalPayload) {
+  // 1. Fetch existing item by source_id
+  const existingItems = await db.select().from(jurnal).where(eq(jurnal.source_id, payload.source_id)).limit(1)
+  const existing = existingItems[0] || null
+
+  // 2. Apply merge strategy for dokumen_pendukung is_public
+  const incomingDocs = payload.dokumen_pendukung || []
+  let mergedDocs: any[] = []
+
+  if (existing) {
+    // Map existing docs by URL
+    const existingDocs = Array.isArray(existing.dokumen_pendukung) ? existing.dokumen_pendukung : []
+    const existingIsPublicMap = new Map<string, boolean>()
+    
+    existingDocs.forEach((d: any) => {
+      if (d && d.url) {
+        existingIsPublicMap.set(d.url, d.is_public !== false) // default to true
+      }
+    })
+
+    mergedDocs = incomingDocs.map(doc => ({
+      nama: doc.nama,
+      url: doc.url,
+      tipe: doc.tipe,
+      is_public: existingIsPublicMap.has(doc.url) ? existingIsPublicMap.get(doc.url) : true
+    }))
+  } else {
+    // Completely new jurnal -> default all dokumen is_public = true
+    mergedDocs = incomingDocs.map(doc => ({
+      nama: doc.nama,
+      url: doc.url,
+      tipe: doc.tipe,
+      is_public: true
+    }))
+  }
+
+  const valuesToUpsert = {
+    source_id: payload.source_id,
+    judul: payload.judul,
+    tanggal_kegiatan: payload.tanggal_kegiatan,
+    kategori: payload.kategori,
+    link_publikasi: payload.link_publikasi || null,
+    dokumentasi: payload.dokumentasi || [],
+    dokumen_pendukung: mergedDocs,
+    pihak_terkait: payload.pihak_terkait || [],
+    custom_fields: payload.custom_fields || [],
+    is_published: true, // Default to true on publish sync
+    updated_at: new Date()
+  }
+
+  let action = "created"
+  let id = ""
+
+  if (existing) {
+    await db.update(jurnal)
+      .set(valuesToUpsert)
+      .where(eq(jurnal.id, existing.id))
+    id = existing.id
+    action = "updated"
+  } else {
+    const inserted = await db.insert(jurnal).values({
+      ...valuesToUpsert,
+      created_at: new Date()
+    }).returning({ id: jurnal.id })
+    id = inserted[0].id
+  }
+
+  return { id, action }
+}

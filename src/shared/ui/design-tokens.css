@@ -1,0 +1,70 @@
+:root {
+  --color-ink: #0C0C0C;
+  --color-ember-deep: #481E14;
+  --color-ember-mid: #9B3922;
+  --color-ember-bright: #F2613F;
+  --color-surface: #F9F4F1;
+  --color-text-muted: #C2A89A;
+  
+  --color-leader-outline: rgba(255, 255, 255, 0.15);
+  --card-skew: -8deg;
+  
+  --anim-fast: 200ms;
+  --anim-normal: 350ms;
+  --anim-slow: 500ms;
+  --anim-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slide-from-left {
+  from { transform: translateX(-60px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(60px);  opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes slide-from-top {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.9) translateY(10px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.animate-slide-left {
+  animation: slide-from-left var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-slide-right {
+  animation: slide-from-right var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-slide-top {
+  animation: slide-from-top var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-fade-in {
+  animation: fade-in var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-scale-in {
+  animation: scale-in var(--anim-normal) var(--anim-ease) both;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
