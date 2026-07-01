@@ -9,6 +9,8 @@ interface BarData {
 
 interface BarChartProps {
   data: BarData[]
+  /** Hanya render D3 saat section masuk viewport (dari IntersectionObserver parent) */
+  isVisible: boolean
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -27,14 +29,15 @@ const CATEGORY_LABELS: Record<string, string> = {
   lainnya:   'Lainnya',
 }
 
-const BarChartInner: React.FC<BarChartProps> = ({ data }) => {
+const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
   // Track previous data to skip re-render if data hasn't actually changed
   const prevDataRef = useRef<string>('')
 
   useEffect(() => {
-    if (!svgRef.current || data.length === 0) return
+    // Jangan render D3 sebelum section masuk viewport
+    if (!isVisible || !svgRef.current || data.length === 0) return
 
     // Skip D3 re-render if data values haven't changed
     const dataKey = JSON.stringify(data)
@@ -167,7 +170,8 @@ const BarChartInner: React.FC<BarChartProps> = ({ data }) => {
         .attr('dy', '1.4em')
         .text((d) => CATEGORY_LABELS[d as string] ?? d as string)
     })
-  }, [data])
+  }, [data, isVisible])
+
 
   return (
     <div className="relative w-full h-full">

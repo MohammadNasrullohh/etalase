@@ -4,3 +4,4 @@
 - Jangan melakukan bypass pada token validation/bearer auth di service API.
 - Jangan menyimpan MinIO credentials di backend/frontend ALAS.
 - Jangan menyimpan raw password di DB, wajib menggunakan bcrypt hashing.
+- Jangan commit/push ecuali ada perintah explicit

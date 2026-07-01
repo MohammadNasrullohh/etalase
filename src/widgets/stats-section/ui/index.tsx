@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useCallback, useMemo, memo } from 'react'
+import React, { useState, useEffect, useCallback, useMemo, memo, useRef } from 'react'
 import { BarChart } from './bar-chart'
 
 interface StatsData {
@@ -31,6 +31,9 @@ const StatsSectionInner: React.FC = () => {
   const [data, setData] = useState<StatsData | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
+  // Jadi true saat section masuk viewport — tidak pernah kembali false (once-seen)
+  const [isSectionVisible, setIsSectionVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   const fetchStats = useCallback(async (year?: number) => {
     setLoading(true)
@@ -50,6 +53,23 @@ const StatsSectionInner: React.FC = () => {
   useEffect(() => {
     fetchStats()
   }, [fetchStats])
+
+  // IntersectionObserver: aktifkan chart saat 30% section masuk viewport
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSectionVisible(true)
+          observer.disconnect() // cukup sekali, tidak perlu observe lagi
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   const handleYearClick = (year: number) => {
     setSelectedYear(year)
@@ -71,6 +91,7 @@ const StatsSectionInner: React.FC = () => {
   return (
     <section
       id="section-stats"
+      ref={sectionRef}
       className="relative w-full bg-[#08080C] lg:h-screen lg:overflow-hidden"
     >
       {/* Ambient glow top-right */}
@@ -112,7 +133,7 @@ const StatsSectionInner: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <BarChart data={chartData} />
+              <BarChart data={chartData} isVisible={isSectionVisible} />
             )}
           </div>
 
