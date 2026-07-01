@@ -11,6 +11,7 @@ import { LeadershipPanel } from '@/widgets/leadership-panel/ui'
 import { FuturisticLine } from '@/shared/ui/futuristic-line'
 import { JurnalDetailModal } from '@/entities/jurnal/ui/jurnal-detail-modal.client'
 import { LeaderProfileModal } from '@/entities/pimpinan/ui/leader-profile-modal.client'
+import { StatsSection } from '@/widgets/stats-section/ui'
 
 const queryClient = new QueryClient()
 
@@ -72,19 +73,20 @@ export const LandingView: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/*
-       * Layout:
+       * Layout — 3 Section:
        * ┌─────────────────────────────────────────┐  ← page scroll (window)
        * │  SECTION 1 — Hero (100vh)                │
        * │  ΛLΛS bergerak naik saat di-scroll        │
+       * ├─────────────────────────────────────────┤  ← navbar sticky muncul di sini
+       * │  SECTION 2 — Stats/Chart (100vh)         │
+       * │  Rekapitulasi kegiatan tahunan (D3)      │
        * ├─────────────────────────────────────────┤
-       * │  SECTION 2 — Content (100vh, fixed)      │
+       * │  SECTION 3 — Arsip Jurnal (100vh)        │
        * │  ┌──────────────┬──────────────────────┐ │
        * │  │ Jurnal List  │ Pimpinan + Calendar   │ │
-       * │  │ (overflow-y  │ (static, tidak scroll) │ │
-       * │  │   auto)      │                        │ │
        * │  └──────────────┴──────────────────────┘ │
        * └─────────────────────────────────────────┘
-       *   Page total = 200vh. Tidak ada scroll di bawah section 2.
+       *   Page total = 300vh.
       */}
       <div className="relative bg-[#08080C] overflow-x-hidden">
 
@@ -173,17 +175,26 @@ export const LandingView: React.FC = () => {
           </div>
         </section>
 
-        {/*
-          SECTION 2 — CONTENT
-          Mobile : height auto, scroll biasa (window scroll)
-          Desktop: height 100vh, jurnal list scroll internal
-        */}
-        <section className="relative w-full bg-[#08080C] lg:h-screen lg:overflow-hidden">
+        {/* ═══════════════════════════════════════════
+            SECTION 2 — STATS / CHART (100vh)
+            Rekapitulasi kegiatan tahunan menggunakan D3.js bar chart.
+            Navbar sticky muncul saat masuk section ini.
+        ═══════════════════════════════════════════ */}
+        <StatsSection />
+
+        {/* ═══════════════════════════════════════════
+            SECTION 3 — ARSIP JURNAL (100vh)
+            Jurnal List + Pimpinan + Kalender
+        ═══════════════════════════════════════════ */}
+        <section
+          id="section-arsip"
+          className="relative w-full bg-[#08080C] lg:h-screen lg:overflow-hidden"
+        >
           {/* Ambient glow */}
           <div className="absolute top-0 left-[-15%] w-[55vw] h-[55vw] rounded-full bg-glow-purple pointer-events-none opacity-25" />
           <div className="absolute bottom-0 right-[-10%] w-[45vw] h-[45vw] rounded-full bg-glow-blue pointer-events-none opacity-30" />
 
-          {/* Statically padded container to accommodate the sticky navbar at the top */}
+          {/* Padded container — pt-20 agar tidak tertutup sticky navbar */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-6 lg:pb-8 flex flex-col lg:h-screen">
             {/* ── Content grid ── */}
             <div className="
@@ -216,9 +227,7 @@ export const LandingView: React.FC = () => {
                 />
               </div>
 
-              {/* Kanan: Pimpinan + Calendar
-                  Mobile  → tampil di bawah list, normal flow
-                  Desktop → static, tidak scroll */}
+              {/* Kanan: Pimpinan + Calendar */}
               <div className="col-span-1 lg:col-span-2 flex flex-col gap-5 lg:overflow-hidden lg:min-h-0">
                 <div className="flex-shrink-0">
                   <LeadershipPanel
