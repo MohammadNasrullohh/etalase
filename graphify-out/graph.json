@@ -130,7 +130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 6,
+      "community": 7,
       "norm_label": "package.json"
     },
     {
@@ -140,7 +140,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_name",
-      "community": 6,
+      "community": 7,
       "norm_label": "name"
     },
     {
@@ -150,7 +150,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_version",
-      "community": 6,
+      "community": 7,
       "norm_label": "version"
     },
     {
@@ -160,7 +160,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_private",
-      "community": 6,
+      "community": 7,
       "norm_label": "private"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 6,
+      "community": 7,
       "norm_label": "scripts"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 6,
+      "community": 7,
       "norm_label": "dev"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 6,
+      "community": 7,
       "norm_label": "build"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_scripts_start",
-      "community": 6,
+      "community": 7,
       "norm_label": "start"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 6,
+      "community": 7,
       "norm_label": "lint"
     },
     {
@@ -234,10 +234,30 @@
       "norm_label": "@tanstack/react-query"
     },
     {
-      "label": "drizzle-orm",
+      "label": "@types/d3",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L13",
+      "_origin": "ast",
+      "id": "package_dependencies_types_d3",
+      "community": 6,
+      "norm_label": "@types/d3"
+    },
+    {
+      "label": "d3",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "package_dependencies_d3",
+      "community": 6,
+      "norm_label": "d3"
+    },
+    {
+      "label": "drizzle-orm",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "package_dependencies_drizzle_orm",
       "community": 6,
@@ -247,7 +267,7 @@
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "package_dependencies_lucide_react",
       "community": 6,
@@ -257,7 +277,7 @@
       "label": "next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_next",
       "community": 6,
@@ -267,7 +287,7 @@
       "label": "pg",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pg",
       "community": 6,
@@ -277,7 +297,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_dependencies_react",
       "community": 6,
@@ -287,7 +307,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_react_dom",
       "community": 6,
@@ -297,7 +317,7 @@
       "label": "use-debounce",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies_use_debounce",
       "community": 6,
@@ -307,7 +327,7 @@
       "label": "zod",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_zod",
       "community": 6,
@@ -317,7 +337,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 7,
@@ -327,7 +347,7 @@
       "label": "@testing-library/jest-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_devdependencies_testing_library_jest_dom",
       "community": 7,
@@ -337,7 +357,7 @@
       "label": "@testing-library/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_devdependencies_testing_library_react",
       "community": 7,
@@ -347,7 +367,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
       "community": 7,
@@ -357,7 +377,7 @@
       "label": "@types/pg",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_devdependencies_types_pg",
       "community": 7,
@@ -367,7 +387,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
       "community": 7,
@@ -377,7 +397,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
       "community": 7,
@@ -387,7 +407,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_devdependencies_vitejs_plugin_react",
       "community": 7,
@@ -397,7 +417,7 @@
       "label": "drizzle-kit",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_devdependencies_drizzle_kit",
       "community": 7,
@@ -407,7 +427,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "package_devdependencies_eslint",
       "community": 7,
@@ -417,7 +437,7 @@
       "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_config_next",
       "community": 7,
@@ -427,7 +447,7 @@
       "label": "jsdom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "package_devdependencies_jsdom",
       "community": 7,
@@ -437,7 +457,7 @@
       "label": "postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "package_devdependencies_postcss",
       "community": 7,
@@ -447,7 +467,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
       "community": 7,
@@ -457,7 +477,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 7,
@@ -467,7 +487,7 @@
       "label": "vitest",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "package_devdependencies_vitest",
       "community": 7,
@@ -571,6 +591,26 @@
       "_origin": "ast",
       "id": "src_app_api_jurnal_route_ts_jurnal_route_get",
       "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "stats_route",
+      "community": 55,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "stats_route_get",
+      "community": 55,
       "norm_label": "get()"
     },
     {
@@ -912,6 +952,46 @@
       "id": "api_get_jurnal_list_getjurnallist",
       "community": 0,
       "norm_label": "getjurnallist()"
+    },
+    {
+      "label": "get-jurnal-stats.ts",
+      "file_type": "code",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_get_jurnal_stats",
+      "community": 55,
+      "norm_label": "get-jurnal-stats.ts"
+    },
+    {
+      "label": "JurnalStats",
+      "file_type": "code",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "api_get_jurnal_stats_jurnalstats",
+      "community": 55,
+      "norm_label": "jurnalstats"
+    },
+    {
+      "label": "getJurnalYears()",
+      "file_type": "code",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "api_get_jurnal_stats_getjurnalyears",
+      "community": 55,
+      "norm_label": "getjurnalyears()"
+    },
+    {
+      "label": "getJurnalStatsByYear()",
+      "file_type": "code",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "api_get_jurnal_stats_getjurnalstatsbyyear",
+      "community": 55,
+      "norm_label": "getjurnalstatsbyyear()"
     },
     {
       "label": "jurnal-card.tsx",
@@ -1347,7 +1427,7 @@
       "label": "queryClient",
       "file_type": "code",
       "source_file": "src/views/landing/index.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "landing_index_queryclient",
       "community": 4,
@@ -1357,7 +1437,7 @@
       "label": "LandingView()",
       "file_type": "code",
       "source_file": "src/views/landing/index.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "landing_index_landingview",
       "community": 4,
@@ -1452,6 +1532,126 @@
       "id": "ui_index_leadershippanel",
       "community": 12,
       "norm_label": "leadershippanel()"
+    },
+    {
+      "label": "bar-chart.tsx",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_bar_chart",
+      "community": 54,
+      "norm_label": "bar-chart.tsx"
+    },
+    {
+      "label": "BarData",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "ui_bar_chart_bardata",
+      "community": 54,
+      "norm_label": "bardata"
+    },
+    {
+      "label": "BarChartProps",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "ui_bar_chart_barchartprops",
+      "community": 54,
+      "norm_label": "barchartprops"
+    },
+    {
+      "label": "CATEGORY_COLORS",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "ui_bar_chart_category_colors",
+      "community": 54,
+      "norm_label": "category_colors"
+    },
+    {
+      "label": "CATEGORY_LABELS",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "ui_bar_chart_category_labels",
+      "community": 54,
+      "norm_label": "category_labels"
+    },
+    {
+      "label": "BarChart()",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ui_bar_chart_barchart",
+      "community": 54,
+      "norm_label": "barchart()"
+    },
+    {
+      "label": "index.tsx",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "community": 54,
+      "norm_label": "index.tsx"
+    },
+    {
+      "label": "StatsData",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "ui_index_statsdata",
+      "community": 54,
+      "norm_label": "statsdata"
+    },
+    {
+      "label": "CATEGORY_COLORS",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "ui_index_category_colors",
+      "community": 54,
+      "norm_label": "category_colors"
+    },
+    {
+      "label": "CATEGORY_LABELS",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "ui_index_category_labels",
+      "community": 54,
+      "norm_label": "category_labels"
+    },
+    {
+      "label": "ALL_CATEGORIES",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "ui_index_all_categories",
+      "community": 54,
+      "norm_label": "all_categories"
+    },
+    {
+      "label": "StatsSection()",
+      "file_type": "code",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ui_index_statssection",
+      "community": 54,
+      "norm_label": "statssection()"
     },
     {
       "label": "tailwind.config.ts",
@@ -3080,7 +3280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "alas_prd_v1_2",
-      "community": 9,
+      "community": 3,
       "norm_label": "alas_prd_v1.2.md"
     },
     {
@@ -3090,7 +3290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "alas_prd_v1_2_prd_alas_arsip_langkah_bawaslu_kebumen",
-      "community": 9,
+      "community": 3,
       "norm_label": "prd \u2014 alas (arsip langkah bawaslu kebumen)"
     },
     {
@@ -3100,7 +3300,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "alas_prd_v1_2_1_background_problem_statement",
-      "community": 9,
+      "community": 3,
       "norm_label": "1. background & problem statement"
     },
     {
@@ -3110,7 +3310,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "alas_prd_v1_2_2_goals_non_goals",
-      "community": 9,
+      "community": 3,
       "norm_label": "2. goals & non-goals"
     },
     {
@@ -3120,7 +3320,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_system_architecture",
-      "community": 9,
+      "community": 3,
       "norm_label": "3. system architecture"
     },
     {
@@ -3130,7 +3330,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_1_sync_mechanism_direct_service_api",
-      "community": 9,
+      "community": 3,
       "norm_label": "3.1 sync mechanism \u2014 direct service api"
     },
     {
@@ -3140,7 +3340,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_2_sequence_flows",
-      "community": 9,
+      "community": 3,
       "norm_label": "3.2 sequence flows"
     },
     {
@@ -3150,7 +3350,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_3_storage_strategy",
-      "community": 9,
+      "community": 3,
       "norm_label": "3.3 storage strategy"
     },
     {
@@ -3160,7 +3360,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_data_model",
-      "community": 9,
+      "community": 3,
       "norm_label": "4. data model"
     },
     {
@@ -3170,7 +3370,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_1_alas_postgresql_schema_alas",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.1 alas \u2014 postgresql (schema `alas`)"
     },
     {
@@ -3180,7 +3380,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_2_pimpinan_table",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.2 `pimpinan` table"
     },
     {
@@ -3190,7 +3390,7 @@
       "source_location": "L188",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_3_dokumen_pendukung_jsonb_item_schema",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.3 `dokumen_pendukung` jsonb item schema"
     },
     {
@@ -3200,7 +3400,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_4_index_strategy",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.4 index strategy"
     },
     {
@@ -3490,7 +3690,7 @@
       "source_location": "L1015",
       "_origin": "ast",
       "id": "alas_prd_v1_2_docker_compose_alas_yml",
-      "community": 9,
+      "community": 3,
       "norm_label": "docker-compose.alas.yml"
     },
     {
@@ -3972,6 +4172,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "drizzle_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/entities/pimpinan/api/get-pimpinan-detail.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -4174,6 +4385,17 @@
       "confidence_score": 1.0,
       "source": "api_get_jurnal_list",
       "target": "drizzle_schema_jurnal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "drizzle_schema_jurnal",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -4473,6 +4695,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_d3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4538,6 +4770,16 @@
       "confidence_score": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_tanstack_react_query"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_types_d3",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4879,6 +5121,71 @@
       "weight": 1.0,
       "source": "src_app_api_jurnal_route_ts_jurnal_route_get",
       "target": "api_get_jurnal_list_getjurnallist"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "stats_route",
+      "target": "api_get_jurnal_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "stats_route",
+      "target": "api_get_jurnal_stats_getjurnalstatsbyyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "stats_route",
+      "target": "api_get_jurnal_stats_getjurnalyears",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "stats_route",
+      "target": "stats_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "stats_route_get",
+      "target": "api_get_jurnal_stats_getjurnalstatsbyyear"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/jurnal/stats/route.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "stats_route_get",
+      "target": "api_get_jurnal_stats_getjurnalyears"
     },
     {
       "relation": "imports_from",
@@ -5495,6 +5802,58 @@
       "confidence_score": 1.0,
       "source": "tests_public_api_test",
       "target": "api_get_jurnal_list_getjurnallist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "api_get_jurnal_stats_getjurnalstatsbyyear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "api_get_jurnal_stats_getjurnalyears",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "api_get_jurnal_stats_jurnalstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "db_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/jurnal/api/get-jurnal-stats.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "api_get_jurnal_stats",
+      "target": "db_index_db",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -6313,6 +6672,17 @@
       "target": "ui_index_leadershippanel"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/views/landing/index.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "landing_index",
+      "target": "ui_index_statssection",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/widgets/calendar-widget/ui/index.tsx",
@@ -6371,6 +6741,128 @@
       "confidence_score": 1.0,
       "source": "src_widgets_leadership_panel_ui_index_tsx_ui_index",
       "target": "ui_index_leadershippanelprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_bar_chart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "ui_bar_chart",
+      "target": "ui_bar_chart_barchart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "ui_bar_chart",
+      "target": "ui_bar_chart_barchartprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "ui_bar_chart",
+      "target": "ui_bar_chart_bardata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "ui_bar_chart",
+      "target": "ui_bar_chart_category_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/bar-chart.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "ui_bar_chart",
+      "target": "ui_bar_chart_category_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_bar_chart_barchart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_index_all_categories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_index_category_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_index_category_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_index_statsdata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/widgets/stats-section/ui/index.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
+      "target": "ui_index_statssection",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8393,5 +8885,6 @@
       "target": "readme_learn_more"
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "ad1653dcb198a122aa6ead7638b9418498eb8ec2"
 }

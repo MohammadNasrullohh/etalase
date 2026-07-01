@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1782907168.0799675,
-    "ast_hash": "b350356b7a92fb95e876fe70b97c61dc",
+    "mtime": 1782923022.142356,
+    "ast_hash": "7e2d5ca269ff000d72f13846a4a87963",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -190,8 +190,8 @@
     "semantic_hash": ""
   },
   "src/views/landing/index.tsx": {
-    "mtime": 1782920910.6899607,
-    "ast_hash": "f191fd2c010fc4644df9237d1b990ddc",
+    "mtime": 1782923176.4658911,
+    "ast_hash": "9ab23cb542a15c8c36f0f2838f6bf942",
     "semantic_hash": ""
   },
   "src/widgets/calendar-widget/ui/index.tsx": {
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   "drizzle/seed.ts": {
-    "mtime": 1782912432.4655359,
-    "ast_hash": "f7e46da08dc57cd57b5c05c029ebb812",
+    "mtime": 1782921181.7713006,
+    "ast_hash": "478afab922b91e6314711ca554afeaeb",
     "semantic_hash": ""
   },
   "assets/banner-image.jpg": {
@@ -477,6 +477,26 @@
   "public/assets/logo.png": {
     "mtime": 1782915480.0925064,
     "ast_hash": "de2ce15f8e0d1f2b5397a982c0af7224",
+    "semantic_hash": ""
+  },
+  "src/app/api/jurnal/stats/route.ts": {
+    "mtime": 1782923051.3939986,
+    "ast_hash": "85d9e4bfe7a9263579e64f634eff9300",
+    "semantic_hash": ""
+  },
+  "src/entities/jurnal/api/get-jurnal-stats.ts": {
+    "mtime": 1782923039.9840686,
+    "ast_hash": "b685837c55262893d11c754d4c81fa81",
+    "semantic_hash": ""
+  },
+  "src/widgets/stats-section/ui/bar-chart.tsx": {
+    "mtime": 1782923088.9939735,
+    "ast_hash": "c77d3d4860ecc918407ca50b52a960e5",
+    "semantic_hash": ""
+  },
+  "src/widgets/stats-section/ui/index.tsx": {
+    "mtime": 1782923122.2056828,
+    "ast_hash": "85c66d6753bfb83daf994303c89902e0",
     "semantic_hash": ""
   }
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, memo } from 'react'
 
 interface BarData {
   kategori: string
@@ -27,14 +27,19 @@ const CATEGORY_LABELS: Record<string, string> = {
   lainnya:   'Lainnya',
 }
 
-export const BarChart: React.FC<BarChartProps> = ({ data }) => {
+const BarChartInner: React.FC<BarChartProps> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
+  // Track previous data to skip re-render if data hasn't actually changed
+  const prevDataRef = useRef<string>('')
 
   useEffect(() => {
     if (!svgRef.current || data.length === 0) return
 
-    // Lazy-load D3 to avoid SSR issues
+    // Skip D3 re-render if data values haven't changed
+    const dataKey = JSON.stringify(data)
+    if (dataKey === prevDataRef.current) return
+    prevDataRef.current = dataKey
     import('d3').then((d3) => {
       const svg = d3.select(svgRef.current!)
       svg.selectAll('*').remove()
@@ -181,3 +186,6 @@ export const BarChart: React.FC<BarChartProps> = ({ data }) => {
     </div>
   )
 }
+
+// Wrap in memo so parent scroll-state re-renders don't re-mount this component
+export const BarChart = memo(BarChartInner)

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo, memo } from 'react'
 import { BarChart } from './bar-chart'
 
 interface StatsData {
@@ -27,7 +27,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const ALL_CATEGORIES = ['mou', 'audiensi', 'pelaporan', 'sengketa', 'lainnya']
 
-export const StatsSection: React.FC = () => {
+const StatsSectionInner: React.FC = () => {
   const [data, setData] = useState<StatsData | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
@@ -56,13 +56,17 @@ export const StatsSection: React.FC = () => {
     fetchStats(year)
   }
 
-  // Normalize stats to include all categories (fill missing with 0)
-  const chartData = ALL_CATEGORIES.map(k => ({
+  // Normalize stats to include all categories — useMemo prevents new array ref on every parent scroll re-render
+  const chartData = useMemo(() => ALL_CATEGORIES.map(k => ({
     kategori: k,
     total: data?.stats?.[k] ?? 0,
-  })).filter(d => d.total > 0 || (data?.stats && Object.keys(data.stats).length > 0))
+  })).filter(d => d.total > 0 || (data?.stats && Object.keys(data.stats).length > 0)),
+  [data?.stats])
 
-  const totalKegiatan = chartData.reduce((acc, d) => acc + d.total, 0)
+  const totalKegiatan = useMemo(
+    () => chartData.reduce((acc, d) => acc + d.total, 0),
+    [chartData]
+  )
 
   return (
     <section
@@ -193,5 +197,8 @@ export const StatsSection: React.FC = () => {
     </section>
   )
 }
+
+// memo prevents re-render from parent scrollY state — StatsSection only re-renders on its own state changes
+export const StatsSection = memo(StatsSectionInner)
 
 export default StatsSection
