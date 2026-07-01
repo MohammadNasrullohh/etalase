@@ -335,13 +335,15 @@ export const LandingView: React.FC = () => {
           onClose={() => setSelectedLeaderId(null)}
         />
 
-        {/* FuturisticLine — hanya desktop (2 kolom side-by-side) */}
-        <div className="hidden lg:block">
-          <FuturisticLine
-            activeId={hoverLine?.id ?? activeId}
-            activeDate={hoverLine?.date ?? activeDate}
-          />
-        </div>
+        {/* FuturisticLine — hanya desktop, disembunyikan saat modal aktif */}
+        {!selectedJurnalId && !selectedLeaderId && (
+          <div className="hidden lg:block">
+            <FuturisticLine
+              activeId={hoverLine?.id ?? activeId}
+              activeDate={hoverLine?.date ?? activeDate}
+            />
+          </div>
+        )}
       </div>
     </QueryClientProvider>
   )

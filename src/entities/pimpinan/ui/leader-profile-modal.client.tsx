@@ -47,68 +47,94 @@ export const LeaderProfileModal: React.FC<LeaderProfileModalProps> = ({ id, isOp
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/85 backdrop-blur-sm transition-opacity duration-300 animate-fade-in" 
+      <div
+        className="absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300 animate-fade-in"
         onClick={onClose}
       />
 
-      {/* Modal Container */}
-      <div className="relative w-full max-w-lg bg-[#F9F4F1] text-neutral-900 rounded-sm shadow-2xl z-10 border border-neutral-200 overflow-hidden animate-scale-in">
+      {/* Modal Container — dark glass theme */}
+      <div
+        className="relative w-full max-w-lg rounded-xl shadow-2xl z-10 overflow-hidden animate-scale-in"
+        style={{
+          background: 'linear-gradient(135deg, #0F0F18 0%, #0C0C14 100%)',
+          border: '1px solid rgba(255,255,255,0.08)',
+        }}
+      >
         {/* Close Button */}
-        <button 
+        <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-full bg-black/40 hover:bg-black/75 text-white hover:scale-105 transition-all z-20"
+          className="absolute top-4 right-4 p-1.5 rounded-full transition-colors z-20"
+          style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)' }}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
         >
           <X className="w-4 h-4" />
         </button>
 
         {isLoading ? (
-          <div className="py-16 text-center text-neutral-500 font-mono">Loading profil...</div>
+          <div className="py-16 text-center text-white/30 font-mono text-sm">Memuat profil...</div>
         ) : error || !p ? (
-          <div className="py-16 text-center text-red-600 font-mono">Error: {error ? (error as Error).message : 'Not found'}</div>
+          <div className="py-16 text-center text-red-400 font-mono text-sm">
+            {error ? (error as Error).message : 'Data tidak ditemukan'}
+          </div>
         ) : (
           <div>
             {/* Header Photo Panel */}
-            <div className="relative w-full h-64 bg-neutral-900 overflow-hidden">
+            <div className="relative w-full h-56 bg-black overflow-hidden">
               {p.foto_url ? (
-                <img 
-                  src={p.foto_url} 
-                  alt={p.nama} 
+                <img
+                  src={p.foto_url}
+                  alt={p.nama}
                   className="w-full h-full object-cover object-top"
                 />
               ) : (
-                <div className="w-full h-full bg-neutral-800 flex items-center justify-center text-neutral-500 font-mono uppercase">
+                <div
+                  className="w-full h-full flex items-center justify-center font-mono text-sm uppercase tracking-widest"
+                  style={{ background: 'rgba(255,255,255,0.03)', color: 'rgba(255,255,255,0.2)' }}
+                >
                   {p.jabatan}
                 </div>
               )}
-              {/* Fade gradient overlay at bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F9F4F1] to-transparent pointer-events-none" />
+              {/* Dark gradient overlay at bottom */}
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0F0F18] to-transparent pointer-events-none" />
             </div>
 
             {/* Profile Info */}
             <div className="px-6 pb-6 pt-2">
-              <span className="inline-block px-2.5 py-0.5 text-[9px] font-mono font-semibold rounded-sm bg-[var(--color-ember-deep)] text-[#F9F4F1] mb-2 uppercase tracking-wider">
+              <span
+                className="inline-block px-2.5 py-0.5 text-[9px] font-mono font-semibold rounded mb-2 uppercase tracking-widest"
+                style={{
+                  background: 'rgba(234,88,12,0.2)',
+                  color: 'rgb(251,146,60)',
+                  border: '1px solid rgba(234,88,12,0.3)',
+                }}
+              >
                 {p.jabatan}
               </span>
-              <h2 className="text-xl md:text-2xl font-bold leading-tight mb-2 pr-8 text-neutral-900">
+              <h2 className="text-xl md:text-2xl font-bold leading-tight mb-2 pr-8 text-white">
                 {p.nama}
               </h2>
-              
-              <div className="flex items-center gap-1.5 font-mono text-xs text-neutral-500 mb-4">
-                <Calendar className="w-3.5 h-3.5 text-[var(--color-ember-mid)]" />
+
+              <div className="flex items-center gap-1.5 font-mono text-xs mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                <Calendar className="w-3.5 h-3.5" style={{ color: 'rgb(251,146,60)' }} />
                 <span>{formatPeriode(p.periode_mulai, p.periode_selesai)}</span>
               </div>
 
+              {/* Divider */}
+              <div className="border-t mb-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} />
+
               {/* Bio */}
               {p.bio ? (
-                <div className="mt-4 border-t border-neutral-200 pt-4">
-                  <h4 className="text-xs font-mono uppercase text-neutral-400 mb-2">Biografi singkat:</h4>
-                  <p className="text-sm text-neutral-700 leading-relaxed font-sans whitespace-pre-wrap">
+                <div>
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                    Biografi Singkat:
+                  </h4>
+                  <p className="text-sm leading-relaxed font-sans whitespace-pre-wrap" style={{ color: 'rgba(255,255,255,0.65)' }}>
                     {p.bio}
                   </p>
                 </div>
               ) : (
-                <div className="mt-4 border-t border-neutral-200 pt-4 text-xs font-mono text-neutral-400 italic">
+                <div className="text-xs font-mono italic" style={{ color: 'rgba(255,255,255,0.2)' }}>
                   Biografi singkat belum ditambahkan.
                 </div>
               )}
