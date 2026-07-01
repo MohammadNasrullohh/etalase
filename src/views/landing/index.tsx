@@ -32,6 +32,10 @@ export const LandingView: React.FC = () => {
   // Ref untuk internal scroll container jurnal list
   const listScrollRef = useRef<HTMLDivElement>(null)
 
+  // Section 3 visibility — animasi masuk saat section arsip terlihat
+  const [isSection3Visible, setIsSection3Visible] = useState(false)
+  const section3Ref = useRef<HTMLElement>(null)
+
   useEffect(() => {
     setVhPx(window.innerHeight)
     const onScroll = () => setScrollY(window.scrollY)
@@ -42,6 +46,23 @@ export const LandingView: React.FC = () => {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
     }
+  }, [])
+
+  // IntersectionObserver untuk Section 3
+  useEffect(() => {
+    const el = section3Ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSection3Visible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   const handleDateClick = (dateStr: string) => {
@@ -188,6 +209,7 @@ export const LandingView: React.FC = () => {
         ═══════════════════════════════════════════ */}
         <section
           id="section-arsip"
+          ref={section3Ref}
           className="relative w-full bg-[#08080C] lg:h-screen lg:overflow-hidden"
         >
           {/* Ambient glow */}
@@ -205,14 +227,22 @@ export const LandingView: React.FC = () => {
               {/* Jurnal List:
                   Mobile  → normal flow (window scroll)
                   Desktop → internal overflow-y-auto */}
+              {/* Jurnal List — animasi fade-up dari kiri */}
               <div
                 ref={listScrollRef}
                 className="
                   col-span-1 lg:col-span-3
                   lg:overflow-y-auto lg:min-h-0
                   pr-0 lg:pr-2
+                  transition-all duration-700 ease-out
                 "
-                style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(255,255,255,0.08) transparent' }}
+                style={{
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'rgba(255,255,255,0.08) transparent',
+                  opacity: isSection3Visible ? 1 : 0,
+                  transform: isSection3Visible ? 'translateY(0)' : 'translateY(32px)',
+                  transitionDelay: '0ms',
+                }}
               >
                 <JurnalList
                   q={q}
@@ -227,8 +257,15 @@ export const LandingView: React.FC = () => {
                 />
               </div>
 
-              {/* Kanan: Pimpinan + Calendar */}
-              <div className="col-span-1 lg:col-span-2 flex flex-col gap-5 lg:overflow-hidden lg:min-h-0">
+              {/* Kanan: Pimpinan + Calendar — animasi fade-up staggered */}
+              <div
+                className="col-span-1 lg:col-span-2 flex flex-col gap-5 lg:overflow-hidden lg:min-h-0 transition-all duration-700 ease-out"
+                style={{
+                  opacity: isSection3Visible ? 1 : 0,
+                  transform: isSection3Visible ? 'translateY(0)' : 'translateY(40px)',
+                  transitionDelay: '120ms',
+                }}
+              >
                 <div className="flex-shrink-0">
                   <LeadershipPanel
                     activeDate={hoverLine?.date ?? activeDate}
@@ -242,6 +279,7 @@ export const LandingView: React.FC = () => {
                   />
                 </div>
               </div>
+
             </div>
           </div>
         </section>
