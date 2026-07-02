@@ -178,160 +178,354 @@ NEXT_PUBLIC_SENTRY_DSN=
 
 ---
 
-## API Publik
+## API & Integrasi Lengkap
 
-Endpoint berikut dapat diakses siapa saja tanpa autentikasi:
-
-| Method | Endpoint | Keterangan |
-|---|---|---|
-| `GET` | `/api/jurnal` | Daftar jurnal (cursor pagination, filter q & kategori) |
-| `GET` | `/api/jurnal/:id` | Detail jurnal (hanya dokumen `is_public=true`) |
-| `GET` | `/api/jurnal/calendar?month=YYYY-MM` | Tanggal kegiatan dalam bulan tertentu |
-| `GET` | `/api/jurnal/stats?year=YYYY` | Rekapitulasi per kategori + daftar tahun |
-| `GET` | `/api/pimpinan` | Daftar pimpinan aktif |
-| `GET` | `/api/pimpinan/:id` | Detail profil pimpinan |
-| `GET` | `/api/health` | Health check (`{"status":"ok","db_connected":true}`) |
-
-### Contoh Response `/api/jurnal`
-
-```json
-{
-  "status": "ok",
-  "data": [
-    {
-      "id": "uuid",
-      "judul": "Bawaslu Kebumen Teken MoU dengan Universitas Putra Bangsa",
-      "tanggal_kegiatan": "2026-06-15",
-      "kategori": "mou",
-      "thumbnail_url": "https://media.domain.com/...",
-      "pihak_terkait": [{ "nama": "Universitas Putra Bangsa", "instansi": null }]
-    }
-  ],
-  "pagination": { "next_cursor": "uuid", "has_more": true }
-}
-```
-
-### Contoh Response `/api/jurnal/stats`
-
-```json
-{
-  "status": "ok",
-  "years": [2024, 2025, 2026],
-  "year": 2026,
-  "stats": {
-    "mou": 3,
-    "audiensi": 8,
-    "pelaporan": 5,
-    "sengketa": 2,
-    "lainnya": 1
-  }
-}
-```
+ALAS menyediakan dua kategori API: **API Publik** (untuk konsumsi frontend read-only) dan **Service API** (Bearer-protected untuk sinkronisasi data dari Lawet Hub).
 
 ---
 
-## Integrasi dengan Lawet Hub
+## 1. API Publik (Unauthenticated)
 
-> Dokumentasi lengkap ada di [INTEGRATION.md](./INTEGRATION.md)
+Endpoint berikut dapat diakses secara bebas tanpa autentikasi. Seluruh response sukses mengembalikan HTTP `200 OK` dengan format JSON.
 
-### Konsep Dasar
+### A. Jurnal & Kegiatan
 
-ALAS adalah **read-replica** yang menerima data dari Lawet Hub via **Service API** yang dilindungi Bearer Token. Lawet Hub adalah satu-satunya yang boleh menulis data ke ALAS.
+#### 1. List Jurnal
+* **Endpoint:** `GET /api/jurnal`
+* **Query Params (Opsional):**
+  * `q` (string): Pencarian teks pada judul jurnal.
+  * `kategori` (string): Filter kategori (`mou`, `audiensi`, `pelaporan`, `sengketa`, `lainnya`).
+  * `date` (string, `YYYY-MM-DD`): Filter berdasarkan tanggal kegiatan tertentu.
+  * `cursor` (string): ID jurnal terakhir untuk cursor pagination.
+  * `limit` (number, default: `10`): Jumlah data per halaman.
+* **Contoh Response:**
+  ```json
+  {
+    "status": "ok",
+    "data": [
+      {
+        "id": "7b89d45e-1234-5678-abcd-ef0123456789",
+        "judul": "Bawaslu Kebumen Teken MoU dengan Universitas Putra Bangsa",
+        "tanggal_kegiatan": "2026-06-15",
+        "kategori": "mou",
+        "thumbnail_url": "https://media.domain.com/alas-public-assets/jurnal/uuid/thumb.jpg",
+        "pihak_terkait": [{ "nama": "Universitas Putra Bangsa", "instansi": null }],
+        "tags": ["mou", "kemitraan", "kampus"]
+      }
+    ],
+    "pagination": {
+      "next_cursor": "7b89d45e-1234-5678-abcd-ef0123456789",
+      "has_more": true
+    }
+  }
+  ```
 
-```
-[Admin Lawet Hub] → Klik "Publish"
-        ↓
-Lawet Hub: promote aset ke MinIO alas-public-assets
-        ↓
-POST https://alas.bawaslu-kebumen.go.id/api/service/jurnal
-Authorization: Bearer <ALAS_SERVICE_TOKEN>
-        ↓
-ALAS: validasi token → upsert ke PostgreSQL
-        ↓
-[Publik] → jurnal tampil di landing page ALAS
-```
+#### 2. Detail Jurnal
+* **Endpoint:** `GET /api/jurnal/:id`
+* **Keterangan:** Mengembalikan informasi detail jurnal. File pendukung dalam array `dokumen_pendukung` hanya akan muncul jika memiliki atribut `"is_public": true`.
+* **Contoh Response:**
+  ```json
+  {
+    "status": "ok",
+    "data": {
+      "id": "7b89d45e-1234-5678-abcd-ef0123456789",
+      "judul": "Bawaslu Kebumen Teken MoU dengan Universitas Putra Bangsa",
+      "tanggal_kegiatan": "2026-06-15",
+      "kategori": "mou",
+      "link_publikasi": "https://bawaslu.go.id/artikel/123",
+      "dokumentasi": [
+        { "url": "https://...", "caption": "Serah Terima MoU", "type": "image" }
+      ],
+      "dokumen_pendukung": [
+        { "nama": "Notulen Kesepakatan.pdf", "url": "https://...", "tipe": "pdf", "is_public": true }
+      ],
+      "pihak_terkait": [{ "nama": "Universitas Putra Bangsa", "instansi": null }],
+      "custom_fields": [{ "label": "Nomor Nota Dinas", "value": "05/ND/2026" }]
+    }
+  }
+  ```
 
-### Service API Endpoints (Bearer-Protected)
+#### 3. Kalender Kegiatan
+* **Endpoint:** `GET /api/jurnal/calendar`
+* **Query Params:** `month` (string, format `YYYY-MM`, Wajib).
+* **Keterangan:** Mengembalikan daftar tanggal (day of month) yang memiliki kegiatan aktif pada bulan tersebut untuk visualisasi widget kalender.
+* **Contoh Response (`GET /api/jurnal/calendar?month=2026-06`):**
+  ```json
+  {
+    "status": "ok",
+    "data": {
+      "month": "2026-06",
+      "dates": [1, 5, 15, 22]
+    }
+  }
+  ```
 
-Base URL: `https://alas.bawaslu-kebumen.go.id`
+#### 4. Statistik & Rekapitulasi Tahunan
+* **Endpoint:** `GET /api/jurnal/stats`
+* **Query Params (Opsional):** `year` (number, format `YYYY`).
+* **Keterangan:** Mengembalikan aggregate jumlah kegiatan per kategori dan daftar tahun yang tersedia.
+* **Contoh Response:**
+  ```json
+  {
+    "status": "ok",
+    "years": [2024, 2025, 2026],
+    "year": 2026,
+    "stats": {
+      "mou": 3,
+      "audiensi": 8,
+      "pelaporan": 5,
+      "sengketa": 2,
+      "lainnya": 1
+    }
+  }
+  ```
 
-**Jurnal:**
+#### 5. List Kategori Jurnal
+* **Endpoint:** `GET /api/jurnal/kategori`
+* **Contoh Response:**
+  ```json
+  {
+    "status": "ok",
+    "data": ["mou", "audiensi", "pelaporan", "sengketa", "lainnya"]
+  }
+  ```
 
-| Method | Endpoint | Aksi |
-|---|---|---|
-| `POST` | `/api/service/jurnal` | Create atau upsert jurnal |
-| `PATCH` | `/api/service/jurnal/:source_id` | Update sebagian field jurnal |
-| `PATCH` | `/api/service/jurnal/:source_id/dokumen` | Toggle visibilitas dokumen |
-| `GET` | `/api/service/jurnal/:source_id` | Detail lengkap (termasuk `is_public=false`) |
-| `GET` | `/api/service/jurnal` | List semua jurnal (published + draft) |
-| `DELETE` | `/api/service/jurnal/:source_id` | Soft delete (set `is_published=false`) |
+---
 
-**Pimpinan:**
+### B. Profil Pimpinan
 
-| Method | Endpoint | Aksi |
-|---|---|---|
-| `POST` | `/api/service/pimpinan` | Create atau upsert pimpinan |
-| `PATCH` | `/api/service/pimpinan/:source_id` | Update profil pimpinan |
-| `DELETE` | `/api/service/pimpinan/:source_id` | Soft delete (set `is_active=false`) |
+#### 1. List Pimpinan Aktif
+* **Endpoint:** `GET /api/pimpinan`
+* **Keterangan:** Mengembalikan daftar pimpinan yang sedang menjabat (`is_active = true`), diurutkan berdasarkan prioritas `urutan` terkecil.
+* **Contoh Response:**
+  ```json
+  {
+    "status": "ok",
+    "data": [
+      {
+        "id": "uuid-pimpinan",
+        "nama": "Agus Widodo, S.H.",
+        "jabatan": "Ketua Bawaslu",
+        "foto_url": "https://...",
+        "periode_mulai": "2023-08-15",
+        "periode_selesai": "2028-08-14",
+        "urutan": 1
+      }
+    ]
+  }
+  ```
 
-### Autentikasi Service API
+#### 2. Detail Profil Pimpinan
+* **Endpoint:** `GET /api/pimpinan/:id`
 
-```bash
-# Generate token sekali, simpan di KEDUA .env (ALAS dan Lawet Hub)
-openssl rand -hex 32
-```
+---
 
+### C. System Utility
+
+#### 1. Health Check
+* **Endpoint:** `GET /api/health`
+* **Response:**
+  ```json
+  {
+    "status": "ok",
+    "db_connected": true
+  }
+  ```
+
+---
+
+## 2. Service API (Bearer-Protected)
+
+Digunakan untuk sinkronisasi real-time dari **Lawet Hub**. Seluruh endpoint di bawah ini mewajibkan header autentikasi:
 ```http
-POST /api/service/jurnal
 Authorization: Bearer <ALAS_SERVICE_TOKEN>
 Content-Type: application/json
 ```
 
-Token divalidasi menggunakan `crypto.timingSafeEqual()` untuk mencegah timing attack. Request tanpa token atau dengan token salah → `401 Unauthorized`.
+### A. Jurnal & Dokumentasi
 
-### Payload Jurnal (Create/Update)
+#### 1. Create atau Upsert Jurnal
+* **Endpoint:** `POST /api/service/jurnal`
+* **Keterangan:** Membuat jurnal baru atau memperbarui jika `source_id` sudah ada. Dokumen pendukung baru default berstatus `is_public = true`.
+* **Request Payload:**
+  ```json
+  {
+    "source_id": "uuid-jurnal-lawethub",
+    "judul": "Sosialisasi Pengawasan Pemilu Partisipatif",
+    "tanggal_kegiatan": "2026-07-02",
+    "kategori": "audiensi",
+    "link_publikasi": "https://bawaslu.go.id/artikel/456",
+    "dokumentasi": [
+      {
+        "url": "https://media.domain.com/alas-public-assets/jurnal/uuid/img.jpg",
+        "caption": "Penyampaian materi",
+        "type": "image"
+      }
+    ],
+    "dokumen_pendukung": [
+      {
+        "nama": "Materi_Sosialisasi.pdf",
+        "url": "https://media.domain.com/alas-public-assets/jurnal/uuid/doc.pdf",
+        "tipe": "pdf"
+      }
+    ],
+    "pihak_terkait": [{ "nama": "Kwartir Cabang Pramuka", "instansi": "Pramuka" }],
+    "tags": ["sosialisasi", "partisipatif"],
+    "custom_fields": []
+  }
+  ```
+* **Response (201 Created / 200 Updated):**
+  ```json
+  {
+    "status": "ok",
+    "id": "uuid-internal-alas",
+    "source_id": "uuid-jurnal-lawethub",
+    "action": "created" // atau "updated"
+  }
+  ```
 
-```json
-{
-  "source_id": "uuid-dari-lawet-hub",
-  "judul": "Sidang Pleno Rekomendasi Hasil Temuan Coklit",
-  "tanggal_kegiatan": "2026-06-15",
-  "kategori": "sengketa",
-  "link_publikasi": "https://bawaslu.go.id/artikel/123",
-  "dokumentasi": [
-    { "url": "https://media.domain.com/alas-public-assets/jurnal/uuid/foto.jpg",
-      "caption": "Sidang berlangsung", "type": "image" }
-  ],
-  "dokumen_pendukung": [
-    { "nama": "Notulen Rapat", "url": "https://media.domain.com/.../notulen.pdf", "tipe": "pdf" }
-  ],
-  "pihak_terkait": [{ "nama": "KPU Kebumen", "instansi": null }],
-  "custom_fields": [{ "label": "Nomor Surat", "value": "001/SK/2026" }]
-}
+#### 2. Update Parsial Jurnal
+* **Endpoint:** `PATCH /api/service/jurnal/:source_id`
+* **Request Payload:** Mengirim field yang ingin diubah saja (misalnya untuk unpublish/draft):
+  ```json
+  {
+    "is_published": false
+  }
+  ```
+
+#### 3. Toggle Visibilitas Dokumen Pendukung
+* **Endpoint:** `PATCH /api/service/jurnal/:source_id/dokumen`
+* **Keterangan:** Digunakan oleh admin Lawet Hub untuk menyembunyikan/menampilkan lampiran dokumen secara spesifik bagi akses publik.
+* **Request Payload:**
+  ```json
+  {
+    "dokumen_pendukung": [
+      { "nama": "Materi_Sosialisasi.pdf", "url": "https://...", "tipe": "pdf", "is_public": false }
+    ]
+  }
+  ```
+* **Response (200 OK):**
+  ```json
+  {
+    "status": "ok",
+    "updated": 1
+  }
+  ```
+
+#### 4. Detail Jurnal Internal (View Admin)
+* **Endpoint:** `GET /api/service/jurnal/:source_id`
+* **Keterangan:** Mengembalikan detail jurnal lengkap termasuk file yang disembunyikan (`is_public = false`).
+
+#### 5. List Semua Jurnal (Published & Draft)
+* **Endpoint:** `GET /api/service/jurnal`
+
+#### 6. Soft Delete Jurnal
+* **Endpoint:** `DELETE /api/service/jurnal/:source_id`
+* **Keterangan:** Mengubah status `is_published` menjadi `false`. Data tetap tersimpan di database untuk kebutuhan audit trail.
+
+---
+
+### B. Manajemen Pimpinan
+
+#### 1. Create atau Upsert Pimpinan
+* **Endpoint:** `POST /api/service/pimpinan`
+* **Request Payload:**
+  ```json
+  {
+    "source_id": "uuid-pimpinan-lawethub",
+    "nama": "Agus Widodo, S.H.",
+    "jabatan": "Ketua Bawaslu",
+    "foto_url": "https://media.domain.com/alas-public-assets/pimpinan/uuid/foto.jpg",
+    "bio": "Komisioner Bawaslu Kebumen divisi Hukum...",
+    "periode_mulai": "2023-08-15",
+    "periode_selesai": "2028-08-14",
+    "urutan": 1
+  }
+  ```
+
+#### 2. Update Profil Pimpinan
+* **Endpoint:** `PATCH /api/service/pimpinan/:source_id`
+
+#### 3. Soft Delete Pimpinan
+* **Endpoint:** `DELETE /api/service/pimpinan/:source_id`
+* **Keterangan:** Mengubah status `is_active` menjadi `false`.
+
+---
+
+## Cara Integrasi Lawet Hub ➔ ALAS
+
+Untuk mensinkronisasi data dari Lawet Hub (FastAPI/Python) ke ALAS (Next.js/Node.js), ikuti langkah-langkah implementasi di bawah ini:
+
+### 1. Sinkronisasi Token Auth
+Hasilkan service token yang kuat di server lokal menggunakan CLI:
+```bash
+openssl rand -hex 32
+```
+Tambahkan token ini ke `.env` di **kedua** project.
+
+**ALAS side (`.env`):**
+```bash
+ALAS_SERVICE_TOKEN=8b93f124fa10b93a...
 ```
 
-> **Catatan:** `dokumen_pendukung` tidak perlu menyertakan `is_public`. ALAS mengelolanya secara internal.
-
-### Kategori yang Didukung
-
-| Nilai | Label |
-|---|---|
-| `mou` | MoU |
-| `audiensi` | Audiensi |
-| `pelaporan` | Pelaporan |
-| `sengketa` | Sengketa |
-| `lainnya` | Lainnya |
-
-### MinIO — Aset Publik
-
-Sebelum memanggil ALAS Service API, Lawet Hub harus **mempromote** aset dari bucket internal (`lawet-media`) ke bucket publik (`alas-public-assets`):
-
-```
-https://media.domain.com/alas-public-assets/jurnal/{source_id}/{filename}
-https://media.domain.com/alas-public-assets/pimpinan/{source_id}/{filename}
+**Lawet Hub side (`.env`):**
+```bash
+ALAS_SERVICE_TOKEN=8b93f124fa10b93a...
+ALAS_API_URL=https://alas.bawaslu-kebumen.go.id
 ```
 
-Bucket `alas-public-assets` dikonfigurasi dengan **anonymous GET** sehingga dapat diakses langsung oleh browser.
+### 2. Alur Manajemen Aset Media (MinIO)
+Sebelum melakukan HTTP request ke ALAS Service API, pastikan aset media (foto dokumentasi, thumbnail, lampiran dokumen PDF) dipromosikan terlebih dahulu dari bucket internal Lawet Hub (`lawet-media`) ke bucket publik ALAS (`alas-public-assets`).
+
+Format URL publik aset wajib mengikuti pola berikut:
+```
+https://{MINIO_ENDPOINT}/alas-public-assets/jurnal/{source_id}/{nama-file}
+https://{MINIO_ENDPOINT}/alas-public-assets/pimpinan/{source_id}/{nama-file}
+```
+
+### 3. Implementasi HTTP Client (Python httpx)
+Gunakan client class berikut di backend Lawet Hub untuk mengonsumsi Service API ALAS secara terpusat:
+
+```python
+import httpx
+
+class ALASServiceClient:
+    BASE_URL = settings.ALAS_API_URL
+    TOKEN = settings.ALAS_SERVICE_TOKEN
+
+    @classmethod
+    def _headers(cls) -> dict:
+        return {
+            "Authorization": f"Bearer {cls.TOKEN}",
+            "Content-Type": "application/json"
+        }
+
+    @classmethod
+    async def upsert_jurnal(cls, payload: dict) -> dict:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            resp = await client.post(
+                f"{cls.BASE_URL}/api/service/jurnal",
+                json=payload, headers=cls._headers()
+            )
+            resp.raise_for_status()
+            return resp.json()
+
+    @classmethod
+    async def delete_jurnal(cls, source_id: str) -> dict:
+        async with httpx.AsyncClient(timeout=15.0) as client:
+            resp = await client.delete(
+                f"{cls.BASE_URL}/api/service/jurnal/{source_id}",
+                headers=cls._headers()
+            )
+            resp.raise_for_status()
+            return resp.json()
+```
+
+### 4. Strategi Penanganan Kegagalan Sync (Resilience)
+Integrasi ini menggunakan pendekatan **Data Integrity > Sync Consistency**:
+* Jika ALAS Service API mengembalikan error `5xx` atau mengalami *timeout*, data jurnal di Lawet Hub **harus tetap tersimpan dengan status terpublish**.
+* Set field `last_synced_at` pada database Lawet Hub ke status `NULL` atau tandai flag `sync_failed = True`.
+* Sediakan tombol **"Retry Sync"** di admin dashboard Lawet Hub untuk memicu pemanggilan ulang `ALASServiceClient.upsert_jurnal(payload)` secara manual jika terjadi kegagalan jaringan atau server downtime.
 
 ---
 
