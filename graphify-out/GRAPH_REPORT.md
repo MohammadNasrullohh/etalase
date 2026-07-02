@@ -1,16 +1,16 @@
-# Graph Report - ALAS  (2026-07-01)
+# Graph Report - ALAS  (2026-07-02)
 
 ## Corpus Check
-- 92 files · ~65,732 words
+- 92 files · ~67,739 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 412 nodes · 462 edges · 56 communities (20 shown, 36 thin omitted)
+- 440 nodes · 489 edges · 55 communities (19 shown, 36 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ad1653dc`
+- Built from commit: `441ff2ad`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -67,19 +67,18 @@
 - [[_COMMUNITY_Community 49|Community 49]]
 - [[_COMMUNITY_Community 53|Community 53]]
 - [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 55|Community 55]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `DB` - 18 edges
 2. `compilerOptions` - 15 edges
 3. `PRD — ALAS (Arsip Langkah Bawaslu Kebumen)` - 15 edges
 4. `jurnal` - 12 edges
-5. `rules.md — Frontend Engineer (ALAS)` - 10 edges
-6. `6. Frontend Specification` - 10 edges
-7. `INTEGRATION.md — Kontrak Integrasi ALAS ↔ Lawet Hub` - 10 edges
-8. `3. Service API Endpoints (ALAS)` - 10 edges
-9. `pimpinan` - 8 edges
-10. `7. Companion Module — Lawet Hub "Modul Jurnal ALAS"` - 7 edges
+5. `ALAS — Arsip Langkah Bawaslu Kebumen` - 12 edges
+6. `rules.md — Frontend Engineer (ALAS)` - 10 edges
+7. `6. Frontend Specification` - 10 edges
+8. `INTEGRATION.md — Kontrak Integrasi ALAS ↔ Lawet Hub` - 10 edges
+9. `3. Service API Endpoints (ALAS)` - 10 edges
+10. `pimpinan` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `POST()` --calls--> `upsertJurnal()`  [INFERRED]
@@ -96,11 +95,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (56 total, 36 thin omitted)
+## Communities (55 total, 36 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.08
-Nodes (20): getJurnalCalendar(), getJurnalDetail(), getJurnalList(), GetJurnalListParams, GET(), DB, pool, jurnal (+12 more)
+Nodes (22): getJurnalCalendar(), getJurnalDetail(), getJurnalList(), GetJurnalListParams, getPimpinanList(), GET(), DB, pool (+14 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.04
@@ -111,12 +110,12 @@ Cohesion: 0.05
 Nodes (38): 1. Arsitektur Komunikasi, 2. Service API Auth, 3. Service API Endpoints (ALAS), 4. Error Responses, 5. MinIO — Setup `alas-public-assets`, 6.1 New Files (Lawet Hub), 6.2 ALAS Service Client, 6.3 Publish Flow (+30 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.06
-Nodes (31): 1. Background & Problem Statement, 2. Goals & Non-Goals, 3.1 Sync Mechanism — Direct Service API, 3.2 Sequence Flows, 3.3 Storage Strategy, 3. System Architecture, 4.1 ALAS — PostgreSQL (schema `alas`), 4.2 `pimpinan` Table (+23 more)
+Cohesion: 0.11
+Nodes (18): 5.1 Autentikasi Service API, 5.2 Public Read API, 5.3 Service API — Pimpinan (Lawet Hub → ALAS, Bearer token required), 5.4 Response Error Codes, 5.4 Service API — Jurnal (Lawet Hub → ALAS, Bearer token required), 5. Integration Contract, `DELETE /api/service/jurnal/{source_id}` — Soft Delete, `GET /api/health` (+10 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.10
-Nodes (16): LandingView(), queryClient, useJurnalFilter(), FuturisticLine(), FuturisticLineProps, CalendarWidget(), CalendarWidgetProps, JurnalDetailModal() (+8 more)
+Cohesion: 0.08
+Nodes (19): LandingView(), queryClient, useJurnalFilter(), FuturisticLine(), FuturisticLineProps, CalendarWidget(), CalendarWidgetProps, DocumentationPanel() (+11 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.09
@@ -135,8 +134,8 @@ Cohesion: 0.18
 Nodes (10): 1. Root Cause kenapa ini dipaksakan, 2. Struktur Direktori (ALAS-specific), 3. Path Alias (wajib, bukan opsional), 4. Import Boundary — Enforcement, bukan Trust, 5. Server/Client Component Boundary (tidak ada di artikel — spesifik App Router), 6. Public API Pattern — dengan Caveat Bundle Size, 7. Docker Layer Caching — Efek Samping FSD yang Bisa Dieksploitasi, 8. Segment Discipline (+2 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.20
-Nodes (10): 6.1 Design System, 6.2 Pages & Routes (ALAS Only), 6.3 Landing Page Layout, 6.4 Leadership Panel, 6.5 Animation Specification, 6. Frontend Specification, Interaction Animations, Opening Animation (page load) (+2 more)
+Cohesion: 0.08
+Nodes (23): 1. Background & Problem Statement, 2. Goals & Non-Goals, 3.1 Sync Mechanism — Direct Service API, 3.2 Sequence Flows, 3.3 Storage Strategy, 3. System Architecture, 4.1 ALAS — PostgreSQL (schema `alas`), 4.2 `pimpinan` Table (+15 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.22
@@ -146,45 +145,41 @@ Nodes (9): 5.1 Webhook (Lawet Hub → ALAS), 5.2 Public Read API (ALAS), 5.3 Adm
 Cohesion: 0.24
 Nodes (7): JurnalList(), JurnalListProps, categoryBorders, categoryLabels, categoryStyles, JurnalCard(), JurnalCardProps
 
-### Community 12 - "Community 12"
-Cohesion: 0.38
-Nodes (4): LeadershipPanel(), LeadershipPanelProps, LeaderCard(), LeaderCardProps
-
 ### Community 13 - "Community 13"
 Cohesion: 0.40
 Nodes (4): AGENTS.md — Dev Manager Dispatcher (Project: ALAS), 📋 Execution Protocol, 🔄 Manager Self-Updating & Organic Employee Creation Protocol, 🔒 Non-Negotiable Guardrails (spesifik ALAS)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.50
-Nodes (3): Deploy on Vercel, Getting Started, Learn More
+Cohesion: 0.07
+Nodes (28): 1. Clone & Install, 2. Jalankan Database, 3. Setup Environment, 4. Jalankan Migrasi, 5. Seed Data (opsional, untuk development), 6. Jalankan Dev Server, ALAS — Arsip Langkah Bawaslu Kebumen, API Publik (+20 more)
 
-### Community 54 - "Community 54"
-Cohesion: 0.18
-Nodes (10): BarChart(), BarChartProps, BarData, CATEGORY_COLORS, CATEGORY_LABELS, ALL_CATEGORIES, CATEGORY_COLORS, CATEGORY_LABELS (+2 more)
-
-### Community 55 - "Community 55"
+### Community 16 - "Community 16"
 Cohesion: 0.60
 Nodes (4): getJurnalStatsByYear(), getJurnalYears(), JurnalStats, GET()
 
+### Community 54 - "Community 54"
+Cohesion: 0.15
+Nodes (10): BarChart, BarChartProps, BarData, CATEGORY_COLORS, CATEGORY_LABELS, ALL_CATEGORIES, CATEGORY_COLORS, CATEGORY_LABELS (+2 more)
+
 ## Knowledge Gaps
-- **240 isolated node(s):** `extends`, `pool`, `db`, `nextConfig`, `name` (+235 more)
+- **261 isolated node(s):** `extends`, `pool`, `db`, `nextConfig`, `name` (+256 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **36 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `INTEGRATION.md — Kontrak Integrasi ALAS ↔ Lawet Hub` connect `Community 2` to `Community 15`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Why does `PRD — ALAS (Arsip Langkah Bawaslu Kebumen)` connect `Community 1` to `Community 10`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `PRD — ALAS (Arsip Langkah Bawaslu Kebumen)` connect `Community 3` to `Community 9`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **What connects `extends`, `pool`, `db` to the rest of the system?**
-  _240 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _261 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.08484848484848485 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07924984875983061 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._

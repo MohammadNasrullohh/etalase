@@ -14,7 +14,80 @@
   --anim-slow: 500ms;
   --anim-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --anim-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Glass design tokens ──────────────────────────────────── */
+  --glass-blur-sm:   8px;
+  --glass-blur-md:   14px;
+  --glass-blur-lg:   24px;
+  --glass-blur-xl:   32px;
+
+  --glass-bg-subtle:  rgba(255, 255, 255, 0.03);
+  --glass-bg-default: rgba(255, 255, 255, 0.05);
+  --glass-bg-mid:     rgba(255, 255, 255, 0.07);
+  --glass-bg-strong:  rgba(8, 8, 12, 0.78);
+
+  --glass-border-subtle:  rgba(255, 255, 255, 0.06);
+  --glass-border-default: rgba(255, 255, 255, 0.10);
+  --glass-border-bright:  rgba(255, 255, 255, 0.18);
+
+  --glass-inset-top:  inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --glass-inset-top-bright: inset 0 1px 0 rgba(255, 255, 255, 0.10);
 }
+
+/* ── Glass surface utilities ─────────────────────────────────── */
+
+/* Lightest — used for inner panels, tag pills, secondary elements */
+.glass-subtle {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-inset-top);
+}
+
+/* Default — used for cards, calendar, documentation panel */
+.glass-surface {
+  background: var(--glass-bg-default);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border: 1px solid var(--glass-border-default);
+  box-shadow: var(--glass-inset-top);
+}
+
+/* Medium — used for active cards, hover states, chart containers */
+.glass-surface-md {
+  background: var(--glass-bg-mid);
+  backdrop-filter: blur(var(--glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+  border: 1px solid var(--glass-border-default);
+  box-shadow: var(--glass-inset-top-bright);
+}
+
+/* Strong — used for navbar, modal overlays */
+.glass-surface-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur-xl));
+  -webkit-backdrop-filter: blur(var(--glass-blur-xl));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-inset-top);
+}
+
+/* Hover upgrade helper — combine with glass-surface via JS or group-hover */
+.glass-hover:hover {
+  background: var(--glass-bg-mid);
+  border-color: var(--glass-border-bright);
+}
+
+/* Ember-accented glass — for active/highlighted states */
+.glass-ember {
+  background: rgba(242, 97, 63, 0.06);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border: 1px solid rgba(242, 97, 63, 0.20);
+  box-shadow: 0 0 20px rgba(242, 97, 63, 0.08), var(--glass-inset-top);
+}
+
+/* ── Animation keyframes ─────────────────────────────────────── */
 
 @keyframes slide-from-left {
   from { transform: translateX(-60px); opacity: 0; }

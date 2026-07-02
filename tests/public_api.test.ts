@@ -25,6 +25,7 @@ describe('Public API Queries Integration', () => {
       judul: 'Published Jurnal Pilihan',
       tanggal_kegiatan: '2026-06-15',
       kategori: 'mou',
+      tags: ['kunci', 'bawaslu'],
       dokumen_pendukung: [
         { nama: 'Publik Doc', url: 'https://media.com/public.pdf', tipe: 'pdf' },
         { nama: 'Privat Doc', url: 'https://media.com/private.pdf', tipe: 'pdf' },
@@ -81,5 +82,15 @@ describe('Public API Queries Integration', () => {
     expect(calendar.month).toBe(6)
     expect(calendar.dates).toContain(15)
     expect(calendar.dates).not.toContain(20)
+  })
+
+  it('should search query by tags', async () => {
+    const searchRes = await getJurnalList({ q: 'kunci' })
+    const hasItem = searchRes.some(item => item.id === id1)
+    expect(hasItem).toBe(true)
+    
+    const searchResNone = await getJurnalList({ q: 'randomkeywordnotexists' })
+    const hasItemNone = searchResNone.some(item => item.id === id1)
+    expect(hasItemNone).toBe(false)
   })
 })

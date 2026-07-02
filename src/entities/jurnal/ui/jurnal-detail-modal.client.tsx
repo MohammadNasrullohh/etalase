@@ -109,9 +109,27 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                 <h2 className="text-xl md:text-2xl font-bold leading-tight mb-2 pr-8 text-white">
                   {item.judul}
                 </h2>
-                <div className="font-mono text-xs text-white/30">
-                  {formatDate(item.tanggal_kegiatan)}
+                <div className="flex flex-wrap items-center gap-x-4 font-mono text-xs text-white/30">
+                  <span>{formatDate(item.tanggal_kegiatan)}</span>
+                  {item.redaksi && (
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-white/20" />
+                      Redaksi: {item.redaksi}
+                    </span>
+                  )}
                 </div>
+                {Array.isArray(item.tags) && item.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {item.tags.map((t: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/60"
+                      >
+                        #{t}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Link Publikasi */}

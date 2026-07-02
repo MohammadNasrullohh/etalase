@@ -81,7 +81,7 @@ src/
 │
 ├── widgets/                # Komponen gabungan (multi-entity)
 │   ├── jurnal-list/        # Daftar jurnal dengan infinite scroll
-│   ├── leadership-panel/   # Panel pimpinan aktif + bezier line
+│   ├── documentation-panel/# Panel dokumentasi foto kegiatan + lightbox zoom
 │   ├── calendar-widget/    # Kalender kegiatan
 │   └── stats-section/      # Chart rekapitulasi tahunan (D3)
 │

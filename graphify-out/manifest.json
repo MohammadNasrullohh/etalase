@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "src/app/api/jurnal/route.ts": {
-    "mtime": 1782910162.2429006,
-    "ast_hash": "d83aca822b0042508edb1a86db403348",
+    "mtime": 1782987705.57286,
+    "ast_hash": "674a09383a6c44cac8a3294bdf4f1e12",
     "semantic_hash": ""
   },
   "src/app/api/pimpinan/[id]/route.ts": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/get-jurnal-list.ts": {
-    "mtime": 1782906908.7710636,
-    "ast_hash": "d21b8e6188f2c2fb32c275011feea61a",
+    "mtime": 1782987698.738699,
+    "ast_hash": "61352958234645644f57ed326417f3d8",
     "semantic_hash": ""
   },
   "src/entities/jurnal/ui/jurnal-card.tsx": {
@@ -130,8 +130,8 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/ui/jurnal-detail-modal.client.tsx": {
-    "mtime": 1782907067.7842228,
-    "ast_hash": "bb94fa5c1abe481919a661ddbd61045c",
+    "mtime": 1782923887.322327,
+    "ast_hash": "01c1b109246381ab46143fd5e1fe502a",
     "semantic_hash": ""
   },
   "src/entities/pimpinan/api/get-pimpinan-detail.ts": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "src/entities/pimpinan/ui/leader-profile-modal.client.tsx": {
-    "mtime": 1782907113.789889,
-    "ast_hash": "2768d367408d0fb6108cfc796ceb7dc9",
+    "mtime": 1782923913.8809223,
+    "ast_hash": "f11f983d6b3a2ee84510b72b4722be5d",
     "semantic_hash": ""
   },
   "src/features/jurnal-filter/lib/use-jurnal-filter.ts": {
@@ -190,8 +190,8 @@
     "semantic_hash": ""
   },
   "src/views/landing/index.tsx": {
-    "mtime": 1782923176.4658911,
-    "ast_hash": "9ab23cb542a15c8c36f0f2838f6bf942",
+    "mtime": 1782987734.6659904,
+    "ast_hash": "2827f62793d1267d647f85c260910a42",
     "semantic_hash": ""
   },
   "src/widgets/calendar-widget/ui/index.tsx": {
@@ -202,11 +202,6 @@
   "src/widgets/jurnal-list/ui/index.tsx": {
     "mtime": 1782919829.0965307,
     "ast_hash": "0dfecb15b92a54f43f3ce841de87c977",
-    "semantic_hash": ""
-  },
-  "src/widgets/leadership-panel/ui/index.tsx": {
-    "mtime": 1782921089.2813144,
-    "ast_hash": "760b9134bbd8c939a358538a016893b9",
     "semantic_hash": ""
   },
   "tailwind.config.ts": {
@@ -265,13 +260,13 @@
     "semantic_hash": ""
   },
   ".agents/NEVER-DO.md": {
-    "mtime": 1782906654.0348155,
-    "ast_hash": "a9da34ae533051a8bc4c1e69b2a650ea",
+    "mtime": 1782924072.1193116,
+    "ast_hash": "eccdf72a9e703118cfd691551d3fa699",
     "semantic_hash": ""
   },
   ".agents/context/CONTEXT.MD": {
-    "mtime": 1782909575.10489,
-    "ast_hash": "d25763d927281507db19272ecd0341bc",
+    "mtime": 1782987746.8081572,
+    "ast_hash": "0008b24c293bfefb4a110432cd222b3f",
     "semantic_hash": ""
   },
   ".agents/employees/backend-engineer/context.md": {
@@ -325,8 +320,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/explainer/memory.md": {
-    "mtime": 1782906654.0322945,
-    "ast_hash": "ea72ca9aec6696f8429b078b4e2dcc00",
+    "mtime": 1782987727.6797006,
+    "ast_hash": "40a1e2a8e9b950eba8e2583dbae1b76f",
     "semantic_hash": ""
   },
   ".agents/employees/explainer/rules.md": {
@@ -335,8 +330,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/memory.md": {
-    "mtime": 1782920831.2132018,
-    "ast_hash": "a1b14245df407c1209bdea81766e04b3",
+    "mtime": 1782987801.4690156,
+    "ast_hash": "bf5091747b0b53733fcdad18e46e9f8b",
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/rules.md": {
@@ -435,8 +430,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1782906681.2230556,
-    "ast_hash": "1687e9644651956395451500ea629e95",
+    "mtime": 1782987755.7330174,
+    "ast_hash": "442b397cd0e9522feb9685ed1ed4d304",
     "semantic_hash": ""
   },
   "docker-compose.alas.yml": {
@@ -490,13 +485,18 @@
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/bar-chart.tsx": {
-    "mtime": 1782923088.9939735,
-    "ast_hash": "c77d3d4860ecc918407ca50b52a960e5",
+    "mtime": 1782923551.4089966,
+    "ast_hash": "3b4386eda9085d4c5a65c59faaca60ca",
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/index.tsx": {
-    "mtime": 1782923122.2056828,
-    "ast_hash": "85c66d6753bfb83daf994303c89902e0",
+    "mtime": 1782923585.404608,
+    "ast_hash": "04db84f9be3a419e9dbe4ef3528aec2d",
+    "semantic_hash": ""
+  },
+  "src/widgets/documentation-panel/ui/index.tsx": {
+    "mtime": 1782987720.0705,
+    "ast_hash": "577d1364d74b0e875c88c795867bef53",
     "semantic_hash": ""
   }
 }

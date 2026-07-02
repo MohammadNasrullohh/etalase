@@ -7,10 +7,15 @@ interface GetJurnalListParams {
   kategori?: string
   cursor?: string
   limit?: number
+  date?: string
 }
 
-export async function getJurnalList({ q = '', kategori = '', cursor = '', limit = 20 }: GetJurnalListParams) {
+export async function getJurnalList({ q = '', kategori = '', cursor = '', limit = 20, date = '' }: GetJurnalListParams) {
   let conditions = [eq(jurnal.is_published, true)]
+
+  if (date) {
+    conditions.push(eq(jurnal.tanggal_kegiatan, date))
+  }
 
   if (kategori) {
     conditions.push(eq(jurnal.kategori, kategori))
@@ -20,7 +25,8 @@ export async function getJurnalList({ q = '', kategori = '', cursor = '', limit 
     conditions.push(
       or(
         ilike(jurnal.judul, `%${q}%`),
-        sql`${jurnal.pihak_terkait}::text ILIKE ${`%${q}%`}`
+        sql`${jurnal.pihak_terkait}::text ILIKE ${`%${q}%`}`,
+        sql`${jurnal.tags}::text ILIKE ${`%${q}%`}`
       )!
     )
   }

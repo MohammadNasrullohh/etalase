@@ -6,10 +6,11 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams
     const q = searchParams.get('q') || ''
     const kategori = searchParams.get('kategori') || ''
+    const date = searchParams.get('date') || ''
     const cursor = searchParams.get('cursor') || ''
     const limit = Math.min(Math.max(parseInt(searchParams.get('limit') || '20', 10), 1), 50)
 
-    const rawItems = await getJurnalList({ q, kategori, cursor, limit })
+    const rawItems = await getJurnalList({ q, kategori, cursor, limit, date })
 
     const hasMore = rawItems.length > limit
     const pageItems = rawItems.slice(0, limit)
@@ -35,6 +36,8 @@ export async function GET(request: NextRequest) {
         dokumentasi: item.dokumentasi,
         dokumen_pendukung: publicDocs.map(({ is_public, ...rest }: any) => rest),
         custom_fields: item.custom_fields,
+        tags: item.tags,
+        redaksi: item.redaksi,
         created_at: item.created_at,
       }
     })

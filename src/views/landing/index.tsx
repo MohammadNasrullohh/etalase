@@ -7,11 +7,15 @@ import { KategoriDropdown } from '@/features/jurnal-filter/ui/kategori-dropdown.
 import { useJurnalFilter } from '@/features/jurnal-filter/lib/use-jurnal-filter'
 import { JurnalList } from '@/widgets/jurnal-list/ui'
 import { CalendarWidget } from '@/widgets/calendar-widget/ui'
-import { LeadershipPanel } from '@/widgets/leadership-panel/ui'
+import { DocumentationPanel } from '@/widgets/documentation-panel/ui'
 import { FuturisticLine } from '@/shared/ui/futuristic-line'
 import { JurnalDetailModal } from '@/entities/jurnal/ui/jurnal-detail-modal.client'
-import { LeaderProfileModal } from '@/entities/pimpinan/ui/leader-profile-modal.client'
 import { StatsSection } from '@/widgets/stats-section/ui'
+import {
+  HeroLogoReveal,
+  HeroTitleReveal,
+  HeroSubtitleReveal,
+} from './hero-text-reveal.client'
 
 const queryClient = new QueryClient()
 
@@ -20,7 +24,7 @@ export const LandingView: React.FC = () => {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeDate, setActiveDate] = useState<string | null>(null)
   const [selectedJurnalId, setSelectedJurnalId] = useState<string | null>(null)
-  const [selectedLeaderId, setSelectedLeaderId] = useState<string | null>(null)
+  // Selected leader state is removed since leadership panel is replaced by documentation panel
 
   // Scroll state untuk animasi hero
   const [scrollY, setScrollY] = useState(0)
@@ -140,59 +144,131 @@ export const LandingView: React.FC = () => {
             className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none select-none will-change-transform"
             style={{ transform: `translateY(${titleTranslateY}px)` }}
           >
-            {/* Logo Bawaslu */}
-            <img
+            {/* Logo Bawaslu — reveal from top */}
+            <HeroLogoReveal
               src="/assets/logo.png"
               alt="Bawaslu Kebumen"
-              className="object-contain mb-5"
               style={{
-                width: '68px',
-                height: '68px',
-                filter: 'brightness(0) invert(1)',
-                opacity: subtitleOpacity > 0 ? 1 : 0,
-                transition: 'opacity 0.15s ease',
+                opacity: subtitleOpacity > 0 ? subtitleOpacity : 0,
               }}
             />
 
-            {/* ΛLΛS */}
-            <h1
-              className="text-white leading-none"
-              style={{
-                fontFamily: 'Roboto, sans-serif',
-                fontWeight: 700,
-                fontSize: 'clamp(3.5rem, 11vw, 8rem)',
-                letterSpacing: '0.22em',
-              }}
-            >
-              ΛLΛS
-            </h1>
+            {/* ΛLΛS — scramble reveal per huruf, kiri ke kanan, selesai 0.8s */}
+            <HeroTitleReveal className="leading-none" />
 
-            {/* Subtitle */}
-            <p
-              className="text-[var(--color-text-muted)] mt-4 tracking-[0.3em]"
-              style={{
-                fontFamily: 'Roboto, sans-serif',
-                fontWeight: 300,
-                fontSize: '0.85rem',
-                opacity: subtitleOpacity,
-              }}
-            >
-              ARSIP LANGKAH BAWASLU KEBUMEN
-            </p>
+            {/* Subtitle — scramble reveal, selesai 0.8s */}
+            <HeroSubtitleReveal
+              style={{ opacity: subtitleOpacity }}
+            />
 
-            {/* Scroll hint */}
+            {/* Scroll hint — glassmorphism pulsing button, klik langsung ke Section 3 */}
             <div
-              className="mt-10 flex flex-col items-center gap-2"
+              className="mt-12 flex flex-col items-center gap-3"
               style={{ opacity: subtitleOpacity }}
             >
-              <span
-                className="text-[var(--color-text-muted)]"
-                style={{ fontSize: '0.6rem', letterSpacing: '0.35em', fontFamily: 'Roboto, sans-serif' }}
+              {/* ── Button glassmorphism ── */}
+              <button
+                aria-label="Scroll ke Arsip Jurnal"
+                onClick={() => {
+                  document.getElementById('section-arsip')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                style={{
+                  // Override pointer-events dari parent yang none
+                  pointerEvents: 'auto',
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '14px 28px 16px',
+                  borderRadius: '999px',
+                  background: 'rgba(255,255,255,0.04)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                  boxShadow: '0 0 0 0 rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.07)',
+                  cursor: 'pointer',
+                  outline: 'none',
+                  userSelect: 'none',
+                  transition: 'background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget
+                  el.style.background = 'rgba(255,255,255,0.08)'
+                  el.style.borderColor = 'rgba(255,255,255,0.22)'
+                  el.style.boxShadow = '0 0 24px 4px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.10)'
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget
+                  el.style.background = 'rgba(255,255,255,0.04)'
+                  el.style.borderColor = 'rgba(255,255,255,0.10)'
+                  el.style.boxShadow = '0 0 0 0 rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.07)'
+                }}
               >
-                SCROLL
-              </span>
-              <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent animate-pulse" />
+                {/* Pulsing ring 1 */}
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: '999px',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    animation: 'glassRingPulse 2s cubic-bezier(0.4,0,0.6,1) infinite',
+                    pointerEvents: 'none',
+                  }}
+                />
+                {/* Pulsing ring 2 — offset phase */}
+                <span
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: '999px',
+                    border: '1px solid rgba(255,255,255,0.10)',
+                    animation: 'glassRingPulse 2s cubic-bezier(0.4,0,0.6,1) infinite 0.75s',
+                    pointerEvents: 'none',
+                  }}
+                />
+
+                <span
+                  style={{
+                    fontSize: '0.6rem',
+                    letterSpacing: '0.38em',
+                    fontFamily: 'Roboto, sans-serif',
+                    fontWeight: 400,
+                    color: 'rgba(255,255,255,0.55)',
+                  }}
+                >
+                  SCROLL
+                </span>
+
+                {/* Arrow down */}
+                <svg
+                  width="14"
+                  height="8"
+                  viewBox="0 0 14 8"
+                  fill="none"
+                  style={{ opacity: 0.45, marginTop: '-2px' }}
+                >
+                  <path
+                    d="M1 1l6 6 6-6"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
+
+            {/* Keyframe CSS untuk pulsing ring */}
+            <style>{`
+              @keyframes glassRingPulse {
+                0%   { transform: scale(1);    opacity: 0.6; }
+                60%  { transform: scale(1.55); opacity: 0;   }
+                100% { transform: scale(1.55); opacity: 0;   }
+              }
+            `}</style>
           </div>
         </section>
 
@@ -267,9 +343,8 @@ export const LandingView: React.FC = () => {
                 }}
               >
                 <div className="flex-shrink-0">
-                  <LeadershipPanel
+                  <DocumentationPanel
                     activeDate={hoverLine?.date ?? activeDate}
-                    onLeaderClick={setSelectedLeaderId}
                   />
                 </div>
                 <div className="flex-shrink-0">
@@ -286,11 +361,13 @@ export const LandingView: React.FC = () => {
 
         {/* ─── Sticky header glass — muncul saat masuk ke Section 2 ─── */}
         <header
-          className="fixed top-0 left-0 w-full z-50 border-b transition-all duration-300"
+          className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
           style={{
-            backgroundColor: `rgba(8, 8, 12, ${navProgress * 0.9})`,
-            backdropFilter: `blur(${navProgress * 20}px)`,
-            borderColor: `rgba(38, 38, 38, ${navProgress * 0.5})`,
+            backgroundColor: `rgba(6, 6, 10, ${navProgress * 0.82})`,
+            backdropFilter: `blur(${navProgress * 28}px)`,
+            WebkitBackdropFilter: `blur(${navProgress * 28}px)`,
+            borderBottom: `1px solid rgba(255,255,255,${navProgress * 0.07})`,
+            boxShadow: `0 1px 0 rgba(255,255,255,${navProgress * 0.04}), 0 4px 24px rgba(0,0,0,${navProgress * 0.3})`,
             transform: navVisible ? 'translateY(0)' : 'translateY(-100%)',
             opacity: navProgress,
             pointerEvents: navVisible ? 'auto' : 'none',
@@ -298,14 +375,25 @@ export const LandingView: React.FC = () => {
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-3">
-            {/* Brand - always visible */}
+            {/* Brand */}
             <div className="flex items-center gap-2.5 sm:gap-3 select-none flex-shrink-0">
-              <img
-                src="/assets/logo.png"
-                alt="Bawaslu"
-                style={{ width: '24px', height: '24px', filter: 'brightness(0) invert(1)' }}
-                className="object-contain"
-              />
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  background: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.10)',
+                }}
+              >
+                <img
+                  src="/assets/logo.png"
+                  alt="Bawaslu"
+                  style={{ width: '20px', height: '20px', filter: 'brightness(0) invert(1)' }}
+                  className="object-contain"
+                />
+              </div>
               <span
                 className="text-white font-bold text-sm sm:text-base"
                 style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.15em' }}
@@ -329,14 +417,10 @@ export const LandingView: React.FC = () => {
           isOpen={!!selectedJurnalId}
           onClose={() => setSelectedJurnalId(null)}
         />
-        <LeaderProfileModal
-          id={selectedLeaderId}
-          isOpen={!!selectedLeaderId}
-          onClose={() => setSelectedLeaderId(null)}
-        />
+        <div />
 
         {/* FuturisticLine — hanya desktop, disembunyikan saat modal aktif */}
-        {!selectedJurnalId && !selectedLeaderId && (
+        {!selectedJurnalId && (
           <div className="hidden lg:block">
             <FuturisticLine
               activeId={hoverLine?.id ?? activeId}

@@ -11,6 +11,8 @@ export const jurnal = pgTable('jurnal', {
   dokumen_pendukung:jsonb('dokumen_pendukung').default([]),
   pihak_terkait:    jsonb('pihak_terkait').default([]),
   custom_fields:    jsonb('custom_fields').default([]),
+  tags:             jsonb('tags').default([]),
+  redaksi:          text('redaksi'),
   is_published:     boolean('is_published').notNull().default(true),
   synced_at:        timestamp('synced_at', { withTimezone: true }).notNull().defaultNow(),
   created_at:       timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),

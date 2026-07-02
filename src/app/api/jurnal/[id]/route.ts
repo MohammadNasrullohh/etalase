@@ -27,6 +27,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
       dokumentasi: item.dokumentasi,
       dokumen_pendukung: publicDocs.map(({ is_public, ...rest }: any) => rest),
       custom_fields: item.custom_fields,
+      tags: item.tags,
+      redaksi: item.redaksi,
       created_at: item.created_at,
     }
 

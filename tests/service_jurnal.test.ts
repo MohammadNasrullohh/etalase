@@ -22,6 +22,8 @@ describe('Service Jurnal CRUD Integration', () => {
       judul: 'Test Jurnal Kegiatan',
       tanggal_kegiatan: '2026-06-15',
       kategori: 'mou',
+      tags: ['test', 'alas'],
+      redaksi: 'Superadmin Test',
       dokumen_pendukung: [
         { nama: 'Doc 1', url: 'https://media.com/doc1.pdf', tipe: 'pdf' },
       ],
@@ -33,6 +35,10 @@ describe('Service Jurnal CRUD Integration', () => {
     const dbItems = await db.select().from(jurnal).where(eq(jurnal.source_id, testSourceId)).limit(1)
     expect(dbItems.length).toBe(1)
     expect(dbItems[0].judul).toBe('Test Jurnal Kegiatan')
+    expect(dbItems[0].redaksi).toBe('Superadmin Test')
+    const tags = dbItems[0].tags as string[]
+    expect(tags).toContain('test')
+    expect(tags).toContain('alas')
     const docs = dbItems[0].dokumen_pendukung as any[]
     expect(docs[0].is_public).toBe(true)
   })

@@ -18,6 +18,8 @@ interface JurnalPayload {
   dokumen_pendukung?: IncomingDokumen[]
   pihak_terkait?: any[]
   custom_fields?: any[]
+  tags?: any[] | null
+  redaksi?: string | null
 }
 
 export async function upsertJurnal(payload: JurnalPayload) {
@@ -66,6 +68,8 @@ export async function upsertJurnal(payload: JurnalPayload) {
     dokumen_pendukung: mergedDocs,
     pihak_terkait: payload.pihak_terkait || [],
     custom_fields: payload.custom_fields || [],
+    tags: payload.tags || [],
+    redaksi: payload.redaksi || null,
     is_published: true, // Default to true on publish sync
     updated_at: new Date()
   }

@@ -178,11 +178,13 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
       <svg ref={svgRef} className="w-full h-full" />
       <div
         ref={tooltipRef}
-        className="absolute hidden pointer-events-none z-50 px-3 py-2 rounded-lg text-xs text-white leading-relaxed"
+        className="absolute hidden pointer-events-none z-50 px-3 py-2 rounded-xl text-xs text-white leading-relaxed"
         style={{
-          background: 'rgba(12, 12, 18, 0.92)',
-          border: '1px solid rgba(255,255,255,0.12)',
-          backdropFilter: 'blur(8px)',
+          background: 'rgba(6, 6, 10, 0.88)',
+          border: '1px solid rgba(255,255,255,0.14)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.4)',
           fontFamily: 'monospace',
           whiteSpace: 'nowrap',
         }}

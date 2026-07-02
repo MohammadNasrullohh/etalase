@@ -11,7 +11,7 @@
 ## 📂 Directories (FSD)
 - `src/entities/` -> `jurnal/`, `pimpinan/` (types, API queries, Card primitives)
 - `src/features/` -> `service-auth/`, `jurnal-sync/`, `pimpinan-sync/`, `jurnal-filter/` (capability actions/hooks)
-- `src/widgets/` -> `jurnal-list/`, `calendar-widget/`, `leadership-panel/` (combined component widgets)
+- `src/widgets/` -> `jurnal-list/`, `calendar-widget/`, `documentation-panel/` (combined component widgets)
 - `src/views/` -> `landing/` (main page entrypoint view)
 - `src/shared/` -> DB singleton, futuristic connection line overlay, UI style tokens.
 - `src/app/` -> Routing layer. Calls queries and features from `src/`.

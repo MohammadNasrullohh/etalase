@@ -142,6 +142,7 @@ export const JurnalList: React.FC<JurnalListProps> = ({
             kategori={item.kategori}
             thumbnail_url={item.thumbnail_url}
             pihak_terkait={item.pihak_terkait}
+            tags={item.tags}
             isActive={activeId === item.id}
             isLineTarget={lineTargetId === item.id}
             staggerDelay={delayMs}
