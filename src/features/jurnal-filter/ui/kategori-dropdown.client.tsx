@@ -2,19 +2,14 @@
 
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { getCategoryLabel } from '@/shared/ui/colors'
 
 interface KategoriDropdownProps {
   value: string
   onChange: (val: string) => void
 }
 
-const CATEGORY_LABELS: Record<string, string> = {
-  mou: 'MoU',
-  sengketa: 'Sengketa',
-  audiensi: 'Audiensi',
-  pelaporan: 'Pelaporan',
-  lainnya: 'Lainnya'
-}
+
 
 export const KategoriDropdown: React.FC<KategoriDropdownProps> = ({ value, onChange }) => {
   const { data: response } = useQuery({
@@ -46,7 +41,7 @@ export const KategoriDropdown: React.FC<KategoriDropdownProps> = ({ value, onCha
     >
       <option value="" className="bg-[var(--color-ember-deep)] text-white">Semua Kategori</option>
       {filteredCategories.map((cat) => {
-        const label = CATEGORY_LABELS[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1))
+        const label = getCategoryLabel(cat)
         return (
           <option key={cat} value={cat} className="bg-[var(--color-ember-deep)] text-white">
             {label}

@@ -20,13 +20,13 @@
     "semantic_hash": ""
   },
   "drizzle/migrations/meta/_journal.json": {
-    "mtime": 1782906862.4297252,
-    "ast_hash": "2c15d0f19c2ab2592e8e59bf3aebca76",
+    "mtime": 1783006057.3716264,
+    "ast_hash": "fa9df5cff4b61e125ab42d3773c7ec3c",
     "semantic_hash": ""
   },
   "drizzle/schema.ts": {
-    "mtime": 1782906846.905631,
-    "ast_hash": "2bb825beb32721a9ff2c9b4be8e116e8",
+    "mtime": 1783006057.3716264,
+    "ast_hash": "9827f6a01f76c9de6cfd763410f68ada",
     "semantic_hash": ""
   },
   "next.config.mjs": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1782923022.142356,
-    "ast_hash": "7e2d5ca269ff000d72f13846a4a87963",
+    "mtime": 1783006057.3847327,
+    "ast_hash": "5d24b00f8932f7c2755aaaa8ec2de527",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/app/api/jurnal/[id]/route.ts": {
-    "mtime": 1782906931.9784012,
-    "ast_hash": "7adad2e04ebff6d1e038c0917688f701",
+    "mtime": 1783006057.3847327,
+    "ast_hash": "6b9938e98fe66b33f48ca4ee949c335b",
     "semantic_hash": ""
   },
   "src/app/api/jurnal/calendar/route.ts": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "src/app/api/jurnal/route.ts": {
-    "mtime": 1782987705.57286,
-    "ast_hash": "674a09383a6c44cac8a3294bdf4f1e12",
+    "mtime": 1783006057.3867395,
+    "ast_hash": "bf5863cbf5f588441ea41453038f3e6b",
     "semantic_hash": ""
   },
   "src/app/api/pimpinan/[id]/route.ts": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "src/app/api/service/jurnal/[sourceId]/route.ts": {
-    "mtime": 1782906984.9372907,
-    "ast_hash": "5d4006a57b11aebc3504d2b9559c76f1",
+    "mtime": 1783006057.3867395,
+    "ast_hash": "8568b3d5e09e351fc0c1e5365c9ac61f",
     "semantic_hash": ""
   },
   "src/app/api/service/jurnal/route.ts": {
@@ -120,18 +120,18 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/get-jurnal-list.ts": {
-    "mtime": 1782987698.738699,
-    "ast_hash": "61352958234645644f57ed326417f3d8",
+    "mtime": 1783006057.3867395,
+    "ast_hash": "e89e76337d4e0250d73c7f1f23d5776a",
     "semantic_hash": ""
   },
   "src/entities/jurnal/ui/jurnal-card.tsx": {
-    "mtime": 1782919947.591263,
-    "ast_hash": "61d5ae11153c193fd3cada666ccac7da",
+    "mtime": 1783007746.1677206,
+    "ast_hash": "c0f6758c4e529110bf1bd992da6269e3",
     "semantic_hash": ""
   },
   "src/entities/jurnal/ui/jurnal-detail-modal.client.tsx": {
-    "mtime": 1782923887.322327,
-    "ast_hash": "01c1b109246381ab46143fd5e1fe502a",
+    "mtime": 1783006847.8166907,
+    "ast_hash": "9b5fb451cee7efaa44723935fd1d9af8",
     "semantic_hash": ""
   },
   "src/entities/pimpinan/api/get-pimpinan-detail.ts": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "src/entities/pimpinan/ui/leader-profile-modal.client.tsx": {
-    "mtime": 1782923913.8809223,
-    "ast_hash": "f11f983d6b3a2ee84510b72b4722be5d",
+    "mtime": 1783006057.3918166,
+    "ast_hash": "f577f798deba5b2771daf53cc302af53",
     "semantic_hash": ""
   },
   "src/features/jurnal-filter/lib/use-jurnal-filter.ts": {
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "src/features/jurnal-filter/ui/kategori-dropdown.client.tsx": {
-    "mtime": 1782907099.8433168,
-    "ast_hash": "00980f40de377cb3f8bbb2deed59b73e",
+    "mtime": 1783006833.8021348,
+    "ast_hash": "8d23848d3a318c5b6ff54dc9caaac26f",
     "semantic_hash": ""
   },
   "src/features/jurnal-filter/ui/search-bar.client.tsx": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "src/features/jurnal-sync/lib/upsert-jurnal.ts": {
-    "mtime": 1782906972.5671809,
-    "ast_hash": "f7c1ca5fdf2d80fd1ac51fc0bd63c735",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "ad23cc5f60485fd6de04454b498850fa",
     "semantic_hash": ""
   },
   "src/features/pimpinan-sync/lib/upsert-pimpinan.ts": {
@@ -190,18 +190,18 @@
     "semantic_hash": ""
   },
   "src/views/landing/index.tsx": {
-    "mtime": 1782987734.6659904,
-    "ast_hash": "2827f62793d1267d647f85c260910a42",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "375a8ebf3747bac8b6dae8237e17ef2e",
     "semantic_hash": ""
   },
   "src/widgets/calendar-widget/ui/index.tsx": {
-    "mtime": 1782918678.8653717,
-    "ast_hash": "5d6c545ea98103ae4aab488289ce2541",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "5385795f806b2edee4ac4e92205c5728",
     "semantic_hash": ""
   },
   "src/widgets/jurnal-list/ui/index.tsx": {
-    "mtime": 1782919829.0965307,
-    "ast_hash": "0dfecb15b92a54f43f3ce841de87c977",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "d9a613f5d1fad11d0c9330c72653f267",
     "semantic_hash": ""
   },
   "tailwind.config.ts": {
@@ -210,8 +210,8 @@
     "semantic_hash": ""
   },
   "tests/JurnalCard.test.tsx": {
-    "mtime": 1782908519.7026498,
-    "ast_hash": "be010ed29c452713402406c03fe1fc73",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "a941c763ff653bbe595454824f40d430",
     "semantic_hash": ""
   },
   "tests/LeaderCard.test.tsx": {
@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   "tests/public_api.test.ts": {
-    "mtime": 1782907199.0417757,
-    "ast_hash": "0477e63e97bfa40a36c85b0ca08794f0",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "f573ef5928520599b7a3fde3381a8c46",
     "semantic_hash": ""
   },
   "tests/service_auth.test.ts": {
@@ -235,8 +235,8 @@
     "semantic_hash": ""
   },
   "tests/service_jurnal.test.ts": {
-    "mtime": 1782907185.3755467,
-    "ast_hash": "e0c7ba38b42098ecf9198ec68bab47aa",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "a11fc62371d6e9c1ba2a8e7046f49941",
     "semantic_hash": ""
   },
   "tests/service_pimpinan.test.ts": {
@@ -260,13 +260,13 @@
     "semantic_hash": ""
   },
   ".agents/NEVER-DO.md": {
-    "mtime": 1782924072.1193116,
+    "mtime": 1783006057.364411,
     "ast_hash": "eccdf72a9e703118cfd691551d3fa699",
     "semantic_hash": ""
   },
   ".agents/context/CONTEXT.MD": {
-    "mtime": 1782987746.8081572,
-    "ast_hash": "0008b24c293bfefb4a110432cd222b3f",
+    "mtime": 1783006057.3674436,
+    "ast_hash": "a9c122cbab925f72ec0d2e98770e7d1f",
     "semantic_hash": ""
   },
   ".agents/employees/backend-engineer/context.md": {
@@ -275,8 +275,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/backend-engineer/memory.md": {
-    "mtime": 1782909583.527449,
-    "ast_hash": "49444fb8e47fef5ab549b54ea5dfc7b1",
+    "mtime": 1783006057.3674436,
+    "ast_hash": "fd51c5e539044028128c104b1d32f5d7",
     "semantic_hash": ""
   },
   ".agents/employees/backend-engineer/rules.md": {
@@ -320,7 +320,7 @@
     "semantic_hash": ""
   },
   ".agents/employees/explainer/memory.md": {
-    "mtime": 1782987727.6797006,
+    "mtime": 1783006057.3674436,
     "ast_hash": "40a1e2a8e9b950eba8e2583dbae1b76f",
     "semantic_hash": ""
   },
@@ -330,8 +330,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/memory.md": {
-    "mtime": 1782987801.4690156,
-    "ast_hash": "bf5091747b0b53733fcdad18e46e9f8b",
+    "mtime": 1783008306.1761086,
+    "ast_hash": "e4614c2a9ecea829d72c8f34b9665342",
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/rules.md": {
@@ -430,8 +430,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1782987755.7330174,
-    "ast_hash": "442b397cd0e9522feb9685ed1ed4d304",
+    "mtime": 1783006158.1623616,
+    "ast_hash": "347490fb2d3b81c970187f9171316128",
     "semantic_hash": ""
   },
   "docker-compose.alas.yml": {
@@ -475,28 +475,58 @@
     "semantic_hash": ""
   },
   "src/app/api/jurnal/stats/route.ts": {
-    "mtime": 1782923051.3939986,
-    "ast_hash": "85d9e4bfe7a9263579e64f634eff9300",
+    "mtime": 1783006057.3867395,
+    "ast_hash": "130d7f36e7e0a50e14ae9068bb7c5ec3",
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/get-jurnal-stats.ts": {
-    "mtime": 1782923039.9840686,
-    "ast_hash": "b685837c55262893d11c754d4c81fa81",
+    "mtime": 1783006057.3867395,
+    "ast_hash": "c8e728f1a3e937069d67b3a5221645ae",
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/bar-chart.tsx": {
-    "mtime": 1782923551.4089966,
-    "ast_hash": "3b4386eda9085d4c5a65c59faaca60ca",
+    "mtime": 1783007752.8243587,
+    "ast_hash": "03de4f9cab6d9adc7abf7697c06c0d64",
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/index.tsx": {
-    "mtime": 1782923585.404608,
-    "ast_hash": "04db84f9be3a419e9dbe4ef3528aec2d",
+    "mtime": 1783006873.386297,
+    "ast_hash": "9e1ce5b06bc78784d291c6386b3f2491",
     "semantic_hash": ""
   },
   "src/widgets/documentation-panel/ui/index.tsx": {
-    "mtime": 1782987720.0705,
-    "ast_hash": "577d1364d74b0e875c88c795867bef53",
+    "mtime": 1783006057.3922834,
+    "ast_hash": "35249eb094a5a44531036b86bf168f71",
+    "semantic_hash": ""
+  },
+  "drizzle/migrations/0001_boring_frog_thor.sql": {
+    "mtime": 1783006057.3716264,
+    "ast_hash": "5ac14fab904dcbcf54d714db9c1fe918",
+    "semantic_hash": ""
+  },
+  "drizzle/migrations/meta/0001_snapshot.json": {
+    "mtime": 1783006057.3716264,
+    "ast_hash": "c7d39d754970f684a5822ed436de9630",
+    "semantic_hash": ""
+  },
+  "src/app/api/jurnal/kategori/route.ts": {
+    "mtime": 1783006057.3867395,
+    "ast_hash": "360b954cd1208d50a6938d656af505eb",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/colors.ts": {
+    "mtime": 1783006826.2160084,
+    "ast_hash": "1593f69084fd0c8292830a46e7f000b8",
+    "semantic_hash": ""
+  },
+  "src/views/landing/hero-text-reveal.client.tsx": {
+    "mtime": 1783007536.8279653,
+    "ast_hash": "b9fbbc63102a86aa61e1c5219f5d4d84",
+    "semantic_hash": ""
+  },
+  ".agents/employees/frontend-engineer/context.md": {
+    "mtime": 1783006566.261174,
+    "ast_hash": "2c545b01f12bfdb2692a67005b36e963",
     "semantic_hash": ""
   }
 }

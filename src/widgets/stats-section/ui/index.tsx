@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useMemo, memo, useRef } from 'react'
 import { BarChart } from './bar-chart'
+import { getCategoryColor, getCategoryLabel } from '@/shared/ui/colors'
 
 interface StatsData {
   years: number[]
@@ -9,21 +10,7 @@ interface StatsData {
   stats: Record<string, number>
 }
 
-const CATEGORY_COLORS: Record<string, string> = {
-  mou:       '#7C3AED',
-  audiensi:  '#0EA5E9',
-  pelaporan: '#F59E0B',
-  sengketa:  '#EF4444',
-  lainnya:   '#6B7280',
-}
 
-const CATEGORY_LABELS: Record<string, string> = {
-  mou:       'MoU',
-  audiensi:  'Audiensi',
-  pelaporan: 'Pelaporan',
-  sengketa:  'Sengketa',
-  lainnya:   'Lainnya',
-}
 
 const ALL_CATEGORIES = ['mou', 'audiensi', 'pelaporan', 'sengketa', 'lainnya']
 
@@ -92,10 +79,10 @@ const StatsSectionInner: React.FC = () => {
     >
       {/* Ambient glow */}
       <div className="absolute top-0 right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.10) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%)' }}
       />
       <div className="absolute bottom-0 left-[-5%] w-[40vw] h-[40vw] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%)' }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-8 lg:h-full flex flex-col">
@@ -184,10 +171,10 @@ const StatsSectionInner: React.FC = () => {
                   <div key={k} className="flex items-center gap-3">
                     <span
                       className="flex-shrink-0 w-2 h-2 rounded-full"
-                      style={{ backgroundColor: CATEGORY_COLORS[k] }}
+                      style={{ backgroundColor: getCategoryColor(k) }}
                     />
                     <span className="text-xs text-white/50 font-mono w-20 flex-shrink-0">
-                      {CATEGORY_LABELS[k]}
+                      {getCategoryLabel(k)}
                     </span>
                     {/* Glass progress track */}
                     <div
@@ -201,8 +188,8 @@ const StatsSectionInner: React.FC = () => {
                         className="h-full rounded-full transition-all duration-700"
                         style={{
                           width: `${pct}%`,
-                          backgroundColor: CATEGORY_COLORS[k],
-                          boxShadow: `0 0 6px ${CATEGORY_COLORS[k]}55`,
+                          backgroundColor: getCategoryColor(k),
+                          boxShadow: `0 0 6px ${getCategoryColor(k)}55`,
                         }}
                       />
                     </div>

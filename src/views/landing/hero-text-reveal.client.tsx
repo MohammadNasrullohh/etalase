@@ -30,9 +30,7 @@ export const HeroTitleReveal: React.FC<{
   style?: React.CSSProperties
 }> = ({ className, style }) => {
   const [revealed, setRevealed] = useState<boolean[]>([false, false, false, false])
-  const [display, setDisplay] = useState<string[]>(
-    () => TITLE_CHARS.map(() => randomSymbol())
-  )
+  const [display, setDisplay] = useState<string[]>(TITLE_CHARS)
 
   // Ref agar closure tick selalu baca state terbaru (hindari stale closure)
   const displayRef = useRef<string[]>(display)
@@ -129,9 +127,7 @@ const SUBTITLE_CHARS = SUBTITLE_TEXT.split('')
 export const HeroSubtitleReveal: React.FC<{
   style?: React.CSSProperties
 }> = ({ style }) => {
-  const [display, setDisplay] = useState<string>(() =>
-    SUBTITLE_CHARS.map(c => (c === ' ' ? ' ' : randomSymbol())).join('')
-  )
+  const [display, setDisplay] = useState<string>(SUBTITLE_TEXT)
 
   const rafRef     = useRef<number | null>(null)
   const startRef   = useRef<number | null>(null)

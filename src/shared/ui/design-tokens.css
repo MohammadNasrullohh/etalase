@@ -6,6 +6,12 @@
   --color-surface: #F9F4F1;
   --color-text-muted: #C2A89A;
   
+  /* ── 4 Glass Accents ──────────────────────────────────────── */
+  --color-glass-1: #8B5CF6; /* Violet */
+  --color-glass-2: #06B6D4; /* Cyan */
+  --color-glass-3: #F59E0B; /* Amber */
+  --color-glass-4: #F2613F; /* Ember */
+  
   --color-leader-outline: rgba(255, 255, 255, 0.15);
   --card-skew: -8deg;
   

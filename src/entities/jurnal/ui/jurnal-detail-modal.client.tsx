@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { X, ExternalLink, FileText } from 'lucide-react'
+import { getCategoryColor, getCategoryLabel } from '@/shared/ui/colors'
 
 interface JurnalDetailModalProps {
   id: string | null
@@ -29,13 +30,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
 
   const item = response?.data
 
-  const KATEGORI_COLOR: Record<string, string> = {
-    mou:       '#7C3AED',
-    audiensi:  '#0EA5E9',
-    pelaporan: '#F59E0B',
-    sengketa:  '#EF4444',
-    lainnya:   '#6B7280',
-  }
+
 
   const formatDate = (dateStr: string) => {
     try {
@@ -50,7 +45,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
     }
   }
 
-  const kategoriColor = item ? (KATEGORI_COLOR[item.kategori?.toLowerCase()] ?? '#6B7280') : '#6B7280'
+  const kategoriColor = item ? getCategoryColor(item.kategori) : '#8B5CF6'
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -104,7 +99,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                   className="inline-block px-2.5 py-0.5 text-[10px] font-mono font-semibold rounded mb-3 uppercase tracking-widest"
                   style={{ background: `${kategoriColor}22`, color: kategoriColor, border: `1px solid ${kategoriColor}44` }}
                 >
-                  {item.kategori}
+                  {getCategoryLabel(item.kategori)}
                 </span>
                 <h2 className="text-xl md:text-2xl font-bold leading-tight mb-2 pr-8 text-white">
                   {item.judul}

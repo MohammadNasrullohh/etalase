@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, memo } from 'react'
+import { getCategoryColor, getCategoryLabel } from '@/shared/ui/colors'
 
 interface BarData {
   kategori: string
@@ -13,21 +14,7 @@ interface BarChartProps {
   isVisible: boolean
 }
 
-const CATEGORY_COLORS: Record<string, string> = {
-  mou:       '#7C3AED', // violet
-  audiensi:  '#0EA5E9', // sky blue
-  pelaporan: '#F59E0B', // amber
-  sengketa:  '#EF4444', // red
-  lainnya:   '#6B7280', // gray
-}
 
-const CATEGORY_LABELS: Record<string, string> = {
-  mou:       'MoU',
-  audiensi:  'Audiensi',
-  pelaporan: 'Pelaporan',
-  sengketa:  'Sengketa',
-  lainnya:   'Lainnya',
-}
 
 const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
   const svgRef = useRef<SVGSVGElement>(null)
@@ -108,8 +95,10 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('y', innerH)          // animate from bottom
         .attr('height', 0)
         .attr('rx', 4)
-        .attr('fill', d => CATEGORY_COLORS[d.kategori] ?? '#6B7280')
-        .attr('opacity', 0.85)
+        .attr('fill', d => getCategoryColor(d.kategori))
+        .attr('opacity', 0.12)
+        .attr('stroke', d => getCategoryColor(d.kategori))
+        .attr('stroke-width', '1.5px')
         .style('cursor', 'pointer')
 
       // Animate bars in
@@ -129,15 +118,15 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
           .style('left', `${event.offsetX + 12}px`)
           .style('top', `${event.offsetY - 36}px`)
           .html(
-            `<span style="color:${CATEGORY_COLORS[d.kategori]};font-weight:700">${CATEGORY_LABELS[d.kategori] ?? d.kategori}</span>` +
+            `<span style="color:${getCategoryColor(d.kategori)};font-weight:700">${getCategoryLabel(d.kategori)}</span>` +
             `<br/><span style="font-size:1.1em;font-weight:700">${d.total}</span> kegiatan` +
             `<br/><span style="opacity:0.6">${pct}% dari total</span>`
           )
-        d3.select(this).attr('opacity', 1)
+        d3.select(this).attr('opacity', 0.35)
       })
       .on('mouseleave', function() {
         d3.select(tooltipRef.current!).style('display', 'none')
-        d3.select(this).attr('opacity', 0.85)
+        d3.select(this).attr('opacity', 0.12)
       })
 
       // Value labels on top of bars
@@ -168,7 +157,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
         .attr('dy', '1.4em')
-        .text((d) => CATEGORY_LABELS[d as string] ?? d as string)
+        .text((d) => getCategoryLabel(d as string))
     })
   }, [data, isVisible])
 

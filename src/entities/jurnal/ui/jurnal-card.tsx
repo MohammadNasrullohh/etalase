@@ -1,4 +1,6 @@
 import React from 'react'
+import { getCategoryColor, getCategoryLabel, getCategoryStyle } from '@/shared/ui/colors'
+
 
 interface JurnalCardProps {
   id: string
@@ -16,30 +18,7 @@ interface JurnalCardProps {
   staggerDelay?: string
 }
 
-const categoryLabels: Record<string, string> = {
-  mou: 'MoU',
-  sengketa: 'Sengketa',
-  audiensi: 'Audiensi',
-  pelaporan: 'Pelaporan',
-  lainnya: 'Lainnya'
-}
 
-// Kategori badge — glass pill dengan warna accent
-const categoryStyles: Record<string, React.CSSProperties> = {
-  mou:       { background: 'rgba(124,58,237,0.12)', color: '#a78bfa', border: '1px solid rgba(124,58,237,0.25)' },
-  sengketa:  { background: 'rgba(236,72,153,0.10)', color: '#f472b6', border: '1px solid rgba(236,72,153,0.22)' },
-  audiensi:  { background: 'rgba(16,185,129,0.10)', color: '#34d399', border: '1px solid rgba(16,185,129,0.22)' },
-  pelaporan: { background: 'rgba(245,158,11,0.10)', color: '#fbbf24', border: '1px solid rgba(245,158,11,0.22)' },
-  lainnya:   { background: 'rgba(107,114,128,0.10)', color: '#9ca3af', border: '1px solid rgba(107,114,128,0.20)' },
-}
-
-const categoryAccentColor: Record<string, string> = {
-  mou:       '#7C3AED',
-  sengketa:  '#EC4899',
-  audiensi:  '#10B981',
-  pelaporan: '#F59E0B',
-  lainnya:   '#6B7280',
-}
 
 export const JurnalCard: React.FC<JurnalCardProps> = ({
   id,
@@ -73,8 +52,8 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
   }
 
   const pihakNames = pihak_terkait.map(p => p.nama).join(', ')
-  const tagStyle = categoryStyles[kategori] || categoryStyles.lainnya
-  const accentColor = categoryAccentColor[kategori] || categoryAccentColor.lainnya
+  const tagStyle = getCategoryStyle(kategori)
+  const accentColor = getCategoryColor(kategori)
 
   return (
     <div
@@ -89,9 +68,9 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
           : 'rgba(255,255,255,0.04)',
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
-        border: isActive
-          ? `1px solid rgba(255,255,255,0.14)`
-          : `1px solid rgba(255,255,255,0.08)`,
+        borderTop: isActive ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)',
+        borderRight: isActive ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)',
+        borderBottom: isActive ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)',
         borderLeft: `3px solid ${accentColor}`,
         boxShadow: isActive
           ? `0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.09)`
@@ -104,7 +83,9 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
         if (!isActive) {
           const el = e.currentTarget
           el.style.background = 'rgba(255,255,255,0.07)'
-          el.style.borderColor = `rgba(255,255,255,0.14)`
+          el.style.borderTopColor = 'rgba(255,255,255,0.14)'
+          el.style.borderRightColor = 'rgba(255,255,255,0.14)'
+          el.style.borderBottomColor = 'rgba(255,255,255,0.14)'
           el.style.transform = 'translateY(-2px)'
           el.style.boxShadow = `0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)`
         }
@@ -114,7 +95,9 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
         if (!isActive) {
           const el = e.currentTarget
           el.style.background = 'rgba(255,255,255,0.04)'
-          el.style.borderColor = 'rgba(255,255,255,0.08)'
+          el.style.borderTopColor = 'rgba(255,255,255,0.08)'
+          el.style.borderRightColor = 'rgba(255,255,255,0.08)'
+          el.style.borderBottomColor = 'rgba(255,255,255,0.08)'
           el.style.transform = 'translateY(0)'
           el.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.05)'
         }
@@ -127,7 +110,7 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
           className="px-2.5 py-0.5 text-xs font-mono font-medium rounded-full"
           style={tagStyle}
         >
-          {categoryLabels[kategori] || kategori}
+          {getCategoryLabel(kategori)}
         </span>
         <span className="font-mono text-xs text-[var(--color-text-muted)]">
           {formatDate(tanggal_kegiatan)}
