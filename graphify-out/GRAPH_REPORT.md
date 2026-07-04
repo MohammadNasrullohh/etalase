@@ -1,16 +1,16 @@
-# Graph Report - ALAS  (2026-07-02)
+# Graph Report - ALAS  (2026-07-03)
 
 ## Corpus Check
-- 98 files · ~71,115 words
+- 100 files · ~71,148 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 473 nodes · 556 edges · 57 communities (21 shown, 36 thin omitted)
+- 476 nodes · 557 edges · 58 communities (20 shown, 38 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `26e1b499`
+- Built from commit: `8ae14f27`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -69,6 +69,7 @@
 - [[_COMMUNITY_Community 54|Community 54]]
 - [[_COMMUNITY_Community 55|Community 55]]
 - [[_COMMUNITY_Community 56|Community 56]]
+- [[_COMMUNITY_Community 57|Community 57]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `DB` - 19 edges
@@ -97,11 +98,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (57 total, 36 thin omitted)
+## Communities (58 total, 38 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (24): getJurnalCalendar(), getJurnalDetail(), getJurnalList(), GetJurnalListParams, getPimpinanDetail(), getPimpinanList(), GET(), DB (+16 more)
+Nodes (28): getJurnalCalendar(), getJurnalDetail(), getJurnalList(), GetJurnalListParams, getJurnalStatsByYear(), getJurnalYears(), JurnalStats, getPimpinanDetail() (+20 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -117,7 +118,7 @@ Nodes (18): 5.1 Autentikasi Service API, 5.2 Public Read API, 5.3 Service API �
 
 ### Community 4 - "Community 4"
 Cohesion: 0.07
-Nodes (24): easeOutExpo(), HeroLogoReveal(), HeroSubtitleReveal(), HeroTitleReveal(), shouldFlip(), SUBTITLE_CHARS, TITLE_CHARS, LandingView() (+16 more)
+Nodes (23): easeOutExpo(), HeroLogoReveal(), HeroSubtitleReveal(), HeroTitleReveal(), shouldFlip(), SUBTITLE_CHARS, TITLE_CHARS, LandingView() (+15 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.09
@@ -155,10 +156,6 @@ Nodes (4): AGENTS.md — Dev Manager Dispatcher (Project: ALAS), 📋 Execution 
 Cohesion: 0.08
 Nodes (24): 1. Clone & Install, 1. Sinkronisasi Token Auth, 2. Alur Manajemen Aset Media (MinIO), 2. Jalankan Database, 3. Implementasi HTTP Client (Python httpx), 3. Setup Environment, 4. Jalankan Migrasi, 4. Strategi Penanganan Kegagalan Sync (Resilience) (+16 more)
 
-### Community 16 - "Community 16"
-Cohesion: 0.60
-Nodes (4): getJurnalStatsByYear(), getJurnalYears(), JurnalStats, GET()
-
 ### Community 53 - "Community 53"
 Cohesion: 0.20
 Nodes (10): 6.1 Design System, 6.2 Pages & Routes, 6.3 Landing Page Layout, 6.4 IntersectionObserver Sync, 6.5 State Management, 6.6 Detail Modal, 6.7 Dashboard Pages, 6.8 Responsive (+2 more)
@@ -172,9 +169,9 @@ Cohesion: 0.17
 Nodes (12): dependencies, d3, drizzle-orm, lucide-react, next, pg, react, react-dom (+4 more)
 
 ## Knowledge Gaps
-- **271 isolated node(s):** `extends`, `pool`, `db`, `nextConfig`, `name` (+266 more)
+- **272 isolated node(s):** `extends`, `pool`, `db`, `nextConfig`, `name` (+267 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **36 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **38 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -186,9 +183,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `PRD — ALAS (Arsip Langkah Bawaslu Kebumen)` connect `Community 1` to `Community 10`, `Community 53`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `extends`, `pool`, `db` to the rest of the system?**
-  _271 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _272 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.07219662058371736 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06564364876385337 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

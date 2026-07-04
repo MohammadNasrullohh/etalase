@@ -62,14 +62,9 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
 
   return (
     <div
-      className="calendar-widget animate-slide-right rounded-2xl"
+      className="calendar-widget animate-slide-right rounded-2xl glass-surface"
       style={{
         animationDelay: '250ms',
-        background: 'rgba(255,255,255,0.05)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255,255,255,0.09)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07), 0 4px 32px rgba(0,0,0,0.25)',
         padding: '20px',
       }}
     >
@@ -155,9 +150,12 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
                 if (highlighted) onDateClick(getFullDateString(day))
               }}
               id={`calendar-day-${getFullDateString(day)}`}
-              className="relative py-2 rounded-lg select-none transition-all duration-200"
+              className={`relative py-2 rounded-lg select-none transition-all duration-200 ${
+                highlighted ? 'cursor-pointer' : 'cursor-default'
+              } ${
+                highlighted && !currentActive ? 'hover:bg-[rgba(var(--color-ember-bright-rgb),0.15)] hover:text-[var(--color-ember-bright)]' : ''
+              }`}
               style={{
-                cursor: highlighted ? 'pointer' : 'default',
                 color: currentActive
                   ? '#ffffff'
                   : highlighted
@@ -165,26 +163,12 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
                     : 'rgba(255,255,255,0.18)',
                 fontWeight: currentActive || highlighted ? 600 : 400,
                 background: currentActive
-                  ? '#F2613F'
+                  ? 'var(--color-ember-bright)'
                   : 'transparent',
                 transform: currentActive ? 'scale(1.1)' : 'scale(1)',
                 boxShadow: currentActive
-                  ? '0 0 14px rgba(242,97,63,0.55)'
+                  ? '0 0 14px rgba(var(--color-ember-bright-rgb), 0.55)'
                   : 'none',
-              }}
-              onMouseEnter={e => {
-                if (highlighted && !currentActive) {
-                  const el = e.currentTarget
-                  el.style.background = 'rgba(242,97,63,0.15)'
-                  el.style.color = '#F2613F'
-                }
-              }}
-              onMouseLeave={e => {
-                if (highlighted && !currentActive) {
-                  const el = e.currentTarget
-                  el.style.background = 'transparent'
-                  el.style.color = 'rgba(255,255,255,0.85)'
-                }
               }}
             >
               {day}
@@ -192,7 +176,7 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
               {highlighted && !currentActive && (
                 <span
                   className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-                  style={{ background: '#F2613F', opacity: 0.7 }}
+                  style={{ background: 'var(--color-ember-bright)', opacity: 0.7 }}
                 />
               )}
             </div>

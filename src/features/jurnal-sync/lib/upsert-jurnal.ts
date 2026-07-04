@@ -20,6 +20,7 @@ interface JurnalPayload {
   custom_fields?: any[]
   tags?: any[] | null
   redaksi?: string | null
+  divisi?: string | null
 }
 
 export async function upsertJurnal(payload: JurnalPayload) {
@@ -70,6 +71,7 @@ export async function upsertJurnal(payload: JurnalPayload) {
     custom_fields: payload.custom_fields || [],
     tags: payload.tags || [],
     redaksi: payload.redaksi || null,
+    divisi: payload.divisi || null,
     is_published: true, // Default to true on publish sync
     updated_at: new Date()
   }

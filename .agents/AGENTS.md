@@ -39,6 +39,7 @@ Root cause sebelum patch. ALAS tidak punya UI authoring — setiap bug yang "ter
 - **Webhook trust boundary**: payload yang gagal verifikasi HMAC-SHA256 WAJIB di-reject di edge, bukan di-log-lalu-diproses.
 - **Reconciliation, bukan trust blind**: webhook adalah fast-path; reconciliation job adalah source-of-truth fallback. Jangan hapus reconciliation job demi "efisiensi" — itu integrity mechanism, bukan redundansi.
 - **JWT dashboard scope**: token untuk visibility dashboard read-only terhadap status dokumen; jangan expand scope ke mutasi tanpa perubahan PRD resmi via persona Planner.
+- **No Hardcoded Styling/Colors**: Jangan pernah melakukan *hardcode* warna (seperti nilai Hex `#F2613F` atau RGB `242,97,63`) dan gaya glassmorphism secara inline pada komponen. Selalu gunakan variabel CSS global (seperti `var(--color-ember-bright)` atau `var(--color-ember-bright-rgb)`) atau utilitas kelas terpusat (seperti `.glass-surface` / `.glass-subtle`) yang didefinisikan dalam `design-tokens.css`.
 
 ---
 

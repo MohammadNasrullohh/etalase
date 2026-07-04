@@ -65,13 +65,8 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
 
   return (
     <div
-      className="documentation-panel rounded-2xl mb-6"
+      className="documentation-panel rounded-2xl mb-6 glass-surface"
       style={{
-        background: 'rgba(255,255,255,0.04)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.20)',
         padding: '20px 24px',
       }}
     >
@@ -79,7 +74,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
       <div className="flex items-center gap-2 mb-4">
         <div
           className="w-1.5 h-4 rounded-full"
-          style={{ background: 'linear-gradient(to bottom, #F2613F, rgba(242,97,63,0.3))' }}
+          style={{ background: 'linear-gradient(to bottom, var(--color-ember-bright), rgba(var(--color-ember-bright-rgb), 0.3))' }}
         />
         <h3 className="text-xs font-mono uppercase tracking-wider text-white/40">
           Dokumentasi Kegiatan
@@ -93,10 +88,8 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
             {[0, 1, 2].map(i => (
               <div
                 key={i}
-                className="w-[72px] h-[96px] rounded-xl animate-pulse"
+                className="w-[72px] h-[96px] rounded-xl animate-pulse glass-subtle"
                 style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.06)',
                   animationDelay: `${i * 120}ms`,
                 }}
               />
@@ -131,28 +124,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
                 onClick={() => setSelectedPhoto(photo)}
               >
                 {/* Photo card — parallelogram + glass border */}
-                <div
-                  className="relative w-[90px] h-[120px] overflow-hidden transition-all duration-250 shadow-md"
-                  style={{
-                    transform: 'skewX(var(--card-skew))',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid rgba(255,255,255,0.10)',
-                    backdropFilter: 'blur(4px)',
-                    WebkitBackdropFilter: 'blur(4px)',
-                  }}
-                  onMouseEnter={e => {
-                    const el = e.currentTarget
-                    el.style.transform = 'skewX(var(--card-skew)) translateY(-8px)'
-                    el.style.boxShadow = '0 12px 32px rgba(242,97,63,0.22)'
-                    el.style.borderColor = 'rgba(242,97,63,0.45)'
-                  }}
-                  onMouseLeave={e => {
-                    const el = e.currentTarget
-                    el.style.transform = 'skewX(var(--card-skew)) translateY(0)'
-                    el.style.boxShadow = 'none'
-                    el.style.borderColor = 'rgba(255,255,255,0.10)'
-                  }}
-                >
+                <div className="photo-card relative w-[90px] h-[120px] overflow-hidden shadow-md">
                   {/* Inner unskewed wrapper */}
                   <div
                     className="w-full h-full relative"
@@ -272,16 +244,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
             />
 
             {/* Caption pill */}
-            <div
-              className="text-center px-5 py-2.5 rounded-2xl w-full"
-              style={{
-                background: 'rgba(255,255,255,0.06)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(255,255,255,0.09)',
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
-              }}
-            >
+            <div className="text-center px-5 py-2.5 rounded-2xl w-full glass-subtle">
               <h4 className="text-white text-sm font-bold mb-0.5">
                 {selectedPhoto.caption || 'Dokumentasi Kegiatan'}
               </h4>

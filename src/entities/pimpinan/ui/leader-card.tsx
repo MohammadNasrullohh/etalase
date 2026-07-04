@@ -26,7 +26,7 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
     >
       {/* 3x4 Parallelogram Card */}
       <div 
-        className="leader-card relative w-[90px] h-[120px] bg-neutral-900 border border-[var(--color-leader-outline)] overflow-hidden transition-all duration-200 shadow-md group-hover:-translate-y-2 group-hover:shadow-[0_8px_24px_rgba(242,97,63,0.25)]"
+        className="leader-card relative w-[90px] h-[120px] bg-neutral-900 border border-[var(--color-leader-outline)] overflow-hidden transition-all duration-200 shadow-md group-hover:-translate-y-2 group-hover:shadow-[0_8px_24px_rgba(var(--color-ember-bright-rgb),0.25)]"
         style={{
           transform: 'skewX(var(--card-skew))',
         }}

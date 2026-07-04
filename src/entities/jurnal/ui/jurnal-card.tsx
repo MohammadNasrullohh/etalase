@@ -59,48 +59,17 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
     <div
       id={`jurnal-card-${id}`}
       data-tanggal={tanggal_kegiatan}
-      className="group jurnal-card relative animate-slide-left cursor-pointer mb-4 rounded-2xl transition-all duration-300"
+      className={`group jurnal-card relative animate-slide-left cursor-pointer mb-4 rounded-2xl jurnal-card-wrapper ${isActive ? 'is-active' : ''}`}
       style={{
         animationDelay: staggerDelay,
-        // Glass base — active state sama dengan hover (white-tinted glass)
-        background: isActive
-          ? 'rgba(255,255,255,0.07)'
-          : 'rgba(255,255,255,0.04)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
-        borderTop: isActive ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)',
-        borderRight: isActive ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)',
-        borderBottom: isActive ? '1px solid rgba(255,255,255,0.14)' : '1px solid rgba(255,255,255,0.08)',
         borderLeft: `3px solid ${accentColor}`,
-        boxShadow: isActive
-          ? `0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.09)`
-          : `inset 0 1px 0 rgba(255,255,255,0.05)`,
-        transform: isActive ? 'translateY(-2px)' : 'translateY(0)',
         padding: '20px 24px',
       }}
       onClick={onClick}
-      onMouseEnter={e => {
-        if (!isActive) {
-          const el = e.currentTarget
-          el.style.background = 'rgba(255,255,255,0.07)'
-          el.style.borderTopColor = 'rgba(255,255,255,0.14)'
-          el.style.borderRightColor = 'rgba(255,255,255,0.14)'
-          el.style.borderBottomColor = 'rgba(255,255,255,0.14)'
-          el.style.transform = 'translateY(-2px)'
-          el.style.boxShadow = `0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07)`
-        }
+      onMouseEnter={() => {
         onHover?.(id, tanggal_kegiatan)
       }}
-      onMouseLeave={e => {
-        if (!isActive) {
-          const el = e.currentTarget
-          el.style.background = 'rgba(255,255,255,0.04)'
-          el.style.borderTopColor = 'rgba(255,255,255,0.08)'
-          el.style.borderRightColor = 'rgba(255,255,255,0.08)'
-          el.style.borderBottomColor = 'rgba(255,255,255,0.08)'
-          el.style.transform = 'translateY(0)'
-          el.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.05)'
-        }
+      onMouseLeave={() => {
         onLeaveHover?.()
       }}
     >
@@ -167,7 +136,8 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
 
       {/* Right dot — FuturisticLine anchor */}
       <div
-        className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#F2613F] transition-opacity duration-200 pointer-events-none group-hover:opacity-100 ${isLineTarget ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-opacity duration-200 pointer-events-none group-hover:opacity-100 ${isLineTarget ? 'opacity-100' : 'opacity-0'}`}
+        style={{ backgroundColor: 'var(--color-ember-bright)' }}
         id={`jurnal-card-dot-${id}`}
       />
     </div>

@@ -97,8 +97,8 @@ export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, active
     >
       <defs>
         <linearGradient id="fl-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#F2613F" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#F2613F" stopOpacity="0.3" />
+          <stop offset="0%" stopColor="var(--color-ember-bright)" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="var(--color-ember-bright)" stopOpacity="0.3" />
         </linearGradient>
         <filter id="fl-glow" x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -132,7 +132,7 @@ export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, active
       />
 
       {/* Titik awal — kanan card */}
-      <circle cx={x1} cy={y1} r="3.5" fill="#F2613F" filter="url(#fl-glow)" />
+      <circle cx={x1} cy={y1} r="3.5" fill="var(--color-ember-bright)" filter="url(#fl-glow)" />
 
       {/* Titik akhir — tepi kiri kotak tanggal */}
       <circle
@@ -140,11 +140,11 @@ export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, active
         cy={y2}
         r="3.5"
         fill="none"
-        stroke="#F2613F"
+        stroke="var(--color-ember-bright)"
         strokeWidth="1.5"
         filter="url(#fl-glow)"
       />
-      <circle cx={x2} cy={y2} r="1.8" fill="#F2613F" />
+      <circle cx={x2} cy={y2} r="1.8" fill="var(--color-ember-bright)" />
     </svg>
   )
 }

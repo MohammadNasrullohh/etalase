@@ -54,11 +54,7 @@ export const LeaderProfileModal: React.FC<LeaderProfileModalProps> = ({ id, isOp
 
       {/* Modal Container — dark glass theme */}
       <div
-        className="relative w-full max-w-lg rounded-xl shadow-2xl z-10 overflow-hidden animate-scale-in"
-        style={{
-          background: 'linear-gradient(135deg, #0F0F18 0%, #0C0C14 100%)',
-          border: '1px solid rgba(255,255,255,0.08)',
-        }}
+        className="relative w-full max-w-lg rounded-xl shadow-2xl z-10 overflow-hidden animate-scale-in glass-surface-strong"
       >
         {/* Close Button */}
         <button
@@ -96,7 +92,7 @@ export const LeaderProfileModal: React.FC<LeaderProfileModalProps> = ({ id, isOp
                 </div>
               )}
               {/* Dark gradient overlay at bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0F0F18] to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--color-ink)] to-transparent pointer-events-none" />
             </div>
 
             {/* Profile Info */}
@@ -104,9 +100,9 @@ export const LeaderProfileModal: React.FC<LeaderProfileModalProps> = ({ id, isOp
               <span
                 className="inline-block px-2.5 py-0.5 text-[9px] font-mono font-semibold rounded mb-2 uppercase tracking-widest"
                 style={{
-                  background: 'rgba(234,88,12,0.2)',
-                  color: 'rgb(251,146,60)',
-                  border: '1px solid rgba(234,88,12,0.3)',
+                  background: 'rgba(var(--color-ember-bright-rgb), 0.15)',
+                  color: 'var(--color-ember-bright)',
+                  border: '1px solid rgba(var(--color-ember-bright-rgb), 0.3)',
                 }}
               >
                 {p.jabatan}
@@ -116,7 +112,7 @@ export const LeaderProfileModal: React.FC<LeaderProfileModalProps> = ({ id, isOp
               </h2>
 
               <div className="flex items-center gap-1.5 font-mono text-xs mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                <Calendar className="w-3.5 h-3.5" style={{ color: 'rgb(251,146,60)' }} />
+                <Calendar className="w-3.5 h-3.5" style={{ color: 'var(--color-ember-bright)' }} />
                 <span>{formatPeriode(p.periode_mulai, p.periode_selesai)}</span>
               </div>
 

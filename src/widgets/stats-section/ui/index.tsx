@@ -12,8 +12,6 @@ interface StatsData {
 
 
 
-const ALL_CATEGORIES = ['mou', 'audiensi', 'pelaporan', 'sengketa', 'lainnya']
-
 const StatsSectionInner: React.FC = () => {
   const [data, setData]                     = useState<StatsData | null>(null)
   const [selectedYear, setSelectedYear]     = useState<number | null>(null)
@@ -60,11 +58,19 @@ const StatsSectionInner: React.FC = () => {
     fetchStats(year)
   }
 
-  const chartData = useMemo(() => ALL_CATEGORIES.map(k => ({
+  const categoriesList = useMemo(() => {
+    const defaultCats = ['mou', 'audiensi', 'pelaporan', 'sengketa']
+    const dbCats = data?.stats ? Object.keys(data.stats) : []
+    const combined = Array.from(new Set([...defaultCats, ...dbCats.map(c => c.toLowerCase())]))
+    const listWithoutLainnya = combined.filter(c => c !== 'lainnya')
+    return [...listWithoutLainnya, 'lainnya']
+  }, [data?.stats])
+
+  const chartData = useMemo(() => categoriesList.map(k => ({
     kategori: k,
     total: data?.stats?.[k] ?? 0,
   })).filter(d => d.total > 0 || (data?.stats && Object.keys(data.stats).length > 0)),
-  [data?.stats])
+  [categoriesList, data?.stats])
 
   const totalKegiatan = useMemo(
     () => chartData.reduce((acc, d) => acc + d.total, 0),
@@ -164,8 +170,10 @@ const StatsSectionInner: React.FC = () => {
 
             {/* Category legend */}
             <div className="flex flex-col gap-3">
-              {ALL_CATEGORIES.map(k => {
+              {categoriesList.map(k => {
                 const val = data?.stats?.[k] ?? 0
+                const isDefault = ['mou', 'audiensi', 'pelaporan', 'sengketa', 'lainnya'].includes(k)
+                if (!isDefault && val === 0) return null
                 const pct = totalKegiatan > 0 ? Math.round((val / totalKegiatan) * 100) : 0
                 return (
                   <div key={k} className="flex items-center gap-3">

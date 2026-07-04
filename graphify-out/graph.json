@@ -620,7 +620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "stats_route",
-      "community": 16,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "stats_route_get",
-      "community": 16,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -980,7 +980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_get_jurnal_stats",
-      "community": 16,
+      "community": 0,
       "norm_label": "get-jurnal-stats.ts"
     },
     {
@@ -990,7 +990,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "api_get_jurnal_stats_jurnalstats",
-      "community": 16,
+      "community": 0,
       "norm_label": "jurnalstats"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "api_get_jurnal_stats_getjurnalyears",
-      "community": 16,
+      "community": 0,
       "norm_label": "getjurnalyears()"
     },
     {
@@ -1010,7 +1010,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "api_get_jurnal_stats_getjurnalstatsbyyear",
-      "community": 16,
+      "community": 0,
       "norm_label": "getjurnalstatsbyyear()"
     },
     {
@@ -1397,7 +1397,7 @@
       "label": "CATEGORY_LABELS",
       "file_type": "code",
       "source_file": "src/shared/ui/colors.ts",
-      "source_location": "L18",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "ui_colors_category_labels",
       "community": 54,
@@ -1407,7 +1407,7 @@
       "label": "CATEGORY_STYLES",
       "file_type": "code",
       "source_file": "src/shared/ui/colors.ts",
-      "source_location": "L26",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "ui_colors_category_styles",
       "community": 54,
@@ -1417,7 +1417,7 @@
       "label": "getCategoryLabel()",
       "file_type": "code",
       "source_file": "src/shared/ui/colors.ts",
-      "source_location": "L34",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "ui_colors_getcategorylabel",
       "community": 54,
@@ -1427,7 +1427,7 @@
       "label": "getCategoryColor()",
       "file_type": "code",
       "source_file": "src/shared/ui/colors.ts",
-      "source_location": "L42",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "ui_colors_getcategorycolor",
       "community": 54,
@@ -1437,7 +1437,7 @@
       "label": "getCategoryStyle()",
       "file_type": "code",
       "source_file": "src/shared/ui/colors.ts",
-      "source_location": "L62",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "ui_colors_getcategorystyle",
       "community": 54,
@@ -1764,20 +1764,10 @@
       "norm_label": "statsdata"
     },
     {
-      "label": "ALL_CATEGORIES",
-      "file_type": "code",
-      "source_file": "src/widgets/stats-section/ui/index.tsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "ui_index_all_categories",
-      "community": 54,
-      "norm_label": "all_categories"
-    },
-    {
       "label": "StatsSectionInner()",
       "file_type": "code",
       "source_file": "src/widgets/stats-section/ui/index.tsx",
-      "source_location": "L17",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "ui_index_statssectioninner",
       "community": 54,
@@ -1787,10 +1777,10 @@
       "label": "StatsSection",
       "file_type": "code",
       "source_file": "src/widgets/stats-section/ui/index.tsx",
-      "source_location": "L249",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "ui_index_statssection",
-      "community": 4,
+      "community": 54,
       "norm_label": "statssection"
     },
     {
@@ -2167,7 +2157,7 @@
       "label": "\ud83d\udd04 Manager Self-Updating & Organic Employee Creation Protocol",
       "file_type": "document",
       "source_file": ".agents/AGENTS.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "agents_agents_manager_self_updating_organic_employee_creation_protocol",
       "community": 13,
@@ -2882,6 +2872,46 @@
       "id": "troubleshooter_rules_rules_troubleshooter_alas",
       "community": 49,
       "norm_label": "rules \u2014 troubleshooter (alas)"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "rules_graphify",
+      "community": 16,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "rules_graphify_graphify",
+      "community": 16,
+      "norm_label": "graphify"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "workflows_graphify",
+      "community": 57,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "Workflow: graphify",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "workflows_graphify_workflow_graphify",
+      "community": 57,
+      "norm_label": "workflow: graphify"
     },
     {
       "label": "ALAS_PRD_v1.1_final.md",
@@ -7944,16 +7974,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/widgets/stats-section/ui/index.tsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_widgets_stats_section_ui_index_tsx_ui_index",
-      "target": "ui_index_all_categories"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/widgets/stats-section/ui/index.tsx",
       "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -8649,6 +8669,26 @@
       "confidence_score": 1.0,
       "source": "troubleshooter_rules",
       "target": "troubleshooter_rules_rules_troubleshooter_alas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "rules_graphify",
+      "target": "rules_graphify_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workflows_graphify",
+      "target": "workflows_graphify_workflow_graphify"
     },
     {
       "relation": "contains",
@@ -10472,5 +10512,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "26e1b4991544fa5a9b64fc39283d60ce1db2cc77"
+  "built_at_commit": "8ae14f27ef8dc05d2bb35914240d1659637311b6"
 }
