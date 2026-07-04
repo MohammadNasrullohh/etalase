@@ -57,7 +57,7 @@
       "label": "pimpinan",
       "file_type": "code",
       "source_file": "drizzle/schema.ts",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "drizzle_schema_pimpinan",
       "community": 0,
@@ -1297,7 +1297,7 @@
       "label": "upsertJurnal()",
       "file_type": "code",
       "source_file": "src/features/jurnal-sync/lib/upsert-jurnal.ts",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "lib_upsert_jurnal_upsertjurnal",
       "community": 0,
@@ -10512,5 +10512,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8ae14f27ef8dc05d2bb35914240d1659637311b6"
+  "built_at_commit": "d301913329c263f6a0cb85d2ea51c837dc97f113"
 }
