@@ -1,16 +1,16 @@
 # Graph Report - ALAS  (2026-07-04)
 
 ## Corpus Check
-- 100 files · ~71,343 words
+- 100 files · ~71,649 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 476 nodes · 557 edges · 58 communities (20 shown, 38 thin omitted)
+- 481 nodes · 562 edges · 58 communities (20 shown, 38 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d3019133`
+- Built from commit: `2d1e384d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -102,19 +102,19 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (28): getJurnalCalendar(), getJurnalDetail(), getJurnalList(), GetJurnalListParams, getJurnalStatsByYear(), getJurnalYears(), JurnalStats, getPimpinanDetail() (+20 more)
+Nodes (25): getJurnalCalendar(), getJurnalDetail(), getJurnalList(), GetJurnalListParams, JurnalStats, getPimpinanDetail(), getPimpinanList(), GET() (+17 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.06
-Nodes (35): 10.1 Docker Compose (ALAS Stack), 10.2 Nginx Config, 10.3 Environment Variables, 10.4 Deployment Topology, 10. Infrastructure & Deployment, 11.1 Backend — Webhook & API, 11.2 Integration Tests, 11.3 Frontend Tests (+27 more)
+Cohesion: 0.04
+Nodes (45): 10.1 Docker Compose (ALAS Stack), 10.2 Nginx Config, 10.3 Environment Variables, 10.4 Deployment Topology, 10. Infrastructure & Deployment, 11.1 Backend — Webhook & API, 11.2 Integration Tests, 11.3 Frontend Tests (+37 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.05
 Nodes (38): 1. Arsitektur Komunikasi, 2. Service API Auth, 3. Service API Endpoints (ALAS), 4. Error Responses, 5. MinIO — Setup `alas-public-assets`, 6.1 New Files (Lawet Hub), 6.2 ALAS Service Client, 6.3 Publish Flow (+30 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.11
-Nodes (18): 5.1 Autentikasi Service API, 5.2 Public Read API, 5.3 Service API — Pimpinan (Lawet Hub → ALAS, Bearer token required), 5.4 Response Error Codes, 5.4 Service API — Jurnal (Lawet Hub → ALAS, Bearer token required), 5. Integration Contract, `DELETE /api/service/jurnal/{source_id}` — Soft Delete, `GET /api/health` (+10 more)
+Cohesion: 0.06
+Nodes (31): 1. Background & Problem Statement, 2. Goals & Non-Goals, 3.1 Sync Mechanism — Direct Service API, 3.2 Sequence Flows, 3.3 Storage Strategy, 3. System Architecture, 4.1 ALAS — PostgreSQL (schema `alas`), 4.2 `pimpinan` Table (+23 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.07
@@ -137,8 +137,8 @@ Cohesion: 0.18
 Nodes (10): 1. Root Cause kenapa ini dipaksakan, 2. Struktur Direktori (ALAS-specific), 3. Path Alias (wajib, bukan opsional), 4. Import Boundary — Enforcement, bukan Trust, 5. Server/Client Component Boundary (tidak ada di artikel — spesifik App Router), 6. Public API Pattern — dengan Caveat Bundle Size, 7. Docker Layer Caching — Efek Samping FSD yang Bisa Dieksploitasi, 8. Segment Discipline (+2 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.08
-Nodes (23): 1. Background & Problem Statement, 2. Goals & Non-Goals, 3.1 Sync Mechanism — Direct Service API, 3.2 Sequence Flows, 3.3 Storage Strategy, 3. System Architecture, 4.1 ALAS — PostgreSQL (schema `alas`), 4.2 `pimpinan` Table (+15 more)
+Cohesion: 0.20
+Nodes (10): 6.1 Design System, 6.2 Pages & Routes (ALAS Only), 6.3 Landing Page Layout, 6.4 Leadership Panel, 6.5 Animation Specification, 6. Frontend Specification, Interaction Animations, Opening Animation (page load) (+2 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.22
@@ -153,12 +153,12 @@ Cohesion: 0.40
 Nodes (4): AGENTS.md — Dev Manager Dispatcher (Project: ALAS), 📋 Execution Protocol, 🔄 Manager Self-Updating & Organic Employee Creation Protocol, 🔒 Non-Negotiable Guardrails (spesifik ALAS)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.08
-Nodes (24): 1. Clone & Install, 1. Sinkronisasi Token Auth, 2. Alur Manajemen Aset Media (MinIO), 2. Jalankan Database, 3. Implementasi HTTP Client (Python httpx), 3. Setup Environment, 4. Jalankan Migrasi, 4. Strategi Penanganan Kegagalan Sync (Resilience) (+16 more)
+Cohesion: 0.06
+Nodes (29): 1. Clone & Install, 1. Clone repositori ke server, 1. Sinkronisasi Token Auth, 2. Alur Manajemen Aset Media (MinIO), 2. Jalankan Database, 2. Setup Environment Variables, 3. Implementasi HTTP Client (Python httpx), 3. Jalankan Container (+21 more)
 
 ### Community 53 - "Community 53"
-Cohesion: 0.20
-Nodes (10): 6.1 Design System, 6.2 Pages & Routes, 6.3 Landing Page Layout, 6.4 IntersectionObserver Sync, 6.5 State Management, 6.6 Detail Modal, 6.7 Dashboard Pages, 6.8 Responsive (+2 more)
+Cohesion: 0.83
+Nodes (3): getJurnalStatsByYear(), getJurnalYears(), GET()
 
 ### Community 54 - "Community 54"
 Cohesion: 0.15
@@ -169,7 +169,7 @@ Cohesion: 0.17
 Nodes (12): dependencies, d3, drizzle-orm, lucide-react, next, pg, react, react-dom (+4 more)
 
 ## Knowledge Gaps
-- **272 isolated node(s):** `extends`, `pool`, `db`, `nextConfig`, `name` (+267 more)
+- **277 isolated node(s):** `extends`, `pool`, `db`, `nextConfig`, `name` (+272 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **38 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -177,16 +177,16 @@ Nodes (12): dependencies, d3, drizzle-orm, lucide-react, next, pg, react, react-
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `ALAS — Arsip Langkah Bawaslu Kebumen` connect `Community 15` to `Community 11`, `Community 6`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `INTEGRATION.md — Kontrak Integrasi ALAS ↔ Lawet Hub` connect `Community 2` to `Community 15`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Why does `PRD — ALAS (Arsip Langkah Bawaslu Kebumen)` connect `Community 1` to `Community 10`, `Community 53`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+- **Why does `PRD — ALAS (Arsip Langkah Bawaslu Kebumen)` connect `Community 1` to `Community 10`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `extends`, `pool`, `db` to the rest of the system?**
-  _272 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _277 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.06564364876385337 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07019230769230769 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.043478260869565216 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._

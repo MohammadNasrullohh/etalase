@@ -620,7 +620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "stats_route",
-      "community": 0,
+      "community": 53,
       "norm_label": "route.ts"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "stats_route_get",
-      "community": 0,
+      "community": 53,
       "norm_label": "get()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "api_get_jurnal_stats_getjurnalyears",
-      "community": 0,
+      "community": 53,
       "norm_label": "getjurnalyears()"
     },
     {
@@ -1010,7 +1010,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "api_get_jurnal_stats_getjurnalstatsbyyear",
-      "community": 0,
+      "community": 53,
       "norm_label": "getjurnalstatsbyyear()"
     },
     {
@@ -3130,7 +3130,7 @@
       "source_location": "L374",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_frontend_specification",
-      "community": 53,
+      "community": 1,
       "norm_label": "6. frontend specification"
     },
     {
@@ -3140,7 +3140,7 @@
       "source_location": "L376",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_1_design_system",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.1 design system"
     },
     {
@@ -3150,7 +3150,7 @@
       "source_location": "L405",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_2_pages_routes",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.2 pages & routes"
     },
     {
@@ -3160,7 +3160,7 @@
       "source_location": "L414",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_3_landing_page_layout",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.3 landing page layout"
     },
     {
@@ -3170,7 +3170,7 @@
       "source_location": "L444",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_4_intersectionobserver_sync",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.4 intersectionobserver sync"
     },
     {
@@ -3180,7 +3180,7 @@
       "source_location": "L464",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_5_state_management",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.5 state management"
     },
     {
@@ -3190,7 +3190,7 @@
       "source_location": "L477",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_6_detail_modal",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.6 detail modal"
     },
     {
@@ -3200,7 +3200,7 @@
       "source_location": "L489",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_7_dashboard_pages",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.7 dashboard pages"
     },
     {
@@ -3210,7 +3210,7 @@
       "source_location": "L538",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_8_responsive",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.8 responsive"
     },
     {
@@ -3220,7 +3220,7 @@
       "source_location": "L545",
       "_origin": "ast",
       "id": "alas_prd_v1_1_final_6_9_performance_budget",
-      "community": 53,
+      "community": 1,
       "norm_label": "6.9 performance budget"
     },
     {
@@ -3470,7 +3470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "alas_prd_v1_2",
-      "community": 9,
+      "community": 3,
       "norm_label": "alas_prd_v1.2.md"
     },
     {
@@ -3480,7 +3480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "alas_prd_v1_2_prd_alas_arsip_langkah_bawaslu_kebumen",
-      "community": 9,
+      "community": 3,
       "norm_label": "prd \u2014 alas (arsip langkah bawaslu kebumen)"
     },
     {
@@ -3490,7 +3490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "alas_prd_v1_2_1_background_problem_statement",
-      "community": 9,
+      "community": 3,
       "norm_label": "1. background & problem statement"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "alas_prd_v1_2_2_goals_non_goals",
-      "community": 9,
+      "community": 3,
       "norm_label": "2. goals & non-goals"
     },
     {
@@ -3510,7 +3510,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_system_architecture",
-      "community": 9,
+      "community": 3,
       "norm_label": "3. system architecture"
     },
     {
@@ -3520,7 +3520,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_1_sync_mechanism_direct_service_api",
-      "community": 9,
+      "community": 3,
       "norm_label": "3.1 sync mechanism \u2014 direct service api"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_2_sequence_flows",
-      "community": 9,
+      "community": 3,
       "norm_label": "3.2 sequence flows"
     },
     {
@@ -3540,7 +3540,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "alas_prd_v1_2_3_3_storage_strategy",
-      "community": 9,
+      "community": 3,
       "norm_label": "3.3 storage strategy"
     },
     {
@@ -3550,7 +3550,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_data_model",
-      "community": 9,
+      "community": 3,
       "norm_label": "4. data model"
     },
     {
@@ -3560,7 +3560,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_1_alas_postgresql_schema_alas",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.1 alas \u2014 postgresql (schema `alas`)"
     },
     {
@@ -3570,7 +3570,7 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_2_pimpinan_table",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.2 `pimpinan` table"
     },
     {
@@ -3580,7 +3580,7 @@
       "source_location": "L188",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_3_dokumen_pendukung_jsonb_item_schema",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.3 `dokumen_pendukung` jsonb item schema"
     },
     {
@@ -3590,7 +3590,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "alas_prd_v1_2_4_4_index_strategy",
-      "community": 9,
+      "community": 3,
       "norm_label": "4.4 index strategy"
     },
     {
@@ -3880,7 +3880,7 @@
       "source_location": "L1015",
       "_origin": "ast",
       "id": "alas_prd_v1_2_docker_compose_alas_yml",
-      "community": 9,
+      "community": 3,
       "norm_label": "docker-compose.alas.yml"
     },
     {
@@ -4427,7 +4427,7 @@
       "label": "API & Integrasi Lengkap",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L181",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "readme_api_integrasi_lengkap",
       "community": 15,
@@ -4437,7 +4437,7 @@
       "label": "1. API Publik (Unauthenticated)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L187",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "readme_1_api_publik_unauthenticated",
       "community": 6,
@@ -4447,7 +4447,7 @@
       "label": "A. Jurnal & Kegiatan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L191",
+      "source_location": "L189",
       "_origin": "ast",
       "id": "readme_a_jurnal_kegiatan",
       "community": 6,
@@ -4457,7 +4457,7 @@
       "label": "1. List Jurnal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L193",
+      "source_location": "L191",
       "_origin": "ast",
       "id": "readme_1_list_jurnal",
       "community": 6,
@@ -4467,7 +4467,7 @@
       "label": "2. Detail Jurnal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L223",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "readme_2_detail_jurnal",
       "community": 6,
@@ -4477,7 +4477,7 @@
       "label": "3. Kalender Kegiatan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L248",
+      "source_location": "L246",
       "_origin": "ast",
       "id": "readme_3_kalender_kegiatan",
       "community": 6,
@@ -4487,7 +4487,7 @@
       "label": "4. Statistik & Rekapitulasi Tahunan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L263",
+      "source_location": "L261",
       "_origin": "ast",
       "id": "readme_4_statistik_rekapitulasi_tahunan",
       "community": 6,
@@ -4497,7 +4497,7 @@
       "label": "5. List Kategori Jurnal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L283",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "readme_5_list_kategori_jurnal",
       "community": 6,
@@ -4507,7 +4507,7 @@
       "label": "B. Profil Pimpinan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L295",
+      "source_location": "L293",
       "_origin": "ast",
       "id": "readme_b_profil_pimpinan",
       "community": 6,
@@ -4517,7 +4517,7 @@
       "label": "1. List Pimpinan Aktif",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L297",
+      "source_location": "L295",
       "_origin": "ast",
       "id": "readme_1_list_pimpinan_aktif",
       "community": 6,
@@ -4527,7 +4527,7 @@
       "label": "2. Detail Profil Pimpinan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L318",
+      "source_location": "L316",
       "_origin": "ast",
       "id": "readme_2_detail_profil_pimpinan",
       "community": 6,
@@ -4537,7 +4537,7 @@
       "label": "C. System Utility",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L323",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "readme_c_system_utility",
       "community": 6,
@@ -4547,7 +4547,7 @@
       "label": "1. Health Check",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L325",
+      "source_location": "L323",
       "_origin": "ast",
       "id": "readme_1_health_check",
       "community": 6,
@@ -4557,7 +4557,7 @@
       "label": "2. Service API (Bearer-Protected)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L337",
+      "source_location": "L335",
       "_origin": "ast",
       "id": "readme_2_service_api_bearer_protected",
       "community": 11,
@@ -4567,7 +4567,7 @@
       "label": "A. Jurnal & Dokumentasi",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L345",
+      "source_location": "L343",
       "_origin": "ast",
       "id": "readme_a_jurnal_dokumentasi",
       "community": 11,
@@ -4577,7 +4577,7 @@
       "label": "1. Create atau Upsert Jurnal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L347",
+      "source_location": "L345",
       "_origin": "ast",
       "id": "readme_1_create_atau_upsert_jurnal",
       "community": 11,
@@ -4587,7 +4587,7 @@
       "label": "2. Update Parsial Jurnal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L387",
+      "source_location": "L385",
       "_origin": "ast",
       "id": "readme_2_update_parsial_jurnal",
       "community": 11,
@@ -4597,7 +4597,7 @@
       "label": "3. Toggle Visibilitas Dokumen Pendukung",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L396",
+      "source_location": "L394",
       "_origin": "ast",
       "id": "readme_3_toggle_visibilitas_dokumen_pendukung",
       "community": 11,
@@ -4607,7 +4607,7 @@
       "label": "4. Detail Jurnal Internal (View Admin)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L415",
+      "source_location": "L413",
       "_origin": "ast",
       "id": "readme_4_detail_jurnal_internal_view_admin",
       "community": 11,
@@ -4617,7 +4617,7 @@
       "label": "5. List Semua Jurnal (Published & Draft)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L419",
+      "source_location": "L417",
       "_origin": "ast",
       "id": "readme_5_list_semua_jurnal_published_draft",
       "community": 11,
@@ -4627,7 +4627,7 @@
       "label": "6. Soft Delete Jurnal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L422",
+      "source_location": "L420",
       "_origin": "ast",
       "id": "readme_6_soft_delete_jurnal",
       "community": 11,
@@ -4637,7 +4637,7 @@
       "label": "B. Manajemen Pimpinan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L428",
+      "source_location": "L426",
       "_origin": "ast",
       "id": "readme_b_manajemen_pimpinan",
       "community": 11,
@@ -4647,7 +4647,7 @@
       "label": "1. Create atau Upsert Pimpinan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L430",
+      "source_location": "L428",
       "_origin": "ast",
       "id": "readme_1_create_atau_upsert_pimpinan",
       "community": 11,
@@ -4657,7 +4657,7 @@
       "label": "2. Update Profil Pimpinan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L446",
+      "source_location": "L444",
       "_origin": "ast",
       "id": "readme_2_update_profil_pimpinan",
       "community": 11,
@@ -4667,7 +4667,7 @@
       "label": "3. Soft Delete Pimpinan",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L449",
+      "source_location": "L447",
       "_origin": "ast",
       "id": "readme_3_soft_delete_pimpinan",
       "community": 11,
@@ -4677,7 +4677,7 @@
       "label": "Cara Integrasi Lawet Hub \u2794 ALAS",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L455",
+      "source_location": "L453",
       "_origin": "ast",
       "id": "readme_cara_integrasi_lawet_hub_alas",
       "community": 15,
@@ -4687,7 +4687,7 @@
       "label": "1. Sinkronisasi Token Auth",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L459",
+      "source_location": "L457",
       "_origin": "ast",
       "id": "readme_1_sinkronisasi_token_auth",
       "community": 15,
@@ -4697,7 +4697,7 @@
       "label": "2. Alur Manajemen Aset Media (MinIO)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L477",
+      "source_location": "L475",
       "_origin": "ast",
       "id": "readme_2_alur_manajemen_aset_media_minio",
       "community": 15,
@@ -4707,7 +4707,7 @@
       "label": "3. Implementasi HTTP Client (Python httpx)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L486",
+      "source_location": "L484",
       "_origin": "ast",
       "id": "readme_3_implementasi_http_client_python_httpx",
       "community": 15,
@@ -4717,27 +4717,77 @@
       "label": "4. Strategi Penanganan Kegagalan Sync (Resilience)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L524",
+      "source_location": "L522",
       "_origin": "ast",
       "id": "readme_4_strategi_penanganan_kegagalan_sync_resilience",
       "community": 15,
       "norm_label": "4. strategi penanganan kegagalan sync (resilience)"
     },
     {
-      "label": "Deploy (Docker)",
+      "label": "Deploy (Docker - Produksi dengan GHCR)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L532",
+      "source_location": "L530",
       "_origin": "ast",
-      "id": "readme_deploy_docker",
+      "id": "readme_deploy_docker_produksi_dengan_ghcr",
       "community": 15,
-      "norm_label": "deploy (docker)"
+      "norm_label": "deploy (docker - produksi dengan ghcr)"
+    },
+    {
+      "label": "1. Clone repositori ke server",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L534",
+      "_origin": "ast",
+      "id": "readme_1_clone_repositori_ke_server",
+      "community": 15,
+      "norm_label": "1. clone repositori ke server"
+    },
+    {
+      "label": "2. Setup Environment Variables",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L540",
+      "_origin": "ast",
+      "id": "readme_2_setup_environment_variables",
+      "community": 15,
+      "norm_label": "2. setup environment variables"
+    },
+    {
+      "label": "3. Jalankan Container",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L547",
+      "_origin": "ast",
+      "id": "readme_3_jalankan_container",
+      "community": 15,
+      "norm_label": "3. jalankan container"
+    },
+    {
+      "label": "4. Jalankan Migrasi Database",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L556",
+      "_origin": "ast",
+      "id": "readme_4_jalankan_migrasi_database",
+      "community": 15,
+      "norm_label": "4. jalankan migrasi database"
+    },
+    {
+      "label": "Services yang dijalankan:",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L567",
+      "_origin": "ast",
+      "id": "readme_services_yang_dijalankan",
+      "community": 15,
+      "norm_label": "services yang dijalankan:"
     },
     {
       "label": "Health Check",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L558",
+      "source_location": "L577",
       "_origin": "ast",
       "id": "readme_health_check",
       "community": 15,
@@ -4747,7 +4797,7 @@
       "label": "Testing",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L567",
+      "source_location": "L586",
       "_origin": "ast",
       "id": "readme_testing",
       "community": 15,
@@ -4757,7 +4807,7 @@
       "label": "Kontributor",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L579",
+      "source_location": "L598",
       "_origin": "ast",
       "id": "readme_kontributor",
       "community": 15,
@@ -10104,11 +10154,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L338",
+      "source_location": "L530",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "readme_alas_arsip_langkah_bawaslu_kebumen",
-      "target": "readme_deploy_docker"
+      "target": "readme_deploy_docker_produksi_dengan_ghcr",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10504,13 +10554,63 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L364",
+      "source_location": "L534",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_deploy_docker",
-      "target": "readme_health_check"
+      "source": "readme_deploy_docker_produksi_dengan_ghcr",
+      "target": "readme_1_clone_repositori_ke_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L540",
+      "weight": 1.0,
+      "source": "readme_deploy_docker_produksi_dengan_ghcr",
+      "target": "readme_2_setup_environment_variables",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L547",
+      "weight": 1.0,
+      "source": "readme_deploy_docker_produksi_dengan_ghcr",
+      "target": "readme_3_jalankan_container",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L556",
+      "weight": 1.0,
+      "source": "readme_deploy_docker_produksi_dengan_ghcr",
+      "target": "readme_4_jalankan_migrasi_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L577",
+      "weight": 1.0,
+      "source": "readme_deploy_docker_produksi_dengan_ghcr",
+      "target": "readme_health_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L567",
+      "weight": 1.0,
+      "source": "readme_deploy_docker_produksi_dengan_ghcr",
+      "target": "readme_services_yang_dijalankan",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d301913329c263f6a0cb85d2ea51c837dc97f113"
+  "built_at_commit": "2d1e384d5b1f6126434abf27b249e7ebb87c9216"
 }

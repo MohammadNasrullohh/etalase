@@ -167,9 +167,7 @@ DATABASE_URL=postgresql://alas_user:<password>@alas-db:5432/alas
 ALAS_SERVICE_TOKEN=<generated-token>
 
 # Integration URLs
-LAWET_HUB_ADMIN_URL=https://lawethub.pusdakum.web.id/superadmin/jurnal-alas
-NEXT_PUBLIC_MINIO_PUBLIC_ENDPOINT=https://media.domain.com
-NEXT_PUBLIC_ALAS_API_URL=https://alas.bawaslu-kebumen.go.id/api
+NEXT_PUBLIC_LAWET_HUB_ADMIN_URL=https://lawethub.pusdakum.web.id/superadmin/jurnal-alas
 
 # Sentry (opsional)
 SENTRY_DSN=
@@ -529,36 +527,57 @@ Integrasi ini menggunakan pendekatan **Data Integrity > Sync Consistency**:
 
 ---
 
-## Deploy (Docker)
+## Deploy (Docker - Produksi dengan GHCR)
 
+Aplikasi di-deploy menggunakan image yang sudah di-build secara otomatis oleh GitHub Actions CI/CD dan disimpan di GitHub Container Registry (GHCR).
+
+### 1. Clone repositori ke server
 ```bash
-# 1. Clone dan setup env
 git clone https://github.com/naxprmn/alas.git
 cd alas
-cp .env.example .env
-# Edit .env dengan nilai produksi
-
-# 2. Build dan jalankan semua service
-docker compose -f docker-compose.alas.yml up -d --build
-
-# 3. Jalankan migrasi DB
-docker exec alas-app npx drizzle-kit migrate
 ```
 
-**Services yang dijalankan:**
+### 2. Setup Environment Variables
+Buat berkas `.env` di root direktori aplikasi:
+```bash
+cp .env.example .env
+# Edit .env dengan nilai produksi Anda
+```
+
+### 3. Jalankan Container
+```bash
+# Tarik image terbaru dari GHCR
+docker compose -f docker-compose.prod.yml pull
+
+# Jalankan service secara background
+docker compose -f docker-compose.prod.yml up -d
+```
+
+### 4. Jalankan Migrasi Database
+Karena container produksi (`alas-app`) tidak memuat developer tools bawaan, jalankan migrasi menggunakan container Node temporary:
+```bash
+docker run --rm \
+  --network alas_alas-net \
+  -v ${PWD}:/app \
+  -w /app \
+  node:20-slim \
+  sh -c "npm install drizzle-kit pg && npx drizzle-kit migrate"
+```
+
+### Services yang dijalankan:
 
 | Container | Port Host | Keterangan |
 |---|---|---|
 | `alas-app` | 3001 | Next.js app |
-| `alas-nginx` | 2006 | Reverse proxy ke alas-app |
+| `alas-nginx` | 2006 | Reverse proxy + Rate Limiter ke alas-app |
 | `alas-db` | 5433 | PostgreSQL 16 |
 
-Cloudflare Tunnel mengarah ke `alas-nginx:2006` untuk domain `alas.bawaslu-kebumen.go.id`.
+Arahkan Cloudflare Tunnel atau reverse proxy server Anda ke port host **`2006`** (Nginx) untuk domain publik Anda (misalnya `alas.pusdakum.web.id`).
 
 ### Health Check
 
 ```bash
-curl https://alas.bawaslu-kebumen.go.id/api/health
+curl https://alas.pusdakum.web.id/api/health
 # {"status":"ok","db_connected":true}
 ```
 
