@@ -31,9 +31,7 @@ services:
     environment:
       DATABASE_URL: postgresql://alas_user:change-this-strong-password@alas-db:5432/alas
       ALAS_SERVICE_TOKEN: ${ALAS_SERVICE_TOKEN}
-      LAWET_HUB_ADMIN_URL: https://lawethub.pusdakum.web.id/superadmin/jurnal-alas
-      NEXT_PUBLIC_MINIO_PUBLIC_ENDPOINT: https://media.domain.com
-      NEXT_PUBLIC_ALAS_API_URL: https://alas.bawaslu-kebumen.go.id/api
+      NEXT_PUBLIC_LAWET_HUB_ADMIN_URL: ${NEXT_PUBLIC_LAWET_HUB_ADMIN_URL:-https://lawethub.pusdakum.web.id/superadmin/jurnal-alas}
     depends_on:
       alas-db:
         condition: service_healthy

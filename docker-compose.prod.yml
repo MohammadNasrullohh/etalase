@@ -29,9 +29,7 @@ services:
     environment:
       DATABASE_URL: ${DATABASE_URL}
       ALAS_SERVICE_TOKEN: ${ALAS_SERVICE_TOKEN}
-      LAWET_HUB_ADMIN_URL: ${LAWET_HUB_ADMIN_URL:-https://lawethub.pusdakum.web.id/superadmin/jurnal-alas}
-      NEXT_PUBLIC_MINIO_PUBLIC_ENDPOINT: ${NEXT_PUBLIC_MINIO_PUBLIC_ENDPOINT:-https://media.domain.com}
-      NEXT_PUBLIC_ALAS_API_URL: ${NEXT_PUBLIC_ALAS_API_URL:-https://alas.bawaslu-kebumen.go.id/api}
+      NEXT_PUBLIC_LAWET_HUB_ADMIN_URL: ${NEXT_PUBLIC_LAWET_HUB_ADMIN_URL}
     depends_on:
       alas-db:
         condition: service_healthy
