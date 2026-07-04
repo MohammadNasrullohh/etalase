@@ -867,7 +867,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L12",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "app_layout_rootlayout",
       "community": 14,
@@ -10156,9 +10156,9 @@
       "source_file": "README.md",
       "source_location": "L530",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_alas_arsip_langkah_bawaslu_kebumen",
-      "target": "readme_deploy_docker_produksi_dengan_ghcr",
-      "confidence_score": 1.0
+      "target": "readme_deploy_docker_produksi_dengan_ghcr"
     },
     {
       "relation": "contains",
@@ -10556,9 +10556,9 @@
       "source_file": "README.md",
       "source_location": "L534",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_deploy_docker_produksi_dengan_ghcr",
-      "target": "readme_1_clone_repositori_ke_server",
-      "confidence_score": 1.0
+      "target": "readme_1_clone_repositori_ke_server"
     },
     {
       "relation": "contains",
@@ -10566,9 +10566,9 @@
       "source_file": "README.md",
       "source_location": "L540",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_deploy_docker_produksi_dengan_ghcr",
-      "target": "readme_2_setup_environment_variables",
-      "confidence_score": 1.0
+      "target": "readme_2_setup_environment_variables"
     },
     {
       "relation": "contains",
@@ -10576,9 +10576,9 @@
       "source_file": "README.md",
       "source_location": "L547",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_deploy_docker_produksi_dengan_ghcr",
-      "target": "readme_3_jalankan_container",
-      "confidence_score": 1.0
+      "target": "readme_3_jalankan_container"
     },
     {
       "relation": "contains",
@@ -10586,9 +10586,9 @@
       "source_file": "README.md",
       "source_location": "L556",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_deploy_docker_produksi_dengan_ghcr",
-      "target": "readme_4_jalankan_migrasi_database",
-      "confidence_score": 1.0
+      "target": "readme_4_jalankan_migrasi_database"
     },
     {
       "relation": "contains",
@@ -10596,9 +10596,9 @@
       "source_file": "README.md",
       "source_location": "L577",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_deploy_docker_produksi_dengan_ghcr",
-      "target": "readme_health_check",
-      "confidence_score": 1.0
+      "target": "readme_health_check"
     },
     {
       "relation": "contains",
@@ -10606,11 +10606,11 @@
       "source_file": "README.md",
       "source_location": "L567",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "readme_deploy_docker_produksi_dengan_ghcr",
-      "target": "readme_services_yang_dijalankan",
-      "confidence_score": 1.0
+      "target": "readme_services_yang_dijalankan"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2d1e384d5b1f6126434abf27b249e7ebb87c9216"
+  "built_at_commit": "e3899bb933cf8dc50cad2bbfa4602ec8eb2ec6f3"
 }

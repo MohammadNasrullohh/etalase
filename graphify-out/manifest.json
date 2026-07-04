@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1782906681.2855368,
-    "ast_hash": "824fd92e1d5c94013d5ae22155dc3000",
+    "mtime": 1783155992.7359164,
+    "ast_hash": "2c40ba63fac595bf465caeb266634f44",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
@@ -330,8 +330,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/memory.md": {
-    "mtime": 1783153034.810492,
-    "ast_hash": "0058f775954e93059b119995a0b4a4c2",
+    "mtime": 1783156023.9261937,
+    "ast_hash": "7a16949526d29ad746c53490bf63a36b",
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/rules.md": {
@@ -430,23 +430,13 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783154332.6008613,
+    "mtime": 1783154351.069711,
     "ast_hash": "92c510f1d84d1ea1af00f199dffdab09",
     "semantic_hash": ""
   },
   "docker-compose.alas.yml": {
     "mtime": 1783153706.110427,
     "ast_hash": "c73f86ae1cec3ff8522f9f2371c93634",
-    "semantic_hash": ""
-  },
-  "public/next.svg": {
-    "mtime": 1782906681.2490628,
-    "ast_hash": "8e061864f388b47f33a1c3780831193e",
-    "semantic_hash": ""
-  },
-  "public/vercel.svg": {
-    "mtime": 1782906681.2617593,
-    "ast_hash": "61c6b19abff40ea7acd577be818f3976",
     "semantic_hash": ""
   },
   "drizzle/seed.ts": {
