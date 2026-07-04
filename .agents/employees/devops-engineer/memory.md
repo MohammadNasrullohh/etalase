@@ -6,3 +6,5 @@ Log memory persona (maks 10 baris):
 - Enabled standalone build output in next.config.mjs.
 - Set up nginx/alas.conf with rate limiting zones.
 - Created .env.example template.
+- Configured GitHub Actions CI/CD to build/push Docker images to GHCR.
+- Created docker-compose.prod.yml to pull and deploy GHCR image.
