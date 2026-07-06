@@ -57,7 +57,7 @@ describe('Public API Queries Integration', () => {
   })
 
   it('should list only published items', async () => {
-    const list = await getJurnalList({ limit: 10 })
+    const list = await getJurnalList({ limit: 50 })
     
     const hasSource1 = list.some(item => item.source_id === source1)
     const hasSource2 = list.some(item => item.source_id === source2)
