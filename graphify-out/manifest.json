@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "drizzle/migrations/meta/_journal.json": {
-    "mtime": 1783006057.3716264,
-    "ast_hash": "fa9df5cff4b61e125ab42d3773c7ec3c",
+    "mtime": 1783308300.622464,
+    "ast_hash": "279c4578074202f0a4e9239ab3049829",
     "semantic_hash": ""
   },
   "drizzle/schema.ts": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1783155992.7359164,
-    "ast_hash": "2c40ba63fac595bf465caeb266634f44",
+    "mtime": 1783156093.283231,
+    "ast_hash": "ad11ab1719b8bcd8d04aaefd50675f51",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
@@ -225,8 +225,8 @@
     "semantic_hash": ""
   },
   "tests/public_api.test.ts": {
-    "mtime": 1783006057.3922834,
-    "ast_hash": "f573ef5928520599b7a3fde3381a8c46",
+    "mtime": 1783308939.924684,
+    "ast_hash": "167bf62864b9f3d4818661e20900da1e",
     "semantic_hash": ""
   },
   "tests/service_auth.test.ts": {
@@ -330,8 +330,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/memory.md": {
-    "mtime": 1783156023.9261937,
-    "ast_hash": "7a16949526d29ad746c53490bf63a36b",
+    "mtime": 1783156093.278887,
+    "ast_hash": "144fb9a9cd4b74d67f79e72387ac0b01",
     "semantic_hash": ""
   },
   ".agents/employees/frontend-engineer/rules.md": {
@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   ".agents/employees/release-manager/memory.md": {
-    "mtime": 1783153060.478021,
-    "ast_hash": "0507efdaccee9af051b90274df557574",
+    "mtime": 1783156100.3864586,
+    "ast_hash": "38728ba79de96ab59b6ca93983fce377",
     "semantic_hash": ""
   },
   ".agents/employees/release-manager/rules.md": {
@@ -537,6 +537,16 @@
   "docker-compose.prod.yml": {
     "mtime": 1783153706.1114187,
     "ast_hash": "7ed9eeff2403242defeb18f2cd576b84",
+    "semantic_hash": ""
+  },
+  "drizzle/migrations/0002_late_thunderbolt.sql": {
+    "mtime": 1783308300.6229763,
+    "ast_hash": "9c1db70bc95f1e2bf820f397b0dcca94",
+    "semantic_hash": ""
+  },
+  "drizzle/migrations/meta/0002_snapshot.json": {
+    "mtime": 1783308300.622464,
+    "ast_hash": "3a017636bdaec4070bac009476981e8a",
     "semantic_hash": ""
   }
 }
