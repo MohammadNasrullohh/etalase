@@ -93,6 +93,7 @@ async function main() {
       custom_fields: [
         { label: "Nomor MoU", value: "05/MOU/BAWASLU-UPB/V/2026" }
       ],
+      redaksi: "Budi Santoso",
       is_published: true,
     },
     {
@@ -113,6 +114,7 @@ async function main() {
       custom_fields: [
         { label: "Tempat Kegiatan", value: "Pendopo Kabupaten Kebumen" }
       ],
+      redaksi: "Siti Rahma",
       is_published: true,
     },
     {
@@ -134,6 +136,7 @@ async function main() {
       custom_fields: [
         { label: "Majelis Hakim", value: "Budi Santoso, M.Si." }
       ],
+      redaksi: "Admin Bawaslu",
       is_published: true,
     },
     {
