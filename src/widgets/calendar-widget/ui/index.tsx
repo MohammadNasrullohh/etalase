@@ -62,7 +62,7 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
 
   return (
     <div
-      className="calendar-widget animate-slide-right rounded-2xl glass-surface"
+      className="calendar-widget animate-slide-right glass-card"
       style={{
         animationDelay: '250ms',
         padding: '20px',
@@ -77,52 +77,14 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
           {/* Prev button */}
           <button
             onClick={handlePrevMonth}
-            className="transition-all duration-200"
-            style={{
-              padding: '4px',
-              borderRadius: '8px',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              color: 'rgba(255,255,255,0.45)',
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.background = 'rgba(255,255,255,0.10)'
-              el.style.borderColor = 'rgba(255,255,255,0.18)'
-              el.style.color = '#ffffff'
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.background = 'rgba(255,255,255,0.05)'
-              el.style.borderColor = 'rgba(255,255,255,0.08)'
-              el.style.color = 'rgba(255,255,255,0.45)'
-            }}
+            className="p-1 rounded-lg bg-white/5 border border-white/10 text-white/45 hover:bg-white/10 hover:border-white/20 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-all duration-200"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           {/* Next button */}
           <button
             onClick={handleNextMonth}
-            className="transition-all duration-200"
-            style={{
-              padding: '4px',
-              borderRadius: '8px',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              color: 'rgba(255,255,255,0.45)',
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget
-              el.style.background = 'rgba(255,255,255,0.10)'
-              el.style.borderColor = 'rgba(255,255,255,0.18)'
-              el.style.color = '#ffffff'
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget
-              el.style.background = 'rgba(255,255,255,0.05)'
-              el.style.borderColor = 'rgba(255,255,255,0.08)'
-              el.style.color = 'rgba(255,255,255,0.45)'
-            }}
+            className="p-1 rounded-lg bg-white/5 border border-white/10 text-white/45 hover:bg-white/10 hover:border-white/20 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-all duration-200"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -149,9 +111,17 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
               onClick={() => {
                 if (highlighted) onDateClick(getFullDateString(day))
               }}
+              onKeyDown={(e) => {
+                if (highlighted && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault()
+                  onDateClick(getFullDateString(day))
+                }
+              }}
+              tabIndex={highlighted ? 0 : -1}
+              role={highlighted ? 'button' : undefined}
               id={`calendar-day-${getFullDateString(day)}`}
               className={`relative py-2 rounded-lg select-none transition-all duration-200 ${
-                highlighted ? 'cursor-pointer' : 'cursor-default'
+                highlighted ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-1 focus-visible:ring-offset-[#08080C]' : 'cursor-default'
               } ${
                 highlighted && !currentActive ? 'hover:bg-[rgba(var(--color-ember-bright-rgb),0.15)] hover:text-[var(--color-ember-bright)]' : ''
               }`}

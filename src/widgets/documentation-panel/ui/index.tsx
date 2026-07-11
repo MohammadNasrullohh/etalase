@@ -65,7 +65,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
 
   return (
     <div
-      className="documentation-panel rounded-2xl mb-6 glass-surface"
+      className="documentation-panel mb-6 glass-card"
       style={{
         padding: '20px 24px',
       }}
@@ -119,9 +119,17 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
             return (
               <div
                 key={photo.url}
-                className="group relative flex flex-col items-center cursor-pointer animate-slide-right"
+                className="group relative flex flex-col items-center cursor-pointer animate-slide-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080C] rounded-xl"
                 style={{ animationDelay: delayMs }}
                 onClick={() => setSelectedPhoto(photo)}
+                tabIndex={0}
+                role="button"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelectedPhoto(photo)
+                  }
+                }}
               >
                 {/* Photo card — parallelogram + glass border */}
                 <div className="photo-card relative w-[90px] h-[120px] overflow-hidden shadow-md">
@@ -199,28 +207,10 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
             {/* X button — top-right corner dari foto, bukan viewport */}
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute flex items-center justify-center transition-all duration-200"
+              className="absolute flex items-center justify-center transition-all duration-200 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/70 hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 z-10 cursor-pointer"
               style={{
                 top: '-14px',
                 right: '-14px',
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.10)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255,255,255,0.18)',
-                color: 'rgba(255,255,255,0.70)',
-                cursor: 'pointer',
-                zIndex: 1,
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.22)'
-                e.currentTarget.style.color = '#ffffff'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.10)'
-                e.currentTarget.style.color = 'rgba(255,255,255,0.70)'
               }}
             >
               <X className="w-4 h-4" />
@@ -237,7 +227,6 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
                 height: 'auto',
                 objectFit: 'contain',
                 borderRadius: '14px',
-                border: '1px solid rgba(255,255,255,0.12)',
                 boxShadow: '0 24px 60px rgba(0,0,0,0.7)',
                 display: 'block',
               }}

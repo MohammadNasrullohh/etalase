@@ -59,11 +59,18 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
     <div
       id={`jurnal-card-${id}`}
       data-tanggal={tanggal_kegiatan}
-      className={`group jurnal-card relative animate-slide-left cursor-pointer mb-4 rounded-2xl jurnal-card-wrapper ${isActive ? 'is-active' : ''}`}
+      className={`group jurnal-card relative animate-slide-left cursor-pointer mb-4 rounded-2xl jurnal-card-wrapper focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus:outline-none ${isActive ? 'is-active' : ''}`}
       style={{
         animationDelay: staggerDelay,
-        borderLeft: `3px solid ${accentColor}`,
         padding: '20px 24px',
+      }}
+      tabIndex={0}
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick?.()
+        }
       }}
       onClick={onClick}
       onMouseEnter={() => {

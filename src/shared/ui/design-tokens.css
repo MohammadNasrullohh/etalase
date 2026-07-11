@@ -39,6 +39,47 @@
 
   --glass-inset-top:  inset 0 1px 0 rgba(255, 255, 255, 0.06);
   --glass-inset-top-bright: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  /* ── New design.md tokens ──────────────────────────────────── */
+  --background-start: #8f167f;
+  --background-mid: #dc315f;
+  --background-end: #ff6236;
+
+  --glass-fill: rgba(255, 255, 255, 0.18);
+  --glass-fill-strong: rgba(255, 255, 255, 0.24);
+  --glass-fill-subtle: rgba(255, 255, 255, 0.10);
+  --glass-border: rgba(255, 255, 255, 0.30);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.80);
+  --text-muted: rgba(255, 255, 255, 0.62);
+
+  --accent-dark: #17133f;
+  --accent-green: #32d36b;
+  --accent-yellow: #ffc84a;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-pill: 999px;
+
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+
+  --shadow-glass: 0 30px 80px rgba(74, 13, 79, 0.28);
+  --shadow-small: 0 10px 28px rgba(73, 14, 74, 0.20);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
 }
 
 /* ── Glass surface utilities ─────────────────────────────────── */

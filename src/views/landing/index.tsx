@@ -114,7 +114,7 @@ export const LandingView: React.FC = () => {
        * └─────────────────────────────────────────┘
        *   Page total = 300vh.
       */}
-      <div className="relative bg-[#08080C] overflow-x-hidden">
+      <div className="relative bg-[#08080C] overflow-x-hidden min-h-screen">
 
         {/* ═══════════════════════════════════════════
             SECTION 1 — HERO (100vh)
@@ -136,9 +136,12 @@ export const LandingView: React.FC = () => {
               height: '130%',
             }}
           />
-
           {/* Gradient blend ke Section 2 */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#08080C] via-[#08080C]/5 to-black/25 z-10" />
+          {/* Floating glass decorative elements */}
+          <div className="absolute top-[10%] left-[5%] floating-glass" style={{ width: 180, height: 120, animation: 'float 8s ease-in-out infinite' }} />
+          <div className="absolute top-[30%] right-[10%] floating-glass" style={{ width: 140, height: 90, animation: 'float 9s ease-in-out infinite', animationDelay: '1s' }} />
+          <div className="absolute bottom-[20%] left-[25%] floating-glass" style={{ width: 200, height: 140, animation: 'float 10s ease-in-out infinite', animationDelay: '2s' }} />
 
           {/* Title area — bergerak naik bersama scroll */}
           <div
@@ -269,6 +272,10 @@ export const LandingView: React.FC = () => {
                 60%  { transform: scale(1.55); opacity: 0;   }
                 100% { transform: scale(1.55); opacity: 0;   }
               }
+              @keyframes float {
+                0%, 100% { transform: translateY(0) rotate(-18deg); }
+                50% { transform: translateY(-16px) rotate(-15deg); }
+              }
             `}</style>
           </div>
         </section>
@@ -292,6 +299,9 @@ export const LandingView: React.FC = () => {
           {/* Ambient glow */}
           <div className="absolute top-0 left-[-15%] w-[55vw] h-[55vw] rounded-full bg-glow-purple pointer-events-none opacity-25" />
           <div className="absolute bottom-0 right-[-10%] w-[45vw] h-[45vw] rounded-full bg-glow-blue pointer-events-none opacity-30" />
+          {/* Floating glass decorative elements for Section 3 */}
+          <div className="absolute top-[-5%] left-[50%] floating-glass" style={{ width: 120, height: 80, animation: 'float 8.5s ease-in-out infinite' }} />
+          <div className="absolute bottom-[5%] right-[5%] floating-glass" style={{ width: 160, height: 110, animation: 'float 9.5s ease-in-out infinite', animationDelay: '1.5s' }} />
 
           {/* Padded container — pt-20 agar tidak tertutup sticky navbar */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-6 lg:pb-8 flex flex-col lg:h-screen">
