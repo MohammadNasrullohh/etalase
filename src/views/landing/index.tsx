@@ -11,6 +11,7 @@ import { DocumentationPanel } from '@/widgets/documentation-panel/ui'
 import { FuturisticLine } from '@/shared/ui/futuristic-line'
 import { JurnalDetailModal } from '@/entities/jurnal/ui/jurnal-detail-modal.client'
 import { StatsSection } from '@/widgets/stats-section/ui'
+import { AuthButton } from '@/shared/ui/auth-button.client'
 import {
   HeroLogoReveal,
   HeroTitleReveal,
@@ -402,12 +403,15 @@ export const LandingView: React.FC = () => {
               </span>
             </div>
 
-            {/* Search + filter */}
+            {/* Search + filter + Auth */}
             <div className="flex items-center gap-2 justify-end">
               <div className="w-28 xs:w-40 sm:w-48 md:w-64">
                 <SearchBar value={q} onChange={(val) => setFilter(val, kategori)} />
               </div>
               <KategoriDropdown value={kategori} onChange={(val) => setFilter(q, val)} />
+              <div className="ml-1 sm:ml-2 border-l border-white/10 pl-2 sm:pl-3 flex items-center h-8">
+                <AuthButton />
+              </div>
             </div>
           </div>
         </header>
