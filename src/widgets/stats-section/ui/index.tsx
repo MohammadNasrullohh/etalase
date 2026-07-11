@@ -90,7 +90,6 @@ const StatsSectionInner: React.FC = () => {
       <div className="absolute bottom-0 left-[-5%] w-[40vw] h-[40vw] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%)' }}
       />
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-8 lg:h-full flex flex-col">
 
         {/* ── Section header ── */}
@@ -111,15 +110,7 @@ const StatsSectionInner: React.FC = () => {
 
           {/* Chart area — glass panel */}
           <div
-            className="col-span-1 lg:col-span-3 relative min-h-[280px] lg:min-h-0 rounded-2xl"
-            style={{
-              background: 'rgba(255,255,255,0.03)',
-              backdropFilter: 'blur(14px)',
-              WebkitBackdropFilter: 'blur(14px)',
-              border: '1px solid rgba(255,255,255,0.07)',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
-              padding: '16px',
-            }}
+            className="col-span-1 lg:col-span-3 relative min-h-[280px] lg:min-h-0 glass-card p-4"
           >
             {loading ? (
               <div className="absolute inset-0 flex items-center justify-center">
@@ -143,14 +134,7 @@ const StatsSectionInner: React.FC = () => {
 
           {/* Legend + summary — glass panel, right side */}
           <div
-            className="col-span-1 lg:col-span-2 flex flex-col justify-center gap-5 rounded-2xl py-6 px-5"
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)',
-            }}
+            className="col-span-1 lg:col-span-2 flex flex-col justify-center gap-5 glass-card py-6 px-5"
           >
             {/* Total count */}
             <div className="flex items-baseline gap-3">
@@ -225,7 +209,7 @@ const StatsSectionInner: React.FC = () => {
               <button
                 key={year}
                 onClick={() => handleYearClick(year)}
-                className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono font-medium transition-all duration-200"
+                className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080C]"
                 style={{
                   background: isSelected
                     ? 'rgba(124,58,237,0.20)'
