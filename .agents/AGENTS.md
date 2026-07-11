@@ -52,3 +52,13 @@ Jika task masuk domain yang belum tercover (mis. observability/tracing, rate-lim
    - `[CONTEXT.md](file:///c:/Users/humas/Documents/Python/ALAS/.agents/context/CONTEXT.md)`
 4. **Load & Execute**: muat rules/context/memory persona baru, eksekusi.
 5. **AST Update**: `graphify update .`
+
+---
+
+## 🎨 Design Context (Impeccable)
+- **Register**: `product`
+- **Platform**: `web` (Next.js App Router)
+- **Positioning**: A modern, authoritative, and clean read-only public archive for Bawaslu Kebumen.
+- **Principles**: Transparency first, Institutional but modern, Living history.
+- **Anti-references**: Cluttered bureaucratic portals, flashy social feeds, unstructured data dumps.
+*(Lihat `PRODUCT.md` di root untuk detail strategi desain selengkapnya).*
