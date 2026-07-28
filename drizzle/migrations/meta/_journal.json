@@ -36,6 +36,13 @@
       "when": 1785247833680,
       "tag": "0004_public_jurnal_indexes",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1785282022527,
+      "tag": "0005_hero_title_settings",
+      "breakpoints": true
     }
   ]
 }

@@ -48,5 +48,6 @@ export const siteSettings = pgTable('site_settings', {
   // Satu record singleton (id = 1), ditegakkan lagi oleh CHECK di migrasi.
   id:              integer('id').primaryKey().default(1),
   hero_image_path: text('hero_image_path'),
+  hero_title:      text('hero_title'),
   updated_at:      timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 })

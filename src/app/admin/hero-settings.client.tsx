@@ -1,21 +1,26 @@
 'use client'
 
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
-import { Check, ImageUp, LoaderCircle, ShieldCheck } from 'lucide-react'
+import { Check, ImageUp, LoaderCircle, ShieldCheck, Type } from 'lucide-react'
+import { MAX_HERO_TITLE_LENGTH } from '@/entities/site-settings/lib/hero-title'
 
 type Props = {
   initialImagePath: string
+  initialTitle: string
   initialUpdatedAt: string | null
 }
 
 const MAX_UPLOAD_BYTES = 8 * 1024 * 1024
 
-export function HeroSettingsPanel({ initialImagePath, initialUpdatedAt }: Props) {
+export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdatedAt }: Props) {
   const [imagePath, setImagePath] = useState(initialImagePath)
+  const [title, setTitle] = useState(initialTitle)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [file, setFile] = useState<File | null>(null)
   const [status, setStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const [titleStatus, setTitleStatus] = useState<'idle' | 'saving' | 'success' | 'error'>('idle')
+  const [titleMessage, setTitleMessage] = useState('')
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => () => {
@@ -71,6 +76,28 @@ export function HeroSettingsPanel({ initialImagePath, initialUpdatedAt }: Props)
     }
   }
 
+  const saveTitle = async (event: FormEvent) => {
+    event.preventDefault()
+    setTitleStatus('saving')
+    setTitleMessage('Menyimpan judul hero…')
+
+    try {
+      const response = await fetch('/api/admin/hero', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title }),
+      })
+      const body = await response.json()
+      if (!response.ok) throw new Error(body.message || 'Gagal menyimpan judul hero.')
+      setTitle(body.data.title)
+      setTitleStatus('success')
+      setTitleMessage('Judul besar hero sudah diperbarui.')
+    } catch (error) {
+      setTitleStatus('error')
+      setTitleMessage(error instanceof Error ? error.message : 'Gagal menyimpan judul hero.')
+    }
+  }
+
   const displayImage = previewUrl || imagePath
   const updatedLabel = initialUpdatedAt
     ? new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(initialUpdatedAt))
@@ -78,6 +105,40 @@ export function HeroSettingsPanel({ initialImagePath, initialUpdatedAt }: Props)
 
   return (
     <section id="hero" className="mt-10 border-t border-white/10 pt-8">
+      <form onSubmit={saveTitle} className="border-b border-white/10 pb-8">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end">
+          <div className="min-w-0 flex-1">
+            <label htmlFor="hero-title" className="flex items-center gap-2 text-lg font-semibold">
+              <Type className="h-5 w-5 text-[#FF8A6C]" aria-hidden="true" />
+              Judul besar hero
+            </label>
+            <p className="mt-1 text-sm leading-6 text-white/60">Teks ini tampil paling besar pada halaman beranda. Maksimum {MAX_HERO_TITLE_LENGTH} karakter.</p>
+            <input
+              id="hero-title"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value)
+                setTitleStatus('idle')
+                setTitleMessage('')
+              }}
+              maxLength={MAX_HERO_TITLE_LENGTH}
+              required
+              className="mt-4 min-h-11 w-full rounded-lg border border-white/15 bg-white/[0.04] px-3 text-base text-white outline-none transition-colors placeholder:text-white/40 hover:border-white/25 focus:border-[#FF8A6C] focus:ring-2 focus:ring-[#FF8A6C]/30"
+              aria-describedby="hero-title-status"
+            />
+          </div>
+          <button type="submit" disabled={titleStatus === 'saving'} className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-[#F2613F] px-5 py-2.5 text-sm font-semibold text-[#25100A] transition-colors hover:bg-[#FF8A6C] focus:outline-none focus:ring-2 focus:ring-[#FFB6A4] focus:ring-offset-2 focus:ring-offset-[#090A0D] disabled:cursor-not-allowed disabled:opacity-55">
+            {titleStatus === 'saving' ? 'Menyimpan…' : 'Simpan judul'}
+          </button>
+        </div>
+        {titleMessage && (
+          <p id="hero-title-status" role="status" className={`mt-3 flex items-center gap-2 text-sm ${titleStatus === 'error' ? 'text-red-300' : titleStatus === 'success' ? 'text-emerald-300' : 'text-white/65'}`}>
+            {titleStatus === 'saving' ? <LoaderCircle className="h-4 w-4 animate-spin" /> : titleStatus === 'success' ? <Check className="h-4 w-4" /> : null}
+            {titleMessage}
+          </p>
+        )}
+      </form>
+
       <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_19rem] xl:items-start">
         <div>
           <div className="overflow-hidden rounded-xl bg-black">

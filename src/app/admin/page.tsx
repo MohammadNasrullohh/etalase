@@ -15,9 +15,9 @@ export default async function AdminPage() {
         <p className="text-sm text-[#FF8A6C]">Administrasi</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-[-0.025em]">Tampilan beranda</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-white/65">
-          Kelola gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
+          Kelola judul dan gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
         </p>
-        <HeroSettingsPanel initialImagePath={hero.imagePath} initialUpdatedAt={hero.updatedAt?.toISOString() ?? null} />
+        <HeroSettingsPanel initialImagePath={hero.imagePath} initialTitle={hero.title} initialUpdatedAt={hero.updatedAt?.toISOString() ?? null} />
       </div>
     </section>
   )

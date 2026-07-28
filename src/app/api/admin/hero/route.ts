@@ -9,6 +9,7 @@ import { getAdminUser } from '@/features/admin-auth/lib/require-admin'
 import { siteSettings } from '../../../../../drizzle/schema'
 import { db } from '@/shared/lib/db'
 import { hasSameOrigin } from '@/shared/lib/security'
+import { MAX_HERO_TITLE_LENGTH, normalizeHeroTitle } from '@/entities/site-settings/lib/hero-title'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -25,6 +26,59 @@ function heroDirectory(): string {
 
 function isManagedHeroPath(imagePath: string | null | undefined): imagePath is string {
   return Boolean(imagePath && /^\/uploads\/hero\/hero-[a-f0-9-]+\.webp$/.test(imagePath))
+}
+
+export async function PATCH(request: NextRequest) {
+  const admin = await getAdminUser()
+  if (!admin) {
+    return NextResponse.json({ status: 'error', message: 'forbidden' }, { status: 403 })
+  }
+
+  if (!hasSameOrigin(request)) {
+    return NextResponse.json({ status: 'error', message: 'invalid origin' }, { status: 403 })
+  }
+
+  let payload: { title?: unknown }
+  try {
+    payload = await request.json()
+  } catch {
+    return NextResponse.json({ status: 'error', message: 'data judul tidak valid' }, { status: 422 })
+  }
+
+  if (!payload || typeof payload !== 'object') {
+    return NextResponse.json({ status: 'error', message: 'data judul tidak valid' }, { status: 422 })
+  }
+
+  const title = normalizeHeroTitle(payload.title)
+  if (!title) {
+    return NextResponse.json({
+      status: 'error',
+      message: `Judul wajib diisi dan maksimal ${MAX_HERO_TITLE_LENGTH} karakter.`,
+    }, { status: 422 })
+  }
+
+  try {
+    await db
+      .insert(siteSettings)
+      .values({ id: 1, hero_title: title, updated_at: new Date() })
+      .onConflictDoUpdate({
+        target: siteSettings.id,
+        set: { hero_title: title, updated_at: new Date() },
+      })
+
+    revalidateTag('site-settings')
+    revalidatePath('/')
+
+    return NextResponse.json({
+      status: 'ok',
+      data: { title, updatedBy: admin.username },
+    }, {
+      headers: { 'Cache-Control': 'no-store' },
+    })
+  } catch (error) {
+    console.error('Hero title update failed', error)
+    return NextResponse.json({ status: 'error', message: 'gagal menyimpan judul hero' }, { status: 500 })
+  }
 }
 
 export async function POST(request: NextRequest) {
