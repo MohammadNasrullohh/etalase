@@ -32,7 +32,7 @@ async function fetchWithToken(endpoint: string, options: RequestInit = {}) {
 
 export async function getApprovalQueueAction() {
   try {
-    const data = await fetchWithToken('/api/v1/jurnal-alas/draft')
+    const data = await fetchWithToken('/api/v1/jurnal-alas/approval-queue')
     return { success: true, data }
   } catch (error: any) {
     return { success: false, error: error.message }
@@ -41,7 +41,7 @@ export async function getApprovalQueueAction() {
 
 export async function approveJurnalAction(id: string, note?: string) {
   try {
-    const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}/publish`, {
+    const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}/approve`, {
       method: 'POST',
       body: JSON.stringify({ note }) // note might not be used by backend, but safe to send
     })
@@ -53,8 +53,8 @@ export async function approveJurnalAction(id: string, note?: string) {
 
 export async function rejectJurnalAction(id: string, note?: string) {
   try {
-    const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}`, {
-      method: 'DELETE',
+    const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}/reject`, {
+      method: 'POST',
       body: JSON.stringify({ note })
     })
     return { success: true, data }
