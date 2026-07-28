@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, CalendarDays, ExternalLink, FileText, Tags, UsersRound } from 'lucide-react'
 import { getApprovalJurnalAction } from '@/entities/jurnal/api/approve-jurnal.action'
+import { JurnalProgressTracker } from '@/features/jurnal-approval/ui/jurnal-progress-tracker'
 
 /* Foto melewati proxy media terautentikasi; pengoptimal gambar Next tidak dapat meneruskan cookie sesi. */
 /* eslint-disable @next/next/no-img-element */
@@ -78,6 +79,7 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
           </div>
 
           <aside className="space-y-6">
+            <JurnalProgressTracker submittedBy={jurnal.submitter?.name || jurnal.created_by} />
             <section className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
               <h2 className="text-sm font-semibold text-white/85">Ringkasan kegiatan</h2>
               <dl className="mt-4 space-y-3 text-sm">
