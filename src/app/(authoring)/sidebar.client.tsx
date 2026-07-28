@@ -2,14 +2,15 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FileText, Folder, CheckSquare, Home } from 'lucide-react'
+import { FileText, Folder, CheckSquare, Home, LayoutDashboard } from 'lucide-react'
 
 interface Props {
   isApprover: boolean
+  isAdmin: boolean
   onMobileClose?: () => void
 }
 
-export function AuthoringSidebarClient({ isApprover, onMobileClose }: Props) {
+export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: Props) {
   const pathname = usePathname()
 
   const links = [
@@ -27,6 +28,11 @@ export function AuthoringSidebarClient({ isApprover, onMobileClose }: Props) {
       href: '/approval',
       label: 'Approval',
       icon: <CheckSquare className="w-5 h-5" />
+    }] : []),
+    ...(isAdmin ? [{
+      href: '/admin',
+      label: 'Dashboard Admin',
+      icon: <LayoutDashboard className="w-5 h-5" />
     }] : [])
   ]
 

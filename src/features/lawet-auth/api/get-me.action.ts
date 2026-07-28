@@ -38,13 +38,20 @@ export async function getMeAction(): Promise<LawetUser | null> {
     // If it's auth_user_dict: data.role is a string. If user_dict, it's an object.
     // Let's normalize it.
     
+    const rawRole = typeof data.role === 'string'
+      ? { id: '', name: data.role, level: data.level }
+      : (data.role || {})
+    const roleLevel = Number(rawRole.level ?? data.level ?? 0)
+
     return {
       id: data.id,
       name: data.name,
       username: data.username,
-      role: typeof data.role === 'string' 
-        ? { id: '', name: data.role, level: data.level || 1 } 
-        : data.role
+      role: {
+        id: String(rawRole.id || ''),
+        name: String(rawRole.name || data.role_name || ''),
+        level: Number.isFinite(roleLevel) ? roleLevel : 0,
+      },
     }
   } catch (error) {
     console.error('getMeAction error:', error)

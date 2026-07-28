@@ -5,6 +5,7 @@ import { getMeAction, LawetUser, logoutAction } from '@/features/lawet-auth/api/
 import { LogIn, User as UserIcon, LogOut, LayoutDashboard } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
 
 export function AuthButton() {
   const [user, setUser] = useState<LawetUser | null>(null)
@@ -49,7 +50,7 @@ export function AuthButton() {
   }
 
   const initial = user.name.charAt(0).toUpperCase()
-  const isAdmin = user.role.level >= 3
+  const isAdmin = isAdminUser(user)
 
   const handleLogout = async () => {
     await logoutAction()

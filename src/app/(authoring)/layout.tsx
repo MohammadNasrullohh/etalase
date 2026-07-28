@@ -1,6 +1,7 @@
 import { getMeAction } from '@/features/lawet-auth/api/get-me.action'
 import { redirect } from 'next/navigation'
 import { AuthoringShellClient } from './authoring-shell.client'
+import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
 
 export default async function AuthoringLayout({
   children,
@@ -13,10 +14,11 @@ export default async function AuthoringLayout({
     redirect('/login')
   }
 
-  const isApprover = user.role.level >= 2
+  const isAdmin = isAdminUser(user)
+  const isApprover = isAdmin || user.role.level >= 2
 
   return (
-    <AuthoringShellClient isApprover={isApprover}>
+    <AuthoringShellClient isApprover={isApprover} isAdmin={isAdmin}>
       {children}
     </AuthoringShellClient>
   )

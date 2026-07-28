@@ -7,10 +7,11 @@ import { Menu, X } from 'lucide-react'
 
 interface Props {
   isApprover: boolean
+  isAdmin: boolean
   children: React.ReactNode
 }
 
-export function AuthoringShellClient({ isApprover, children }: Props) {
+export function AuthoringShellClient({ isApprover, isAdmin, children }: Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -18,7 +19,7 @@ export function AuthoringShellClient({ isApprover, children }: Props) {
       
       {/* Desktop Sidebar */}
       <div className="hidden lg:block">
-        <AuthoringSidebarClient isApprover={isApprover} />
+        <AuthoringSidebarClient isApprover={isApprover} isAdmin={isAdmin} />
       </div>
 
       {/* Mobile Sidebar (Drawer) */}
@@ -36,7 +37,7 @@ export function AuthoringShellClient({ isApprover, children }: Props) {
             mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <AuthoringSidebarClient isApprover={isApprover} onMobileClose={() => setMobileMenuOpen(false)} />
+          <AuthoringSidebarClient isApprover={isApprover} isAdmin={isAdmin} onMobileClose={() => setMobileMenuOpen(false)} />
         </div>
       </div>
 
