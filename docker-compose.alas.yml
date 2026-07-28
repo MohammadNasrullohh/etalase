@@ -31,7 +31,11 @@ services:
     environment:
       DATABASE_URL: postgresql://alas_user:change-this-strong-password@alas-db:5432/alas
       ALAS_SERVICE_TOKEN: ${ALAS_SERVICE_TOKEN}
-      NEXT_PUBLIC_LAWET_HUB_ADMIN_URL: ${NEXT_PUBLIC_LAWET_HUB_ADMIN_URL:-https://lawethub.pusdakum.web.id/superadmin/jurnal-alas}
+      LAWET_API_URL: ${LAWET_API_URL:-http://host.docker.internal:2002}
+      HERO_UPLOAD_DIR: /app/public/uploads/hero
+      ALAS_ADMIN_ROLE_LEVEL: ${ALAS_ADMIN_ROLE_LEVEL:-3}
+    volumes:
+      - alas_public_uploads:/app/public/uploads
     depends_on:
       alas-db:
         condition: service_healthy
@@ -58,3 +62,4 @@ networks:
 
 volumes:
   alas_db_data:
+  alas_public_uploads:

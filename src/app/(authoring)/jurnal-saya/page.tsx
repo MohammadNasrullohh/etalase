@@ -1,11 +1,12 @@
 import { Folder, AlertCircle } from 'lucide-react'
 import { getMyJurnalsAction } from '@/features/jurnal-saya/api/get-my-jurnals.action'
 import { MyJurnalCard } from '@/features/jurnal-saya/ui/my-jurnal-card.client'
+import type { MyJurnalItem } from '@/features/jurnal-saya/api/get-my-jurnals.action'
 
 export const dynamic = 'force-dynamic'
 
 export default async function JurnalSayaPage() {
-  let jurnals = []
+  let jurnals: MyJurnalItem[] = []
   let error = null
 
   try {

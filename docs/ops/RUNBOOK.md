@@ -25,7 +25,7 @@ Lengkapi minimal nilai berikut di `.env`:
 | `DATABASE_URL` | Koneksi PostgreSQL aplikasi. |
 | `ALAS_SERVICE_TOKEN` | Token bearer untuk Service API; harus cocok dengan Lawet Hub. |
 | `LAWET_API_URL` | URL internal API Lawet Hub untuk login dan workflow panel. |
-| `NEXT_PUBLIC_LAWET_HUB_ADMIN_URL` | URL panel Lawet Hub yang boleh diketahui klien. |
+| `ALAS_ADMIN_ROLE_LEVEL` | Level role minimum untuk dashboard `/admin` (default `3`). |
 
 ## Migrasi Database
 
@@ -48,7 +48,7 @@ Jalankan dari root repositori setelah `DATABASE_URL` menunjuk ke database target
    ```
 
 3. Jalankan migrasi dengan akses jaringan ke `alas-db`.
-4. Arahkan reverse proxy/tunnel ke Nginx pada port host `2006`.
+4. Arahkan reverse proxy/tunnel HTTPS ke Nginx pada port host `2006`. Terminasi TLS harus berada di proxy publik; koneksi HTTP pada compose hanya untuk jaringan internal.
 5. Verifikasi health check:
 
    ```bash
@@ -56,6 +56,14 @@ Jalankan dari root repositori setelah `DATABASE_URL` menunjuk ke database target
    ```
 
 Stack produksi terdiri dari `alas-db` (PostgreSQL), `alas-app` (Next.js pada port internal 3000/host 3001), dan `alas-nginx` (port host 2006). Workflow GitHub Actions membangun serta mendorong image GHCR ketika ada push ke `main`.
+
+### Mengelola hero beranda
+
+1. Masuk dengan role yang memenuhi `ALAS_ADMIN_ROLE_LEVEL`, lalu buka `/admin`.
+2. Unggah JPEG, PNG, WebP, atau AVIF dengan ukuran sumber maksimal 8 MB. Rasio 16:9 direkomendasikan.
+3. Aplikasi memvalidasi file asli, menghapus metadata, membatasi output ke maksimum 1920 × 1080, dan menyimpannya sebagai WebP kualitas 82.
+
+Volume `alas_public_uploads` harus tetap dipertahankan saat redeploy. Jangan menghapus volume tersebut kecuali hero hasil unggahan memang ingin dihapus.
 
 ## Pemeriksaan Insiden Singkat
 

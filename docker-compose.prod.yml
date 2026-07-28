@@ -29,7 +29,11 @@ services:
     environment:
       DATABASE_URL: ${DATABASE_URL}
       ALAS_SERVICE_TOKEN: ${ALAS_SERVICE_TOKEN}
-      NEXT_PUBLIC_LAWET_HUB_ADMIN_URL: ${NEXT_PUBLIC_LAWET_HUB_ADMIN_URL}
+      LAWET_API_URL: ${LAWET_API_URL}
+      HERO_UPLOAD_DIR: /app/public/uploads/hero
+      ALAS_ADMIN_ROLE_LEVEL: ${ALAS_ADMIN_ROLE_LEVEL:-3}
+    volumes:
+      - alas_public_uploads:/app/public/uploads
     depends_on:
       alas-db:
         condition: service_healthy
@@ -56,3 +60,4 @@ networks:
 
 volumes:
   alas_db_data:
+  alas_public_uploads:

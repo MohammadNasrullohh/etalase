@@ -28,6 +28,12 @@ erDiagram
         TIMESTAMPTZ created_at
         TIMESTAMPTZ updated_at
     }
+
+    SITE_SETTINGS {
+        INTEGER id PK "singleton: 1"
+        TEXT hero_image_path
+        TIMESTAMPTZ updated_at
+    }
 ```
 
 ## Jurnal
@@ -39,6 +45,12 @@ Selain kolom inti pada diagram, `jurnal` menyimpan `link_publikasi`, `redaksi`, 
 ## Pimpinan
 
 `pimpinan` juga menyimpan `foto_url` dan `bio`. Endpoint publik hanya mengembalikan data dengan `is_active = true` dan menggunakan rentang periode untuk memilih pimpinan pada tanggal yang diminta.
+
+## Site settings
+
+`site_settings` adalah record singleton (`id = 1`) untuk konfigurasi visual yang dikelola admin. Saat hero diperbarui, aplikasi menyimpan path aset WebP di tabel ini; file hasil konversi berada di volume `public/uploads/hero` yang persisten. Beranda memakai fallback `public/assets/banner-image.webp` apabila record belum ada.
+
+Indeks parsial pada `jurnal` mempercepat pagination publik berdasarkan tanggal, dan filter kategori yang hanya membaca record `is_published = true`. Indeks GIN pada `tags` disediakan untuk pencarian tag JSONB.
 
 ## Migrasi
 

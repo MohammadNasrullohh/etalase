@@ -20,7 +20,7 @@ import {
 
 const queryClient = new QueryClient()
 
-export const LandingView: React.FC = () => {
+export const LandingView: React.FC<{ heroImagePath: string }> = ({ heroImagePath }) => {
   const { q, kategori, setFilter, resetFilter } = useJurnalFilter()
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeDate, setActiveDate] = useState<string | null>(null)
@@ -78,8 +78,6 @@ export const LandingView: React.FC = () => {
     }, 100)
   }
 
-  const kelolaUrl = process.env.NEXT_PUBLIC_LAWET_HUB_ADMIN_URL || 'https://lawethub.pusdakum.web.id/superadmin/jurnal-alas'
-
   // Hero animation: progress 0→1 selama scroll 0→vhPx (section 1 habis)
   const progress = Math.min(scrollY / (vhPx || 800), 1)
 
@@ -129,7 +127,7 @@ export const LandingView: React.FC = () => {
           <div
             className="absolute bg-cover bg-center will-change-transform"
             style={{
-              backgroundImage: "url('/assets/banner-image.jpg')",
+              backgroundImage: `url('${heroImagePath}')`,
               filter: 'grayscale(100%) brightness(40%) contrast(130%)',
               transform: `translateY(${bannerTranslate}px)`,
               inset: '-15% 0 0 0',

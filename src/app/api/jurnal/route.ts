@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server'
-import { getJurnalList } from '@/entities/jurnal/api/get-jurnal-list'
+import { encodeJurnalCursor, getJurnalList } from '@/entities/jurnal/api/get-jurnal-list'
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
 
     const hasMore = rawItems.length > limit
     const pageItems = rawItems.slice(0, limit)
-    const nextCursor = hasMore ? pageItems[pageItems.length - 1].id : null
+    const nextCursor = hasMore ? encodeJurnalCursor(pageItems[pageItems.length - 1]) : null
 
     const transformedItems = pageItems.map(item => {
       const docs = Array.isArray(item.dokumen_pendukung) ? item.dokumen_pendukung : []

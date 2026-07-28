@@ -22,6 +22,20 @@
       "when": 1783308300622,
       "tag": "0002_late_thunderbolt",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1785247738790,
+      "tag": "0003_admin_hero_and_public_query_indexes",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1785247833680,
+      "tag": "0004_public_jurnal_indexes",
+      "breakpoints": true
     }
   ]
 }

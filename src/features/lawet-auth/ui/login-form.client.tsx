@@ -3,7 +3,6 @@ import { useState, FormEvent, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowLeft, User, KeyRound, ChevronRight, Delete } from 'lucide-react'
 import { loginAction } from '../api/login.action'
-import { FuturisticLine } from '@/shared/ui/futuristic-line'
 
 export function LoginForm() {
   const router = useRouter()
@@ -81,8 +80,6 @@ export function LoginForm() {
 
   return (
     <div className="relative w-full max-w-sm mx-auto glass-surface rounded-2xl p-8 border border-white/10 z-10">
-      <FuturisticLine className="absolute -top-10 left-1/2 w-px h-10 bg-gradient-to-b from-transparent to-[var(--color-ember-bright)]" />
-      
       {errorMsg && (
         <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-xs font-mono text-center">
           {errorMsg}
