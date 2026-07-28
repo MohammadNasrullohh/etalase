@@ -89,13 +89,16 @@ export function JurnalSubmitForm() {
             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 font-mono flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5" /> Tanggal Kegiatan *
             </label>
-            <input
-              type="date"
-              required
-              value={payload.tanggal_kegiatan}
-              onChange={e => setPayload({ ...payload, tanggal_kegiatan: e.target.value })}
-              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--color-ember-bright)] transition-colors"
-            />
+            <div className="relative">
+              <input
+                type="date"
+                required
+                value={payload.tanggal_kegiatan}
+                onChange={e => setPayload({ ...payload, tanggal_kegiatan: e.target.value })}
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 pr-11 text-sm text-white [color-scheme:dark] focus:outline-none focus:border-[var(--color-ember-bright)] transition-colors"
+              />
+              <Calendar aria-hidden="true" className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/70" />
+            </div>
           </div>
 
           {/* Kategori */}
