@@ -39,6 +39,15 @@ export async function getApprovalQueueAction() {
   }
 }
 
+export async function getApprovalJurnalAction(id: string) {
+  try {
+    const data = await fetchWithToken(`/api/v1/jurnal-alas/approval-queue/${id}`)
+    return { success: true, data }
+  } catch (error: any) {
+    return { success: false, error: error.message }
+  }
+}
+
 export async function approveJurnalAction(id: string, note?: string) {
   try {
     const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}/approve`, {

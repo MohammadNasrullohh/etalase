@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { getApprovalQueueAction, approveJurnalAction, rejectJurnalAction } from '@/entities/jurnal/api/approve-jurnal.action'
 import { CheckCircle, XCircle, Clock, FileText } from 'lucide-react'
+import Link from 'next/link'
 
 export function ApprovalQueue() {
   const [queue, setQueue] = useState<any[]>([])
@@ -90,6 +91,12 @@ export function ApprovalQueue() {
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href={`/approval/${item.id}`}
+              className="inline-flex items-center gap-2 px-4 py-2 border border-white/15 text-white/75 rounded-xl hover:bg-white/5 hover:text-white transition-all text-xs font-bold font-mono uppercase tracking-widest"
+            >
+              <FileText className="w-4 h-4" /> Detail
+            </Link>
             <button
               onClick={() => handleAction(item.id, 'reject')}
               className="px-4 py-2 border border-red-500/50 text-red-400 rounded-xl hover:bg-red-500/10 active:scale-95 transition-all text-xs font-bold font-mono uppercase tracking-widest flex items-center gap-2"
