@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react'
 import { getApprovalQueueAction, approveJurnalAction, rejectJurnalAction } from '@/entities/jurnal/api/approve-jurnal.action'
 import { CheckCircle, XCircle, Clock, FileText } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export function ApprovalQueue() {
+  const router = useRouter()
   const [queue, setQueue] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -70,7 +72,14 @@ export function ApprovalQueue() {
   return (
     <div className="space-y-4">
       {queue.map(item => (
-        <div key={item.id} className="glass-surface p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-[var(--color-ember-bright)]/30 transition-colors">
+        <div
+          key={item.id}
+          onClick={(event) => {
+            if ((event.target as HTMLElement).closest('a, button')) return
+            router.push(`/approval/${item.id}`)
+          }}
+          className="glass-surface cursor-pointer p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-[var(--color-ember-bright)]/30 transition-colors"
+        >
           <div className="flex-1 space-y-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 rounded-full text-[10px] font-bold font-mono tracking-widest uppercase flex items-center gap-1">
