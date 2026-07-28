@@ -49,6 +49,7 @@ export function AuthButton() {
   }
 
   const initial = user.name.charAt(0).toUpperCase()
+  const isAdmin = user.role.level >= 3
 
   const handleLogout = async () => {
     await logoutAction()
@@ -72,6 +73,16 @@ export function AuthButton() {
 
       {dropdownOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-[#1A1A1A] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
+          {isAdmin && (
+            <Link
+              href="/admin"
+              onClick={() => setDropdownOpen(false)}
+              className="flex items-center gap-2 w-full px-4 py-3 text-left text-sm text-white hover:bg-white/5 transition-colors font-medium"
+            >
+              <LayoutDashboard className="w-4 h-4 text-[var(--color-ember-bright)]" />
+              Dashboard Admin
+            </Link>
+          )}
           <button
             onClick={handleLogout}
             className="flex items-center gap-2 w-full px-4 py-3 text-left text-sm text-red-400 hover:bg-red-500/10 transition-colors font-medium"
