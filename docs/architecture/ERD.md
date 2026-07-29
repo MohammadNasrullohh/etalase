@@ -33,6 +33,7 @@ erDiagram
         INTEGER id PK "singleton: 1"
         TEXT hero_image_path
         TEXT hero_title
+        TEXT hero_subtitle
         TIMESTAMPTZ updated_at
     }
 ```
@@ -49,7 +50,7 @@ Selain kolom inti pada diagram, `jurnal` menyimpan `link_publikasi`, `redaksi`, 
 
 ## Site settings
 
-`site_settings` adalah record singleton (`id = 1`) untuk konfigurasi visual yang dikelola admin. Admin dapat mengubah `hero_title`; beranda memakai `ALAS` apabila nilainya belum ada. Saat gambar hero diperbarui, aplikasi menyimpan path aset WebP di tabel ini; file hasil konversi berada di volume `public/uploads/hero` yang persisten. Beranda memakai fallback `public/assets/banner-image.webp` apabila record belum ada.
+`site_settings` adalah record singleton (`id = 1`) untuk konfigurasi visual yang dikelola admin. Admin dapat mengubah `hero_title` dan `hero_subtitle`; beranda memakai `ALAS` dan `Arsip Langkah Bawaslu Kebumen` apabila nilainya belum ada. Saat gambar hero diperbarui, aplikasi menyimpan path aset WebP di tabel ini; file hasil konversi berada di volume `public/uploads/hero` yang persisten. Beranda memakai fallback `public/assets/banner-image.webp` apabila record belum ada.
 
 Indeks parsial pada `jurnal` mempercepat pagination publik berdasarkan tanggal, dan filter kategori yang hanya membaca record `is_published = true`. Indeks GIN pada `tags` disediakan untuk pencarian tag JSONB.
 

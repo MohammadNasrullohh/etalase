@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { getAdminUser } from '@/features/admin-auth/lib/require-admin'
 import { getHeroSettings } from '@/entities/site-settings/api/get-site-settings'
 import { HeroSettingsPanel } from './hero-settings.client'
+import { HeroSubtitleSettingsPanel } from './hero-subtitle-settings.client'
 
 export const dynamic = 'force-dynamic'
 
@@ -17,6 +18,7 @@ export default async function AdminPage() {
         <p className="mt-3 max-w-2xl text-base leading-7 text-white/65">
           Kelola judul dan gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
         </p>
+        <HeroSubtitleSettingsPanel initialSubtitle={hero.subtitle} />
         <HeroSettingsPanel initialImagePath={hero.imagePath} initialTitle={hero.title} initialUpdatedAt={hero.updatedAt?.toISOString() ?? null} />
       </div>
     </section>

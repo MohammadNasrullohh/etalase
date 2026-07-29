@@ -3,8 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const SYMBOLS = '!@#$%^&*?><":~|'
-const SUBTITLE_TEXT = 'ARSIP LANGKAH BAWASLU KEBUMEN'
-const SUBTITLE_CHARS = Array.from(SUBTITLE_TEXT)
 
 const randomSymbol = () => SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)]
 const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))
@@ -112,9 +110,10 @@ export const HeroTitleReveal: React.FC<{
 }
 
 export const HeroSubtitleReveal: React.FC<{
+  subtitle: string
   style?: React.CSSProperties
-}> = ({ style }) => {
-  const [display, setDisplay] = useState(SUBTITLE_TEXT)
+}> = ({ subtitle, style }) => {
+  const [display, setDisplay] = useState(subtitle)
   const displayRef = useRef(display)
 
   useEffect(() => {
@@ -122,8 +121,9 @@ export const HeroSubtitleReveal: React.FC<{
   }, [display])
 
   useEffect(() => {
+    const subtitleChars = Array.from(subtitle)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setDisplay(SUBTITLE_TEXT)
+      setDisplay(subtitle)
       return
     }
 
@@ -137,30 +137,30 @@ export const HeroSubtitleReveal: React.FC<{
       const elapsed = now - startedAt - delay
 
       if (elapsed < 0) {
-        setDisplay(SUBTITLE_CHARS.map((character) => character === ' ' ? ' ' : randomSymbol()).join(''))
+        setDisplay(subtitleChars.map((character) => character === ' ' ? ' ' : randomSymbol()).join(''))
         frame = requestAnimationFrame(tick)
         return
       }
 
       const progress = Math.min(elapsed / total, 1)
       const eased = 1 - Math.pow(1 - progress, 4)
-      const revealedCount = Math.floor(eased * SUBTITLE_CHARS.length)
+      const revealedCount = Math.floor(eased * subtitleChars.length)
       const previous = Array.from(displayRef.current)
-      setDisplay(SUBTITLE_CHARS.map((character, index) => {
+      setDisplay(subtitleChars.map((character, index) => {
         if (index < revealedCount || character === ' ') return character
-        const characterProgress = Math.max(0, (eased * SUBTITLE_CHARS.length - index) / 3)
+        const characterProgress = Math.max(0, (eased * subtitleChars.length - index) / 3)
         return shouldFlip(Math.min(characterProgress, 1)) ? randomSymbol() : (previous[index] ?? randomSymbol())
       }).join(''))
 
       if (progress < 1) frame = requestAnimationFrame(tick)
-      else setDisplay(SUBTITLE_TEXT)
+      else setDisplay(subtitle)
     }
 
     frame = requestAnimationFrame(tick)
     return () => {
       if (frame) cancelAnimationFrame(frame)
     }
-  }, [])
+  }, [subtitle])
 
   return (
     <p
@@ -169,6 +169,7 @@ export const HeroSubtitleReveal: React.FC<{
         fontFamily: 'Roboto, sans-serif',
         fontWeight: 300,
         fontSize: '0.85rem',
+        textTransform: 'uppercase',
         ...style,
       }}
     >

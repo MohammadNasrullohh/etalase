@@ -20,7 +20,7 @@ import {
 
 const queryClient = new QueryClient()
 
-export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string }> = ({ heroImagePath, heroTitle }) => {
+export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubtitle: string }> = ({ heroImagePath, heroTitle, heroSubtitle }) => {
   const { q, kategori, setFilter, resetFilter } = useJurnalFilter()
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeDate, setActiveDate] = useState<string | null>(null)
@@ -163,6 +163,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string }>
 
             {/* Subtitle — scramble reveal, selesai 0.8s */}
             <HeroSubtitleReveal
+              subtitle={heroSubtitle}
               style={{ opacity: subtitleOpacity }}
             />
 

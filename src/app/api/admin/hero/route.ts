@@ -10,6 +10,7 @@ import { siteSettings } from '../../../../../drizzle/schema'
 import { db } from '@/shared/lib/db'
 import { hasSameOrigin } from '@/shared/lib/security'
 import { MAX_HERO_TITLE_LENGTH, normalizeHeroTitle } from '@/entities/site-settings/lib/hero-title'
+import { MAX_HERO_SUBTITLE_LENGTH, normalizeHeroSubtitle } from '@/entities/site-settings/lib/hero-subtitle'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -38,46 +39,72 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ status: 'error', message: 'invalid origin' }, { status: 403 })
   }
 
-  let payload: { title?: unknown }
+  let payload: { title?: unknown; subtitle?: unknown }
   try {
     payload = await request.json()
   } catch {
-    return NextResponse.json({ status: 'error', message: 'data judul tidak valid' }, { status: 422 })
+    return NextResponse.json({ status: 'error', message: 'data teks hero tidak valid' }, { status: 422 })
   }
 
   if (!payload || typeof payload !== 'object') {
-    return NextResponse.json({ status: 'error', message: 'data judul tidak valid' }, { status: 422 })
+    return NextResponse.json({ status: 'error', message: 'data teks hero tidak valid' }, { status: 422 })
   }
 
-  const title = normalizeHeroTitle(payload.title)
-  if (!title) {
+  const update: { hero_title?: string; hero_subtitle?: string; updated_at: Date } = { updated_at: new Date() }
+  let title: string | undefined
+  let subtitle: string | undefined
+
+  if ('title' in payload) {
+    title = normalizeHeroTitle(payload.title) ?? undefined
+    if (!title) {
+      return NextResponse.json({
+        status: 'error',
+        message: `Judul wajib diisi dan maksimal ${MAX_HERO_TITLE_LENGTH} karakter.`,
+      }, { status: 422 })
+    }
+    update.hero_title = title
+  }
+
+  if ('subtitle' in payload) {
+    subtitle = normalizeHeroSubtitle(payload.subtitle) ?? undefined
+    if (!subtitle) {
+      return NextResponse.json({
+        status: 'error',
+        message: `Subtitle wajib diisi dan maksimal ${MAX_HERO_SUBTITLE_LENGTH} karakter.`,
+      }, { status: 422 })
+    }
+    update.hero_subtitle = subtitle
+  }
+
+  if (!title && !subtitle) {
     return NextResponse.json({
       status: 'error',
-      message: `Judul wajib diisi dan maksimal ${MAX_HERO_TITLE_LENGTH} karakter.`,
+      message: 'Pilih judul atau subtitle yang akan diperbarui.',
     }, { status: 422 })
   }
 
   try {
     await db
       .insert(siteSettings)
-      .values({ id: 1, hero_title: title, updated_at: new Date() })
+      .values({ id: 1, ...update })
       .onConflictDoUpdate({
         target: siteSettings.id,
-        set: { hero_title: title, updated_at: new Date() },
+        set: update,
       })
 
     revalidateTag('site-settings')
     revalidatePath('/')
+    revalidatePath('/', 'layout')
 
     return NextResponse.json({
       status: 'ok',
-      data: { title, updatedBy: admin.username },
+      data: { title, subtitle, updatedBy: admin.username },
     }, {
       headers: { 'Cache-Control': 'no-store' },
     })
   } catch (error) {
-    console.error('Hero title update failed', error)
-    return NextResponse.json({ status: 'error', message: 'gagal menyimpan judul hero' }, { status: 500 })
+    console.error('Hero text update failed', error)
+    return NextResponse.json({ status: 'error', message: 'gagal menyimpan teks hero' }, { status: 500 })
   }
 }
 

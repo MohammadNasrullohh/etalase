@@ -3,6 +3,7 @@ import { unstable_cache } from 'next/cache'
 import { siteSettings } from '../../../../drizzle/schema'
 import { db } from '@/shared/lib/db'
 import { DEFAULT_HERO_TITLE } from '../lib/hero-title'
+import { DEFAULT_HERO_SUBTITLE } from '../lib/hero-subtitle'
 
 export const DEFAULT_HERO_IMAGE_PATH = '/assets/banner-image.webp'
 export { DEFAULT_HERO_TITLE }
@@ -10,6 +11,7 @@ export { DEFAULT_HERO_TITLE }
 export type HeroSettings = {
   imagePath: string
   title: string
+  subtitle: string
   updatedAt: Date | null
 }
 
@@ -18,6 +20,7 @@ const getCachedHeroSettings = unstable_cache(async (): Promise<HeroSettings> => 
     .select({
       heroImagePath: siteSettings.hero_image_path,
       heroTitle: siteSettings.hero_title,
+      heroSubtitle: siteSettings.hero_subtitle,
       updatedAt: siteSettings.updated_at,
     })
     .from(siteSettings)
@@ -27,6 +30,7 @@ const getCachedHeroSettings = unstable_cache(async (): Promise<HeroSettings> => 
   return {
     imagePath: settings?.heroImagePath || DEFAULT_HERO_IMAGE_PATH,
     title: settings?.heroTitle || DEFAULT_HERO_TITLE,
+    subtitle: settings?.heroSubtitle || DEFAULT_HERO_SUBTITLE,
     updatedAt: settings?.updatedAt ?? null,
   }
 }, ['site-settings', 'hero'], { revalidate: 3600, tags: ['site-settings'] })
