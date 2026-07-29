@@ -71,6 +71,9 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string }>
   }, [])
 
   const handleDateClick = (dateStr: string) => {
+    // Pilihan kalender harus langsung terlihat, tanpa tertimpa state hover kartu.
+    setHoverLine(null)
+    setActiveDate(dateStr)
     if (q || kategori) resetFilter()
     setTimeout(() => {
       const el = listScrollRef.current?.querySelector(`[data-tanggal="${dateStr}"]`)
@@ -339,6 +342,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string }>
                   scrollContainerRef={listScrollRef}
                   lineTargetId={hoverLine?.id ?? activeId}
                   onHover={(id, date) => setHoverLine({ id, date })}
+                  onLeaveHover={() => setHoverLine(null)}
                 />
               </div>
 
