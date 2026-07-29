@@ -20,6 +20,7 @@ type JurnalDetail = {
   custom_fields?: Array<{ label?: string; value?: string }>
   tags?: string[]
   submitter?: { name?: string } | null
+  created_at?: string | null
 }
 
 function formatDate(value: string) {
@@ -79,7 +80,7 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
           </div>
 
           <aside className="space-y-6">
-            <JurnalProgressTracker submittedBy={jurnal.submitter?.name || jurnal.created_by} />
+            <JurnalProgressTracker submittedBy={jurnal.submitter?.name || jurnal.created_by} submittedAt={jurnal.created_at} />
             <section className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
               <h2 className="text-sm font-semibold text-white/85">Ringkasan kegiatan</h2>
               <dl className="mt-4 space-y-3 text-sm">
