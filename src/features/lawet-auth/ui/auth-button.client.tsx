@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { getMeAction, LawetUser, logoutAction } from '@/features/lawet-auth/api/get-me.action'
+import { getMeAction, LawetUser, logoutAction } from '../api/get-me.action'
 import { LogIn, LogOut, FileText, LayoutDashboard } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AuthButton } from '@/shared/ui/auth-button.client'
+import { AuthButton } from '@/features/lawet-auth/ui/auth-button.client'
 import { AuthoringSidebarClient } from './sidebar.client'
 import { Menu, X } from 'lucide-react'
 

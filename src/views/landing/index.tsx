@@ -11,7 +11,7 @@ import { DocumentationPanel } from '@/widgets/documentation-panel/ui'
 import { FuturisticLine } from '@/shared/ui/futuristic-line'
 import { JurnalDetailModal } from '@/entities/jurnal/ui/jurnal-detail-modal.client'
 import { StatsSection } from '@/widgets/stats-section/ui'
-import { AuthButton } from '@/shared/ui/auth-button.client'
+import { AuthButton } from '@/features/lawet-auth/ui/auth-button.client'
 import {
   HeroLogoReveal,
   HeroTitleReveal,
