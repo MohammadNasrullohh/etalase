@@ -24,6 +24,8 @@ Lengkapi minimal nilai berikut di `.env`:
 | --- | --- |
 | `DATABASE_URL` | Koneksi PostgreSQL aplikasi. |
 | `ALAS_SERVICE_TOKEN` | Token bearer untuk Service API; harus cocok dengan Lawet Hub. |
+| `ALAS_WEBHOOK_SECRET` | Secret HMAC untuk write Direct Service; harus cocok dengan Lawet Hub dan berbeda dari bearer token. |
+| `ALAS_REPLAY_WINDOW_SECONDS` | Usia maksimum signature write; default deployment `300`. |
 | `LAWET_API_URL` | URL internal API Lawet Hub untuk login dan workflow panel. |
 | `ALAS_ADMIN_ROLE_LEVEL` | Level role minimum untuk dashboard `/admin` (default `3`). |
 
@@ -71,6 +73,6 @@ Volume `alas_public_uploads` harus tetap dipertahankan saat redeploy. Jangan men
 | --- | --- |
 | Situs atau API publik gagal | `GET /api/health`, lalu periksa log `alas-nginx` dan `alas-app`. |
 | Health check gagal database | Periksa status `alas-db`, `DATABASE_URL`, dan kredensial PostgreSQL. |
-| Service API 401 | Pastikan header Bearer dan `ALAS_SERVICE_TOKEN` sama pada pengirim dan ALAS. |
+| Service API 401 | Periksa bearer, HMAC secret, timestamp host, path/body yang ditandatangani, dan replay window. |
 | Panel login/authoring gagal | Pastikan `LAWET_API_URL` dapat dijangkau dari container `alas-app`. |
-| Jurnal tidak muncul publik | Periksa status publikasi di Lawet Hub, sinkronisasi Service API, lalu `is_published` di ALAS. |
+| Jurnal tidak muncul publik | Periksa `alas_sync_outbox` di Lawet Hub (`status`, `attempts`, `available_at`, `last_error`), lalu `service_events` dan `is_published` di ALAS. |

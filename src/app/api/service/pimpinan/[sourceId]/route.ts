@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { authenticateService } from '@/features/service-auth/lib/verify-token'
+import { authenticateService, authenticateServiceWrite, getServiceEventId } from '@/features/service-auth/lib/verify-token'
+import { processServiceEvent } from '@/features/service-events/lib/process-service-event'
+import { pimpinanPatchSchema } from '@/features/jurnal-sync/model/service-payload'
 import { db } from '@/shared/lib/db'
 import { pimpinan } from '../../../../../../drizzle/schema'
 import { eq } from 'drizzle-orm'
@@ -22,26 +24,29 @@ export async function GET(request: NextRequest, { params }: { params: { sourceId
       status: "ok",
       data: item
     })
-  } catch (error: any) {
-    return NextResponse.json({ status: "error", message: error.message }, { status: 500 })
+  } catch {
+    return NextResponse.json({ status: "error", message: "internal error" }, { status: 500 })
   }
 }
 
 export async function PATCH(request: NextRequest, { params }: { params: { sourceId: string } }) {
-  if (!authenticateService(request)) {
+  const body = await request.text()
+  if (!authenticateServiceWrite(request, body)) {
     return NextResponse.json({ status: "error", message: "unauthorized" }, { status: 401 })
   }
 
   try {
     const sourceId = params.sourceId
-    const payload = await request.json()
-
-    const existingItems = await db.select().from(pimpinan).where(eq(pimpinan.source_id, sourceId)).limit(1)
-    const existing = existingItems[0]
-
-    if (!existing) {
-      return NextResponse.json({ status: "error", message: "not found" }, { status: 404 })
+    const eventId = getServiceEventId(request)
+    if (!eventId) {
+      return NextResponse.json({ status: "error", message: "invalid event id" }, { status: 422 })
     }
+    const parsed = pimpinanPatchSchema.safeParse(JSON.parse(body))
+    if (!parsed.success) {
+      return NextResponse.json({ status: "error", message: "validation error" }, { status: 422 })
+    }
+    const payload = parsed.data
+    const payloadFields: Record<string, unknown> = payload
 
     let updateFields: any = {
       updated_at: new Date()
@@ -53,48 +58,76 @@ export async function PATCH(request: NextRequest, { params }: { params: { source
     ]
 
     fields.forEach(field => {
-      if (payload[field] !== undefined) {
-        updateFields[field] = payload[field]
+      if (payloadFields[field] !== undefined) {
+        updateFields[field] = payloadFields[field]
       }
     })
 
-    await db.update(pimpinan)
-      .set(updateFields)
-      .where(eq(pimpinan.id, existing.id))
+    const result = await processServiceEvent({
+      eventId,
+      resourceType: 'pimpinan',
+      sourceId,
+      operation: 'patch',
+    }, async (transaction) => {
+      const [existing] = await transaction.select({ id: pimpinan.id }).from(pimpinan).where(eq(pimpinan.source_id, sourceId)).limit(1)
+      if (!existing) return null
+      await transaction.update(pimpinan).set(updateFields).where(eq(pimpinan.id, existing.id))
+      return true
+    })
+    if (result.duplicate) {
+      return NextResponse.json({ status: "ok", source_id: sourceId, action: "duplicate" })
+    }
+    if (!result.value) {
+      return NextResponse.json({ status: "error", message: "not found" }, { status: 404 })
+    }
 
     return NextResponse.json({
       status: "ok",
       source_id: sourceId,
       action: "updated"
     })
-  } catch (error: any) {
-    return NextResponse.json({ status: "error", message: error.message }, { status: 500 })
+  } catch {
+    return NextResponse.json({ status: "error", message: "internal error" }, { status: 500 })
   }
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { sourceId: string } }) {
-  if (!authenticateService(request)) {
+  if (!authenticateServiceWrite(request, '')) {
     return NextResponse.json({ status: "error", message: "unauthorized" }, { status: 401 })
   }
 
   try {
     const sourceId = params.sourceId
-    const existingItems = await db.select().from(pimpinan).where(eq(pimpinan.source_id, sourceId)).limit(1)
-    
-    if (existingItems.length === 0) {
+    const eventId = getServiceEventId(request)
+    if (!eventId) {
+      return NextResponse.json({ status: "error", message: "invalid event id" }, { status: 422 })
+    }
+    const result = await processServiceEvent({
+      eventId,
+      resourceType: 'pimpinan',
+      sourceId,
+      operation: 'delete',
+    }, async (transaction) => {
+      const [existing] = await transaction.select({ id: pimpinan.id }).from(pimpinan).where(eq(pimpinan.source_id, sourceId)).limit(1)
+      if (!existing) return null
+      await transaction.update(pimpinan)
+        .set({ is_active: false, updated_at: new Date() })
+        .where(eq(pimpinan.source_id, sourceId))
+      return true
+    })
+    if (result.duplicate) {
+      return NextResponse.json({ status: "ok", source_id: sourceId, action: "duplicate" })
+    }
+    if (!result.value) {
       return NextResponse.json({ status: "error", message: "not found" }, { status: 404 })
     }
-
-    await db.update(pimpinan)
-      .set({ is_active: false, updated_at: new Date() })
-      .where(eq(pimpinan.source_id, sourceId))
 
     return NextResponse.json({
       status: "ok",
       source_id: sourceId
     })
-  } catch (error: any) {
-    return NextResponse.json({ status: "error", message: error.message }, { status: 500 })
+  } catch {
+    return NextResponse.json({ status: "error", message: "internal error" }, { status: 500 })
   }
 }
 export const dynamic = 'force-dynamic'

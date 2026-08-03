@@ -52,3 +52,14 @@ export const siteSettings = pgTable('site_settings', {
   hero_subtitle:   text('hero_subtitle'),
   updated_at:      timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 })
+
+/** Ledger untuk memastikan satu delivery Direct Service hanya diproses sekali. */
+export const serviceEvents = pgTable('service_events', {
+  event_id:        uuid('event_id').primaryKey(),
+  resource_type:   varchar('resource_type', { length: 30 }).notNull(),
+  source_id:       uuid('source_id').notNull(),
+  operation:       varchar('operation', { length: 30 }).notNull(),
+  processed_at:    timestamp('processed_at', { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [
+  index('service_events_source_idx').on(table.resource_type, table.source_id),
+])

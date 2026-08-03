@@ -7,7 +7,8 @@ flowchart LR
     Public[Pengunjung publik] --> Web[Next.js: halaman publik dan API publik]
     Staff[Staf / approver] --> Panel[Next.js: panel authoring]
     Panel -->|cookie bearer server-side| Lawet[Lawet Hub API]
-    Lawet -->|Bearer ALAS_SERVICE_TOKEN| Service[Next.js: Service API]
+    Lawet --> Outbox[(Transactional outbox)]
+    Outbox -->|Bearer + HMAC + event_id| Service[Next.js: Service API]
     Web --> DB[(PostgreSQL)]
     Service --> DB
 ```
@@ -52,7 +53,9 @@ Pengajuan dan approval tidak langsung menulis PostgreSQL ALAS. Keduanya memanggi
 
 ### Service API
 
-Route di `src/app/api/service/` menerima header `Authorization: Bearer <ALAS_SERVICE_TOKEN>`. Token dibandingkan secara constant-time setelah di-hash. Endpoint ini melakukan upsert jurnal/pimpinan berdasarkan `source_id`, menyediakan pembaruan parsial, serta soft delete melalui `is_published` atau `is_active`.
+Route di `src/app/api/service/` menerima bearer service token. Semua operasi tulis juga wajib membawa `X-ALAS-Event-Id`, `X-ALAS-Timestamp`, dan `X-ALAS-Signature`. Signature HMAC-SHA256 meliputi timestamp, method, path, dan hash body; replay dibatasi oleh `ALAS_REPLAY_WINDOW_SECONDS`. Event diklaim dalam transaksi yang sama dengan mutasi, sehingga retry outbox tidak menerapkan event dua kali. Upsert jurnal/pimpinan memakai `source_id` unik dan `ON CONFLICT` atomik.
+
+Lawet Hub mencatat desired state ke transactional outbox. Worker mengirimnya dengan timeout serta exponential backoff dari env, dan reconciliation berkala mengantrekan ulang proyeksi yang seharusnya published, draft setelah unpublish, atau deleted. Keputusan lengkap ada di [ADR-0001](../adr/0001-direct-service-delivery-guarantees.md).
 
 Kontrak payload dan status respons Service API historis masih dapat ditemukan di README root. Saat kontrak berubah, perbarui dokumen ini dan dokumentasi integrasi dalam perubahan yang sama.
 
@@ -60,6 +63,8 @@ Kontrak payload dan status respons Service API historis masih dapat ditemukan di
 
 - `DATABASE_URL` menghubungkan aplikasi ke PostgreSQL.
 - `ALAS_SERVICE_TOKEN` mengamankan Service API dan harus sama dengan konfigurasi pengirim di Lawet Hub.
+- `ALAS_WEBHOOK_SECRET` menandatangani write Direct Service dan harus berbeda dari bearer token.
+- `ALAS_REPLAY_WINDOW_SECONDS` menentukan toleransi usia timestamp signature.
 - `LAWET_API_URL` hanya dipakai server-side untuk login dan workflow authoring Lawet Hub.
 - Docker Compose menjalankan `alas-db`, `alas-app`, dan `alas-nginx` pada jaringan `alas-net`; Nginx adalah reverse proxy untuk aplikasi Next.js.
 

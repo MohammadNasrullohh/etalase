@@ -1,6 +1,7 @@
 import { db } from '@/shared/lib/db'
 import { jurnal } from '../../../../drizzle/schema'
 import { eq } from 'drizzle-orm'
+import type { DatabaseExecutor } from '@/shared/lib/db'
 
 interface IncomingDokumen {
   nama: string
@@ -23,9 +24,9 @@ interface JurnalPayload {
   divisi?: string | null
 }
 
-export async function upsertJurnal(payload: JurnalPayload) {
+export async function upsertJurnal(payload: JurnalPayload, database: DatabaseExecutor = db) {
   // 1. Fetch existing item by source_id
-  const existingItems = await db.select().from(jurnal).where(eq(jurnal.source_id, payload.source_id)).limit(1)
+  const existingItems = await database.select().from(jurnal).where(eq(jurnal.source_id, payload.source_id)).limit(1)
   const existing = existingItems[0] || null
 
   // 2. Apply merge strategy for dokumen_pendukung is_public
@@ -73,25 +74,17 @@ export async function upsertJurnal(payload: JurnalPayload) {
     redaksi: payload.redaksi || null,
     divisi: payload.divisi || null,
     is_published: true, // Default to true on publish sync
+    synced_at: new Date(),
     updated_at: new Date()
   }
 
-  let action = "created"
-  let id = ""
+  const [row] = await database.insert(jurnal).values({
+    ...valuesToUpsert,
+    created_at: new Date()
+  }).onConflictDoUpdate({
+    target: jurnal.source_id,
+    set: valuesToUpsert,
+  }).returning({ id: jurnal.id })
 
-  if (existing) {
-    await db.update(jurnal)
-      .set(valuesToUpsert)
-      .where(eq(jurnal.id, existing.id))
-    id = existing.id
-    action = "updated"
-  } else {
-    const inserted = await db.insert(jurnal).values({
-      ...valuesToUpsert,
-      created_at: new Date()
-    }).returning({ id: jurnal.id })
-    id = inserted[0].id
-  }
-
-  return { id, action }
+  return { id: row.id, action: existing ? "updated" : "created" }
 }

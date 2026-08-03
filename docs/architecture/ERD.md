@@ -36,6 +36,14 @@ erDiagram
         TEXT hero_subtitle
         TIMESTAMPTZ updated_at
     }
+
+    SERVICE_EVENTS {
+        UUID event_id PK
+        VARCHAR resource_type
+        UUID source_id
+        VARCHAR operation
+        TIMESTAMPTZ processed_at
+    }
 ```
 
 ## Jurnal
@@ -53,6 +61,10 @@ Selain kolom inti pada diagram, `jurnal` menyimpan `link_publikasi`, `redaksi`, 
 `site_settings` adalah record singleton (`id = 1`) untuk konfigurasi visual yang dikelola admin. Admin dapat mengubah `hero_title` dan `hero_subtitle`; beranda memakai `ALAS` dan `Arsip Langkah Bawaslu Kebumen` apabila nilainya belum ada. Saat gambar hero diperbarui, aplikasi menyimpan path aset WebP di tabel ini; file hasil konversi berada di volume `public/uploads/hero` yang persisten. Beranda memakai fallback `public/assets/banner-image.webp` apabila record belum ada.
 
 Indeks parsial pada `jurnal` mempercepat pagination publik berdasarkan tanggal, dan filter kategori yang hanya membaca record `is_published = true`. Indeks GIN pada `tags` disediakan untuk pencarian tag JSONB.
+
+## Service event ledger
+
+`service_events` adalah ledger idempotency untuk write Direct Service. Insert event dan mutasi proyeksi berada dalam satu transaksi; primary key `event_id` mencegah retry outbox menerapkan event yang sama dua kali. Indeks `(resource_type, source_id)` mendukung audit delivery per agregat.
 
 ## Migrasi
 

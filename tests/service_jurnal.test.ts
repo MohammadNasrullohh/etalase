@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import { db } from '@/shared/lib/db'
 import { jurnal } from '../drizzle/schema'
-import { eq } from 'drizzle-orm'
+import { eq, sql } from 'drizzle-orm'
 import { upsertJurnal } from '@/features/jurnal-sync/lib/upsert-jurnal'
 
 describe('Service Jurnal CRUD Integration', () => {
@@ -92,5 +92,44 @@ describe('Service Jurnal CRUD Integration', () => {
     
     expect(docs.length).toBe(1)
     expect(docs[0].url).toBe('https://media.com/doc2.pdf')
+  })
+
+  it('should safely coalesce concurrent first deliveries for one source_id', async () => {
+    await db.delete(jurnal).where(eq(jurnal.source_id, testSourceId))
+    const payload = {
+      source_id: testSourceId,
+      judul: 'Concurrent delivery',
+      tanggal_kegiatan: '2026-06-15',
+      kategori: 'mou',
+    }
+
+    await db.execute(sql.raw(`
+      CREATE OR REPLACE FUNCTION test_delay_jurnal_insert() RETURNS trigger AS $$
+      BEGIN
+        IF NEW.source_id = '${testSourceId}'::uuid THEN
+          PERFORM pg_sleep(0.15);
+        END IF;
+        RETURN NEW;
+      END;
+      $$ LANGUAGE plpgsql;
+      CREATE TRIGGER test_delay_jurnal_insert
+      BEFORE INSERT ON jurnal
+      FOR EACH ROW EXECUTE FUNCTION test_delay_jurnal_insert();
+    `))
+
+    try {
+      await expect(Promise.all([
+        upsertJurnal(payload),
+        upsertJurnal(payload),
+      ])).resolves.toHaveLength(2)
+    } finally {
+      await db.execute(sql.raw(`
+        DROP TRIGGER IF EXISTS test_delay_jurnal_insert ON jurnal;
+        DROP FUNCTION IF EXISTS test_delay_jurnal_insert();
+      `))
+    }
+
+    const rows = await db.select().from(jurnal).where(eq(jurnal.source_id, testSourceId))
+    expect(rows).toHaveLength(1)
   })
 })

@@ -1,6 +1,7 @@
 import { db } from '@/shared/lib/db'
 import { pimpinan } from '../../../../drizzle/schema'
 import { eq } from 'drizzle-orm'
+import type { DatabaseExecutor } from '@/shared/lib/db'
 
 interface PimpinanPayload {
   source_id: string
@@ -13,8 +14,8 @@ interface PimpinanPayload {
   urutan?: number
 }
 
-export async function upsertPimpinan(payload: PimpinanPayload) {
-  const existingItems = await db.select().from(pimpinan).where(eq(pimpinan.source_id, payload.source_id)).limit(1)
+export async function upsertPimpinan(payload: PimpinanPayload, database: DatabaseExecutor = db) {
+  const existingItems = await database.select().from(pimpinan).where(eq(pimpinan.source_id, payload.source_id)).limit(1)
   const existing = existingItems[0] || null
 
   const valuesToUpsert = {
@@ -30,22 +31,13 @@ export async function upsertPimpinan(payload: PimpinanPayload) {
     updated_at: new Date()
   }
 
-  let action = "created"
-  let id = ""
+  const [row] = await database.insert(pimpinan).values({
+    ...valuesToUpsert,
+    created_at: new Date()
+  }).onConflictDoUpdate({
+    target: pimpinan.source_id,
+    set: valuesToUpsert,
+  }).returning({ id: pimpinan.id })
 
-  if (existing) {
-    await db.update(pimpinan)
-      .set(valuesToUpsert)
-      .where(eq(pimpinan.id, existing.id))
-    id = existing.id
-    action = "updated"
-  } else {
-    const inserted = await db.insert(pimpinan).values({
-      ...valuesToUpsert,
-      created_at: new Date()
-    }).returning({ id: pimpinan.id })
-    id = inserted[0].id
-  }
-
-  return { id, action }
+  return { id: row.id, action: existing ? "updated" : "created" }
 }
