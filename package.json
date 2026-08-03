@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "arch:check": "depcruise src --config .dependency-cruiser.cjs --output-type err-long",
+    "boundary:check": "node scripts/check-repository-isolation.mjs --root . --source . --forbid-package lawet-hub --forbid-package @lawet --forbid-package lawethub --forbid-package lawet_hub",
+    "boundary:test": "node --test scripts/check-repository-isolation.test.mjs",
+    "arch:check": "npm run boundary:check && depcruise src --config .dependency-cruiser.cjs --output-type err-long",
     "start": "next start",
     "lint": "next lint"
   },
