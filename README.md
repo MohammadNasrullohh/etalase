@@ -1,601 +1,173 @@
 # ALAS — Arsip Langkah Bawaslu Kebumen
 
-> Portal arsip publik **read-only** untuk kegiatan dan pimpinan Bawaslu Kebumen.  
-> Ditenagai oleh Next.js 14, PostgreSQL, dan Drizzle ORM.  
-> Konten dikelola dari **Lawet Hub** melalui Service API.
+ALAS adalah portal arsip publik dan dashboard visibilitas **read-only** untuk kegiatan serta pimpinan Bawaslu Kebumen. Lawet Hub tetap menjadi source of truth dan satu-satunya tempat workflow authoring; ALAS menyimpan proyeksi publiknya sendiri di PostgreSQL.
 
----
+## Status arsitektur
 
-## Daftar Isi
+- Lawet Hub mengirim desired state melalui transactional outbox ke Direct Service API ALAS.
+- Operasi tulis Service API memakai bearer token, HMAC-SHA256, replay window, dan event ID idempoten.
+- Sesi dashboard ALAS memperoleh JWT Lawet Hub dengan scope `alas:dashboard:read`; token tersebut hanya boleh memakai `GET`, `HEAD`, dan `OPTIONS`.
+- ALAS dan Lawet Hub adalah repository mandiri. Keduanya berkomunikasi melalui HTTP dan konfigurasi environment, tanpa import source, package dependency, file link, symlink, atau submodule silang.
+- Next.js App Router disusun dengan adaptasi Feature-Sliced Design (FSD) dan dependency direction diperiksa di CI.
 
-- [Arsitektur Singkat](#arsitektur-singkat)
-- [Tech Stack](#tech-stack)
-- [Struktur Direktori](#struktur-direktori)
-- [Menjalankan Secara Lokal](#menjalankan-secara-lokal)
-- [Environment Variables](#environment-variables)
-- [API Publik](#api-publik)
-- [Integrasi dengan Lawet Hub](#integrasi-dengan-lawet-hub)
-- [Deploy (Docker)](#deploy-docker)
-
----
-
-## Arsitektur Singkat
-
-```
-Lawet Hub (sumber konten)
-    │  Bearer Token Auth
-    │  POST/PATCH/DELETE
-    ▼
-ALAS Service API  →  PostgreSQL (alas-db)
-    │
-    ▼
-ALAS Frontend (Next.js App Router)
-    └── Disajikan publik via Cloudflare Tunnel
+```mermaid
+flowchart LR
+    Staff[Staf dan approver] -->|workflow tulis| Lawet[Lawet Hub]
+    Lawet -->|desired state dalam transaksi| Outbox[(alas_sync_outbox)]
+    Outbox -->|Bearer + HMAC + event ID| Service[ALAS Service API]
+    Service --> Projection[(alas-db)]
+    Public[Pengunjung] --> Web[ALAS publik]
+    Web --> Projection
+    Dashboard[Dashboard ALAS] -->|JWT dashboard-read; read only| Lawet
 ```
 
-**ALAS tidak punya UI authoring.** Semua data masuk melalui Lawet Hub yang memanggil ALAS Service API. ALAS hanya membaca dan menampilkan.
+## Dokumentasi utama
 
----
+| Dokumen | Isi |
+| --- | --- |
+| [Integrasi Lawet Hub](INTEGRATION.md) | Kontrak HTTP, autentikasi, idempotency, retry, reconciliation, dan konfigurasi dua aplikasi. |
+| [Arsitektur](docs/architecture/ARCHITECTURE.md) | Batas sistem, alur data, FSD, dan quality gates. |
+| [Testing](docs/architecture/TESTING.md) | Lapisan test dan perintah verifikasi. |
+| [ERD](docs/architecture/ERD.md) | Struktur data ALAS. |
+| [Runbook](docs/ops/RUNBOOK.md) | Operasi dan deployment. |
+| [ADR](docs/adr/) | Keputusan arsitektur yang telah diterima; ADR bersifat immutable. |
 
-## Tech Stack
+## Tech stack
 
-| Layer | Teknologi |
-|---|---|
-| Framework | Next.js 14 (App Router) |
-| ORM | Drizzle ORM |
-| Database | PostgreSQL 16 |
-| Styling | Tailwind CSS |
-| Chart | D3.js (lazy-loaded) |
-| State | TanStack Query (React Query) |
-| Testing | Vitest + React Testing Library |
-| Container | Docker + Nginx |
-| Tunnel | Cloudflare Tunnel |
+| Area | Teknologi |
+| --- | --- |
+| Web | Next.js 14, React 18, App Router |
+| Data | PostgreSQL 16, Drizzle ORM |
+| UI | Tailwind CSS, D3.js, TanStack Query |
+| Validasi dan test | Zod, Vitest, React Testing Library, Testcontainers |
+| Infrastruktur | Docker Compose, Nginx |
 
----
+## Struktur repository
 
-## Struktur Direktori
-
-Mengikuti arsitektur **Feature Sliced Design (FSD)**:
-
-```
+```text
 src/
-├── app/                    # Routing layer (Next.js App Router)
-│   └── api/
-│       ├── jurnal/         # GET /api/jurnal — daftar & detail
-│       │   ├── [id]/       # GET /api/jurnal/:id
-│       │   ├── calendar/   # GET /api/jurnal/calendar?month=YYYY-MM
-│       │   └── stats/      # GET /api/jurnal/stats?year=YYYY
-│       ├── pimpinan/       # GET /api/pimpinan
-│       └── service/        # Service API (Bearer-protected)
-│           ├── jurnal/     # POST, PATCH, DELETE jurnal
-│           └── pimpinan/   # POST, PATCH, DELETE pimpinan
-│
-├── entities/               # Tipe data, query, dan card UI primitif
-│   ├── jurnal/
-│   └── pimpinan/
-│
-├── features/               # Fitur-fitur spesifik
-│   ├── jurnal-filter/      # SearchBar + KategoriDropdown
-│   ├── jurnal-sync/        # Service API handler logic
-│   └── pimpinan-sync/
-│
-├── widgets/                # Komponen gabungan (multi-entity)
-│   ├── jurnal-list/        # Daftar jurnal dengan infinite scroll
-│   ├── documentation-panel/# Panel dokumentasi foto kegiatan + lightbox zoom
-│   ├── calendar-widget/    # Kalender kegiatan
-│   └── stats-section/      # Chart rekapitulasi tahunan (D3)
-│
-├── views/
-│   └── landing/            # Halaman utama (3-section layout)
-│
-└── shared/                 # Shared lib, token warna, DB singleton
-    ├── lib/db.ts
-    └── ui/futuristic-line.tsx
-
-drizzle/
-├── schema.ts               # Definisi tabel jurnal & pimpinan
-└── migrations/             # File migrasi SQL
-
-tests/                      # Vitest test suites
+├── app/        # route, layout, dan komposisi App Router
+├── views/      # komposisi tingkat halaman
+├── widgets/    # blok UI lintas feature/entity
+├── features/   # use case dan interaksi pengguna
+├── entities/   # model domain, API, dan UI entitas
+└── shared/     # infrastruktur dan UI tanpa pengetahuan domain
+drizzle/        # schema dan migration Drizzle
+tests/          # test Vitest dan integration test
+scripts/        # repository/architecture checks
+docs/           # architecture, ADR, product, ops, dan audit
 ```
 
----
+Arah dependency yang diizinkan adalah `app → views → widgets → features → entities → shared`. Client component memakai suffix `.client.tsx`. Public barrel `index.ts` ditempatkan hanya pada slice `entities` atau `shared`; enforcement public API saat ini sudah aktif untuk `entities/lawet-user` dan diperluas secara bertahap ke entity lain.
 
-## Menjalankan Secara Lokal
-
-### Prasyarat
-
-- Node.js 20+
-- Docker & Docker Compose (untuk database)
-
-### 1. Clone & Install
+Jalankan gate arsitektur sebelum mengirim perubahan:
 
 ```bash
-git clone https://github.com/naxprmn/alas.git
-cd alas
-npm install
+npm run boundary:test
+npm run arch:check
 ```
 
-### 2. Jalankan Database
+`boundary:check` menolak dependency ke repository Lawet Hub, termasuk import eksternal, package yang dilarang, `file:`/`link:` dependency, symlink keluar repository, dan Git submodule. `arch:check` menjalankan pemeriksaan tersebut lalu dependency-cruiser untuk aturan FSD.
+
+## Menjalankan secara lokal
+
+Prasyarat: Node.js 20+, npm, Docker, dan Docker Compose.
 
 ```bash
-# Start PostgreSQL via Docker (port 5433)
-docker compose -f docker-compose.alas.yml up alas-db -d
+npm ci
+docker compose -f docker-compose.alas.yml up -d alas-db
 ```
 
-### 3. Setup Environment
+Salin konfigurasi dan sesuaikan koneksi database. Saat aplikasi dijalankan dari host, gunakan port database yang dipublikasikan Compose:
 
 ```bash
 cp .env.example .env
-# Edit .env — minimal isi DATABASE_URL dan ALAS_SERVICE_TOKEN
-```
-
-### 4. Jalankan Migrasi
-
-```bash
+# DATABASE_URL=postgresql://alas_user:<password>@localhost:5433/alas
 npx drizzle-kit migrate
-```
-
-### 5. Seed Data (opsional, untuk development)
-
-```bash
-npx ts-node scripts/seed.ts
-```
-
-### 6. Jalankan Dev Server
-
-```bash
 npm run dev
-# → http://localhost:3000
 ```
 
----
-
-## Environment Variables
-
-Salin `.env.example` ke `.env` dan isi nilainya:
+Aplikasi development tersedia di `http://localhost:3000`. Untuk menjalankan seluruh stack Compose:
 
 ```bash
-# Database
-ALAS_DB_NAME=alas
-ALAS_DB_USER=alas_user
-ALAS_DB_PASSWORD=<strong-password>
-DATABASE_URL=postgresql://alas_user:<password>@alas-db:5432/alas
-
-# Service Auth — HARUS SAMA dengan nilai di Lawet Hub
-# Generate: openssl rand -hex 32
-ALAS_SERVICE_TOKEN=<generated-token>
-
-# Integration URLs
-NEXT_PUBLIC_LAWET_HUB_ADMIN_URL=https://lawethub.pusdakum.web.id/superadmin/jurnal-alas
-
-# Sentry (opsional)
-SENTRY_DSN=
-NEXT_PUBLIC_SENTRY_DSN=
+docker compose -f docker-compose.alas.yml up -d --build
 ```
 
----
+Reverse proxy ALAS pada konfigurasi tersebut tersedia di `http://localhost:2006`.
 
-## API & Integrasi Lengkap
+## Environment variables
 
-ALAS menyediakan dua kategori API: **API Publik** (untuk konsumsi frontend read-only) dan **Service API** (Bearer-protected untuk sinkronisasi data dari Lawet Hub).
+Salin `.env.example`; jangan commit nilai rahasia.
 
----
+| Variable | Pemilik/tujuan |
+| --- | --- |
+| `DATABASE_URL` | Koneksi PostgreSQL ALAS. |
+| `ALAS_DB_NAME`, `ALAS_DB_USER`, `ALAS_DB_PASSWORD` | Bootstrap container database. |
+| `ALAS_SERVICE_TOKEN` | Bearer token Direct Service; nilainya harus sama di Lawet Hub. |
+| `ALAS_WEBHOOK_SECRET` | Secret HMAC write request; berbeda dari service token dan sama di Lawet Hub. |
+| `ALAS_REPLAY_WINDOW_SECONDS` | Batas usia timestamp signature; wajib bilangan bulat positif. |
+| `LAWET_API_URL` | Origin Lawet Hub internal, hanya untuk server ALAS. |
+| `LAWET_PUBLIC_URL` | Origin Lawet Hub yang dapat dibuka browser untuk workflow tulis. |
+| `LAWET_REQUEST_TIMEOUT_MS` | Timeout proxy media Lawet Hub. |
+| `ALAS_ADMIN_ROLE_LEVEL` | Level role minimum untuk pengaturan situs ALAS. |
+| `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN` | Observability opsional. |
 
-## 1. API Publik (Unauthenticated)
+`ALAS_SERVICE_TOKEN` dan `ALAS_WEBHOOK_SECRET` adalah dua secret terpisah. ALAS tidak memerlukan credential write ke database atau MinIO Lawet Hub.
 
-Endpoint berikut dapat diakses secara bebas tanpa autentikasi. Seluruh response sukses mengembalikan HTTP `200 OK` dengan format JSON.
+## API ringkas
 
-### A. Jurnal & Kegiatan
+### API publik
 
-#### 1. List Jurnal
-* **Endpoint:** `GET /api/jurnal`
-* **Query Params (Opsional):**
-  * `q` (string): Pencarian teks pada judul jurnal.
-  * `kategori` (string): Filter kategori (`mou`, `audiensi`, `pelaporan`, `sengketa`, `lainnya`).
-  * `date` (string, `YYYY-MM-DD`): Filter berdasarkan tanggal kegiatan tertentu.
-  * `cursor` (string): ID jurnal terakhir untuk cursor pagination.
-  * `limit` (number, default: `10`): Jumlah data per halaman.
-* **Contoh Response:**
-  ```json
-  {
-    "status": "ok",
-    "data": [
-      {
-        "id": "7b89d45e-1234-5678-abcd-ef0123456789",
-        "judul": "Bawaslu Kebumen Teken MoU dengan Universitas Putra Bangsa",
-        "tanggal_kegiatan": "2026-06-15",
-        "kategori": "mou",
-        "thumbnail_url": "https://media.domain.com/alas-public-assets/jurnal/uuid/thumb.jpg",
-        "pihak_terkait": [{ "nama": "Universitas Putra Bangsa", "instansi": null }],
-        "tags": ["mou", "kemitraan", "kampus"]
-      }
-    ],
-    "pagination": {
-      "next_cursor": "7b89d45e-1234-5678-abcd-ef0123456789",
-      "has_more": true
-    }
-  }
-  ```
+| Method dan path | Fungsi |
+| --- | --- |
+| `GET /api/jurnal` | Daftar jurnal; mendukung `q`, `kategori`, `date`, `cursor`, dan `limit`. |
+| `GET /api/jurnal/:id` | Detail jurnal publik dan lampiran yang diizinkan. |
+| `GET /api/jurnal/calendar?month=YYYY-MM` | Tanggal yang memiliki kegiatan. |
+| `GET /api/jurnal/stats?year=YYYY` | Statistik jurnal. |
+| `GET /api/jurnal/kategori` | Daftar kategori. |
+| `GET /api/pimpinan?date=YYYY-MM-DD` | Pimpinan aktif pada tanggal tertentu. |
+| `GET /api/pimpinan/:id` | Detail pimpinan. |
+| `GET /api/health` | Health check aplikasi dan database. |
 
-#### 2. Detail Jurnal
-* **Endpoint:** `GET /api/jurnal/:id`
-* **Keterangan:** Mengembalikan informasi detail jurnal. File pendukung dalam array `dokumen_pendukung` hanya akan muncul jika memiliki atribut `"is_public": true`.
-* **Contoh Response:**
-  ```json
-  {
-    "status": "ok",
-    "data": {
-      "id": "7b89d45e-1234-5678-abcd-ef0123456789",
-      "judul": "Bawaslu Kebumen Teken MoU dengan Universitas Putra Bangsa",
-      "tanggal_kegiatan": "2026-06-15",
-      "kategori": "mou",
-      "link_publikasi": "https://bawaslu.go.id/artikel/123",
-      "dokumentasi": [
-        { "url": "https://...", "caption": "Serah Terima MoU", "type": "image" }
-      ],
-      "dokumen_pendukung": [
-        { "nama": "Notulen Kesepakatan.pdf", "url": "https://...", "tipe": "pdf", "is_public": true }
-      ],
-      "pihak_terkait": [{ "nama": "Universitas Putra Bangsa", "instansi": null }],
-      "custom_fields": [{ "label": "Nomor Nota Dinas", "value": "05/ND/2026" }]
-    }
-  }
-  ```
+### Direct Service API
 
-#### 3. Kalender Kegiatan
-* **Endpoint:** `GET /api/jurnal/calendar`
-* **Query Params:** `month` (string, format `YYYY-MM`, Wajib).
-* **Keterangan:** Mengembalikan daftar tanggal (day of month) yang memiliki kegiatan aktif pada bulan tersebut untuk visualisasi widget kalender.
-* **Contoh Response (`GET /api/jurnal/calendar?month=2026-06`):**
-  ```json
-  {
-    "status": "ok",
-    "data": {
-      "month": "2026-06",
-      "dates": [1, 5, 15, 22]
-    }
-  }
-  ```
+| Method dan path | Fungsi |
+| --- | --- |
+| `POST /api/service/jurnal` | Upsert proyeksi jurnal berdasarkan `source_id`. |
+| `GET /api/service/jurnal` | List proyeksi untuk operasi/reconciliation. |
+| `GET /api/service/jurnal/:sourceId` | Baca satu proyeksi. |
+| `PATCH /api/service/jurnal/:sourceId` | Perbarui atau unpublish proyeksi. |
+| `DELETE /api/service/jurnal/:sourceId` | Soft-delete dengan `is_published=false`. |
+| `PATCH /api/service/jurnal/:sourceId/dokumen` | Perbarui visibilitas lampiran. |
+| `POST /api/service/pimpinan` | Upsert pimpinan berdasarkan `source_id`. |
+| `GET /api/service/pimpinan[/:sourceId]` | List atau detail pimpinan. |
+| `PATCH /api/service/pimpinan/:sourceId` | Perbarui pimpinan. |
+| `DELETE /api/service/pimpinan/:sourceId` | Nonaktifkan pimpinan. |
 
-#### 4. Statistik & Rekapitulasi Tahunan
-* **Endpoint:** `GET /api/jurnal/stats`
-* **Query Params (Opsional):** `year` (number, format `YYYY`).
-* **Keterangan:** Mengembalikan aggregate jumlah kegiatan per kategori dan daftar tahun yang tersedia.
-* **Contoh Response:**
-  ```json
-  {
-    "status": "ok",
-    "years": [2024, 2025, 2026],
-    "year": 2026,
-    "stats": {
-      "mou": 3,
-      "audiensi": 8,
-      "pelaporan": 5,
-      "sengketa": 2,
-      "lainnya": 1
-    }
-  }
-  ```
+Semua endpoint service membutuhkan bearer token. `POST`, `PATCH`, dan `DELETE` juga membutuhkan `X-ALAS-Event-Id`, `X-ALAS-Timestamp`, serta `X-ALAS-Signature`. Detail payload dan canonical signing string ada di [INTEGRATION.md](INTEGRATION.md).
 
-#### 5. List Kategori Jurnal
-* **Endpoint:** `GET /api/jurnal/kategori`
-* **Contoh Response:**
-  ```json
-  {
-    "status": "ok",
-    "data": ["mou", "audiensi", "pelaporan", "sengketa", "lainnya"]
-  }
-  ```
+## Security dan data integrity
 
----
+- `source_id` unik menjaga satu proyeksi per record Lawet Hub.
+- `service_events.event_id` menjadi idempotency ledger; claim event dan mutasi domain terjadi dalam satu transaksi.
+- HMAC memverifikasi timestamp, method, pathname, dan SHA-256 body; perbandingan signature menggunakan constant-time comparison.
+- Reconciliation Lawet Hub mengantrekan ulang desired state secara idempoten dan outbox memakai row locking `SKIP LOCKED` saat delivery.
+- Dashboard token tidak memiliki refresh token dan ditolak pada method mutasi oleh Lawet Hub.
+- Media terlindungi diproksi server-side, dibatasi prefix, memakai timeout, dan selalu `Cache-Control: private, no-store`.
+- Workflow submit, upload, approve, dan reject tidak dijalankan oleh ALAS; pengguna diarahkan ke Lawet Hub.
 
-### B. Profil Pimpinan
-
-#### 1. List Pimpinan Aktif
-* **Endpoint:** `GET /api/pimpinan`
-* **Keterangan:** Mengembalikan daftar pimpinan yang sedang menjabat (`is_active = true`), diurutkan berdasarkan prioritas `urutan` terkecil.
-* **Contoh Response:**
-  ```json
-  {
-    "status": "ok",
-    "data": [
-      {
-        "id": "uuid-pimpinan",
-        "nama": "Agus Widodo, S.H.",
-        "jabatan": "Ketua Bawaslu",
-        "foto_url": "https://...",
-        "periode_mulai": "2023-08-15",
-        "periode_selesai": "2028-08-14",
-        "urutan": 1
-      }
-    ]
-  }
-  ```
-
-#### 2. Detail Profil Pimpinan
-* **Endpoint:** `GET /api/pimpinan/:id`
-
----
-
-### C. System Utility
-
-#### 1. Health Check
-* **Endpoint:** `GET /api/health`
-* **Response:**
-  ```json
-  {
-    "status": "ok",
-    "db_connected": true
-  }
-  ```
-
----
-
-## 2. Service API (Bearer-Protected)
-
-Digunakan untuk sinkronisasi real-time dari **Lawet Hub**. Seluruh endpoint di bawah ini mewajibkan header autentikasi:
-```http
-Authorization: Bearer <ALAS_SERVICE_TOKEN>
-Content-Type: application/json
-```
-
-### A. Jurnal & Dokumentasi
-
-#### 1. Create atau Upsert Jurnal
-* **Endpoint:** `POST /api/service/jurnal`
-* **Keterangan:** Membuat jurnal baru atau memperbarui jika `source_id` sudah ada. Dokumen pendukung baru default berstatus `is_public = true`.
-* **Request Payload:**
-  ```json
-  {
-    "source_id": "uuid-jurnal-lawethub",
-    "judul": "Sosialisasi Pengawasan Pemilu Partisipatif",
-    "tanggal_kegiatan": "2026-07-02",
-    "kategori": "audiensi",
-    "link_publikasi": "https://bawaslu.go.id/artikel/456",
-    "dokumentasi": [
-      {
-        "url": "https://media.domain.com/alas-public-assets/jurnal/uuid/img.jpg",
-        "caption": "Penyampaian materi",
-        "type": "image"
-      }
-    ],
-    "dokumen_pendukung": [
-      {
-        "nama": "Materi_Sosialisasi.pdf",
-        "url": "https://media.domain.com/alas-public-assets/jurnal/uuid/doc.pdf",
-        "tipe": "pdf"
-      }
-    ],
-    "pihak_terkait": [{ "nama": "Kwartir Cabang Pramuka", "instansi": "Pramuka" }],
-    "tags": ["sosialisasi", "partisipatif"],
-    "custom_fields": []
-  }
-  ```
-* **Response (201 Created / 200 Updated):**
-  ```json
-  {
-    "status": "ok",
-    "id": "uuid-internal-alas",
-    "source_id": "uuid-jurnal-lawethub",
-    "action": "created" // atau "updated"
-  }
-  ```
-
-#### 2. Update Parsial Jurnal
-* **Endpoint:** `PATCH /api/service/jurnal/:source_id`
-* **Request Payload:** Mengirim field yang ingin diubah saja (misalnya untuk unpublish/draft):
-  ```json
-  {
-    "is_published": false
-  }
-  ```
-
-#### 3. Toggle Visibilitas Dokumen Pendukung
-* **Endpoint:** `PATCH /api/service/jurnal/:source_id/dokumen`
-* **Keterangan:** Digunakan oleh admin Lawet Hub untuk menyembunyikan/menampilkan lampiran dokumen secara spesifik bagi akses publik.
-* **Request Payload:**
-  ```json
-  {
-    "dokumen_pendukung": [
-      { "nama": "Materi_Sosialisasi.pdf", "url": "https://...", "tipe": "pdf", "is_public": false }
-    ]
-  }
-  ```
-* **Response (200 OK):**
-  ```json
-  {
-    "status": "ok",
-    "updated": 1
-  }
-  ```
-
-#### 4. Detail Jurnal Internal (View Admin)
-* **Endpoint:** `GET /api/service/jurnal/:source_id`
-* **Keterangan:** Mengembalikan detail jurnal lengkap termasuk file yang disembunyikan (`is_public = false`).
-
-#### 5. List Semua Jurnal (Published & Draft)
-* **Endpoint:** `GET /api/service/jurnal`
-
-#### 6. Soft Delete Jurnal
-* **Endpoint:** `DELETE /api/service/jurnal/:source_id`
-* **Keterangan:** Mengubah status `is_published` menjadi `false`. Data tetap tersimpan di database untuk kebutuhan audit trail.
-
----
-
-### B. Manajemen Pimpinan
-
-#### 1. Create atau Upsert Pimpinan
-* **Endpoint:** `POST /api/service/pimpinan`
-* **Request Payload:**
-  ```json
-  {
-    "source_id": "uuid-pimpinan-lawethub",
-    "nama": "Agus Widodo, S.H.",
-    "jabatan": "Ketua Bawaslu",
-    "foto_url": "https://media.domain.com/alas-public-assets/pimpinan/uuid/foto.jpg",
-    "bio": "Komisioner Bawaslu Kebumen divisi Hukum...",
-    "periode_mulai": "2023-08-15",
-    "periode_selesai": "2028-08-14",
-    "urutan": 1
-  }
-  ```
-
-#### 2. Update Profil Pimpinan
-* **Endpoint:** `PATCH /api/service/pimpinan/:source_id`
-
-#### 3. Soft Delete Pimpinan
-* **Endpoint:** `DELETE /api/service/pimpinan/:source_id`
-* **Keterangan:** Mengubah status `is_active` menjadi `false`.
-
----
-
-## Cara Integrasi Lawet Hub ➔ ALAS
-
-Untuk mensinkronisasi data dari Lawet Hub (FastAPI/Python) ke ALAS (Next.js/Node.js), ikuti langkah-langkah implementasi di bawah ini:
-
-### 1. Sinkronisasi Token Auth
-Hasilkan service token yang kuat di server lokal menggunakan CLI:
-```bash
-openssl rand -hex 32
-```
-Tambahkan token ini ke `.env` di **kedua** project.
-
-**ALAS side (`.env`):**
-```bash
-ALAS_SERVICE_TOKEN=8b93f124fa10b93a...
-```
-
-**Lawet Hub side (`.env`):**
-```bash
-ALAS_SERVICE_TOKEN=8b93f124fa10b93a...
-ALAS_API_URL=https://alas.bawaslu-kebumen.go.id
-```
-
-### 2. Alur Manajemen Aset Media (MinIO)
-Sebelum melakukan HTTP request ke ALAS Service API, pastikan aset media (foto dokumentasi, thumbnail, lampiran dokumen PDF) dipromosikan terlebih dahulu dari bucket internal Lawet Hub (`lawet-media`) ke bucket publik ALAS (`alas-public-assets`).
-
-Format URL publik aset wajib mengikuti pola berikut:
-```
-https://{MINIO_ENDPOINT}/alas-public-assets/jurnal/{source_id}/{nama-file}
-https://{MINIO_ENDPOINT}/alas-public-assets/pimpinan/{source_id}/{nama-file}
-```
-
-### 3. Implementasi HTTP Client (Python httpx)
-Gunakan client class berikut di backend Lawet Hub untuk mengonsumsi Service API ALAS secara terpusat:
-
-```python
-import httpx
-
-class ALASServiceClient:
-    BASE_URL = settings.ALAS_API_URL
-    TOKEN = settings.ALAS_SERVICE_TOKEN
-
-    @classmethod
-    def _headers(cls) -> dict:
-        return {
-            "Authorization": f"Bearer {cls.TOKEN}",
-            "Content-Type": "application/json"
-        }
-
-    @classmethod
-    async def upsert_jurnal(cls, payload: dict) -> dict:
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            resp = await client.post(
-                f"{cls.BASE_URL}/api/service/jurnal",
-                json=payload, headers=cls._headers()
-            )
-            resp.raise_for_status()
-            return resp.json()
-
-    @classmethod
-    async def delete_jurnal(cls, source_id: str) -> dict:
-        async with httpx.AsyncClient(timeout=15.0) as client:
-            resp = await client.delete(
-                f"{cls.BASE_URL}/api/service/jurnal/{source_id}",
-                headers=cls._headers()
-            )
-            resp.raise_for_status()
-            return resp.json()
-```
-
-### 4. Strategi Penanganan Kegagalan Sync (Resilience)
-Integrasi ini menggunakan pendekatan **Data Integrity > Sync Consistency**:
-* Jika ALAS Service API mengembalikan error `5xx` atau mengalami *timeout*, data jurnal di Lawet Hub **harus tetap tersimpan dengan status terpublish**.
-* Set field `last_synced_at` pada database Lawet Hub ke status `NULL` atau tandai flag `sync_failed = True`.
-* Sediakan tombol **"Retry Sync"** di admin dashboard Lawet Hub untuk memicu pemanggilan ulang `ALASServiceClient.upsert_jurnal(payload)` secara manual jika terjadi kegagalan jaringan atau server downtime.
-
----
-
-## Deploy (Docker - Produksi dengan GHCR)
-
-Aplikasi di-deploy menggunakan image yang sudah di-build secara otomatis oleh GitHub Actions CI/CD dan disimpan di GitHub Container Registry (GHCR).
-
-### 1. Clone repositori ke server
-```bash
-git clone https://github.com/naxprmn/alas.git
-cd alas
-```
-
-### 2. Setup Environment Variables
-Buat berkas `.env` di root direktori aplikasi:
-```bash
-cp .env.example .env
-# Edit .env dengan nilai produksi Anda
-```
-
-### 3. Jalankan Container
-```bash
-# Tarik image terbaru dari GHCR
-docker compose -f docker-compose.prod.yml pull
-
-# Jalankan service secara background
-docker compose -f docker-compose.prod.yml up -d
-```
-
-### 4. Jalankan Migrasi Database
-Karena container produksi (`alas-app`) tidak memuat developer tools bawaan, jalankan migrasi menggunakan container Node temporary:
-```bash
-docker run --rm \
-  --network alas_alas-net \
-  -v ${PWD}:/app \
-  -w /app \
-  node:20-slim \
-  sh -c "npm install drizzle-kit pg && npx drizzle-kit migrate"
-```
-
-### Services yang dijalankan:
-
-| Container | Port Host | Keterangan |
-|---|---|---|
-| `alas-app` | 3001 | Next.js app |
-| `alas-nginx` | 2006 | Reverse proxy + Rate Limiter ke alas-app |
-| `alas-db` | 5433 | PostgreSQL 16 |
-
-Arahkan Cloudflare Tunnel atau reverse proxy server Anda ke port host **`2006`** (Nginx) untuk domain publik Anda (misalnya `alas.pusdakum.web.id`).
-
-### Health Check
+## Pengujian dan quality gates
 
 ```bash
-curl https://alas.pusdakum.web.id/api/health
-# {"status":"ok","db_connected":true}
+npm run boundary:test
+npm run arch:check
+npx vitest run
+npm run lint
+npm run build
 ```
 
----
+`package.json` belum menyediakan alias `test`; jalankan Vitest melalui `npx vitest`. Integration test yang membutuhkan PostgreSQL memakai Testcontainers dan memerlukan Docker aktif. Lihat [Testing Architecture](docs/architecture/TESTING.md) untuk pemilihan suite.
 
-## Testing
+## Deployment
 
-```bash
-npm run test          # Jalankan semua test
-npm run test:watch    # Watch mode
-npm run test:coverage # Coverage report
-```
-
-Test suites mencakup: auth middleware, CRUD jurnal, DB queries, dan komponen UI.
-
----
-
-## Kontributor
-
-Proyek ini dikelola oleh tim teknis **Bawaslu Kebumen**.  
-Untuk pengelolaan konten, gunakan dashboard **Lawet Hub** (akses terbatas).
+Gunakan `docker-compose.prod.yml`, secret produksi dari environment, koneksi PostgreSQL TLS untuk database eksternal, dan jalankan migrasi sebelum aplikasi menerima traffic. Checklist deploy, health check, backup, serta rollback berada di [Runbook](docs/ops/RUNBOOK.md).

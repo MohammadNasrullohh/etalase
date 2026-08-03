@@ -21,11 +21,11 @@ flowchart LR
 | Routing dan endpoint | `src/app/` | Page App Router, route handler, dan layout panel. |
 | Tampilan halaman | `src/views/`, `src/widgets/` | Susunan UI tingkat halaman dan komposisi multi-entitas. |
 | Fitur | `src/features/` | Filter jurnal, autentikasi dan visibilitas Lawet Hub, serta sinkronisasi Service API. |
-| Entitas | `src/entities/` | Query, model, dan UI untuk `jurnal` serta `pimpinan`. |
-| Shared | `src/shared/` | Koneksi basis data dan komponen yang dipakai lintas area. |
-| Persistensi | `drizzle/` | Skema Drizzle, migrasi, dan seed data. |
+| Entitas | `src/entities/` | Query, model, public API, dan UI untuk `jurnal`, `pimpinan`, `lawet-user`, serta `site-settings`. |
+| Shared | `src/shared/` | Koneksi basis data, design tokens, dan komponen yang dipakai lintas area. |
+| Persistensi | `drizzle/` | Skema dan migrasi Drizzle. |
 
-Alias TypeScript `@/*` menunjuk ke `src/*`. Ketergantungan diarahkan dari page/widget/feature ke entity dan shared; shared tidak boleh bergantung pada feature.
+Alias TypeScript `@/*` menunjuk ke `src/*`. Urutan layer adalah `app → views → widgets → features → entities → shared`; layer bawah tidak boleh mengimpor layer di atas dan satu feature tidak boleh mengimpor feature lain. Client component memakai suffix `.client.tsx`. Barrel `index.ts` hanya digunakan sebagai public API pada `entities` atau `shared`; aturan public API saat ini ditegakkan untuk `entities/lawet-user` dan diperluas secara bertahap.
 
 ## Alur Data
 
@@ -58,7 +58,13 @@ Route di `src/app/api/service/` menerima bearer service token. Semua operasi tul
 
 Lawet Hub mencatat desired state ke transactional outbox. Worker mengirimnya dengan timeout serta exponential backoff dari env, dan reconciliation berkala mengantrekan ulang proyeksi yang seharusnya published, draft setelah unpublish, atau deleted. Keputusan lengkap ada di [ADR-0001](../adr/0001-direct-service-delivery-guarantees.md).
 
-Kontrak payload dan status respons Service API historis masih dapat ditemukan di README root. Saat kontrak berubah, perbarui dokumen ini dan dokumentasi integrasi dalam perubahan yang sama.
+Kontrak payload, header, status respons, retry, dan reconciliation berada di [INTEGRATION.md](../../INTEGRATION.md). Saat kontrak berubah, producer, consumer, test, dan dokumen integrasi harus diperbarui dalam perubahan yang sama.
+
+## Repository Isolation
+
+ALAS dan Lawet Hub adalah deployable mandiri. Integrasi lintas sistem hanya melalui HTTP dan konfigurasi environment; repository tidak boleh mengimpor source, memasang package, memakai `file:`/`link:` dependency, symlink eksternal, atau Git submodule dari repository pasangannya.
+
+`npm run boundary:check` memindai source, manifest, link filesystem, dan metadata Git. `npm run boundary:test` membuktikan fixture yang sah diterima dan dependency silang ditolak. `npm run arch:check` menjalankan boundary check lalu dependency-cruiser untuk arah layer FSD dan aturan public API.
 
 ## Konfigurasi dan Infrastruktur
 
@@ -69,6 +75,7 @@ Kontrak payload dan status respons Service API historis masih dapat ditemukan di
 - `LAWET_API_URL` hanya dipakai server-side untuk login dan pembacaan visibilitas Lawet Hub.
 - `LAWET_PUBLIC_URL` adalah origin Lawet Hub yang dapat dibuka browser untuk workflow tulis.
 - `LAWET_REQUEST_TIMEOUT_MS` membatasi waktu tunggu proxy media terlindungi.
+- ALAS tidak menyimpan credential write untuk database atau MinIO Lawet Hub.
 - Docker Compose menjalankan `alas-db`, `alas-app`, dan `alas-nginx` pada jaringan `alas-net`; Nginx adalah reverse proxy untuk aplikasi Next.js.
 
 Panduan operasional ada di [RUNBOOK.md](../ops/RUNBOOK.md), sedangkan struktur data di [ERD.md](ERD.md).

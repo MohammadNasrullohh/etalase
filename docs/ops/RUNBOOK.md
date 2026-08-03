@@ -9,7 +9,7 @@
 ## Menjalankan Lokal
 
 ```bash
-npm install
+npm ci
 Copy-Item .env.example .env
 docker compose -f docker-compose.alas.yml up alas-db -d
 npx drizzle-kit migrate
