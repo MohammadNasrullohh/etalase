@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
+import { isAdminUser } from '@/entities/lawet-user'
 
 describe('Lawet Hub admin authorization', () => {
   it('recognizes Superadmin even when the Lawet Hub response omits a numeric level', () => {

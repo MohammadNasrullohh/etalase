@@ -1,19 +1,9 @@
 'use server'
 
 import { cookies } from 'next/headers'
+import type { LawetUser } from '../model/lawet-user'
 
 const LAWET_API_URL = process.env.LAWET_API_URL as string
-
-export type LawetUser = {
-  id: string
-  name: string
-  username: string
-  role: {
-    id: string
-    name: string
-    level: number
-  }
-}
 
 export async function getMeAction(): Promise<LawetUser | null> {
   try {
@@ -57,9 +47,4 @@ export async function getMeAction(): Promise<LawetUser | null> {
     console.error('getMeAction error:', error)
     return null
   }
-}
-
-export async function logoutAction() {
-  cookies().delete('lawet_token')
-  return { success: true }
 }

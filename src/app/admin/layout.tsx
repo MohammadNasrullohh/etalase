@@ -1,6 +1,5 @@
 import { redirect } from 'next/navigation'
-import { getMeAction } from '@/features/lawet-auth/api/get-me.action'
-import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
+import { getMeAction, isAdminUser } from '@/entities/lawet-user'
 import { AuthoringShellClient } from '../(authoring)/authoring-shell.client'
 
 export default async function AdminLayout({

@@ -1,3 +1,24 @@
+const { readdirSync } = require('node:fs')
+const { join } = require('node:path')
+
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+const featureSlices = readdirSync(join(__dirname, 'src', 'features'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+
+const crossFeatureRules = featureSlices.map((slice) => {
+  const slicePattern = escapeRegex(slice)
+
+  return {
+    name: `no-cross-feature-imports-from-${slice}`,
+    severity: 'error',
+    comment: `Feature ${slice} must compose through lower layers instead of importing another feature slice.`,
+    from: { path: `^src/features/${slicePattern}/` },
+    to: { path: `^src/features/(?!${slicePattern}/)` },
+  }
+})
+
 /** @type {import('dependency-cruiser').IConfiguration} */
 module.exports = {
   forbidden: [
@@ -42,6 +63,14 @@ module.exports = {
       comment: 'Views compose pages but cannot depend on Next.js route files.',
       from: { path: '^src/views/' },
       to: { path: '^src/app/' },
+    },
+    ...crossFeatureRules,
+    {
+      name: 'lawet-user-must-use-public-api',
+      severity: 'error',
+      comment: 'External consumers of the Lawet user entity must import its public API.',
+      from: { pathNot: '^src/entities/lawet-user/' },
+      to: { path: '^src/entities/lawet-user/(?!index\\.ts$)' },
     },
   ],
   options: {

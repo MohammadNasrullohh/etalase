@@ -1,7 +1,7 @@
 'use server'
 
 import { cookies } from 'next/headers'
-import { getMeAction } from '@/features/lawet-auth/api/get-me.action'
+import { getMeAction } from '@/entities/lawet-user'
 import { db } from '@/shared/lib/db'
 import { jurnal } from '../../../../drizzle/schema'
 import { eq, desc } from 'drizzle-orm'

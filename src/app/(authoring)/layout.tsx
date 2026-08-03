@@ -1,7 +1,6 @@
-import { getMeAction } from '@/features/lawet-auth/api/get-me.action'
+import { getMeAction, isAdminUser } from '@/entities/lawet-user'
 import { redirect } from 'next/navigation'
 import { AuthoringShellClient } from './authoring-shell.client'
-import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
 
 export const dynamic = 'force-dynamic'
 

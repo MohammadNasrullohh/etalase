@@ -1,4 +1,4 @@
-import type { LawetUser } from '@/features/lawet-auth/api/get-me.action'
+import type { LawetUser } from '../model/lawet-user'
 
 const DEFAULT_ADMIN_ROLE_LEVEL = 3
 

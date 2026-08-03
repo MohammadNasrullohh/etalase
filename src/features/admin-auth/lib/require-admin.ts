@@ -1,5 +1,4 @@
-import { getMeAction, type LawetUser } from '@/features/lawet-auth/api/get-me.action'
-import { isAdminUser } from './is-admin'
+import { getMeAction, isAdminUser, type LawetUser } from '@/entities/lawet-user'
 
 export async function getAdminUser(): Promise<LawetUser | null> {
   const user = await getMeAction()

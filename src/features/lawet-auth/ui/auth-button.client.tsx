@@ -1,11 +1,11 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { getMeAction, LawetUser, logoutAction } from '../api/get-me.action'
+import { getMeAction, isAdminUser, type LawetUser } from '@/entities/lawet-user'
+import { logoutAction } from '../api/login.action'
 import { LogIn, LogOut, FileText, LayoutDashboard } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
 
 export function AuthButton() {
   const [user, setUser] = useState<LawetUser | null>(null)

@@ -1,6 +1,7 @@
 'use client'
 
-import { LawetUser, logoutAction } from '../api/get-me.action'
+import type { LawetUser } from '@/entities/lawet-user'
+import { logoutAction } from '../api/login.action'
 import { X, FileText, Folder, CheckSquare, LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
