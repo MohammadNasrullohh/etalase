@@ -49,25 +49,19 @@ export async function getApprovalJurnalAction(id: string) {
 }
 
 export async function approveJurnalAction(id: string, note?: string) {
-  try {
-    const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}/approve`, {
-      method: 'POST',
-      body: JSON.stringify({ note }) // note might not be used by backend, but safe to send
-    })
-    return { success: true, data }
-  } catch (error: any) {
-    return { success: false, error: error.message }
+  void id
+  void note
+  return {
+    success: false as const,
+    error: 'ALAS hanya menyediakan visibilitas. Setujui jurnal melalui Lawet Hub.',
   }
 }
 
 export async function rejectJurnalAction(id: string, note?: string) {
-  try {
-    const data = await fetchWithToken(`/api/v1/jurnal-alas/${id}/reject`, {
-      method: 'POST',
-      body: JSON.stringify({ note })
-    })
-    return { success: true, data }
-  } catch (error: any) {
-    return { success: false, error: error.message }
+  void id
+  void note
+  return {
+    success: false as const,
+    error: 'ALAS hanya menyediakan visibilitas. Tolak jurnal melalui Lawet Hub.',
   }
 }

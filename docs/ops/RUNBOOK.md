@@ -26,7 +26,9 @@ Lengkapi minimal nilai berikut di `.env`:
 | `ALAS_SERVICE_TOKEN` | Token bearer untuk Service API; harus cocok dengan Lawet Hub. |
 | `ALAS_WEBHOOK_SECRET` | Secret HMAC untuk write Direct Service; harus cocok dengan Lawet Hub dan berbeda dari bearer token. |
 | `ALAS_REPLAY_WINDOW_SECONDS` | Usia maksimum signature write; default deployment `300`. |
-| `LAWET_API_URL` | URL internal API Lawet Hub untuk login dan workflow panel. |
+| `LAWET_API_URL` | URL internal API Lawet Hub untuk login dan pembacaan panel. |
+| `LAWET_PUBLIC_URL` | Origin Lawet Hub yang dapat dibuka browser untuk workflow tulis. |
+| `LAWET_REQUEST_TIMEOUT_MS` | Timeout request proxy media ke Lawet Hub; default deployment `5000`. |
 | `ALAS_ADMIN_ROLE_LEVEL` | Level role minimum untuk dashboard `/admin` (default `3`). |
 
 ## Migrasi Database
@@ -57,7 +59,7 @@ Jalankan dari root repositori setelah `DATABASE_URL` menunjuk ke database target
    curl http://localhost:2006/api/health
    ```
 
-Stack produksi terdiri dari `alas-db` (PostgreSQL), `alas-app` (Next.js pada port internal 3000/host 3001), dan `alas-nginx` (port host 2006). Workflow GitHub Actions membangun serta mendorong image GHCR ketika ada push ke `main`.
+Stack produksi terdiri dari `alas-db` (PostgreSQL hanya pada jaringan internal), `alas-app` (Next.js pada port internal 3000/host 3001), dan `alas-nginx` (port host 2006). `ALAS_DB_PASSWORD` wajib diisi; Compose berhenti sebelum start jika nilainya tidak tersedia. Workflow GitHub Actions membangun serta mendorong image GHCR ketika ada push ke `main`.
 
 ### Mengelola hero beranda
 
@@ -74,5 +76,7 @@ Volume `alas_public_uploads` harus tetap dipertahankan saat redeploy. Jangan men
 | Situs atau API publik gagal | `GET /api/health`, lalu periksa log `alas-nginx` dan `alas-app`. |
 | Health check gagal database | Periksa status `alas-db`, `DATABASE_URL`, dan kredensial PostgreSQL. |
 | Service API 401 | Periksa bearer, HMAC secret, timestamp host, path/body yang ditandatangani, dan replay window. |
-| Panel login/authoring gagal | Pastikan `LAWET_API_URL` dapat dijangkau dari container `alas-app`. |
+| Panel login/visibilitas gagal | Pastikan `LAWET_API_URL` dapat dijangkau dari container `alas-app`. |
+| Tautan pengajuan/approval gagal | Pastikan `LAWET_PUBLIC_URL` adalah origin HTTPS yang dapat dijangkau browser pengguna. |
+| Media terlindungi gagal | Periksa masa berlaku `lawet_token`, prefix objek jurnal, keterjangkauan Lawet Hub, dan `LAWET_REQUEST_TIMEOUT_MS`. |
 | Jurnal tidak muncul publik | Periksa `alas_sync_outbox` di Lawet Hub (`status`, `attempts`, `available_at`, `last_error`), lalu `service_events` dan `is_published` di ALAS. |

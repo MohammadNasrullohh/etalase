@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation'
 import { AuthoringShellClient } from './authoring-shell.client'
 import { isAdminUser } from '@/features/admin-auth/lib/is-admin'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AuthoringLayout({
   children,
 }: {

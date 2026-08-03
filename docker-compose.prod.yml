@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   alas-db:
     image: postgres:16-alpine
@@ -7,11 +5,9 @@ services:
     environment:
       POSTGRES_DB: ${ALAS_DB_NAME:-alas}
       POSTGRES_USER: ${ALAS_DB_USER:-alas_user}
-      POSTGRES_PASSWORD: ${ALAS_DB_PASSWORD:-change-this-strong-password}
+      POSTGRES_PASSWORD: ${ALAS_DB_PASSWORD:?set ALAS_DB_PASSWORD}
     volumes:
       - alas_db_data:/var/lib/postgresql/data
-    ports:
-      - "5433:5432"
     restart: unless-stopped
     networks:
       - alas-net
@@ -32,6 +28,8 @@ services:
       ALAS_WEBHOOK_SECRET: ${ALAS_WEBHOOK_SECRET}
       ALAS_REPLAY_WINDOW_SECONDS: ${ALAS_REPLAY_WINDOW_SECONDS:-300}
       LAWET_API_URL: ${LAWET_API_URL}
+      LAWET_PUBLIC_URL: ${LAWET_PUBLIC_URL}
+      LAWET_REQUEST_TIMEOUT_MS: ${LAWET_REQUEST_TIMEOUT_MS:-5000}
       HERO_UPLOAD_DIR: /app/public/uploads/hero
       ALAS_ADMIN_ROLE_LEVEL: ${ALAS_ADMIN_ROLE_LEVEL:-3}
     volumes:

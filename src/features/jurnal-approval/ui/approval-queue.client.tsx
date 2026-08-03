@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getApprovalQueueAction, approveJurnalAction, rejectJurnalAction } from '@/entities/jurnal/api/approve-jurnal.action'
-import { CheckCircle, XCircle, Clock, FileText } from 'lucide-react'
+import { getApprovalQueueAction } from '@/entities/jurnal/api/approve-jurnal.action'
+import { CheckCircle, Clock, ExternalLink, FileText } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -25,23 +25,6 @@ export function ApprovalQueue() {
       setError(res.error || 'Gagal memuat antrean persetujuan')
     }
     setLoading(false)
-  }
-
-  const handleAction = async (id: string, action: 'approve' | 'reject') => {
-    const note = prompt(action === 'approve' ? 'Catatan Persetujuan (Opsional):' : 'Alasan Penolakan (Wajib):')
-    if (action === 'reject' && !note) return
-
-    setLoading(true)
-    const res = action === 'approve' 
-      ? await approveJurnalAction(id, note || undefined)
-      : await rejectJurnalAction(id, note || undefined)
-
-    if (res.success) {
-      await fetchQueue()
-    } else {
-      alert(res.error || 'Gagal memproses')
-      setLoading(false)
-    }
   }
 
   if (loading && queue.length === 0) {
@@ -71,6 +54,12 @@ export function ApprovalQueue() {
 
   return (
     <div className="space-y-4">
+      <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-ember-bright)]/25 bg-[var(--color-ember-bright)]/5 p-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
+        <span>Antrean ini hanya untuk visibilitas. Keputusan approval dilakukan di Lawet Hub.</span>
+        <Link href="/lawet?to=approval" className="inline-flex min-h-11 shrink-0 items-center gap-2 font-semibold text-[var(--color-ember-bright)] hover:text-white">
+          Buka Lawet Hub <ExternalLink className="h-4 w-4" />
+        </Link>
+      </div>
       {queue.map(item => (
         <div
           key={item.id}
@@ -106,18 +95,6 @@ export function ApprovalQueue() {
             >
               <FileText className="w-4 h-4" /> Detail
             </Link>
-            <button
-              onClick={() => handleAction(item.id, 'reject')}
-              className="px-4 py-2 border border-red-500/50 text-red-400 rounded-xl hover:bg-red-500/10 active:scale-95 transition-all text-xs font-bold font-mono uppercase tracking-widest flex items-center gap-2"
-            >
-              <XCircle className="w-4 h-4" /> Tolak
-            </button>
-            <button
-              onClick={() => handleAction(item.id, 'approve')}
-              className="px-4 py-2 bg-[var(--color-ember-bright)] text-black rounded-xl hover:bg-white active:scale-95 transition-all text-xs font-bold font-mono uppercase tracking-widest flex items-center gap-2"
-            >
-              <CheckCircle className="w-4 h-4" /> Setujui
-            </button>
           </div>
         </div>
       ))}
