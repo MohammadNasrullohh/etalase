@@ -37,10 +37,16 @@ export async function getMeAction(): Promise<LawetUser | null> {
       id: data.id,
       name: data.name,
       username: data.username,
+      division_id: data.division_id || data.division?.id || null,
+      division: data.division?.name
+        ? { id: data.division.id, name: String(data.division.name) }
+        : null,
       role: {
         id: String(rawRole.id || ''),
         name: String(rawRole.name || data.role_name || ''),
         level: Number.isFinite(roleLevel) ? roleLevel : 0,
+        can_approve: Boolean(rawRole.can_approve ?? data.can_approve),
+        is_superadmin: Boolean(rawRole.is_superadmin ?? data.is_superadmin),
       },
     }
   } catch (error) {

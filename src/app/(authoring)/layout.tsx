@@ -1,4 +1,4 @@
-import { getMeAction, isAdminUser } from '@/entities/lawet-user'
+import { canApproveJurnal, getMeAction, isAdminUser } from '@/entities/lawet-user'
 import { redirect } from 'next/navigation'
 import { AuthoringShellClient } from './authoring-shell.client'
 
@@ -16,7 +16,7 @@ export default async function AuthoringLayout({
   }
 
   const isAdmin = isAdminUser(user)
-  const isApprover = isAdmin || user.role.level >= 2
+  const isApprover = canApproveJurnal(user)
 
   return (
     <AuthoringShellClient isApprover={isApprover} isAdmin={isAdmin}>

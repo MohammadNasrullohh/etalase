@@ -1,27 +1,17 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-
-const DESTINATIONS = {
-  submit: '/dashboard/jurnal-alas/submit',
-  approval: '/dashboard/jurnal-alas/draft',
-} as const
+import { buildLawetWorkflowUrl } from '@/features/jurnal-saya/lib/lawet-workflow'
 
 export default function LawetRedirectPage({
   searchParams,
 }: {
-  searchParams: { to?: string }
+  searchParams: { to?: string; id?: string }
 }) {
-  const destination = DESTINATIONS[searchParams.to as keyof typeof DESTINATIONS]
-  const publicUrl = process.env.LAWET_PUBLIC_URL
-
-  let target: string | null = null
-  if (destination && publicUrl) {
-    try {
-      target = new URL(destination, publicUrl).toString()
-    } catch {
-      target = null
-    }
-  }
+  const target = buildLawetWorkflowUrl(
+    process.env.LAWET_PUBLIC_URL,
+    searchParams.to,
+    searchParams.id,
+  )
 
   if (target) redirect(target)
 

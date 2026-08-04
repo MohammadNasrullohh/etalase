@@ -24,6 +24,20 @@ export function getAdminRoleLevel(): number {
 export function isAdminUser(user: Pick<LawetUser, 'role'> | null | undefined, minimumLevel = getAdminRoleLevel()): boolean {
   if (!user) return false
 
-  return normalizedRoleName(user.role?.name) === 'superadmin'
+  return user.role?.is_superadmin === true
+    || normalizedRoleName(user.role?.name) === 'superadmin'
     || (Number.isSafeInteger(user.role?.level) && user.role.level >= minimumLevel)
+}
+
+/**
+ * Capability eksplisit dari Lawet Hub adalah sumber utama. Pemeriksaan level
+ * dipertahankan untuk kompatibilitas response Lawet lama yang belum mengirim
+ * `can_approve`.
+ */
+export function canApproveJurnal(user: Pick<LawetUser, 'role'> | null | undefined): boolean {
+  if (!user) return false
+
+  return isAdminUser(user)
+    || user.role?.can_approve === true
+    || (Number.isSafeInteger(user.role?.level) && user.role.level >= 2)
 }

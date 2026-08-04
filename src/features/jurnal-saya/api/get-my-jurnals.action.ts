@@ -1,85 +1,220 @@
 'use server'
 
 import { cookies } from 'next/headers'
-import { getMeAction } from '@/entities/lawet-user'
-import { db } from '@/shared/lib/db'
-import { jurnal } from '../../../../drizzle/schema'
-import { eq, desc } from 'drizzle-orm'
+import { canApproveJurnal, getMeAction } from '@/entities/lawet-user'
 
-const LAWET_API_URL = process.env.LAWET_API_URL as string
+export type JurnalWorkflowStatus =
+  | 'draft'
+  | 'rejected'
+  | 'publish_pending'
+  | 'published'
+  | 'unpublish_pending'
+  | 'deleted'
+
+export type JurnalScope = 'mine' | 'subordinate'
 
 export interface MyJurnalItem {
   id: string
-  source_id?: string
+  source_id: string
   judul: string
   tanggal_kegiatan: string
   kategori: string
-  status: 'draft' | 'published'
+  status: JurnalWorkflowStatus
+  scope: JurnalScope
+  owner_id?: string
+  owner_name?: string
+  divisi?: string
+  link_publikasi?: string
+  created_at?: string
+  updated_at?: string
 }
 
-export async function getMyJurnalsAction(): Promise<MyJurnalItem[]> {
-  const me = await getMeAction()
-  if (!me) {
-    throw new Error('Unauthorized')
+export interface JurnalWorkspace {
+  mine: MyJurnalItem[]
+  subordinates: MyJurnalItem[]
+  canReview: boolean
+  viewerName: string
+  divisionName?: string
+  warnings: string[]
+}
+
+type JsonRecord = Record<string, unknown>
+
+function isRecord(value: unknown): value is JsonRecord {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function readString(value: unknown): string | undefined {
+  return typeof value === 'string' && value.trim() ? value : undefined
+}
+
+function extractList(payload: unknown): JsonRecord[] {
+  if (Array.isArray(payload)) return payload.filter(isRecord)
+  if (!isRecord(payload)) return []
+
+  const nested = payload.data ?? payload.items
+  return Array.isArray(nested) ? nested.filter(isRecord) : []
+}
+
+function normalizeStatus(value: unknown, fallback: JurnalWorkflowStatus): JurnalWorkflowStatus {
+  const allowed: JurnalWorkflowStatus[] = [
+    'draft',
+    'rejected',
+    'publish_pending',
+    'published',
+    'unpublish_pending',
+    'deleted',
+  ]
+
+  return allowed.includes(value as JurnalWorkflowStatus)
+    ? value as JurnalWorkflowStatus
+    : fallback
+}
+
+function normalizeJurnal(
+  item: JsonRecord,
+  fallbackStatus: JurnalWorkflowStatus,
+  scope: JurnalScope,
+): MyJurnalItem | null {
+  const id = readString(item.id) || readString(item.source_id)
+  const judul = readString(item.judul)
+  const tanggal = readString(item.tanggal_kegiatan)
+  const kategori = readString(item.kategori)
+  if (!id || !judul || !tanggal || !kategori) return null
+
+  const submitter = isRecord(item.submitter) ? item.submitter : undefined
+
+  return {
+    id,
+    source_id: readString(item.source_id) || id,
+    judul,
+    tanggal_kegiatan: tanggal,
+    kategori,
+    status: normalizeStatus(item.status, fallbackStatus),
+    scope,
+    owner_id: readString(submitter?.id) || readString(item.submitted_by),
+    owner_name: readString(submitter?.name)
+      || readString(item.created_by)
+      || readString(item.redaksi),
+    divisi: readString(item.divisi),
+    link_publikasi: readString(item.link_publikasi),
+    created_at: readString(item.created_at),
+    updated_at: readString(item.updated_at) || readString(item.last_synced_at),
   }
+}
 
-  const token = cookies().get('lawet_token')?.value
-  let drafts: MyJurnalItem[] = []
+function normalizeName(value: string | undefined): string {
+  return (value || '').trim().toLocaleLowerCase('id-ID')
+}
 
-  // 1. Fetch Drafts from Lawet Hub
-  try {
-    const res = await fetch(`${LAWET_API_URL}/api/v1/jurnal-alas/draft?limit=50`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      },
-      next: { revalidate: 0 }
-    })
-    
-    if (res.ok) {
-      const data = await res.json()
-      drafts = data.map((d: any) => ({
-        id: d.id,
-        source_id: d.id, // for draft, the ID in lawet hub is the source_id
-        judul: d.judul,
-        tanggal_kegiatan: d.tanggal_kegiatan,
-        kategori: d.kategori,
-        status: 'draft'
-      }))
-    } else {
-      console.error('Lawet API /draft failed:', res.status, await res.text())
-    }
-  } catch (err) {
-    console.error('Failed to fetch drafts from Lawet Hub', err)
-  }
+function isOwnedBy(item: MyJurnalItem, userId: string, userName: string): boolean {
+  if (item.owner_id) return item.owner_id === userId
+  return Boolean(item.owner_name) && normalizeName(item.owner_name) === normalizeName(userName)
+}
 
-  // 2. Fetch Published from ALAS Local DB
-  let published: MyJurnalItem[] = []
-  try {
-    const localJurnals = await db.select()
-      .from(jurnal)
-      .where(eq(jurnal.redaksi, me.name))
-      .orderBy(desc(jurnal.tanggal_kegiatan))
-      .limit(100)
+function sortJurnals(items: MyJurnalItem[]): MyJurnalItem[] {
+  return [...items].sort((left, right) => {
+    const dateDifference = Date.parse(right.tanggal_kegiatan) - Date.parse(left.tanggal_kegiatan)
+    if (dateDifference !== 0) return dateDifference
+    return Date.parse(right.updated_at || right.created_at || '')
+      - Date.parse(left.updated_at || left.created_at || '')
+  })
+}
 
-    published = localJurnals.map((j) => ({
-      id: j.id.toString(),
-      source_id: j.source_id,
-      judul: j.judul,
-      tanggal_kegiatan: j.tanggal_kegiatan,
-      kategori: j.kategori,
-      status: 'published'
-    }))
-  } catch (err) {
-    console.error('Failed to fetch published jurnals from ALAS DB', err)
-  }
+function uniqueJurnals(items: MyJurnalItem[]): MyJurnalItem[] {
+  const seen = new Set<string>()
+  return items.filter((item) => {
+    const key = `${item.source_id}:${item.status}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
 
-  // 3. Combine and Sort by Date Descending
-  const combined = [...drafts, ...published].sort((a, b) => {
-    const dateA = new Date(a.tanggal_kegiatan).getTime()
-    const dateB = new Date(b.tanggal_kegiatan).getTime()
-    return dateB - dateA
+async function fetchLawetList(endpoint: string, token: string): Promise<JsonRecord[]> {
+  const apiUrl = process.env.LAWET_API_URL
+  if (!apiUrl) throw new Error('LAWET_API_URL belum dikonfigurasi')
+
+  const response = await fetch(`${apiUrl}${endpoint}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+    cache: 'no-store',
   })
 
-  return combined
+  if (!response.ok) {
+    const body = await response.json().catch(() => null)
+    const detail = isRecord(body) ? readString(body.detail) : undefined
+    throw new Error(detail || `Lawet Hub merespons ${response.status}`)
+  }
+
+  return extractList(await response.json())
+}
+
+function settledValue(
+  result: PromiseSettledResult<JsonRecord[]>,
+  label: string,
+  warnings: string[],
+): JsonRecord[] {
+  if (result.status === 'fulfilled') return result.value
+  warnings.push(`${label} tidak dapat dimuat: ${result.reason instanceof Error ? result.reason.message : 'kesalahan tidak diketahui'}`)
+  return []
+}
+
+export async function getJurnalWorkspaceAction(): Promise<JurnalWorkspace> {
+  const user = await getMeAction()
+  if (!user) throw new Error('Unauthorized')
+
+  const token = cookies().get('lawet_token')?.value
+  if (!token) throw new Error('Unauthorized')
+
+  const canReview = canApproveJurnal(user)
+  const [draftResult, publishedResult, reviewResult] = await Promise.allSettled([
+    fetchLawetList('/api/v1/jurnal-alas/draft?page=1&limit=50&sort=tanggal_desc', token),
+    fetchLawetList('/api/v1/jurnal-alas/?page=1&limit=50&sort=tanggal_desc', token),
+    canReview
+      ? fetchLawetList('/api/v1/jurnal-alas/approval-queue', token)
+      : Promise.resolve([]),
+  ])
+
+  const warnings: string[] = []
+  const draftRecords = settledValue(draftResult, 'Draft jurnal', warnings)
+  const publishedRecords = settledValue(publishedResult, 'Jurnal terbit', warnings)
+  const reviewRecords = settledValue(reviewResult, 'Jurnal bawahan', warnings)
+
+  const mineDrafts = draftRecords
+    .map((item) => normalizeJurnal(item, 'draft', 'mine'))
+    .filter((item): item is MyJurnalItem => Boolean(item))
+    .filter((item) => !item.owner_id && !item.owner_name
+      ? true
+      : isOwnedBy(item, user.id, user.name))
+
+  const published = publishedRecords
+    .map((item) => normalizeJurnal(item, 'published', 'mine'))
+    .filter((item): item is MyJurnalItem => Boolean(item))
+
+  const minePublished = published.filter((item) => isOwnedBy(item, user.id, user.name))
+  const subordinatePublished = canReview
+    ? published
+      .filter((item) => !isOwnedBy(item, user.id, user.name))
+      .map((item) => ({ ...item, scope: 'subordinate' as const }))
+    : []
+
+  const subordinateDrafts = reviewRecords
+    .map((item) => normalizeJurnal(item, 'draft', 'subordinate'))
+    .filter((item): item is MyJurnalItem => Boolean(item))
+    .filter((item) => !isOwnedBy(item, user.id, user.name))
+
+  return {
+    mine: sortJurnals(uniqueJurnals([...mineDrafts, ...minePublished])),
+    subordinates: sortJurnals(uniqueJurnals([...subordinateDrafts, ...subordinatePublished])),
+    canReview,
+    viewerName: user.name,
+    divisionName: user.division?.name,
+    warnings,
+  }
+}
+
+/** Kompatibilitas untuk pemanggil lama yang hanya membutuhkan jurnal milik pengguna. */
+export async function getMyJurnalsAction(): Promise<MyJurnalItem[]> {
+  return (await getJurnalWorkspaceAction()).mine
 }

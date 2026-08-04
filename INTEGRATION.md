@@ -209,6 +209,7 @@ Endpoint visibility yang dipakai ALAS:
 | --- | --- | --- |
 | `POST` | `/api/v1/auth/login` | Autentikasi awal; belum memakai dashboard JWT. |
 | `GET` | `/api/v1/auth/me` | Identitas dan role pengguna. |
+| `GET` | `/api/v1/jurnal-alas/?page=1&limit=50` | Jurnal terbit yang sudah dicakup Lawet Hub berdasarkan pengguna/divisi. |
 | `GET` | `/api/v1/jurnal-alas/draft?limit=50` | Daftar draft yang boleh dilihat. |
 | `GET` | `/api/v1/jurnal-alas/approval-queue` | Antrean approval. |
 | `GET` | `/api/v1/jurnal-alas/approval-queue/:id` | Detail item approval. |
@@ -216,7 +217,7 @@ Endpoint visibility yang dipakai ALAS:
 
 Proxy media ALAS hanya menerima prefix `jurnal-foto` atau `jurnal-dokumen`, menolak segmen path berbahaya, menerapkan `LAWET_REQUEST_TIMEOUT_MS`, dan selalu mengirim `Cache-Control: private, no-store`.
 
-Submit, upload, approve, dan reject tidak diteruskan oleh ALAS. Action legacy gagal tertutup tanpa network call dan UI mengarahkan pengguna ke `LAWET_PUBLIC_URL` untuk menyelesaikan workflow tulis.
+Submit, edit, delete, upload, approve, dan reject tidak diteruskan oleh ALAS. Action legacy gagal tertutup tanpa network call dan UI mengarahkan pengguna ke layar `LAWET_PUBLIC_URL` yang sesuai untuk menyelesaikan workflow tulis. Halaman `/jurnal-saya` menggabungkan read endpoint di atas untuk memisahkan jurnal milik pengguna dan jurnal bawahan; laporan PDF dibentuk di browser hanya dari record terbit yang sudah lolos cakupan Lawet Hub.
 
 ## Konfigurasi
 

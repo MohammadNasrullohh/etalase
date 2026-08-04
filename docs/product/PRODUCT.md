@@ -8,7 +8,7 @@ product
 
 - **Publik**: masyarakat yang mencari arsip kegiatan dan profil pimpinan Bawaslu Kebumen.
 - **Staf Lawet Hub**: pengguna terautentikasi yang melihat jurnalnya di ALAS dan mengelola jurnal di Lawet Hub.
-- **Approver Lawet Hub**: pengguna dengan level peran minimal 2 yang melihat antrean di ALAS dan mengambil keputusan di Lawet Hub.
+- **Approver Lawet Hub**: Kasubag/approver yang melihat jurnal staf dalam cakupan divisinya di ALAS dan mengambil keputusan di Lawet Hub.
 - **Lawet Hub**: sistem induk yang mengautentikasi pengguna, mengelola workflow pengajuan, dan mengirim data terbit ke Service API ALAS.
 
 ## Tujuan Produk
@@ -22,13 +22,15 @@ ALAS adalah arsip publik kegiatan Bawaslu Kebumen yang menampilkan jurnal kegiat
 | Arsip publik | `/` | Publik | Menelusuri jurnal, statistik, kalender, dokumentasi, dan pimpinan. |
 | Login panel | `/login` | Publik | Mengautentikasi akun melalui API Lawet Hub. |
 | Pengajuan | `/pengajuan` | Login | Mengarahkan workflow pembuatan jurnal ke Lawet Hub. |
-| Jurnal saya | `/jurnal-saya` | Login | Melihat jurnal milik pengguna pada Lawet Hub. |
-| Approval | `/approval` | Peran level >= 2 | Melihat antrean; tindakan setuju/tolak dibuka di Lawet Hub. |
+| Jurnal saya | `/jurnal-saya` | Login | Melihat draft dan jurnal terbit milik pengguna; menyediakan tautan tambah, edit, kelola/hapus di Lawet Hub dan laporan PDF. |
+| Jurnal bawahan | `/jurnal-saya` | Kasubag/approver | Melihat draft yang menunggu review dan jurnal terbit staf dalam cakupan divisi, termasuk laporan PDF bulanan. |
+| Approval | `/approval` | Capability `can_approve` atau peran level >= 2 | Melihat antrean dan detail; tindakan setuju/tolak dibuka di Lawet Hub dan persetujuan memulai publish ke ALAS. |
 
 ## Batasan Produk
 
 - ALAS tidak menjadi sumber otoritas akun, PIN, peran, atau status workflow pengajuan. Hal tersebut berada di Lawet Hub.
 - JWT panel ALAS memiliki scope read-only dan tidak boleh diterima untuk method mutasi di Lawet Hub.
+- Tombol CRUD dan keputusan approval di ALAS membuka permukaan Lawet Hub yang sesuai; ALAS tidak memproksi method tulis dengan JWT dashboard.
 - ALAS menyimpan salinan jurnal dan pimpinan yang ditujukan untuk konsumsi publik. Identitas asal Lawet Hub dijaga dengan `source_id` yang unik.
 - Service API ALAS hanya untuk integrasi antarsistem; ia bukan API untuk browser publik.
 - Lampiran yang tidak diberi `is_public: true` tidak boleh muncul pada respons API publik.

@@ -48,9 +48,9 @@ Endpoint publik yang tersedia:
 
 ### Visibilitas workflow
 
-Layout grup rute historis `(authoring)` memanggil `getMeAction`. Token Lawet Hub disimpan sebagai cookie HTTP-only bernama `lawet_token` dan diterbitkan dengan scope `alas:dashboard:read`; Lawet Hub menolak token itu pada seluruh method mutasi. Pengunjung tanpa sesi dialihkan ke `/login`; halaman `/approval` hanya muncul bagi peran dengan `level >= 2`.
+Layout grup rute historis `(authoring)` memanggil `getMeAction`. Token Lawet Hub disimpan sebagai cookie HTTP-only bernama `lawet_token` dan diterbitkan dengan scope `alas:dashboard:read`; Lawet Hub menolak token itu pada seluruh method mutasi. Pengunjung tanpa sesi dialihkan ke `/login`; halaman `/approval` dijaga pada server berdasarkan capability `can_approve`, dengan fallback kompatibilitas untuk peran `level >= 2`.
 
-ALAS dapat menampilkan jurnal pengguna, antrean, detail, dan media terlindungi. Pembuatan jurnal, upload, approval, dan rejection dilakukan di Lawet Hub; kontrol ALAS mengarah ke `LAWET_PUBLIC_URL`. Keputusan security boundary lengkap ada di [ADR-0002](../adr/0002-dashboard-jwt-read-boundary.md).
+ALAS dapat menampilkan draft dan jurnal terbit milik pengguna, antrean serta jurnal terbit bawahan dalam cakupan divisi approver, detail review, media terlindungi, dan laporan PDF bulanan. Pembuatan, edit, hapus, upload, approval, dan rejection dilakukan di Lawet Hub; kontrol ALAS mengarah ke layar `LAWET_PUBLIC_URL` yang sesuai. Persetujuan Kasubag di Lawet Hub memulai publish melalui outbox ke ALAS. Keputusan security boundary lengkap ada di [ADR-0002](../adr/0002-dashboard-jwt-read-boundary.md).
 
 ### Service API
 
