@@ -83,7 +83,7 @@ export const HeroTitleReveal: React.FC<{
         fontWeight: 700,
         fontSize: 'clamp(3rem, 10vw, 6rem)',
         letterSpacing: titleChars.length > 12 ? '0.06em' : '0.18em',
-        color: '#ffffff',
+        color: 'var(--color-text-primary)',
         maxWidth: 'min(94vw, 22ch)',
         overflowWrap: 'anywhere',
         textAlign: 'center',
@@ -98,7 +98,7 @@ export const HeroTitleReveal: React.FC<{
             display: 'inline-block',
             minWidth: character === ' ' ? '0.32em' : '0.6em',
             textAlign: 'center',
-            color: revealed[index] ? '#ffffff' : 'rgba(255,255,255,0.45)',
+            color: revealed[index] ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.45)',
             transition: revealed[index] ? 'color 0.35s cubic-bezier(0.22, 1, 0.36, 1)' : 'none',
           }}
         >

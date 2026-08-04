@@ -69,10 +69,11 @@ export async function PATCH(request: NextRequest, { params }: { params: { source
       sourceId,
       operation: 'patch',
     }, async (transaction) => {
-      const [existing] = await transaction.select({ id: pimpinan.id }).from(pimpinan).where(eq(pimpinan.source_id, sourceId)).limit(1)
-      if (!existing) return null
-      await transaction.update(pimpinan).set(updateFields).where(eq(pimpinan.id, existing.id))
-      return true
+      const [updated] = await transaction.update(pimpinan)
+        .set(updateFields)
+        .where(eq(pimpinan.source_id, sourceId))
+        .returning({ id: pimpinan.id })
+      return updated || null
     })
     if (result.duplicate) {
       return NextResponse.json({ status: "ok", source_id: sourceId, action: "duplicate" })
@@ -108,12 +109,11 @@ export async function DELETE(request: NextRequest, { params }: { params: { sourc
       sourceId,
       operation: 'delete',
     }, async (transaction) => {
-      const [existing] = await transaction.select({ id: pimpinan.id }).from(pimpinan).where(eq(pimpinan.source_id, sourceId)).limit(1)
-      if (!existing) return null
-      await transaction.update(pimpinan)
+      const [updated] = await transaction.update(pimpinan)
         .set({ is_active: false, updated_at: new Date() })
         .where(eq(pimpinan.source_id, sourceId))
-      return true
+        .returning({ id: pimpinan.id })
+      return updated || null
     })
     if (result.duplicate) {
       return NextResponse.json({ status: "ok", source_id: sourceId, action: "duplicate" })

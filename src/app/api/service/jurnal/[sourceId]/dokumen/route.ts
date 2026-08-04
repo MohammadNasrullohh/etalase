@@ -36,12 +36,11 @@ export async function PATCH(request: NextRequest, { params }: { params: { source
       sourceId,
       operation: 'patch_dokumen',
     }, async (transaction) => {
-      const [existing] = await transaction.select({ id: jurnal.id }).from(jurnal).where(eq(jurnal.source_id, sourceId)).limit(1)
-      if (!existing) return null
-      await transaction.update(jurnal)
+      const [updated] = await transaction.update(jurnal)
         .set({ dokumen_pendukung: docs, synced_at: new Date(), updated_at: new Date() })
-        .where(eq(jurnal.id, existing.id))
-      return true
+        .where(eq(jurnal.source_id, sourceId))
+        .returning({ id: jurnal.id })
+      return updated || null
     })
 
     if (result.duplicate) {

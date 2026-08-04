@@ -81,7 +81,7 @@ const StatsSectionInner: React.FC = () => {
     <section
       id="section-stats"
       ref={sectionRef}
-      className="relative w-full bg-[#08080C] lg:h-screen lg:overflow-hidden"
+      className="relative w-full bg-[var(--color-canvas)] lg:h-screen lg:overflow-hidden"
     >
       {/* Ambient glow */}
       <div className="absolute top-0 right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
@@ -209,14 +209,14 @@ const StatsSectionInner: React.FC = () => {
               <button
                 key={year}
                 onClick={() => handleYearClick(year)}
-                className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080C]"
+                className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canvas)]"
                 style={{
                   background: isSelected
                     ? 'rgba(124,58,237,0.20)'
                     : 'rgba(255,255,255,0.04)',
                   backdropFilter: 'blur(8px)',
                   WebkitBackdropFilter: 'blur(8px)',
-                  color: isSelected ? '#ffffff' : 'rgba(255,255,255,0.30)',
+                  color: isSelected ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.30)',
                   border: isSelected
                     ? '1px solid rgba(124,58,237,0.55)'
                     : '1px solid rgba(255,255,255,0.07)',
@@ -239,4 +239,3 @@ const StatsSectionInner: React.FC = () => {
 }
 
 export const StatsSection = memo(StatsSectionInner)
-export default StatsSection

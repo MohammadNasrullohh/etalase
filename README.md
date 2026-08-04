@@ -161,12 +161,13 @@ Semua endpoint service membutuhkan bearer token. `POST`, `PATCH`, dan `DELETE` j
 ```bash
 npm run boundary:test
 npm run arch:check
-npx vitest run
+npm run test:unit
+npm run test:integration
 npm run lint
 npm run build
 ```
 
-`package.json` belum menyediakan alias `test`; jalankan Vitest melalui `npx vitest`. Integration test yang membutuhkan PostgreSQL memakai Testcontainers dan memerlukan Docker aktif. Lihat [Testing Architecture](docs/architecture/TESTING.md) untuk pemilihan suite.
+`npm test` menjalankan seluruh suite. Gunakan `test:unit` untuk pemeriksaan cepat tanpa database dan `test:integration` untuk endpoint/data yang membutuhkan PostgreSQL lokal atau Docker. `TEST_DATABASE_URL` dapat dipakai untuk mengganti koneksi test default. Lihat [Testing Architecture](docs/architecture/TESTING.md) untuk pemilihan suite.
 
 ## Deployment
 

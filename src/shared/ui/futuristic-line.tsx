@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from 'react'
 interface FuturisticLineProps {
   activeId: string | null
   activeDate: string | null
+  scrollContainerRef?: React.RefObject<HTMLElement>
 }
 
 /**
@@ -12,7 +13,7 @@ interface FuturisticLineProps {
  * Koordinat dihitung via getBoundingClientRect() relatif ke viewport,
  * sehingga bisa menghubungkan elemen di dua scroll container berbeda.
  */
-export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, activeDate }) => {
+export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, activeDate, scrollContainerRef }) => {
   const [lineCoords, setLineCoords] = useState<{
     x1: number; y1: number
     x2: number; y2: number
@@ -57,16 +58,15 @@ export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, active
 
     window.addEventListener('resize', updateLine, { passive: true })
     window.addEventListener('scroll', updateLine, { passive: true })
-
-    // Polling ringan untuk scroll internal list
-    const interval = setInterval(updateLine, 150)
+    const scrollContainer = scrollContainerRef?.current
+    scrollContainer?.addEventListener('scroll', updateLine, { passive: true })
 
     return () => {
       window.removeEventListener('resize', updateLine)
       window.removeEventListener('scroll', updateLine)
-      clearInterval(interval)
+      scrollContainer?.removeEventListener('scroll', updateLine)
     }
-  }, [activeId, activeDate])
+  }, [activeId, activeDate, scrollContainerRef])
 
   if (!lineCoords) return null
 
@@ -149,4 +149,3 @@ export const FuturisticLine: React.FC<FuturisticLineProps> = ({ activeId, active
   )
 }
 
-export default FuturisticLine

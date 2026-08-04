@@ -16,12 +16,15 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
   })
 
   useEffect(() => {
-    if (activeDate) {
-      const d = new Date(activeDate)
-      if (d.getMonth() !== currentDate.getMonth() || d.getFullYear() !== currentDate.getFullYear()) {
-        setCurrentDate(d)
-      }
-    }
+    if (!activeDate) return
+
+    const nextDate = new Date(activeDate)
+    setCurrentDate((displayedDate) => {
+      const isSameMonth = nextDate.getMonth() === displayedDate.getMonth()
+        && nextDate.getFullYear() === displayedDate.getFullYear()
+
+      return isSameMonth ? displayedDate : nextDate
+    })
   }, [activeDate])
 
   const year = currentDate.getFullYear()
@@ -121,13 +124,13 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
               role={highlighted ? 'button' : undefined}
               id={`calendar-day-${getFullDateString(day)}`}
               className={`relative py-2 rounded-lg select-none transition-all duration-200 ${
-                highlighted ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-1 focus-visible:ring-offset-[#08080C]' : 'cursor-default'
+                highlighted ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-canvas)]' : 'cursor-default'
               } ${
                 highlighted && !currentActive ? 'hover:bg-[rgba(var(--color-ember-bright-rgb),0.15)] hover:text-[var(--color-ember-bright)]' : ''
               }`}
               style={{
                 color: currentActive
-                  ? '#ffffff'
+                  ? 'var(--color-text-primary)'
                   : highlighted
                     ? 'rgba(255,255,255,0.85)'
                     : 'rgba(255,255,255,0.18)',
@@ -157,4 +160,3 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
   )
 }
 
-export default CalendarWidget

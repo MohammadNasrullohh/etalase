@@ -37,7 +37,7 @@ export const KategoriDropdown: React.FC<KategoriDropdownProps> = ({ value, onCha
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="px-3 py-1.5 text-xs rounded-full bg-[var(--color-ember-deep)] text-[#E2D7D0] border border-[var(--color-ember-mid)]/50 focus:outline-none focus:border-[var(--color-ember-bright)] cursor-pointer select-none transition-colors"
+      className="px-3 py-1.5 text-xs rounded-full bg-[var(--color-ember-deep)] text-[var(--color-text-inverse-muted)] border border-[var(--color-ember-mid)]/50 focus:outline-none focus:border-[var(--color-ember-bright)] cursor-pointer select-none transition-colors"
     >
       <option value="" className="bg-[var(--color-ember-deep)] text-white">Semua Kategori</option>
       {filteredCategories.map((cat) => {
@@ -52,4 +52,3 @@ export const KategoriDropdown: React.FC<KategoriDropdownProps> = ({ value, onCha
     </select>
   )
 }
-export default KategoriDropdown

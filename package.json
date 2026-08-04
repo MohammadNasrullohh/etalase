@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "test": "vitest run",
+    "test:unit": "vitest run --exclude tests/public_api.test.ts --exclude tests/service_jurnal.test.ts --exclude tests/service_pimpinan.test.ts --exclude tests/service_delivery.test.ts",
+    "test:integration": "vitest run tests/public_api.test.ts tests/service_jurnal.test.ts tests/service_pimpinan.test.ts tests/service_delivery.test.ts",
+    "test:watch": "vitest",
     "boundary:check": "node scripts/check-repository-isolation.mjs --root . --source . --forbid-package lawet-hub --forbid-package @lawet --forbid-package lawethub --forbid-package lawet_hub",
     "boundary:test": "node --test scripts/check-repository-isolation.test.mjs",
     "arch:check": "npm run boundary:check && depcruise src --config .dependency-cruiser.cjs --output-type err-long",

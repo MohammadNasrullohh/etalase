@@ -8,6 +8,7 @@ export async function GET(request: NextRequest) {
     const kategori = searchParams.get('kategori') || ''
     const date = searchParams.get('date') || ''
     const cursor = searchParams.get('cursor') || ''
+    const summaryOnly = searchParams.get('view') === 'summary'
     const limit = Math.min(Math.max(parseInt(searchParams.get('limit') || '20', 10), 1), 50)
 
     const rawItems = await getJurnalList({ q, kategori, cursor, limit, date })
@@ -24,19 +25,25 @@ export async function GET(request: NextRequest) {
       const firstPhoto = docPhotos.find((d: any) => d && d.type === 'image')
       const thumbnailUrl = firstPhoto ? firstPhoto.url : null
 
-      return {
+      const summary = {
         id: item.id,
-        source_id: item.source_id,
         judul: item.judul,
         tanggal_kegiatan: item.tanggal_kegiatan,
         kategori: item.kategori,
-        link_publikasi: item.link_publikasi,
         thumbnail_url: thumbnailUrl,
         pihak_terkait: item.pihak_terkait,
+        tags: item.tags,
+      }
+
+      if (summaryOnly) return summary
+
+      return {
+        ...summary,
+        source_id: item.source_id,
+        link_publikasi: item.link_publikasi,
         dokumentasi: item.dokumentasi,
         dokumen_pendukung: publicDocs.map(({ is_public, ...rest }: any) => rest),
         custom_fields: item.custom_fields,
-        tags: item.tags,
         redaksi: item.redaksi,
         created_at: item.created_at,
       }

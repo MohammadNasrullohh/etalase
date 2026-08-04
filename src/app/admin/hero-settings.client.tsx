@@ -109,10 +109,10 @@ export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdat
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
             <label htmlFor="hero-title" className="flex items-center gap-2 text-lg font-semibold">
-              <Type className="h-5 w-5 text-[#FF8A6C]" aria-hidden="true" />
+              <Type className="h-5 w-5 text-[var(--color-accent-hover)]" aria-hidden="true" />
               Judul besar hero
             </label>
-            <p className="mt-1 text-sm leading-6 text-white/60">Teks ini tampil paling besar pada halaman beranda. Maksimum {MAX_HERO_TITLE_LENGTH} karakter.</p>
+            <p className="mt-1 text-sm leading-6 text-white/60">Nama ini tampil pada Hero, navbar, authoring, login, approval, dan judul tab. Maksimum {MAX_HERO_TITLE_LENGTH} karakter.</p>
             <input
               id="hero-title"
               value={title}
@@ -123,11 +123,11 @@ export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdat
               }}
               maxLength={MAX_HERO_TITLE_LENGTH}
               required
-              className="mt-4 min-h-11 w-full rounded-lg border border-white/15 bg-white/[0.04] px-3 text-base text-white outline-none transition-colors placeholder:text-white/40 hover:border-white/25 focus:border-[#FF8A6C] focus:ring-2 focus:ring-[#FF8A6C]/30"
+              className="mt-4 min-h-11 w-full rounded-lg border border-white/15 bg-white/[0.04] px-3 text-base text-white outline-none transition-colors placeholder:text-white/40 hover:border-[var(--color-accent-hover)] focus:border-[var(--color-accent-hover)] focus:ring-2 focus:ring-[color:var(--color-accent-hover)]/30"
               aria-describedby="hero-title-status"
             />
           </div>
-          <button type="submit" disabled={titleStatus === 'saving'} className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-[#F2613F] px-5 py-2.5 text-sm font-semibold text-[#25100A] transition-colors hover:bg-[#FF8A6C] focus:outline-none focus:ring-2 focus:ring-[#FFB6A4] focus:ring-offset-2 focus:ring-offset-[#090A0D] disabled:cursor-not-allowed disabled:opacity-55">
+          <button type="submit" disabled={titleStatus === 'saving'} className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-on-accent)] transition-colors hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-focus)] focus:ring-offset-2 focus:ring-offset-[var(--color-canvas-raised)] disabled:cursor-not-allowed disabled:opacity-55">
             {titleStatus === 'saving' ? 'Menyimpan…' : 'Simpan judul'}
           </button>
         </div>
@@ -154,8 +154,8 @@ export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdat
           </div>
 
           <input ref={fileInputRef} id="hero-image" type="file" accept="image/jpeg,image/png,image/webp,image/avif" onChange={selectFile} className="sr-only" />
-          <label htmlFor="hero-image" className="flex min-h-32 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-white/20 bg-white/[0.03] px-5 text-center transition-colors hover:border-[#F2613F]/70 hover:bg-[#F2613F]/5">
-            <ImageUp className="h-6 w-6 text-[#FF8A6C]" aria-hidden="true" />
+          <label htmlFor="hero-image" className="flex min-h-32 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-white/20 bg-white/[0.03] px-5 text-center transition-colors hover:border-[var(--color-accent)]/70 hover:bg-[var(--color-accent)]/5">
+            <ImageUp className="h-6 w-6 text-[var(--color-accent-hover)]" aria-hidden="true" />
             <span className="mt-3 text-sm font-medium text-white">{file ? file.name : 'Pilih gambar'}</span>
             <span className="mt-1 text-xs text-white/50">JPEG, PNG, WebP, atau AVIF</span>
           </label>
@@ -174,7 +174,7 @@ export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdat
             </p>
           )}
 
-          <button type="submit" disabled={status === 'uploading'} className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#F2613F] px-4 py-2.5 text-sm font-semibold text-[#25100A] transition-colors hover:bg-[#FF8A6C] focus:outline-none focus:ring-2 focus:ring-[#FFB6A4] focus:ring-offset-2 focus:ring-offset-[#090A0D] disabled:cursor-not-allowed disabled:opacity-55">
+          <button type="submit" disabled={status === 'uploading'} className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[var(--color-accent)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text-on-accent)] transition-colors hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-focus)] focus:ring-offset-2 focus:ring-offset-[var(--color-canvas-raised)] disabled:cursor-not-allowed disabled:opacity-55">
             {status === 'uploading' ? 'Memproses…' : 'Simpan gambar hero'}
           </button>
         </form>

@@ -9,7 +9,7 @@ ALAS menggunakan Vitest dan React Testing Library. Konfigurasi berada di `vitest
 | Komponen UI | `tests/*Card.test.tsx`, `tests/SearchBar.test.tsx` | Render, konten, dan interaksi komponen. |
 | Endpoint publik | `tests/public_api.test.ts` | Respons jurnal dan kontrak API publik. |
 | Service API | `tests/service_*.test.ts` | Bearer/HMAC, replay protection, idempotency, dan operasi jurnal/pimpinan. |
-| Security boundary | `tests/lawet_dashboard_boundary.test.ts` | Scope dashboard read-only, media proxy, dan fail-closed action legacy. |
+| Security boundary | `tests/lawet_dashboard_boundary.test.ts` | Scope dashboard read-only dan media proxy. |
 | Integration data | `tests/*integration*.test.ts`, `tests/*delivery*.test.ts` | Transaksi dan migrasi dengan PostgreSQL Testcontainers. |
 | Architecture fitness | `scripts/check-repository-isolation*.mjs`, `.dependency-cruiser.cjs` | Isolasi repository dan arah dependency FSD. |
 
@@ -20,11 +20,12 @@ Test baru diletakkan di `tests/` dan dinamai `*.test.ts` atau `*.test.tsx`. Peru
 ```bash
 npm run boundary:test
 npm run arch:check
-npx vitest run
-npx vitest
+npm run test:unit
+npm run test:integration
+npm run test:watch
 ```
 
-`boundary:test` menguji positive/negative fixture checker, sedangkan `arch:check` memindai repository aktual lalu menjalankan dependency-cruiser. `package.json` belum mendefinisikan skrip `test`, `test:watch`, atau `test:coverage`; gunakan `npx vitest` sampai alias tersebut ditambahkan. Untuk validasi produksi, jalankan juga:
+`boundary:test` menguji positive/negative fixture checker, sedangkan `arch:check` memindai repository aktual lalu menjalankan dependency-cruiser. `npm test` menjalankan semua test satu kali; `test:unit` tidak memerlukan database, sedangkan `test:integration` memerlukan PostgreSQL lokal pada koneksi test default atau `TEST_DATABASE_URL`. Test berbasis Testcontainers juga memerlukan Docker aktif. Untuk validasi produksi, jalankan juga:
 
 ```bash
 npm run build

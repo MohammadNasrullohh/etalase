@@ -26,7 +26,11 @@ interface JurnalPayload {
 
 export async function upsertJurnal(payload: JurnalPayload, database: DatabaseExecutor = db) {
   // 1. Fetch existing item by source_id
-  const existingItems = await database.select().from(jurnal).where(eq(jurnal.source_id, payload.source_id)).limit(1)
+  const existingItems = await database
+    .select({ dokumen_pendukung: jurnal.dokumen_pendukung })
+    .from(jurnal)
+    .where(eq(jurnal.source_id, payload.source_id))
+    .limit(1)
   const existing = existingItems[0] || null
 
   // 2. Apply merge strategy for dokumen_pendukung is_public

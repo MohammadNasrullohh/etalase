@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { getJurnalDetail } from '@/entities/jurnal/api/get-jurnal-detail'
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const id = params.id
     const item = await getJurnalDetail(id, true)

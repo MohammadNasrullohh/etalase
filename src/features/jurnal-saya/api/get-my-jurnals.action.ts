@@ -213,8 +213,3 @@ export async function getJurnalWorkspaceAction(): Promise<JurnalWorkspace> {
     warnings,
   }
 }
-
-/** Kompatibilitas untuk pemanggil lama yang hanya membutuhkan jurnal milik pengguna. */
-export async function getMyJurnalsAction(): Promise<MyJurnalItem[]> {
-  return (await getJurnalWorkspaceAction()).mine
-}

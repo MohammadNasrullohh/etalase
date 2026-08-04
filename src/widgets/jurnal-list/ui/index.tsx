@@ -45,6 +45,7 @@ export const JurnalList: React.FC<JurnalListProps> = ({
       if (q) url.searchParams.set('q', q)
       if (kategori) url.searchParams.set('kategori', kategori)
       if (pageParam) url.searchParams.set('cursor', pageParam as string)
+      url.searchParams.set('view', 'summary')
       return fetch(url.toString()).then(r => {
         if (!r.ok) throw new Error('Network error')
         return r.json()
@@ -160,4 +161,3 @@ export const JurnalList: React.FC<JurnalListProps> = ({
     </div>
   )
 }
-export default JurnalList

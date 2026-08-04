@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import ReactDOM from 'react-dom'
 import { useQuery } from '@tanstack/react-query'
 import { X, Maximize2 } from 'lucide-react'
@@ -30,16 +30,18 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
     enabled: !!queryDate,
   })
 
-  const jurnals = response?.data || []
-  const photos: PhotoItem[] = jurnals.flatMap((jurnal: any) => {
-    const docs = Array.isArray(jurnal.dokumentasi) ? jurnal.dokumentasi : []
-    return docs
-      .filter((doc: any) => doc && doc.type === 'image')
-      .map((doc: any) => ({
-        ...doc,
-        jurnalTitle: jurnal.judul,
-      }))
-  })
+  const photos = useMemo<PhotoItem[]>(() => {
+    const jurnals = response?.data || []
+    return jurnals.flatMap((jurnal: any) => {
+      const docs = Array.isArray(jurnal.dokumentasi) ? jurnal.dokumentasi : []
+      return docs
+        .filter((doc: any) => doc && doc.type === 'image')
+        .map((doc: any) => ({
+          ...doc,
+          jurnalTitle: jurnal.judul,
+        }))
+    })
+  }, [response?.data])
 
   const currentKey = photos.map(p => p.url).join(',')
   const [transitioning, setTransitioning]   = useState(false)
@@ -119,7 +121,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
             return (
               <div
                 key={photo.url}
-                className="group relative flex flex-col items-center cursor-pointer animate-slide-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080C] rounded-xl"
+                className="group relative flex flex-col items-center cursor-pointer animate-slide-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canvas)] rounded-xl"
                 style={{ animationDelay: delayMs }}
                 onClick={() => setSelectedPhoto(photo)}
                 tabIndex={0}
@@ -145,19 +147,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
                     />
                     {/* Hover overlay */}
                     <div
-                      className="absolute inset-0 flex items-center justify-center transition-opacity duration-200"
-                      style={{
-                        opacity: 0,
-                        background: 'rgba(0,0,0,0.35)',
-                        backdropFilter: 'blur(2px)',
-                      }}
-                      ref={el => {
-                        if (!el) return
-                        const parent = el.parentElement?.parentElement
-                        if (!parent) return
-                        parent.parentElement?.addEventListener('mouseenter', () => { el.style.opacity = '1' })
-                        parent.parentElement?.addEventListener('mouseleave', () => { el.style.opacity = '0' })
-                      }}
+                      className="absolute inset-0 flex items-center justify-center bg-black/35 opacity-0 backdrop-blur-[2px] transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100"
                     >
                       <Maximize2 className="w-5 h-5 text-white" />
                     </div>
@@ -249,4 +239,3 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
   )
 }
 
-export default DocumentationPanel

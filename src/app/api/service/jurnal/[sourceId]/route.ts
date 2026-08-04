@@ -71,12 +71,14 @@ export async function PATCH(request: NextRequest, { params }: { params: { source
       sourceId,
       operation: 'patch',
     }, async (transaction) => {
-      const [existing] = await transaction.select().from(jurnal).where(eq(jurnal.source_id, sourceId)).limit(1)
-      if (!existing) {
-        return null
-      }
-
       if (payload.dokumen_pendukung !== undefined) {
+        const [existing] = await transaction
+          .select({ id: jurnal.id, dokumen_pendukung: jurnal.dokumen_pendukung })
+          .from(jurnal)
+          .where(eq(jurnal.source_id, sourceId))
+          .limit(1)
+        if (!existing) return null
+
         const incomingDocs = payload.dokumen_pendukung || []
         const existingDocs = Array.isArray(existing.dokumen_pendukung) ? existing.dokumen_pendukung : []
         const existingIsPublicMap = new Map<string, boolean>()
@@ -89,10 +91,19 @@ export async function PATCH(request: NextRequest, { params }: { params: { source
           tipe: doc.tipe,
           is_public: existingIsPublicMap.has(doc.url) ? existingIsPublicMap.get(doc.url) : true,
         }))
+
+        const [updated] = await transaction.update(jurnal)
+          .set(updateFields)
+          .where(eq(jurnal.id, existing.id))
+          .returning({ id: jurnal.id })
+        return updated || null
       }
 
-      await transaction.update(jurnal).set(updateFields).where(eq(jurnal.id, existing.id))
-      return true
+      const [updated] = await transaction.update(jurnal)
+        .set(updateFields)
+        .where(eq(jurnal.source_id, sourceId))
+        .returning({ id: jurnal.id })
+      return updated || null
     })
 
     if (result.duplicate) {
@@ -130,12 +141,11 @@ export async function DELETE(request: NextRequest, { params }: { params: { sourc
       sourceId,
       operation: 'delete',
     }, async (transaction) => {
-      const [existing] = await transaction.select({ id: jurnal.id }).from(jurnal).where(eq(jurnal.source_id, sourceId)).limit(1)
-      if (!existing) return null
-      await transaction.update(jurnal)
+      const [updated] = await transaction.update(jurnal)
         .set({ is_published: false, synced_at: new Date(), updated_at: new Date() })
         .where(eq(jurnal.source_id, sourceId))
-      return true
+        .returning({ id: jurnal.id })
+      return updated || null
     })
 
     if (result.duplicate) {

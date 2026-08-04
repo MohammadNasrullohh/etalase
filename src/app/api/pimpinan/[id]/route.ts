@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server'
 import { getPimpinanDetail } from '@/entities/pimpinan/api/get-pimpinan-detail'
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const id = params.id
     const item = await getPimpinanDetail(id, true)

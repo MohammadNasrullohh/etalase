@@ -1,6 +1,6 @@
 import { db } from '@/shared/lib/db'
 import { pimpinan } from '../../../../drizzle/schema'
-import { eq } from 'drizzle-orm'
+import { sql } from 'drizzle-orm'
 import type { DatabaseExecutor } from '@/shared/lib/db'
 
 interface PimpinanPayload {
@@ -15,9 +15,6 @@ interface PimpinanPayload {
 }
 
 export async function upsertPimpinan(payload: PimpinanPayload, database: DatabaseExecutor = db) {
-  const existingItems = await database.select().from(pimpinan).where(eq(pimpinan.source_id, payload.source_id)).limit(1)
-  const existing = existingItems[0] || null
-
   const valuesToUpsert = {
     source_id: payload.source_id,
     nama: payload.nama,
@@ -37,7 +34,10 @@ export async function upsertPimpinan(payload: PimpinanPayload, database: Databas
   }).onConflictDoUpdate({
     target: pimpinan.source_id,
     set: valuesToUpsert,
-  }).returning({ id: pimpinan.id })
+  }).returning({
+    id: pimpinan.id,
+    created: sql<boolean>`xmax = 0`,
+  })
 
-  return { id: row.id, action: existing ? "updated" : "created" }
+  return { id: row.id, action: row.created ? "created" : "updated" }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getCategoryColor, getCategoryLabel, getCategoryStyle } from '@/shared/ui/colors'
+import { getCategoryLabel, getCategoryStyle } from '@/shared/ui/colors'
 
 
 interface JurnalCardProps {
@@ -53,8 +53,6 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
 
   const pihakNames = pihak_terkait.map(p => p.nama).join(', ')
   const tagStyle = getCategoryStyle(kategori)
-  const accentColor = getCategoryColor(kategori)
-
   return (
     <div
       id={`jurnal-card-${id}`}

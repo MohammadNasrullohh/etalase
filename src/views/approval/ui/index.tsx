@@ -1,5 +1,6 @@
 import { ApprovalQueue } from '@/features/jurnal-approval/ui/approval-queue.client'
 import { ShieldCheck } from 'lucide-react'
+import { SiteTitle } from '@/entities/site-settings/ui/site-title.client'
 
 export function ApprovalView() {
   return (
@@ -12,7 +13,7 @@ export function ApprovalView() {
           <div>
             <h1 className="text-3xl font-black text-white font-mono tracking-tighter mb-2 uppercase flex items-center gap-3">
               <ShieldCheck className="w-8 h-8 text-[var(--color-ember-bright)]" />
-              ALAS <span className="text-[var(--color-ember-bright)]">Approval</span>
+              <SiteTitle /> <span className="text-[var(--color-ember-bright)]">Approval</span>
             </h1>
             <p className="text-gray-400">
               Dashboard persetujuan jurnal (Terhubung ke Lawet Hub)

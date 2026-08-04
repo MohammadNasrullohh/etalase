@@ -3,19 +3,23 @@
 import { useState } from 'react'
 import { AuthButton } from '@/features/lawet-auth/ui/auth-button.client'
 import { AuthoringSidebarClient } from './sidebar.client'
-import { Menu, X } from 'lucide-react'
+import { Menu } from 'lucide-react'
+import { useSiteTitle } from '@/entities/site-settings/ui/site-title.client'
+import type { LawetUser } from '@/entities/lawet-user'
 
 interface Props {
   isApprover: boolean
   isAdmin: boolean
+  user: LawetUser
   children: React.ReactNode
 }
 
-export function AuthoringShellClient({ isApprover, isAdmin, children }: Props) {
+export function AuthoringShellClient({ isApprover, isAdmin, user, children }: Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const siteTitle = useSiteTitle()
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#0C0C0C]">
+    <div className="flex h-screen overflow-hidden bg-[var(--color-ink)]">
       
       {/* Desktop Sidebar */}
       <div className="hidden lg:block">
@@ -45,7 +49,7 @@ export function AuthoringShellClient({ isApprover, isAdmin, children }: Props) {
       <div className="flex-1 flex flex-col min-w-0">
         
         {/* Top Navbar */}
-        <header className="h-16 bg-[#111] border-b border-white/10 flex items-center justify-between px-4 sm:px-6 z-10 shrink-0">
+        <header className="h-16 bg-[var(--color-surface-raised)] border-b border-white/10 flex items-center justify-between px-4 sm:px-6 z-10 shrink-0">
           <div className="flex items-center gap-3">
             <button 
               className="lg:hidden p-2 -ml-2 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
@@ -54,7 +58,7 @@ export function AuthoringShellClient({ isApprover, isAdmin, children }: Props) {
               <Menu className="w-5 h-5" />
             </button>
             <span className="text-white font-bold tracking-widest font-mono lg:hidden text-sm">
-              ΛLΛS PANEL
+              {siteTitle} PANEL
             </span>
           </div>
           
@@ -63,7 +67,7 @@ export function AuthoringShellClient({ isApprover, isAdmin, children }: Props) {
           </div>
           
           <div className="flex items-center">
-            <AuthButton />
+            <AuthButton initialUser={user} />
           </div>
         </header>
         

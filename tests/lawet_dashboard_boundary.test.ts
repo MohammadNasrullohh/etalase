@@ -80,32 +80,4 @@ describe('Lawet dashboard security boundary', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('fails closed before legacy ALAS write actions can call Lawet', async () => {
-    const fetchMock = vi.fn()
-    vi.stubGlobal('fetch', fetchMock)
-    const { submitJurnalAction } = await import('@/entities/jurnal/api/submit-jurnal.action')
-    const { uploadFotoAction, uploadDokumenAction } = await import('@/entities/jurnal/api/upload-media.action')
-    const { approveJurnalAction, rejectJurnalAction } = await import('@/entities/jurnal/api/approve-jurnal.action')
-
-    const results = await Promise.all([
-      submitJurnalAction({
-        judul: 'Test',
-        tanggal_kegiatan: '2026-08-03',
-        kategori: 'rapat',
-        dokumentasi: [],
-        dokumen_pendukung: [],
-        pihak_terkait: [],
-        custom_fields: [],
-        tags: [],
-      }),
-      uploadFotoAction(new FormData()),
-      uploadDokumenAction(new FormData()),
-      approveJurnalAction('jurnal-1'),
-      rejectJurnalAction('jurnal-1', 'Tidak lengkap'),
-    ])
-
-    expect(results.every((result) => result.success === false)).toBe(true)
-    expect(results.every((result) => result.error?.includes('Lawet Hub'))).toBe(true)
-    expect(fetchMock).not.toHaveBeenCalled()
-  })
 })

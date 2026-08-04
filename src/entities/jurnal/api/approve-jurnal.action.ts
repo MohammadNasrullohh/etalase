@@ -48,20 +48,3 @@ export async function getApprovalJurnalAction(id: string) {
   }
 }
 
-export async function approveJurnalAction(id: string, note?: string) {
-  void id
-  void note
-  return {
-    success: false as const,
-    error: 'ALAS hanya menyediakan visibilitas. Setujui jurnal melalui Lawet Hub.',
-  }
-}
-
-export async function rejectJurnalAction(id: string, note?: string) {
-  void id
-  void note
-  return {
-    success: false as const,
-    error: 'ALAS hanya menyediakan visibilitas. Tolak jurnal melalui Lawet Hub.',
-  }
-}

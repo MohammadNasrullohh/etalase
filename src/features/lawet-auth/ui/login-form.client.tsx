@@ -1,11 +1,13 @@
 'use client'
 import { useState, FormEvent, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { ArrowLeft, User, KeyRound, ChevronRight, Delete } from 'lucide-react'
+import { ArrowLeft, User, ChevronRight, Delete } from 'lucide-react'
 import { loginAction } from '../api/login.action'
+import { useSiteTitle } from '@/entities/site-settings/ui/site-title.client'
 
 export function LoginForm() {
   const router = useRouter()
+  const siteTitle = useSiteTitle()
   const [step, setStep] = useState(1)
   const [username, setUsername] = useState('')
   const [pin, setPin] = useState('')
@@ -90,7 +92,7 @@ export function LoginForm() {
         <div className="animate-in fade-in zoom-in duration-300">
           <div className="text-center mb-8">
             <h3 className="text-xl font-bold text-white tracking-widest font-mono mb-2">OTORISASI</h3>
-            <p className="text-sm text-gray-400">Sistem Pengajuan & Approval ALAS</p>
+            <p className="text-sm text-gray-400">Sistem Pengajuan & Approval {siteTitle}</p>
           </div>
 
           <form onSubmit={handleNext} className="space-y-6">

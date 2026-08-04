@@ -16,7 +16,7 @@ export default async function AdminLayout({
   const isAdmin = isAdminUser(user)
 
   return (
-    <AuthoringShellClient isApprover={isAdmin || user.role.level >= 2} isAdmin={isAdmin}>
+    <AuthoringShellClient isApprover={isAdmin || user.role.level >= 2} isAdmin={isAdmin} user={user}>
       {children}
     </AuthoringShellClient>
   )

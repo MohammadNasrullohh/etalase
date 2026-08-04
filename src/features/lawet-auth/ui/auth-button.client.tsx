@@ -4,22 +4,25 @@ import { useState, useEffect, useRef } from 'react'
 import { getMeAction, isAdminUser, type LawetUser } from '@/entities/lawet-user'
 import { logoutAction } from '../api/login.action'
 import { LogIn, LogOut, FileText, LayoutDashboard } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-export function AuthButton() {
-  const [user, setUser] = useState<LawetUser | null>(null)
-  const [loading, setLoading] = useState(true)
+interface AuthButtonProps {
+  initialUser?: LawetUser | null
+}
+
+export function AuthButton({ initialUser }: AuthButtonProps = {}) {
+  const [user, setUser] = useState<LawetUser | null>(initialUser ?? null)
+  const [loading, setLoading] = useState(initialUser === undefined)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
 
   useEffect(() => {
+    if (initialUser !== undefined) return
     getMeAction().then(res => {
       setUser(res)
       setLoading(false)
     })
-  }, [])
+  }, [initialUser])
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -73,7 +76,7 @@ export function AuthButton() {
       </button>
 
       {dropdownOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-[#1A1A1A] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
+        <div className="absolute right-0 mt-2 w-48 bg-[var(--color-surface-overlay)] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
           <Link
             href="/pengajuan"
             onClick={() => setDropdownOpen(false)}

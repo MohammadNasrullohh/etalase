@@ -20,7 +20,7 @@ import {
 
 const queryClient = new QueryClient()
 
-export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubtitle: string }> = ({ heroImagePath, heroTitle, heroSubtitle }) => {
+const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubtitle: string }> = ({ heroImagePath, heroTitle, heroSubtitle }) => {
   const { q, kategori, setFilter, resetFilter } = useJurnalFilter()
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeDate, setActiveDate] = useState<string | null>(null)
@@ -87,7 +87,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
   // Banner parallax: bergerak lambat ke atas (lebih lambat dari scroll agar kelihatan depth)
   const bannerTranslate = scrollY * 0.4
 
-  // Title ΛLΛS: translasi ke atas 60% dari scroll, tapi stop di section boundary
+  // Judul hero: translasi ke atas 60% dari scroll, tapi stop di section boundary
   const titleTranslateY = -scrollY * 0.6
 
   // Subtitle: hilang di 33% pertama scroll
@@ -103,7 +103,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
        * Layout — 3 Section:
        * ┌─────────────────────────────────────────┐  ← page scroll (window)
        * │  SECTION 1 — Hero (100vh)                │
-       * │  ΛLΛS bergerak naik saat di-scroll        │
+       * │  Judul hero bergerak naik saat di-scroll   │
        * ├─────────────────────────────────────────┤  ← navbar sticky muncul di sini
        * │  SECTION 2 — Stats/Chart (100vh)         │
        * │  Rekapitulasi kegiatan tahunan (D3)      │
@@ -115,12 +115,12 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
        * └─────────────────────────────────────────┘
        *   Page total = 300vh.
       */}
-      <div className="relative bg-[#08080C] overflow-x-hidden min-h-screen">
+      <div className="relative bg-[var(--color-canvas)] overflow-x-hidden min-h-screen">
 
         {/* ═══════════════════════════════════════════
             SECTION 1 — HERO (100vh)
             Mengambil full viewport. Scroll window menyebabkan
-            title ΛLΛS bergerak naik.
+            judul hero bergerak naik.
         ═══════════════════════════════════════════ */}
         <section
           className="relative w-full overflow-hidden"
@@ -138,7 +138,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
             }}
           />
           {/* Gradient blend ke Section 2 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08080C] via-[#08080C]/5 to-black/25 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)] via-[var(--color-canvas)]/5 to-black/25 z-10" />
           {/* Floating glass decorative elements */}
           <div className="absolute top-[10%] left-[5%] floating-glass" style={{ width: 180, height: 120, animation: 'float 8s ease-in-out infinite' }} />
           <div className="absolute top-[30%] right-[10%] floating-glass" style={{ width: 140, height: 90, animation: 'float 9s ease-in-out infinite', animationDelay: '1s' }} />
@@ -296,7 +296,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
         <section
           id="section-arsip"
           ref={section3Ref}
-          className="relative w-full bg-[#08080C] lg:h-screen lg:overflow-hidden"
+          className="relative w-full bg-[var(--color-canvas)] lg:h-screen lg:overflow-hidden"
         >
           {/* Ambient glow */}
           <div className="absolute top-0 left-[-15%] w-[55vw] h-[55vw] rounded-full bg-glow-purple pointer-events-none opacity-25" />
@@ -412,7 +412,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
                 className="text-white font-bold text-sm sm:text-base"
                 style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.15em' }}
               >
-                ΛLΛS
+                {heroTitle}
               </span>
             </div>
 
@@ -442,6 +442,7 @@ export const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; h
             <FuturisticLine
               activeId={hoverLine?.id ?? activeId}
               activeDate={hoverLine?.date ?? activeDate}
+              scrollContainerRef={listScrollRef}
             />
           </div>
         )}

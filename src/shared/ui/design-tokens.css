@@ -1,17 +1,38 @@
 :root {
+  /* Semantic color roles. Components must consume these roles, not literal values. */
+  --color-canvas: #08080C;
+  --color-canvas-raised: #090A0D;
+  --color-surface-raised: #111111;
+  --color-surface-overlay: #1A1A1A;
+  --color-text-primary: #FFFFFF;
+  --color-text-on-accent: #25100A;
+  --color-text-inverse-muted: #E2D7D0;
+  --color-accent: #F2613F;
+  --color-accent-hover: #FF8A6C;
+  --color-accent-focus: #FFB6A4;
+  --color-accent-active-text: #FFB09D;
+  --color-category-violet: #8B5CF6;
+  --color-category-cyan: #06B6D4;
+  --color-category-amber: #F59E0B;
+  --color-category-violet-text: #C084FC;
+  --color-category-cyan-text: #22D3EE;
+  --color-category-amber-text: #FBBF24;
+  --color-category-ember-text: #FF7E60;
+  --color-modal-start: #0F0F16;
+  --color-modal-end: #0C0C12;
   --color-ink: #0C0C0C;
   --color-ember-deep: #481E14;
   --color-ember-mid: #9B3922;
-  --color-ember-bright: #F2613F;
+  --color-ember-bright: var(--color-accent);
   --color-ember-bright-rgb: 242, 97, 63;
   --color-surface: #F9F4F1;
   --color-text-muted: #C2A89A;
   
   /* ── 4 Glass Accents ──────────────────────────────────────── */
-  --color-glass-1: #8B5CF6; /* Violet */
-  --color-glass-2: #06B6D4; /* Cyan */
-  --color-glass-3: #F59E0B; /* Amber */
-  --color-glass-4: #F2613F; /* Ember */
+  --color-glass-1: var(--color-category-violet); /* Violet */
+  --color-glass-2: var(--color-category-cyan); /* Cyan */
+  --color-glass-3: var(--color-category-amber); /* Amber */
+  --color-glass-4: var(--color-accent); /* Ember */
   
   --color-leader-outline: rgba(255, 255, 255, 0.15);
   --card-skew: -8deg;

@@ -1,6 +1,7 @@
 import { LoginForm } from '@/features/lawet-auth/ui/login-form.client'
 import Link from 'next/link'
 import { Home } from 'lucide-react'
+import { SiteTitle } from '@/entities/site-settings/ui/site-title.client'
 
 export function LoginView() {
   return (
@@ -23,7 +24,7 @@ export function LoginView() {
         {/* Left Side: Branding */}
         <div className="hidden md:block">
           <h1 className="text-4xl font-black text-white font-mono tracking-tighter mb-4">
-            ALAS <span className="text-[var(--color-ember-bright)]">AUTHORING</span>
+            <SiteTitle /> <span className="text-[var(--color-ember-bright)]">AUTHORING</span>
           </h1>
           <p className="text-gray-400 text-sm leading-relaxed max-w-md">
             Portal ini terhubung langsung secara aman dengan sistem otentikasi Lawet Hub. Segala proses pengajuan dan persetujuan akan diproses sesuai standar berlapis Bawaslu Kebumen.

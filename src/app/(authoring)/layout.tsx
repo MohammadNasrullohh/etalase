@@ -19,7 +19,7 @@ export default async function AuthoringLayout({
   const isApprover = canApproveJurnal(user)
 
   return (
-    <AuthoringShellClient isApprover={isApprover} isAdmin={isAdmin}>
+    <AuthoringShellClient isApprover={isApprover} isAdmin={isAdmin} user={user}>
       {children}
     </AuthoringShellClient>
   )

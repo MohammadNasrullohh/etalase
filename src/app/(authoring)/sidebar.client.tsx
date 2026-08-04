@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FileText, Folder, CheckSquare, Home, LayoutDashboard } from 'lucide-react'
+import { useSiteTitle } from '@/entities/site-settings/ui/site-title.client'
 
 interface Props {
   isApprover: boolean
@@ -12,6 +13,7 @@ interface Props {
 
 export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: Props) {
   const pathname = usePathname()
+  const siteTitle = useSiteTitle()
 
   const links = [
     {
@@ -37,7 +39,7 @@ export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: P
   ]
 
   return (
-    <aside className="w-[280px] h-full bg-[#111] lg:border-r border-white/10 flex flex-col">
+    <aside className="w-[280px] h-full bg-[var(--color-surface-raised)] lg:border-r border-white/10 flex flex-col">
       {/* Brand */}
       <div className="h-16 flex items-center px-6 border-b border-white/10 shrink-0">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -49,7 +51,7 @@ export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: P
             />
           </div>
           <span className="text-white font-bold text-lg font-mono tracking-widest uppercase">
-            ΛLΛS
+            {siteTitle}
           </span>
         </Link>
       </div>

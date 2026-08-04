@@ -11,12 +11,12 @@ export default async function AdminPage() {
   if (!admin) redirect('/login')
 
   return (
-    <section className="min-h-full bg-[#090A0D] px-5 py-8 text-white sm:px-8 lg:px-12 lg:py-12">
+    <section className="min-h-full bg-[var(--color-canvas-raised)] px-5 py-8 text-[var(--color-text-primary)] sm:px-8 lg:px-12 lg:py-12">
       <div className="mx-auto max-w-4xl">
-        <p className="text-sm text-[#FF8A6C]">Administrasi</p>
+        <p className="text-sm text-[var(--color-accent-hover)]">Administrasi</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-[-0.025em]">Tampilan beranda</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-white/65">
-          Kelola judul dan gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
+          Kelola judul, subtitle, dan gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
         </p>
         <HeroSubtitleSettingsPanel initialSubtitle={hero.subtitle} />
         <HeroSettingsPanel initialImagePath={hero.imagePath} initialTitle={hero.title} initialUpdatedAt={hero.updatedAt?.toISOString() ?? null} />

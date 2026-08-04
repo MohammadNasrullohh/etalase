@@ -45,7 +45,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
     }
   }
 
-  const kategoriColor = item ? getCategoryColor(item.kategori) : '#8B5CF6'
+  const kategoriColor = item ? getCategoryColor(item.kategori) : 'var(--color-category-violet)'
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -59,7 +59,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
       <div
         className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-lg shadow-2xl z-10 animate-scale-in"
         style={{
-          background: 'linear-gradient(135deg, #0F0F16 0%, #0C0C12 100%)',
+          background: 'linear-gradient(135deg, var(--color-modal-start) 0%, var(--color-modal-end) 100%)',
           border: '1px solid rgba(255,255,255,0.08)',
           scrollbarWidth: 'thin',
           scrollbarColor: 'rgba(255,255,255,0.08) transparent',
@@ -270,4 +270,3 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
     </div>
   )
 }
-export default JurnalDetailModal

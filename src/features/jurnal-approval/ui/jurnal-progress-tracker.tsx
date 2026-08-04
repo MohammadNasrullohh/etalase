@@ -1,4 +1,4 @@
-import { Check, Circle, Clock3, Zap } from 'lucide-react'
+import { Check, Circle, Zap } from 'lucide-react'
 import { SiteTitle } from '@/entities/site-settings/ui/site-title.client'
 
 type JurnalProgressTrackerProps = {

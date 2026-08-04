@@ -1,11 +1,6 @@
 import { db } from '@/shared/lib/db'
 import { jurnal } from '../../../../drizzle/schema'
-import { sql, eq, and, isNotNull } from 'drizzle-orm'
-
-export interface JurnalStats {
-  years: number[]
-  stats: Record<string, number>
-}
+import { sql, eq, and } from 'drizzle-orm'
 
 /** Ambil semua tahun yang punya data jurnal published */
 export async function getJurnalYears(): Promise<number[]> {
