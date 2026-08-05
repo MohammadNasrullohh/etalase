@@ -16,22 +16,32 @@ export type HeroSettings = {
 }
 
 const getCachedHeroSettings = unstable_cache(async (): Promise<HeroSettings> => {
-  const [settings] = await db
-    .select({
-      heroImagePath: siteSettings.hero_image_path,
-      heroTitle: siteSettings.hero_title,
-      heroSubtitle: siteSettings.hero_subtitle,
-      updatedAt: siteSettings.updated_at,
-    })
-    .from(siteSettings)
-    .where(eq(siteSettings.id, 1))
-    .limit(1)
+  try {
+    const [settings] = await db
+      .select({
+        heroImagePath: siteSettings.hero_image_path,
+        heroTitle: siteSettings.hero_title,
+        heroSubtitle: siteSettings.hero_subtitle,
+        updatedAt: siteSettings.updated_at,
+      })
+      .from(siteSettings)
+      .where(eq(siteSettings.id, 1))
+      .limit(1)
 
-  return {
-    imagePath: settings?.heroImagePath || DEFAULT_HERO_IMAGE_PATH,
-    title: settings?.heroTitle || DEFAULT_HERO_TITLE,
-    subtitle: settings?.heroSubtitle || DEFAULT_HERO_SUBTITLE,
-    updatedAt: settings?.updatedAt ?? null,
+    return {
+      imagePath: settings?.heroImagePath || DEFAULT_HERO_IMAGE_PATH,
+      title: settings?.heroTitle || DEFAULT_HERO_TITLE,
+      subtitle: settings?.heroSubtitle || DEFAULT_HERO_SUBTITLE,
+      updatedAt: settings?.updatedAt ?? null,
+    }
+  } catch (error) {
+    console.warn('Failed to fetch hero settings from database, using defaults.', error)
+    return {
+      imagePath: DEFAULT_HERO_IMAGE_PATH,
+      title: DEFAULT_HERO_TITLE,
+      subtitle: DEFAULT_HERO_SUBTITLE,
+      updatedAt: null,
+    }
   }
 }, ['site-settings', 'hero'], { revalidate: 3600, tags: ['site-settings'] })
 
