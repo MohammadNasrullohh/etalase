@@ -16,14 +16,15 @@ COPY drizzle ./drizzle
 COPY src/app ./src/app
 COPY public ./public
 COPY package.json package-lock.json ./
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV DATABASE_URL="postgresql://alas_user:placeholder@localhost:5432/alas"
 RUN npm run build
 
 FROM node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public

@@ -4,10 +4,6 @@ import * as schema from '../../../../drizzle/schema'
 
 const connectionString = process.env.DATABASE_URL
 
-if (!connectionString && process.env.NODE_ENV === 'production') {
-  throw new Error('DATABASE_URL wajib diisi pada lingkungan produksi.')
-}
-
 const isLocalDatabase = connectionString
   ? /(?:localhost|127\.0\.0\.1|alas-db)/.test(connectionString)
   : true
