@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { JurnalSubmissionPayload } from '@/entities/jurnal/model/submission-schema'
-import { db } from '@/shared/db'
+import { db } from '@/shared/lib/db'
 
 // Mock cookies
 const cookieGet = vi.hoisted(() => vi.fn(() => ({ value: 'test-token' })))
@@ -9,7 +9,7 @@ vi.mock('next/headers', () => ({
 }))
 
 // Mock DB
-vi.mock('@/shared/db', () => {
+vi.mock('@/shared/lib/db', () => {
   const insertMock = vi.fn(() => ({
     values: vi.fn().mockResolvedValue([{ source_id: 'mocked-uuid' }])
   }))
@@ -35,10 +35,10 @@ vi.mock('@/shared/db', () => {
   }
 })
 
-// Mock uuid
-vi.mock('uuid', () => ({
-  v4: () => 'test-uuid-1234'
-}))
+// Mock crypto
+vi.stubGlobal('crypto', {
+  randomUUID: () => 'test-uuid-1234'
+})
 
 describe('ALAS Local Write Workflow', () => {
   beforeEach(() => {

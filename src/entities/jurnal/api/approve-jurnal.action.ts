@@ -1,7 +1,7 @@
 'use server'
 
 import { cookies } from 'next/headers'
-import { db } from '@/shared/db'
+import { db } from '@/shared/lib/db'
 import { jurnal, alasOutbox } from '../../../../drizzle/schema'
 import { eq, or } from 'drizzle-orm'
 

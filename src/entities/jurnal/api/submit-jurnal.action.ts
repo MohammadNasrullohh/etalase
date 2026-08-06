@@ -2,9 +2,8 @@
 
 import { cookies } from 'next/headers'
 import { JurnalSubmissionPayload, jurnalSubmissionSchema } from '../model/submission-schema'
-import { db } from '@/shared/db'
+import { db } from '@/shared/lib/db'
 import { jurnal, alasOutbox } from '../../../../drizzle/schema'
-import { v4 as uuidv4 } from 'uuid'
 
 export async function submitJurnalAction(payload: JurnalSubmissionPayload) {
   const token = cookies().get('lawet_token')?.value
@@ -18,7 +17,7 @@ export async function submitJurnalAction(payload: JurnalSubmissionPayload) {
     const validatedData = jurnalSubmissionSchema.parse(payload)
 
     // 2. Generate UUIDs
-    const sourceId = uuidv4() // Generate a new UUID for the source_id
+    const sourceId = crypto.randomUUID() // Generate a new UUID for the source_id
 
     // 3. Insert into ALAS DB (Local Write Proxy)
     await db.insert(jurnal).values({
