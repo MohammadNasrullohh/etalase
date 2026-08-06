@@ -12,7 +12,7 @@ export type HeroSettings = {
   imagePath: string
   title: string
   subtitle: string
-  updatedAt: Date | null
+  updatedAt: string | null
 }
 
 const getCachedHeroSettings = unstable_cache(async (): Promise<HeroSettings> => {
@@ -32,7 +32,7 @@ const getCachedHeroSettings = unstable_cache(async (): Promise<HeroSettings> => 
       imagePath: settings?.heroImagePath || DEFAULT_HERO_IMAGE_PATH,
       title: settings?.heroTitle || DEFAULT_HERO_TITLE,
       subtitle: settings?.heroSubtitle || DEFAULT_HERO_SUBTITLE,
-      updatedAt: settings?.updatedAt ? new Date(settings.updatedAt) : null,
+      updatedAt: settings?.updatedAt ? new Date(settings.updatedAt).toISOString() : null,
     }
   } catch (error) {
     console.warn('Failed to fetch hero settings from database, using defaults.', error)

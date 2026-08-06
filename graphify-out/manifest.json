@@ -1230,8 +1230,8 @@
     "semantic_hash": ""
   },
   "src/entities/site-settings/api/get-site-settings.ts": {
-    "mtime": 1785978080.1377432,
-    "ast_hash": "c52601ec36970306c45f0c4eff5e4479",
+    "mtime": 1785978701.325075,
+    "ast_hash": "5b2572f85c296430839c401201e754b6",
     "semantic_hash": ""
   },
   "src/features/admin-auth/lib/require-admin.ts": {
@@ -1260,8 +1260,8 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1785292309.4813213,
-    "ast_hash": "8b5ce86bb5cf3a1956649498a383c01f",
+    "mtime": 1785978703.3411014,
+    "ast_hash": "4098493f024eeb9190976020e82e84c0",
     "semantic_hash": ""
   },
   "src/app/(authoring)/approval/[id]/page.tsx": {

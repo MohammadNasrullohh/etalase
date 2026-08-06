@@ -19,7 +19,7 @@ export default async function AdminPage() {
           Kelola judul, subtitle, dan gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
         </p>
         <HeroSubtitleSettingsPanel initialSubtitle={hero.subtitle} />
-        <HeroSettingsPanel initialImagePath={hero.imagePath} initialTitle={hero.title} initialUpdatedAt={hero.updatedAt?.toISOString() ?? null} />
+        <HeroSettingsPanel initialImagePath={hero.imagePath} initialTitle={hero.title} initialUpdatedAt={hero.updatedAt} />
       </div>
     </section>
   )
