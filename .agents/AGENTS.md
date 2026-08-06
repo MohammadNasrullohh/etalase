@@ -17,6 +17,7 @@ Only Troubleshooter may consult a second stage after locating the failure.
 - Read `docs/architecture/TESTING.md` only when test placement or escalation is unclear.
 - Before memory access, read `.agents/context/MEMORY_POLICY.md`; otherwise skip memory.
 - At task close, follow `.agents/context/WORKFLOW_EVALUATION.md`.
+- Always commit all changes but do not push.
 
 ## Authority
 

@@ -1020,7 +1020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp",
-      "community": 28,
+      "community": 22,
       "norm_label": "detect-csp.mjs"
     },
     {
@@ -1030,7 +1030,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_skip_dirs",
-      "community": 28,
+      "community": 22,
       "norm_label": "skip_dirs"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_scan_exts",
-      "community": 28,
+      "community": 22,
       "norm_label": "scan_exts"
     },
     {
@@ -1050,7 +1050,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_layout_exts",
-      "community": 28,
+      "community": 22,
       "norm_label": "layout_exts"
     },
     {
@@ -1060,7 +1060,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_monorepo_helper_signals",
-      "community": 28,
+      "community": 22,
       "norm_label": "monorepo_helper_signals"
     },
     {
@@ -1070,7 +1070,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_sveltekit_csp_signals",
-      "community": 28,
+      "community": 22,
       "norm_label": "sveltekit_csp_signals"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_nuxt_security_signals",
-      "community": 28,
+      "community": 22,
       "norm_label": "nuxt_security_signals"
     },
     {
@@ -1090,7 +1090,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_inline_header_signals",
-      "community": 28,
+      "community": 22,
       "norm_label": "inline_header_signals"
     },
     {
@@ -1100,7 +1100,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_nuxt_route_rules_signals",
-      "community": 28,
+      "community": 22,
       "norm_label": "nuxt_route_rules_signals"
     },
     {
@@ -1110,7 +1110,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_detectcsp",
-      "community": 28,
+      "community": 22,
       "norm_label": "detectcsp()"
     },
     {
@@ -1120,7 +1120,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_walk",
-      "community": 28,
+      "community": 22,
       "norm_label": "walk()"
     },
     {
@@ -2660,7 +2660,7 @@
       "source_location": "L835",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_iscardlikefromprops",
-      "community": 38,
+      "community": 89,
       "norm_label": "iscardlikefromprops()"
     },
     {
@@ -2700,7 +2700,7 @@
       "source_location": "L936",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isaccentcolor",
-      "community": 193,
+      "community": 38,
       "norm_label": "isaccentcolor()"
     },
     {
@@ -2710,7 +2710,7 @@
       "source_location": "L983",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkheroeyebrow",
-      "community": 193,
+      "community": 38,
       "norm_label": "checkheroeyebrow()"
     },
     {
@@ -2730,7 +2730,7 @@
       "source_location": "L1047",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkmotion",
-      "community": 38,
+      "community": 89,
       "norm_label": "checkmotion()"
     },
     {
@@ -2790,7 +2790,7 @@
       "source_location": "L1442",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_parseradiustopx",
-      "community": 38,
+      "community": 89,
       "norm_label": "parseradiustopx()"
     },
     {
@@ -2800,7 +2800,7 @@
       "source_location": "L1456",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_resolveborderradiuspx",
-      "community": 38,
+      "community": 89,
       "norm_label": "resolveborderradiuspx()"
     },
     {
@@ -2850,7 +2850,7 @@
       "source_location": "L1556",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementheroeyebrowdom",
-      "community": 193,
+      "community": 38,
       "norm_label": "checkelementheroeyebrowdom()"
     },
     {
@@ -2870,7 +2870,7 @@
       "source_location": "L1620",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_resolvevarrefs",
-      "community": 193,
+      "community": 38,
       "norm_label": "resolvevarrefs()"
     },
     {
@@ -2960,7 +2960,7 @@
       "source_location": "L1833",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementmotiondom",
-      "community": 38,
+      "community": 89,
       "norm_label": "checkelementmotiondom()"
     },
     {
@@ -3000,7 +3000,7 @@
       "source_location": "L1963",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_resolvelengthpx",
-      "community": 79,
+      "community": 85,
       "norm_label": "resolvelengthpx()"
     },
     {
@@ -3110,7 +3110,7 @@
       "source_location": "L2420",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementquality",
-      "community": 79,
+      "community": 38,
       "norm_label": "checkelementquality()"
     },
     {
@@ -3160,7 +3160,7 @@
       "source_location": "L2561",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementheroeyebrow",
-      "community": 193,
+      "community": 38,
       "norm_label": "checkelementheroeyebrow()"
     },
     {
@@ -3180,7 +3180,7 @@
       "source_location": "L2601",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementmotion",
-      "community": 38,
+      "community": 89,
       "norm_label": "checkelementmotion()"
     },
     {
@@ -3210,7 +3210,7 @@
       "source_location": "L2679",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_iscardlikedom",
-      "community": 38,
+      "community": 89,
       "norm_label": "iscardlikedom()"
     },
     {
@@ -3220,7 +3220,7 @@
       "source_location": "L2691",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checklayout",
-      "community": 38,
+      "community": 89,
       "norm_label": "checklayout()"
     },
     {
@@ -3230,7 +3230,7 @@
       "source_location": "L2725",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkpagetypography",
-      "community": 129,
+      "community": 38,
       "norm_label": "checkpagetypography()"
     },
     {
@@ -3240,7 +3240,7 @@
       "source_location": "L2798",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_iscardlike",
-      "community": 38,
+      "community": 89,
       "norm_label": "iscardlike()"
     },
     {
@@ -3250,7 +3250,7 @@
       "source_location": "L2818",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkpagelayout",
-      "community": 38,
+      "community": 89,
       "norm_label": "checkpagelayout()"
     },
     {
@@ -3260,7 +3260,7 @@
       "source_location": "L2868",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_iscreamcolor",
-      "community": 79,
+      "community": 124,
       "norm_label": "iscreamcolor()"
     },
     {
@@ -3270,7 +3270,7 @@
       "source_location": "L2890",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_creamfromclasslist",
-      "community": 79,
+      "community": 124,
       "norm_label": "creamfromclasslist()"
     },
     {
@@ -3280,7 +3280,7 @@
       "source_location": "L2902",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkcreampalette",
-      "community": 79,
+      "community": 124,
       "norm_label": "checkcreampalette()"
     },
     {
@@ -3320,7 +3320,7 @@
       "source_location": "L2981",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_shadowlayeralpha",
-      "community": 157,
+      "community": 79,
       "norm_label": "shadowlayeralpha()"
     },
     {
@@ -3330,7 +3330,7 @@
       "source_location": "L2990",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_shadowmaxblurpx",
-      "community": 157,
+      "community": 79,
       "norm_label": "shadowmaxblurpx()"
     },
     {
@@ -3350,7 +3350,7 @@
       "source_location": "L3013",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkgptthinborderwideshadow",
-      "community": 157,
+      "community": 79,
       "norm_label": "checkgptthinborderwideshadow()"
     },
     {
@@ -3360,7 +3360,7 @@
       "source_location": "L3025",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_borderwidthsfromstyle",
-      "community": 157,
+      "community": 79,
       "norm_label": "borderwidthsfromstyle()"
     },
     {
@@ -3370,7 +3370,7 @@
       "source_location": "L3034",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_bordercolorsfromstyle",
-      "community": 157,
+      "community": 79,
       "norm_label": "bordercolorsfromstyle()"
     },
     {
@@ -3380,7 +3380,7 @@
       "source_location": "L3043",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementgptbordershadow",
-      "community": 157,
+      "community": 79,
       "norm_label": "checkelementgptbordershadow()"
     },
     {
@@ -3390,7 +3390,7 @@
       "source_location": "L3047",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementgptbordershadowdom",
-      "community": 157,
+      "community": 79,
       "norm_label": "checkelementgptbordershadowdom()"
     },
     {
@@ -3400,7 +3400,7 @@
       "source_location": "L3055",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_classselector",
-      "community": 140,
+      "community": 69,
       "norm_label": "classselector()"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L3205",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_metriclengthpx",
-      "community": 140,
+      "community": 85,
       "norm_label": "metriclengthpx()"
     },
     {
@@ -3510,7 +3510,7 @@
       "source_location": "L3211",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_firstmetriclengthpx",
-      "community": 140,
+      "community": 85,
       "norm_label": "firstmetriclengthpx()"
     },
     {
@@ -3520,7 +3520,7 @@
       "source_location": "L3219",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_expandboxshorthand",
-      "community": 140,
+      "community": 85,
       "norm_label": "expandboxshorthand()"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L3226",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_clippedbyinset",
-      "community": 140,
+      "community": 85,
       "norm_label": "clippedbyinset()"
     },
     {
@@ -3540,7 +3540,7 @@
       "source_location": "L3238",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_clippedbyrect",
-      "community": 140,
+      "community": 85,
       "norm_label": "clippedbyrect()"
     },
     {
@@ -3550,7 +3550,7 @@
       "source_location": "L3248",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isscreenreaderonlytextstyle",
-      "community": 140,
+      "community": 85,
       "norm_label": "isscreenreaderonlytextstyle()"
     },
     {
@@ -3560,7 +3560,7 @@
       "source_location": "L3265",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isrenderedforbrowserrule",
-      "community": 61,
+      "community": 69,
       "norm_label": "isrenderedforbrowserrule()"
     },
     {
@@ -3570,7 +3570,7 @@
       "source_location": "L3277",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementtextoverflowdom",
-      "community": 140,
+      "community": 69,
       "norm_label": "checkelementtextoverflowdom()"
     },
     {
@@ -3720,7 +3720,7 @@
       "source_location": "L3871",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_getdirecttext",
-      "community": 61,
+      "community": 69,
       "norm_label": "getdirecttext()"
     },
     {
@@ -3730,7 +3730,7 @@
       "source_location": "L3878",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_getdirecttextrect",
-      "community": 61,
+      "community": 69,
       "norm_label": "getdirecttextrect()"
     },
     {
@@ -3740,7 +3740,7 @@
       "source_location": "L3906",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_collectvisualcontrastreasons",
-      "community": 61,
+      "community": 69,
       "norm_label": "collectvisualcontrastreasons()"
     },
     {
@@ -3750,7 +3750,7 @@
       "source_location": "L3961",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_collectvisualcontrastcandidates",
-      "community": 61,
+      "community": 69,
       "norm_label": "collectvisualcontrastcandidates()"
     },
     {
@@ -3760,7 +3760,7 @@
       "source_location": "L4025",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_clampbyte",
-      "community": 84,
+      "community": 69,
       "norm_label": "clampbyte()"
     },
     {
@@ -3770,7 +3770,7 @@
       "source_location": "L4029",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_blendrgba",
-      "community": 84,
+      "community": 69,
       "norm_label": "blendrgba()"
     },
     {
@@ -3910,7 +3910,7 @@
       "source_location": "L4314",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_textsamplepoints",
-      "community": 61,
+      "community": 69,
       "norm_label": "textsamplepoints()"
     },
     {
@@ -3930,7 +3930,7 @@
       "source_location": "L4393",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_analyzevisualcontrastcandidate",
-      "community": 61,
+      "community": 69,
       "norm_label": "analyzevisualcontrastcandidate()"
     },
     {
@@ -3950,7 +3950,7 @@
       "source_location": "L4479",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_analyzevisualcontrast",
-      "community": 61,
+      "community": 69,
       "norm_label": "analyzevisualcontrast()"
     },
     {
@@ -4030,7 +4030,7 @@
       "source_location": "L4613",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_browsercolorsclose",
-      "community": 79,
+      "community": 12,
       "norm_label": "browsercolorsclose()"
     },
     {
@@ -4040,7 +4040,7 @@
       "source_location": "L4622",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isbrowserdesigncolorallowed",
-      "community": 79,
+      "community": 12,
       "norm_label": "isbrowserdesigncolorallowed()"
     },
     {
@@ -4050,7 +4050,7 @@
       "source_location": "L4633",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isbrowsertransparentcss",
-      "community": 79,
+      "community": 12,
       "norm_label": "isbrowsertransparentcss()"
     },
     {
@@ -4060,7 +4060,7 @@
       "source_location": "L4640",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isbrowserdesignradiusallowed",
-      "community": 79,
+      "community": 12,
       "norm_label": "isbrowserdesignradiusallowed()"
     },
     {
@@ -4070,7 +4070,7 @@
       "source_location": "L4651",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_browserradiustokens",
-      "community": 79,
+      "community": 12,
       "norm_label": "browserradiustokens()"
     },
     {
@@ -4080,7 +4080,7 @@
       "source_location": "L4659",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_browserhasdirecttext",
-      "community": 79,
+      "community": 12,
       "norm_label": "browserhasdirecttext()"
     },
     {
@@ -4090,7 +4090,7 @@
       "source_location": "L4663",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_browsersampletext",
-      "community": 79,
+      "community": 12,
       "norm_label": "browsersampletext()"
     },
     {
@@ -4110,7 +4110,7 @@
       "source_location": "L4673",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementdesignsystemdom",
-      "community": 79,
+      "community": 12,
       "norm_label": "checkelementdesignsystemdom()"
     },
     {
@@ -4300,7 +4300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_browser_detect_url",
-      "community": 80,
+      "community": 102,
       "norm_label": "detect-url.mjs"
     },
     {
@@ -4310,7 +4310,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_browser_detect_url_serializedesignsystemforbrowser",
-      "community": 80,
+      "community": 102,
       "norm_label": "serializedesignsystemforbrowser()"
     },
     {
@@ -4320,7 +4320,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_browser_detect_url_runvisualcontrastfallback",
-      "community": 80,
+      "community": 102,
       "norm_label": "runvisualcontrastfallback()"
     },
     {
@@ -4330,7 +4330,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_browser_detect_url_detecturl",
-      "community": 80,
+      "community": 102,
       "norm_label": "detecturl()"
     },
     {
@@ -4430,7 +4430,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_regex_detect_text_firstoverusedgooglefont",
-      "community": 129,
+      "community": 80,
       "norm_label": "firstoverusedgooglefont()"
     },
     {
@@ -4440,7 +4440,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_regex_detect_text_isneutralbordercolor",
-      "community": 160,
+      "community": 80,
       "norm_label": "isneutralbordercolor()"
     },
     {
@@ -4470,7 +4470,7 @@
       "source_location": "L351",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_regex_detect_text_extractstyleblocks",
-      "community": 80,
+      "community": 102,
       "norm_label": "extractstyleblocks()"
     },
     {
@@ -4500,7 +4500,7 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_regex_detect_text_runregexmatchers",
-      "community": 80,
+      "community": 102,
       "norm_label": "runregexmatchers()"
     },
     {
@@ -4530,7 +4530,7 @@
       "source_location": "L467",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_regex_detect_text_detecttext",
-      "community": 80,
+      "community": 102,
       "norm_label": "detecttext()"
     },
     {
@@ -5060,7 +5060,7 @@
       "source_location": "L862",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_css_cascade_collectstaticcsstext",
-      "community": 80,
+      "community": 47,
       "norm_label": "collectstaticcsstext()"
     },
     {
@@ -5080,7 +5080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_detect_html",
-      "community": 80,
+      "community": 129,
       "norm_label": "detect-html.mjs"
     },
     {
@@ -5100,7 +5100,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_detect_html_checkelementbrokenimage",
-      "community": 80,
+      "community": 129,
       "norm_label": "checkelementbrokenimage()"
     },
     {
@@ -5110,7 +5110,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_detect_html_static_element_rules",
-      "community": 80,
+      "community": 129,
       "norm_label": "static_element_rules"
     },
     {
@@ -5120,7 +5120,7 @@
       "source_location": "L107",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_detect_html_detecthtml",
-      "community": 80,
+      "community": 102,
       "norm_label": "detecthtml()"
     },
     {
@@ -5130,7 +5130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_visual_screenshot_contrast",
-      "community": 80,
+      "community": 102,
       "norm_label": "screenshot-contrast.mjs"
     },
     {
@@ -5140,7 +5140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_visual_screenshot_contrast_sanitizescreenshotclip",
-      "community": 80,
+      "community": 102,
       "norm_label": "sanitizescreenshotclip()"
     },
     {
@@ -5150,7 +5150,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_visual_screenshot_contrast_comparescreenshotcontrast",
-      "community": 80,
+      "community": 102,
       "norm_label": "comparescreenshotcontrast()"
     },
     {
@@ -5160,7 +5160,7 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_visual_screenshot_contrast_capturevisualcontrastcandidate",
-      "community": 80,
+      "community": 102,
       "norm_label": "capturevisualcontrastcandidate()"
     },
     {
@@ -5170,7 +5170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_findings",
-      "community": 80,
+      "community": 102,
       "norm_label": "findings.mjs"
     },
     {
@@ -5180,7 +5180,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_findings_getap",
-      "community": 80,
+      "community": 102,
       "norm_label": "getap()"
     },
     {
@@ -5190,7 +5190,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_findings_finding",
-      "community": 80,
+      "community": 102,
       "norm_label": "finding()"
     },
     {
@@ -5300,7 +5300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler",
-      "community": 80,
+      "community": 102,
       "norm_label": "profiler.mjs"
     },
     {
@@ -5310,7 +5310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_profilenow",
-      "community": 80,
+      "community": 102,
       "norm_label": "profilenow()"
     },
     {
@@ -5320,7 +5320,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_createdetectorprofile",
-      "community": 80,
+      "community": 102,
       "norm_label": "createdetectorprofile()"
     },
     {
@@ -5330,7 +5330,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_recordprofileevent",
-      "community": 80,
+      "community": 102,
       "norm_label": "recordprofileevent()"
     },
     {
@@ -5340,7 +5340,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_extractfindingids",
-      "community": 80,
+      "community": 102,
       "norm_label": "extractfindingids()"
     },
     {
@@ -5350,7 +5350,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_profilefindings",
-      "community": 80,
+      "community": 102,
       "norm_label": "profilefindings()"
     },
     {
@@ -5360,7 +5360,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_profilestep",
-      "community": 80,
+      "community": 102,
       "norm_label": "profilestep()"
     },
     {
@@ -5370,7 +5370,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_profilefindingsasync",
-      "community": 80,
+      "community": 102,
       "norm_label": "profilefindingsasync()"
     },
     {
@@ -5380,7 +5380,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_profilestepasync",
-      "community": 80,
+      "community": 102,
       "norm_label": "profilestepasync()"
     },
     {
@@ -5390,7 +5390,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_percentile",
-      "community": 80,
+      "community": 102,
       "norm_label": "percentile()"
     },
     {
@@ -5400,7 +5400,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_profile_profiler_summarizedetectorprofile",
-      "community": 80,
+      "community": 102,
       "norm_label": "summarizedetectorprofile()"
     },
     {
@@ -5520,7 +5520,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkborders",
-      "community": 160,
+      "community": 129,
       "norm_label": "checkborders()"
     },
     {
@@ -5530,7 +5530,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_isemojionlytext",
-      "community": 16,
+      "community": 8,
       "norm_label": "isemojionlytext()"
     },
     {
@@ -5540,7 +5540,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkcolors",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkcolors()"
     },
     {
@@ -5560,7 +5560,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_heading_tags",
-      "community": 16,
+      "community": 61,
       "norm_label": "heading_tags"
     },
     {
@@ -5570,7 +5570,7 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkicontile",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkicontile()"
     },
     {
@@ -5590,7 +5590,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkitalicserif",
-      "community": 16,
+      "community": 129,
       "norm_label": "checkitalicserif()"
     },
     {
@@ -5650,7 +5650,7 @@
       "source_location": "L411",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkglow",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkglow()"
     },
     {
@@ -5660,7 +5660,7 @@
       "source_location": "L447",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkhtmlpatterns",
-      "community": 80,
+      "community": 102,
       "norm_label": "checkhtmlpatterns()"
     },
     {
@@ -5670,7 +5670,7 @@
       "source_location": "L653",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_readownbackgroundcolor",
-      "community": 16,
+      "community": 8,
       "norm_label": "readownbackgroundcolor()"
     },
     {
@@ -5680,7 +5680,7 @@
       "source_location": "L674",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_resolvebackground",
-      "community": 16,
+      "community": 8,
       "norm_label": "resolvebackground()"
     },
     {
@@ -5690,7 +5690,7 @@
       "source_location": "L736",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_resolvegradientstops",
-      "community": 16,
+      "community": 8,
       "norm_label": "resolvegradientstops()"
     },
     {
@@ -5720,7 +5720,7 @@
       "source_location": "L792",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementbordersdom",
-      "community": 160,
+      "community": 129,
       "norm_label": "checkelementbordersdom()"
     },
     {
@@ -5730,7 +5730,7 @@
       "source_location": "L807",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementcolorsdom",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkelementcolorsdom()"
     },
     {
@@ -5740,7 +5740,7 @@
       "source_location": "L834",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementicontiledom",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkelementicontiledom()"
     },
     {
@@ -5750,7 +5750,7 @@
       "source_location": "L869",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementitalicserifdom",
-      "community": 16,
+      "community": 129,
       "norm_label": "checkelementitalicserifdom()"
     },
     {
@@ -5810,7 +5810,7 @@
       "source_location": "L1035",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_parsecolorresolved",
-      "community": 16,
+      "community": 8,
       "norm_label": "parsecolorresolved()"
     },
     {
@@ -5900,7 +5900,7 @@
       "source_location": "L1172",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementglowdom",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkelementglowdom()"
     },
     {
@@ -5910,7 +5910,7 @@
       "source_location": "L1201",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementaipalettedom",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkelementaipalettedom()"
     },
     {
@@ -5940,7 +5940,7 @@
       "source_location": "L1289",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_resolvelengthpx",
-      "community": 30,
+      "community": 16,
       "norm_label": "resolvelengthpx()"
     },
     {
@@ -5990,7 +5990,7 @@
       "source_location": "L1350",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_text_edge_tags",
-      "community": 16,
+      "community": 79,
       "norm_label": "text_edge_tags"
     },
     {
@@ -6040,7 +6040,7 @@
       "source_location": "L1715",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkpagequalityfromdoc",
-      "community": 80,
+      "community": 16,
       "norm_label": "checkpagequalityfromdoc()"
     },
     {
@@ -6050,7 +6050,7 @@
       "source_location": "L1736",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkpagequalitydom",
-      "community": 80,
+      "community": 16,
       "norm_label": "checkpagequalitydom()"
     },
     {
@@ -6070,7 +6070,7 @@
       "source_location": "L1755",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementborders",
-      "community": 160,
+      "community": 129,
       "norm_label": "checkelementborders()"
     },
     {
@@ -6080,7 +6080,7 @@
       "source_location": "L1785",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementcolors",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkelementcolors()"
     },
     {
@@ -6090,7 +6090,7 @@
       "source_location": "L1839",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementicontile",
-      "community": 16,
+      "community": 8,
       "norm_label": "checkelementicontile()"
     },
     {
@@ -6100,7 +6100,7 @@
       "source_location": "L1876",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementitalicserif",
-      "community": 16,
+      "community": 129,
       "norm_label": "checkelementitalicserif()"
     },
     {
@@ -6110,7 +6110,7 @@
       "source_location": "L1887",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementheroeyebrow",
-      "community": 16,
+      "community": 47,
       "norm_label": "checkelementheroeyebrow()"
     },
     {
@@ -6140,7 +6140,7 @@
       "source_location": "L1937",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementglow",
-      "community": 16,
+      "community": 129,
       "norm_label": "checkelementglow()"
     },
     {
@@ -6470,7 +6470,7 @@
       "source_location": "L2529",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_text_overflow_skip_tags",
-      "community": 140,
+      "community": 16,
       "norm_label": "text_overflow_skip_tags"
     },
     {
@@ -6560,7 +6560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color",
-      "community": 16,
+      "community": 8,
       "norm_label": "color.mjs"
     },
     {
@@ -6570,7 +6570,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_isneutralcolor",
-      "community": 160,
+      "community": 80,
       "norm_label": "isneutralcolor()"
     },
     {
@@ -6580,7 +6580,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_parsergb",
-      "community": 16,
+      "community": 8,
       "norm_label": "parsergb()"
     },
     {
@@ -6590,7 +6590,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_relativeluminance",
-      "community": 16,
+      "community": 8,
       "norm_label": "relativeluminance()"
     },
     {
@@ -6600,7 +6600,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_contrastratio",
-      "community": 16,
+      "community": 8,
       "norm_label": "contrastratio()"
     },
     {
@@ -6610,7 +6610,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_parsegradientcolors",
-      "community": 16,
+      "community": 8,
       "norm_label": "parsegradientcolors()"
     },
     {
@@ -6620,7 +6620,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_haschroma",
-      "community": 16,
+      "community": 8,
       "norm_label": "haschroma()"
     },
     {
@@ -6630,7 +6630,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_gethue",
-      "community": 16,
+      "community": 8,
       "norm_label": "gethue()"
     },
     {
@@ -6640,7 +6640,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_colortohex",
-      "community": 16,
+      "community": 8,
       "norm_label": "colortohex()"
     },
     {
@@ -6660,7 +6660,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_constants_safe_tags",
-      "community": 16,
+      "community": 89,
       "norm_label": "safe_tags"
     },
     {
@@ -6670,7 +6670,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_constants_border_safe_tags",
-      "community": 160,
+      "community": 129,
       "norm_label": "border_safe_tags"
     },
     {
@@ -6760,7 +6760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_fonts",
-      "community": 129,
+      "community": 80,
       "norm_label": "fonts.mjs"
     },
     {
@@ -6770,7 +6770,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_fonts_normalizegooglefontfamilyparam",
-      "community": 129,
+      "community": 80,
       "norm_label": "normalizegooglefontfamilyparam()"
     },
     {
@@ -6780,7 +6780,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_fonts_extractgooglefontfamilies",
-      "community": 129,
+      "community": 80,
       "norm_label": "extractgooglefontfamilies()"
     },
     {
@@ -6790,7 +6790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores",
-      "community": 133,
+      "community": 80,
       "norm_label": "inline-ignores.mjs"
     },
     {
@@ -6800,7 +6800,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_normalizerule",
-      "community": 133,
+      "community": 80,
       "norm_label": "normalizerule()"
     },
     {
@@ -6810,7 +6810,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_parserulelist",
-      "community": 133,
+      "community": 80,
       "norm_label": "parserulelist()"
     },
     {
@@ -6820,7 +6820,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_addrules",
-      "community": 133,
+      "community": 80,
       "norm_label": "addrules()"
     },
     {
@@ -6830,7 +6830,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_getset",
-      "community": 133,
+      "community": 80,
       "norm_label": "getset()"
     },
     {
@@ -6840,7 +6840,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_parseinlineignores",
-      "community": 133,
+      "community": 80,
       "norm_label": "parseinlineignores()"
     },
     {
@@ -6850,7 +6850,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_setmatches",
-      "community": 133,
+      "community": 80,
       "norm_label": "setmatches()"
     },
     {
@@ -6860,7 +6860,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_isinlineignored",
-      "community": 133,
+      "community": 80,
       "norm_label": "isinlineignored()"
     },
     {
@@ -6870,7 +6870,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_hasdirectives",
-      "community": 133,
+      "community": 80,
       "norm_label": "hasdirectives()"
     },
     {
@@ -6880,7 +6880,7 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_applyinlineignores",
-      "community": 133,
+      "community": 80,
       "norm_label": "applyinlineignores()"
     },
     {
@@ -6890,7 +6890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_page",
-      "community": 80,
+      "community": 102,
       "norm_label": "page.mjs"
     },
     {
@@ -6900,7 +6900,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_page_isfullpage",
-      "community": 80,
+      "community": 102,
       "norm_label": "isfullpage()"
     },
     {
@@ -9400,7 +9400,7 @@
       "source_location": "L447",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_lib_impeccable_config_filterdetectionfindings",
-      "community": 102,
+      "community": 35,
       "norm_label": "filterdetectionfindings()"
     },
     {
@@ -12280,7 +12280,7 @@
       "source_location": "L4326",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_cssident",
-      "community": 2,
+      "community": 3,
       "norm_label": "cssident()"
     },
     {
@@ -13560,7 +13560,7 @@
       "source_location": "L7602",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_snapshotacceptedvariantdom",
-      "community": 2,
+      "community": 3,
       "norm_label": "snapshotacceptedvariantdom()"
     },
     {
@@ -13570,7 +13570,7 @@
       "source_location": "L7615",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_selectorforacceptedroot",
-      "community": 2,
+      "community": 3,
       "norm_label": "selectorforacceptedroot()"
     },
     {
@@ -16020,7 +16020,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_discard_manual_edits_buffer",
-      "community": 28,
+      "community": 0,
       "norm_label": "buffer"
     },
     {
@@ -20520,7 +20520,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "drizzle_schema_jurnal",
-      "community": 33,
+      "community": 0,
       "norm_label": "jurnal"
     },
     {
@@ -20540,7 +20540,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "drizzle_schema_sitesettings",
-      "community": 141,
+      "community": 128,
       "norm_label": "sitesettings"
     },
     {
@@ -20560,7 +20560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "drizzle_seed",
-      "community": 201,
+      "community": 0,
       "norm_label": "seed.ts"
     },
     {
@@ -20570,7 +20570,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "drizzle_seed_pool",
-      "community": 201,
+      "community": 0,
       "norm_label": "pool"
     },
     {
@@ -20580,7 +20580,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "drizzle_seed_db",
-      "community": 201,
+      "community": 0,
       "norm_label": "db"
     },
     {
@@ -20590,7 +20590,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "drizzle_seed_main",
-      "community": 201,
+      "community": 0,
       "norm_label": "main()"
     },
     {
@@ -21360,7 +21360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_authoring_approval_page",
-      "community": 14,
+      "community": 120,
       "norm_label": "page.tsx"
     },
     {
@@ -21370,7 +21370,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_app_authoring_approval_page_page",
-      "community": 14,
+      "community": 120,
       "norm_label": "page()"
     },
     {
@@ -21380,7 +21380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_authoring_authoring_shell_client",
-      "community": 128,
+      "community": 14,
       "norm_label": "authoring-shell.client.tsx"
     },
     {
@@ -21390,7 +21390,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_app_authoring_authoring_shell_client_props",
-      "community": 128,
+      "community": 14,
       "norm_label": "props"
     },
     {
@@ -21400,7 +21400,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_app_authoring_authoring_shell_client_authoringshellclient",
-      "community": 128,
+      "community": 14,
       "norm_label": "authoringshellclient()"
     },
     {
@@ -21467,7 +21467,7 @@
       "label": "Page()",
       "file_type": "code",
       "source_file": "src/app/(authoring)/pengajuan/page.tsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "_origin": "ast",
       "id": "src_app_authoring_pengajuan_page_page",
       "community": 151,
@@ -21480,7 +21480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_authoring_sidebar_client",
-      "community": 128,
+      "community": 14,
       "norm_label": "sidebar.client.tsx"
     },
     {
@@ -21490,7 +21490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_app_authoring_sidebar_client_props",
-      "community": 128,
+      "community": 14,
       "norm_label": "props"
     },
     {
@@ -21500,7 +21500,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_app_authoring_sidebar_client_authoringsidebarclient",
-      "community": 128,
+      "community": 14,
       "norm_label": "authoringsidebarclient()"
     },
     {
@@ -21680,7 +21680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_jurnal_id_route",
-      "community": 33,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21690,7 +21690,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_jurnal_id_route_get",
-      "community": 33,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21700,7 +21700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_jurnal_calendar_route",
-      "community": 33,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21710,7 +21710,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_jurnal_calendar_route_get",
-      "community": 33,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21740,7 +21740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_jurnal_route",
-      "community": 147,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21750,7 +21750,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_jurnal_route_get",
-      "community": 147,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21760,7 +21760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_jurnal_stats_route",
-      "community": 198,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21770,7 +21770,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_jurnal_stats_route_get",
-      "community": 198,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21820,7 +21820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_sourceid_dokumen_route",
-      "community": 22,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21830,7 +21830,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_sourceid_dokumen_route_patch",
-      "community": 22,
+      "community": 0,
       "norm_label": "patch()"
     },
     {
@@ -21840,7 +21840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_sourceid_route",
-      "community": 22,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21850,7 +21850,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_sourceid_route_get",
-      "community": 22,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21860,7 +21860,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_sourceid_route_patch",
-      "community": 22,
+      "community": 0,
       "norm_label": "patch()"
     },
     {
@@ -21870,7 +21870,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_sourceid_route_delete",
-      "community": 22,
+      "community": 0,
       "norm_label": "delete()"
     },
     {
@@ -21880,7 +21880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_route",
-      "community": 33,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21890,7 +21890,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_route_post",
-      "community": 22,
+      "community": 0,
       "norm_label": "post()"
     },
     {
@@ -21900,7 +21900,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "src_app_api_service_jurnal_route_get",
-      "community": 22,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21910,7 +21910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_sourceid_route",
-      "community": 22,
+      "community": 0,
       "norm_label": "route.ts"
     },
     {
@@ -21920,7 +21920,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_sourceid_route_get",
-      "community": 22,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -21930,7 +21930,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_sourceid_route_patch",
-      "community": 22,
+      "community": 0,
       "norm_label": "patch()"
     },
     {
@@ -21940,7 +21940,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_sourceid_route_delete",
-      "community": 22,
+      "community": 0,
       "norm_label": "delete()"
     },
     {
@@ -21960,7 +21960,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_route_post",
-      "community": 22,
+      "community": 0,
       "norm_label": "post()"
     },
     {
@@ -21970,7 +21970,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_route_get",
-      "community": 22,
+      "community": 0,
       "norm_label": "get()"
     },
     {
@@ -22020,7 +22020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_layout",
-      "community": 141,
+      "community": 128,
       "norm_label": "layout.tsx"
     },
     {
@@ -22030,7 +22030,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_app_layout_inter",
-      "community": 141,
+      "community": 128,
       "norm_label": "inter"
     },
     {
@@ -22040,7 +22040,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_app_layout_generatemetadata",
-      "community": 141,
+      "community": 128,
       "norm_label": "generatemetadata()"
     },
     {
@@ -22050,7 +22050,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_app_layout_rootlayout",
-      "community": 141,
+      "community": 128,
       "norm_label": "rootlayout()"
     },
     {
@@ -22080,7 +22080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_page",
-      "community": 141,
+      "community": 128,
       "norm_label": "page.tsx"
     },
     {
@@ -22090,7 +22090,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_app_page_home",
-      "community": 141,
+      "community": 128,
       "norm_label": "home()"
     },
     {
@@ -22150,7 +22150,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_calendar",
-      "community": 33,
+      "community": 0,
       "norm_label": "get-jurnal-calendar.ts"
     },
     {
@@ -22160,7 +22160,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_calendar_getjurnalcalendar",
-      "community": 33,
+      "community": 0,
       "norm_label": "getjurnalcalendar()"
     },
     {
@@ -22170,7 +22170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_detail",
-      "community": 33,
+      "community": 0,
       "norm_label": "get-jurnal-detail.ts"
     },
     {
@@ -22180,7 +22180,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_detail_getjurnaldetail",
-      "community": 33,
+      "community": 0,
       "norm_label": "getjurnaldetail()"
     },
     {
@@ -22190,7 +22190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_list",
-      "community": 147,
+      "community": 0,
       "norm_label": "get-jurnal-list.ts"
     },
     {
@@ -22200,7 +22200,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_list_getjurnallistparams",
-      "community": 147,
+      "community": 0,
       "norm_label": "getjurnallistparams"
     },
     {
@@ -22210,7 +22210,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_list_cursoritem",
-      "community": 147,
+      "community": 0,
       "norm_label": "cursoritem"
     },
     {
@@ -22220,7 +22220,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_list_encodejurnalcursor",
-      "community": 147,
+      "community": 0,
       "norm_label": "encodejurnalcursor()"
     },
     {
@@ -22230,7 +22230,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_list_decodejurnalcursor",
-      "community": 147,
+      "community": 0,
       "norm_label": "decodejurnalcursor()"
     },
     {
@@ -22240,7 +22240,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_list_getjurnallist",
-      "community": 147,
+      "community": 0,
       "norm_label": "getjurnallist()"
     },
     {
@@ -22250,7 +22250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_stats",
-      "community": 198,
+      "community": 0,
       "norm_label": "get-jurnal-stats.ts"
     },
     {
@@ -22260,7 +22260,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_stats_getjurnalyears",
-      "community": 198,
+      "community": 0,
       "norm_label": "getjurnalyears()"
     },
     {
@@ -22270,138 +22270,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_stats_getjurnalstatsbyyear",
-      "community": 198,
+      "community": 0,
       "norm_label": "getjurnalstatsbyyear()"
-    },
-    {
-      "label": "submit-jurnal.action.ts",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_submit_jurnal_action",
-      "community": 151,
-      "norm_label": "submit-jurnal.action.ts"
-    },
-    {
-      "label": "LAWET_API_URL",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_submit_jurnal_action_lawet_api_url",
-      "community": 151,
-      "norm_label": "lawet_api_url"
-    },
-    {
-      "label": "submitJurnalAction()",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_submit_jurnal_action_submitjurnalaction",
-      "community": 151,
-      "norm_label": "submitjurnalaction()"
-    },
-    {
-      "label": "upload-media.action.ts",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_upload_media_action",
-      "community": 151,
-      "norm_label": "upload-media.action.ts"
-    },
-    {
-      "label": "LAWET_API_URL",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_upload_media_action_lawet_api_url",
-      "community": 151,
-      "norm_label": "lawet_api_url"
-    },
-    {
-      "label": "uploadFotoAction()",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_upload_media_action_uploadfotoaction",
-      "community": 151,
-      "norm_label": "uploadfotoaction()"
-    },
-    {
-      "label": "uploadDokumenAction()",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_api_upload_media_action_uploaddokumenaction",
-      "community": 151,
-      "norm_label": "uploaddokumenaction()"
-    },
-    {
-      "label": "submission-schema.ts",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_model_submission_schema",
-      "community": 151,
-      "norm_label": "submission-schema.ts"
-    },
-    {
-      "label": "DokumentasiItem",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_model_submission_schema_dokumentasiitem",
-      "community": 151,
-      "norm_label": "dokumentasiitem"
-    },
-    {
-      "label": "DokumenPendukungItem",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_model_submission_schema_dokumenpendukungitem",
-      "community": 151,
-      "norm_label": "dokumenpendukungitem"
-    },
-    {
-      "label": "PihakTerkaitItem",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_model_submission_schema_pihakterkaititem",
-      "community": 151,
-      "norm_label": "pihakterkaititem"
-    },
-    {
-      "label": "CustomFieldItem",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_model_submission_schema_customfielditem",
-      "community": 151,
-      "norm_label": "customfielditem"
-    },
-    {
-      "label": "JurnalSubmissionPayload",
-      "file_type": "code",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "src_entities_jurnal_model_submission_schema_jurnalsubmissionpayload",
-      "community": 151,
-      "norm_label": "jurnalsubmissionpayload"
     },
     {
       "label": "jurnal-card.tsx",
@@ -22620,7 +22490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_site_settings_api_get_site_settings",
-      "community": 141,
+      "community": 128,
       "norm_label": "get-site-settings.ts"
     },
     {
@@ -22630,7 +22500,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_entities_site_settings_api_get_site_settings_herosettings",
-      "community": 141,
+      "community": 128,
       "norm_label": "herosettings"
     },
     {
@@ -22640,17 +22510,17 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_entities_site_settings_api_get_site_settings_getcachedherosettings",
-      "community": 141,
+      "community": 128,
       "norm_label": "getcachedherosettings"
     },
     {
       "label": "getHeroSettings()",
       "file_type": "code",
       "source_file": "src/entities/site-settings/api/get-site-settings.ts",
-      "source_location": "L48",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "src_entities_site_settings_api_get_site_settings_getherosettings",
-      "community": 141,
+      "community": 128,
       "norm_label": "getherosettings()"
     },
     {
@@ -22730,7 +22600,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_entities_site_settings_ui_site_title_client_usesitetitle",
-      "community": 128,
+      "community": 14,
       "norm_label": "usesitetitle()"
     },
     {
@@ -23314,143 +23184,13 @@
       "norm_label": "myjurnalcard()"
     },
     {
-      "label": "dokumen-uploader.client.tsx",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "community": 151,
-      "norm_label": "dokumen-uploader.client.tsx"
-    },
-    {
-      "label": "Props",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_props",
-      "community": 151,
-      "norm_label": "props"
-    },
-    {
-      "label": "DokumenUploader()",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_dokumenuploader",
-      "community": 151,
-      "norm_label": "dokumenuploader()"
-    },
-    {
-      "label": "dynamic-lists.client.tsx",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "community": 151,
-      "norm_label": "dynamic-lists.client.tsx"
-    },
-    {
-      "label": "PihakTerkaitProps",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dynamic_lists_client_pihakterkaitprops",
-      "community": 151,
-      "norm_label": "pihakterkaitprops"
-    },
-    {
-      "label": "PihakTerkaitInput()",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dynamic_lists_client_pihakterkaitinput",
-      "community": 151,
-      "norm_label": "pihakterkaitinput()"
-    },
-    {
-      "label": "CustomFieldsProps",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L58",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dynamic_lists_client_customfieldsprops",
-      "community": 151,
-      "norm_label": "customfieldsprops"
-    },
-    {
-      "label": "CustomFieldsInput()",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L63",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_dynamic_lists_client_customfieldsinput",
-      "community": 151,
-      "norm_label": "customfieldsinput()"
-    },
-    {
-      "label": "foto-uploader.client.tsx",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "community": 151,
-      "norm_label": "foto-uploader.client.tsx"
-    },
-    {
-      "label": "Props",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_foto_uploader_client_props",
-      "community": 151,
-      "norm_label": "props"
-    },
-    {
-      "label": "FotoUploader()",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_components_foto_uploader_client_fotouploader",
-      "community": 151,
-      "norm_label": "fotouploader()"
-    },
-    {
-      "label": "jurnal-submit-form.client.tsx",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "community": 151,
-      "norm_label": "jurnal-submit-form.client.tsx"
-    },
-    {
-      "label": "JurnalSubmitForm()",
-      "file_type": "code",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "src_features_jurnal_submission_ui_jurnal_submit_form_client_jurnalsubmitform",
-      "community": 151,
-      "norm_label": "jurnalsubmitform()"
-    },
-    {
       "label": "upsert-jurnal.ts",
       "file_type": "code",
       "source_file": "src/features/jurnal-sync/lib/upsert-jurnal.ts",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_lib_upsert_jurnal",
-      "community": 33,
+      "community": 0,
       "norm_label": "upsert-jurnal.ts"
     },
     {
@@ -23460,7 +23200,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_lib_upsert_jurnal_incomingdokumen",
-      "community": 33,
+      "community": 0,
       "norm_label": "incomingdokumen"
     },
     {
@@ -23470,7 +23210,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_lib_upsert_jurnal_jurnalpayload",
-      "community": 33,
+      "community": 0,
       "norm_label": "jurnalpayload"
     },
     {
@@ -23480,7 +23220,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_lib_upsert_jurnal_upsertjurnal",
-      "community": 33,
+      "community": 0,
       "norm_label": "upsertjurnal()"
     },
     {
@@ -23490,7 +23230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload",
-      "community": 142,
+      "community": 0,
       "norm_label": "service-payload.ts"
     },
     {
@@ -23500,7 +23240,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_isodate",
-      "community": 142,
+      "community": 0,
       "norm_label": "isodate"
     },
     {
@@ -23510,7 +23250,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_jsonobject",
-      "community": 142,
+      "community": 0,
       "norm_label": "jsonobject"
     },
     {
@@ -23520,7 +23260,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_dokumenschema",
-      "community": 142,
+      "community": 0,
       "norm_label": "dokumenschema"
     },
     {
@@ -23530,7 +23270,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_jurnalpayloadschema",
-      "community": 142,
+      "community": 0,
       "norm_label": "jurnalpayloadschema"
     },
     {
@@ -23540,7 +23280,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_jurnalpatchschema",
-      "community": 142,
+      "community": 0,
       "norm_label": "jurnalpatchschema"
     },
     {
@@ -23550,7 +23290,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_dokumenpatchschema",
-      "community": 142,
+      "community": 0,
       "norm_label": "dokumenpatchschema"
     },
     {
@@ -23560,7 +23300,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_pimpinanpayloadschema",
-      "community": 142,
+      "community": 0,
       "norm_label": "pimpinanpayloadschema"
     },
     {
@@ -23570,7 +23310,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_pimpinanpatchschema",
-      "community": 142,
+      "community": 0,
       "norm_label": "pimpinanpatchschema"
     },
     {
@@ -23580,7 +23320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_lawet_auth_api_login_action",
-      "community": 128,
+      "community": 14,
       "norm_label": "login.action.ts"
     },
     {
@@ -23590,7 +23330,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_features_lawet_auth_api_login_action_lawet_api_url",
-      "community": 128,
+      "community": 14,
       "norm_label": "lawet_api_url"
     },
     {
@@ -23600,7 +23340,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_features_lawet_auth_api_login_action_loginaction",
-      "community": 128,
+      "community": 107,
       "norm_label": "loginaction()"
     },
     {
@@ -23610,7 +23350,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "src_features_lawet_auth_api_login_action_logoutaction",
-      "community": 128,
+      "community": 14,
       "norm_label": "logoutaction()"
     },
     {
@@ -23620,7 +23360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_lawet_auth_ui_auth_button_client",
-      "community": 128,
+      "community": 14,
       "norm_label": "auth-button.client.tsx"
     },
     {
@@ -23630,7 +23370,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_features_lawet_auth_ui_auth_button_client_authbuttonprops",
-      "community": 128,
+      "community": 14,
       "norm_label": "authbuttonprops"
     },
     {
@@ -23640,7 +23380,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_features_lawet_auth_ui_auth_button_client_authbutton",
-      "community": 128,
+      "community": 14,
       "norm_label": "authbutton()"
     },
     {
@@ -23650,7 +23390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_lawet_auth_ui_login_form_client",
-      "community": 128,
+      "community": 107,
       "norm_label": "login-form.client.tsx"
     },
     {
@@ -23660,7 +23400,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_features_lawet_auth_ui_login_form_client_loginform",
-      "community": 128,
+      "community": 107,
       "norm_label": "loginform()"
     },
     {
@@ -23700,7 +23440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token",
-      "community": 22,
+      "community": 0,
       "norm_label": "verify-token.ts"
     },
     {
@@ -23710,7 +23450,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_signatureinput",
-      "community": 22,
+      "community": 0,
       "norm_label": "signatureinput"
     },
     {
@@ -23720,7 +23460,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_signatureverificationinput",
-      "community": 22,
+      "community": 0,
       "norm_label": "signatureverificationinput"
     },
     {
@@ -23730,7 +23470,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_signaturepayload",
-      "community": 22,
+      "community": 0,
       "norm_label": "signaturepayload()"
     },
     {
@@ -23740,7 +23480,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_safeequalhex",
-      "community": 22,
+      "community": 0,
       "norm_label": "safeequalhex()"
     },
     {
@@ -23750,7 +23490,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_verifytoken",
-      "community": 22,
+      "community": 0,
       "norm_label": "verifytoken()"
     },
     {
@@ -23760,7 +23500,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_authenticateservice",
-      "community": 22,
+      "community": 0,
       "norm_label": "authenticateservice()"
     },
     {
@@ -23770,7 +23510,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_createservicesignature",
-      "community": 22,
+      "community": 0,
       "norm_label": "createservicesignature()"
     },
     {
@@ -23780,7 +23520,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_verifyservicesignature",
-      "community": 22,
+      "community": 0,
       "norm_label": "verifyservicesignature()"
     },
     {
@@ -23790,7 +23530,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_authenticateservicewrite",
-      "community": 22,
+      "community": 0,
       "norm_label": "authenticateservicewrite()"
     },
     {
@@ -23800,7 +23540,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_getserviceeventid",
-      "community": 22,
+      "community": 0,
       "norm_label": "getserviceeventid()"
     },
     {
@@ -23840,7 +23580,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_features_service_events_lib_process_service_event_processserviceevent",
-      "community": 22,
+      "community": 0,
       "norm_label": "processserviceevent()"
     },
     {
@@ -23857,7 +23597,7 @@
       "label": "pool",
       "file_type": "code",
       "source_file": "src/shared/lib/db/index.ts",
-      "source_location": "L11",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "src_shared_lib_db_index_pool",
       "community": 0,
@@ -23867,7 +23607,7 @@
       "label": "DB",
       "file_type": "code",
       "source_file": "src/shared/lib/db/index.ts",
-      "source_location": "L23",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "src_shared_lib_db_index_db",
       "community": 0,
@@ -23877,7 +23617,7 @@
       "label": "DatabaseExecutor",
       "file_type": "code",
       "source_file": "src/shared/lib/db/index.ts",
-      "source_location": "L24",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_shared_lib_db_index_databaseexecutor",
       "community": 0,
@@ -24020,7 +23760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_views_approval_ui_index",
-      "community": 14,
+      "community": 120,
       "norm_label": "index.tsx"
     },
     {
@@ -24030,7 +23770,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_views_approval_ui_index_approvalview",
-      "community": 14,
+      "community": 120,
       "norm_label": "approvalview()"
     },
     {
@@ -24544,16 +24284,6 @@
       "norm_label": "lawet_workflow.test.ts"
     },
     {
-      "label": "login_redirect.test.ts",
-      "file_type": "code",
-      "source_file": "tests/login_redirect.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_login_redirect_test",
-      "community": 132,
-      "norm_label": "login_redirect.test.ts"
-    },
-    {
       "label": "production_compose_security.test.ts",
       "file_type": "code",
       "source_file": "tests/production_compose_security.test.ts",
@@ -24570,7 +24300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_public_api_test",
-      "community": 33,
+      "community": 0,
       "norm_label": "public_api.test.ts"
     },
     {
@@ -24580,7 +24310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_service_auth_test",
-      "community": 22,
+      "community": 0,
       "norm_label": "service_auth.test.ts"
     },
     {
@@ -24600,7 +24330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_service_jurnal_test",
-      "community": 33,
+      "community": 0,
       "norm_label": "service_jurnal.test.ts"
     },
     {
@@ -24632,26 +24362,6 @@
       "id": "tests_site_title_test",
       "community": 107,
       "norm_label": "site-title.test.tsx"
-    },
-    {
-      "label": "submit_jurnal.test.ts",
-      "file_type": "code",
-      "source_file": "tests/submit_jurnal.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "tests_submit_jurnal_test",
-      "community": 151,
-      "norm_label": "submit_jurnal.test.ts"
-    },
-    {
-      "label": "cookieGet",
-      "file_type": "code",
-      "source_file": "tests/submit_jurnal.test.ts",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "tests_submit_jurnal_test_cookieget",
-      "community": 151,
-      "norm_label": "cookieget"
     },
     {
       "label": "tsconfig.json",
@@ -24937,7 +24647,7 @@
       "label": "Authority",
       "file_type": "document",
       "source_file": ".agents/AGENTS.md",
-      "source_location": "L22",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "agents_agents_authority",
       "community": 13,
@@ -24947,7 +24657,7 @@
       "label": "Verification",
       "file_type": "document",
       "source_file": ".agents/AGENTS.md",
-      "source_location": "L26",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "agents_agents_verification",
       "community": 13,
@@ -25550,7 +25260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill",
-      "community": 8,
+      "community": 199,
       "norm_label": "skill.md"
     },
     {
@@ -25560,7 +25270,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_setup",
-      "community": 8,
+      "community": 199,
       "norm_label": "setup"
     },
     {
@@ -25680,7 +25390,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_commands",
-      "community": 8,
+      "community": 199,
       "norm_label": "commands"
     },
     {
@@ -25690,7 +25400,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_routing_rules",
-      "community": 8,
+      "community": 199,
       "norm_label": "routing rules"
     },
     {
@@ -25700,7 +25410,7 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_pin_unpin",
-      "community": 8,
+      "community": 199,
       "norm_label": "pin / unpin"
     },
     {
@@ -25710,7 +25420,7 @@
       "source_location": "L165",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_hooks",
-      "community": 8,
+      "community": 199,
       "norm_label": "hooks"
     },
     {
@@ -25880,7 +25590,7 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_responsive_design",
-      "community": 90,
+      "community": 33,
       "norm_label": "responsive design"
     },
     {
@@ -25890,7 +25600,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_mobile_first_write_it_right",
-      "community": 90,
+      "community": 33,
       "norm_label": "mobile-first: write it right"
     },
     {
@@ -25900,7 +25610,7 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_breakpoints_content_driven",
-      "community": 90,
+      "community": 33,
       "norm_label": "breakpoints: content-driven"
     },
     {
@@ -25910,7 +25620,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_detect_input_method_not_just_screen_size",
-      "community": 90,
+      "community": 33,
       "norm_label": "detect input method, not just screen size"
     },
     {
@@ -25920,7 +25630,7 @@
       "source_location": "L237",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_safe_areas_handle_the_notch",
-      "community": 90,
+      "community": 33,
       "norm_label": "safe areas: handle the notch"
     },
     {
@@ -25930,7 +25640,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_responsive_images_get_it_right",
-      "community": 90,
+      "community": 33,
       "norm_label": "responsive images: get it right"
     },
     {
@@ -25940,7 +25650,7 @@
       "source_location": "L262",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_srcset_with_width_descriptors",
-      "community": 90,
+      "community": 33,
       "norm_label": "srcset with width descriptors"
     },
     {
@@ -25950,7 +25660,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_picture_element_for_art_direction",
-      "community": 90,
+      "community": 33,
       "norm_label": "picture element for art direction"
     },
     {
@@ -25960,7 +25670,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_layout_adaptation_patterns",
-      "community": 90,
+      "community": 33,
       "norm_label": "layout adaptation patterns"
     },
     {
@@ -25970,7 +25680,7 @@
       "source_location": "L298",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_testing_don_t_trust_devtools_alone",
-      "community": 90,
+      "community": 33,
       "norm_label": "testing: don't trust devtools alone"
     },
     {
@@ -25980,7 +25690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native",
-      "community": 8,
+      "community": 130,
       "norm_label": "adapt.native.md"
     },
     {
@@ -25990,7 +25700,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_assess_adaptation_challenge",
-      "community": 8,
+      "community": 130,
       "norm_label": "assess adaptation challenge"
     },
     {
@@ -26000,7 +25710,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_adaptation_strategies",
-      "community": 189,
+      "community": 130,
       "norm_label": "adaptation strategies"
     },
     {
@@ -26010,7 +25720,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_phone_tablet_ipad_large_screens",
-      "community": 189,
+      "community": 130,
       "norm_label": "phone \u2192 tablet (ipad / large screens)"
     },
     {
@@ -26020,7 +25730,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_orientation_foldables",
-      "community": 189,
+      "community": 130,
       "norm_label": "orientation & foldables"
     },
     {
@@ -26030,7 +25740,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_platform_platform_ios_android",
-      "community": 189,
+      "community": 130,
       "norm_label": "platform \u2192 platform (ios \u2194 android)"
     },
     {
@@ -26040,7 +25750,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_web_native_porting_a_website_or_web_app",
-      "community": 189,
+      "community": 130,
       "norm_label": "web \u2192 native (porting a website or web app)"
     },
     {
@@ -26050,7 +25760,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_implement_verify",
-      "community": 8,
+      "community": 130,
       "norm_label": "implement & verify"
     },
     {
@@ -26060,7 +25770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_android",
-      "community": 8,
+      "community": 60,
       "norm_label": "android.md"
     },
     {
@@ -26140,7 +25850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate",
-      "community": 8,
+      "community": 73,
       "norm_label": "animate.md"
     },
     {
@@ -26150,7 +25860,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_register",
-      "community": 8,
+      "community": 73,
       "norm_label": "register"
     },
     {
@@ -26160,7 +25870,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_assess_animation_opportunities",
-      "community": 8,
+      "community": 73,
       "norm_label": "assess animation opportunities"
     },
     {
@@ -26170,7 +25880,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_plan_animation_strategy",
-      "community": 8,
+      "community": 73,
       "norm_label": "plan animation strategy"
     },
     {
@@ -26180,7 +25890,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_implement_animations",
-      "community": 152,
+      "community": 73,
       "norm_label": "implement animations"
     },
     {
@@ -26190,7 +25900,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_entrance_animations",
-      "community": 152,
+      "community": 73,
       "norm_label": "entrance animations"
     },
     {
@@ -26200,7 +25910,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_micro_interactions",
-      "community": 152,
+      "community": 73,
       "norm_label": "micro-interactions"
     },
     {
@@ -26210,7 +25920,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_state_transitions",
-      "community": 152,
+      "community": 73,
       "norm_label": "state transitions"
     },
     {
@@ -26220,7 +25930,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_navigation_flow",
-      "community": 152,
+      "community": 73,
       "norm_label": "navigation & flow"
     },
     {
@@ -26230,7 +25940,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_feedback_guidance",
-      "community": 152,
+      "community": 73,
       "norm_label": "feedback & guidance"
     },
     {
@@ -26240,7 +25950,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_delight_moments",
-      "community": 152,
+      "community": 73,
       "norm_label": "delight moments"
     },
     {
@@ -26330,7 +26040,7 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_verify_quality",
-      "community": 8,
+      "community": 73,
       "norm_label": "verify quality"
     },
     {
@@ -26490,7 +26200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native",
-      "community": 8,
+      "community": 60,
       "norm_label": "audit.native.md"
     },
     {
@@ -26500,7 +26210,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_diagnostic_scan",
-      "community": 158,
+      "community": 60,
       "norm_label": "diagnostic scan"
     },
     {
@@ -26510,7 +26220,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_1_accessibility_voiceover_talkback",
-      "community": 158,
+      "community": 60,
       "norm_label": "1. accessibility (voiceover / talkback)"
     },
     {
@@ -26520,7 +26230,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_2_performance",
-      "community": 158,
+      "community": 60,
       "norm_label": "2. performance"
     },
     {
@@ -26530,7 +26240,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_3_appearance_theming",
-      "community": 158,
+      "community": 60,
       "norm_label": "3. appearance & theming"
     },
     {
@@ -26540,7 +26250,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_4_platform_conformance_critical",
-      "community": 158,
+      "community": 60,
       "norm_label": "4. platform conformance (critical)"
     },
     {
@@ -26550,7 +26260,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_5_adaptivity",
-      "community": 158,
+      "community": 60,
       "norm_label": "5. adaptivity"
     },
     {
@@ -26560,7 +26270,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_generate_report",
-      "community": 153,
+      "community": 60,
       "norm_label": "generate report"
     },
     {
@@ -26570,7 +26280,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_audit_health_score",
-      "community": 153,
+      "community": 60,
       "norm_label": "audit health score"
     },
     {
@@ -26580,7 +26290,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_platform_conformance_verdict",
-      "community": 153,
+      "community": 60,
       "norm_label": "platform conformance verdict"
     },
     {
@@ -26590,7 +26300,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_executive_summary",
-      "community": 153,
+      "community": 60,
       "norm_label": "executive summary"
     },
     {
@@ -26600,7 +26310,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_detailed_findings_by_severity",
-      "community": 153,
+      "community": 60,
       "norm_label": "detailed findings by severity"
     },
     {
@@ -26610,7 +26320,7 @@
       "source_location": "L107",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_patterns_systemic_issues",
-      "community": 153,
+      "community": 60,
       "norm_label": "patterns & systemic issues"
     },
     {
@@ -26620,7 +26330,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_positive_findings",
-      "community": 153,
+      "community": 60,
       "norm_label": "positive findings"
     },
     {
@@ -26630,7 +26340,7 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_recommended_actions",
-      "community": 8,
+      "community": 60,
       "norm_label": "recommended actions"
     },
     {
@@ -27080,7 +26790,7 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_ux_writing",
-      "community": 89,
+      "community": 57,
       "norm_label": "ux writing"
     },
     {
@@ -27090,7 +26800,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_the_button_label_problem",
-      "community": 89,
+      "community": 57,
       "norm_label": "the button label problem"
     },
     {
@@ -27100,7 +26810,7 @@
       "source_location": "L200",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_error_messages_the_formula",
-      "community": 89,
+      "community": 57,
       "norm_label": "error messages: the formula"
     },
     {
@@ -27110,7 +26820,7 @@
       "source_location": "L204",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_error_message_templates",
-      "community": 89,
+      "community": 57,
       "norm_label": "error message templates"
     },
     {
@@ -27120,7 +26830,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_don_t_blame_the_user",
-      "community": 89,
+      "community": 57,
       "norm_label": "don't blame the user"
     },
     {
@@ -27130,7 +26840,7 @@
       "source_location": "L218",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_empty_states_are_opportunities",
-      "community": 89,
+      "community": 57,
       "norm_label": "empty states are opportunities"
     },
     {
@@ -27140,7 +26850,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_voice_vs_tone",
-      "community": 89,
+      "community": 57,
       "norm_label": "voice vs tone"
     },
     {
@@ -27150,7 +26860,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_writing_for_accessibility",
-      "community": 89,
+      "community": 57,
       "norm_label": "writing for accessibility"
     },
     {
@@ -27160,7 +26870,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_writing_for_translation",
-      "community": 89,
+      "community": 57,
       "norm_label": "writing for translation"
     },
     {
@@ -27170,7 +26880,7 @@
       "source_location": "L242",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_plan_for_expansion",
-      "community": 89,
+      "community": 57,
       "norm_label": "plan for expansion"
     },
     {
@@ -27180,7 +26890,7 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_translation_friendly_patterns",
-      "community": 89,
+      "community": 57,
       "norm_label": "translation-friendly patterns"
     },
     {
@@ -27190,7 +26900,7 @@
       "source_location": "L257",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_consistency_the_terminology_problem",
-      "community": 89,
+      "community": 57,
       "norm_label": "consistency: the terminology problem"
     },
     {
@@ -27200,7 +26910,7 @@
       "source_location": "L270",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_avoid_redundant_copy",
-      "community": 89,
+      "community": 57,
       "norm_label": "avoid redundant copy"
     },
     {
@@ -27210,7 +26920,7 @@
       "source_location": "L274",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_loading_states_274",
-      "community": 89,
+      "community": 57,
       "norm_label": "loading states"
     },
     {
@@ -27220,7 +26930,7 @@
       "source_location": "L278",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_confirmation_dialogs_use_sparingly",
-      "community": 89,
+      "community": 57,
       "norm_label": "confirmation dialogs: use sparingly"
     },
     {
@@ -27230,7 +26940,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_form_instructions",
-      "community": 89,
+      "community": 57,
       "norm_label": "form instructions"
     },
     {
@@ -27240,7 +26950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex",
-      "community": 8,
+      "community": 66,
       "norm_label": "codex.md"
     },
     {
@@ -27250,7 +26960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_codex_visual_direction_asset_production",
-      "community": 135,
+      "community": 66,
       "norm_label": "codex: visual direction & asset production"
     },
     {
@@ -27260,7 +26970,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_four_stop_points_before_code",
-      "community": 135,
+      "community": 66,
       "norm_label": "four stop points before code"
     },
     {
@@ -27270,7 +26980,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_step_a_explore_directions_with_the_user",
-      "community": 135,
+      "community": 66,
       "norm_label": "step a: explore directions with the user"
     },
     {
@@ -27280,7 +26990,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_step_b_generate_the_brand_palette_first",
-      "community": 135,
+      "community": 66,
       "norm_label": "step b: generate the brand palette first"
     },
     {
@@ -27290,7 +27000,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_step_c_generate_1_3_visual_mocks_against_the_palette",
-      "community": 135,
+      "community": 66,
       "norm_label": "step c: generate 1-3 visual mocks against the palette"
     },
     {
@@ -27300,7 +27010,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_step_d_approval_loop",
-      "community": 135,
+      "community": 66,
       "norm_label": "step d: approval loop"
     },
     {
@@ -27310,7 +27020,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_step_e_mock_fidelity_inventory",
-      "community": 135,
+      "community": 66,
       "norm_label": "step e: mock fidelity inventory"
     },
     {
@@ -27320,7 +27030,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_step_f_asset_slicing_via_the_asset_producer",
-      "community": 135,
+      "community": 66,
       "norm_label": "step f: asset slicing via the asset producer"
     },
     {
@@ -27330,7 +27040,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_codex_after_this_file",
-      "community": 135,
+      "community": 66,
       "norm_label": "after this file"
     },
     {
@@ -27670,7 +27380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft",
-      "community": 8,
+      "community": 66,
       "norm_label": "craft.md"
     },
     {
@@ -28940,7 +28650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract",
-      "community": 188,
+      "community": 199,
       "norm_label": "extract.md"
     },
     {
@@ -28950,7 +28660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_extract_flow",
-      "community": 188,
+      "community": 199,
       "norm_label": "extract flow"
     },
     {
@@ -28960,7 +28670,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_step_1_discover_the_design_system",
-      "community": 188,
+      "community": 199,
       "norm_label": "step 1: discover the design system"
     },
     {
@@ -28970,7 +28680,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_step_2_identify_patterns",
-      "community": 188,
+      "community": 199,
       "norm_label": "step 2: identify patterns"
     },
     {
@@ -28980,7 +28690,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_step_3_plan_extraction",
-      "community": 188,
+      "community": 199,
       "norm_label": "step 3: plan extraction"
     },
     {
@@ -28990,7 +28700,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_step_4_extract_enrich",
-      "community": 188,
+      "community": 199,
       "norm_label": "step 4: extract & enrich"
     },
     {
@@ -29000,7 +28710,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_step_5_migrate",
-      "community": 188,
+      "community": 199,
       "norm_label": "step 5: migrate"
     },
     {
@@ -29010,7 +28720,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_extract_step_6_document",
-      "community": 188,
+      "community": 199,
       "norm_label": "step 6: document"
     },
     {
@@ -29390,7 +29100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_interaction_design",
-      "community": 8,
+      "community": 66,
       "norm_label": "interaction-design.md"
     },
     {
@@ -29570,7 +29280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_ios",
-      "community": 8,
+      "community": 130,
       "norm_label": "ios.md"
     },
     {
@@ -29660,7 +29370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout",
-      "community": 8,
+      "community": 97,
       "norm_label": "layout.md"
     },
     {
@@ -29670,7 +29380,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout_register",
-      "community": 8,
+      "community": 97,
       "norm_label": "register"
     },
     {
@@ -29680,7 +29390,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout_two_isolated_assessments_required",
-      "community": 8,
+      "community": 97,
       "norm_label": "two isolated assessments (required)"
     },
     {
@@ -29690,7 +29400,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout_assess_current_layout",
-      "community": 8,
+      "community": 97,
       "norm_label": "assess current layout"
     },
     {
@@ -29700,7 +29410,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout_plan_layout_improvements",
-      "community": 8,
+      "community": 97,
       "norm_label": "plan layout improvements"
     },
     {
@@ -29790,7 +29500,7 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout_verify_layout_improvements",
-      "community": 8,
+      "community": 97,
       "norm_label": "verify layout improvements"
     },
     {
@@ -29800,7 +29510,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_layout_live_mode_signature_params",
-      "community": 8,
+      "community": 97,
       "norm_label": "live-mode signature params"
     },
     {
@@ -29930,7 +29640,7 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_live_4_plan_three_variants_identity_first_then_mode_then_axes",
-      "community": 191,
+      "community": 91,
       "norm_label": "4. plan three variants: identity first, then mode, then axes"
     },
     {
@@ -29940,7 +29650,7 @@
       "source_location": "L200",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_live_phase_a_extract_the_identity_non_skippable",
-      "community": 191,
+      "community": 91,
       "norm_label": "phase a: extract the identity (non-skippable)"
     },
     {
@@ -29950,7 +29660,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_live_phase_b_pick_mode_default_vs_departure",
-      "community": 191,
+      "community": 91,
       "norm_label": "phase b: pick mode (default vs departure)"
     },
     {
@@ -29960,7 +29670,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_live_phase_c_plan_three_variants",
-      "community": 191,
+      "community": 91,
       "norm_label": "phase c: plan three variants"
     },
     {
@@ -29970,7 +29680,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_live_phase_d_squint_test",
-      "community": 191,
+      "community": 91,
       "norm_label": "phase d: squint test"
     },
     {
@@ -95840,32 +95550,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/(authoring)/pengajuan/page.tsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "weight": 1.0,
       "source": "src_app_authoring_pengajuan_page",
       "target": "src_app_authoring_pengajuan_page_page",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/(authoring)/pengajuan/page.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "src_app_authoring_pengajuan_page",
-      "target": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/app/(authoring)/pengajuan/page.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "src_app_authoring_pengajuan_page",
-      "target": "src_features_jurnal_submission_ui_jurnal_submit_form_client_jurnalsubmitform",
       "confidence_score": 1.0
     },
     {
@@ -98339,381 +98027,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_submit_jurnal_action",
-      "target": "src_entities_jurnal_api_submit_jurnal_action_lawet_api_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_submit_jurnal_action",
-      "target": "src_entities_jurnal_api_submit_jurnal_action_submitjurnalaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_submit_jurnal_action",
-      "target": "src_entities_jurnal_model_submission_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/submit-jurnal.action.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_submit_jurnal_action",
-      "target": "src_entities_jurnal_model_submission_schema_jurnalsubmissionpayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_entities_jurnal_api_submit_jurnal_action",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_entities_jurnal_api_submit_jurnal_action_submitjurnalaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client_jurnalsubmitform",
-      "target": "src_entities_jurnal_api_submit_jurnal_action_submitjurnalaction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_upload_media_action",
-      "target": "src_entities_jurnal_api_upload_media_action_lawet_api_url",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_upload_media_action",
-      "target": "src_entities_jurnal_api_upload_media_action_uploaddokumenaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/api/upload-media.action.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_api_upload_media_action",
-      "target": "src_entities_jurnal_api_upload_media_action_uploadfotoaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "target": "src_entities_jurnal_api_upload_media_action",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "target": "src_entities_jurnal_api_upload_media_action",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "target": "src_entities_jurnal_api_upload_media_action_uploadfotoaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client_fotouploader",
-      "target": "src_entities_jurnal_api_upload_media_action_uploadfotoaction"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "target": "src_entities_jurnal_api_upload_media_action_uploaddokumenaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_dokumenuploader",
-      "target": "src_entities_jurnal_api_upload_media_action_uploaddokumenaction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_model_submission_schema",
-      "target": "src_entities_jurnal_model_submission_schema_customfielditem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_model_submission_schema",
-      "target": "src_entities_jurnal_model_submission_schema_dokumenpendukungitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_model_submission_schema",
-      "target": "src_entities_jurnal_model_submission_schema_dokumentasiitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_model_submission_schema",
-      "target": "src_entities_jurnal_model_submission_schema_jurnalsubmissionpayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/entities/jurnal/model/submission-schema.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "src_entities_jurnal_model_submission_schema",
-      "target": "src_entities_jurnal_model_submission_schema_pihakterkaititem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "target": "src_entities_jurnal_model_submission_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_entities_jurnal_model_submission_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "target": "src_entities_jurnal_model_submission_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_entities_jurnal_model_submission_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/submit_jurnal.test.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "tests_submit_jurnal_test",
-      "target": "src_entities_jurnal_model_submission_schema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "target": "src_entities_jurnal_model_submission_schema_dokumentasiitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client_props",
-      "target": "src_entities_jurnal_model_submission_schema_dokumentasiitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "target": "src_entities_jurnal_model_submission_schema_dokumenpendukungitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_props",
-      "target": "src_entities_jurnal_model_submission_schema_dokumenpendukungitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_entities_jurnal_model_submission_schema_pihakterkaititem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client_pihakterkaitprops",
-      "target": "src_entities_jurnal_model_submission_schema_pihakterkaititem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_entities_jurnal_model_submission_schema_customfielditem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_entities_jurnal_model_submission_schema_jurnalsubmissionpayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/submit_jurnal.test.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "tests_submit_jurnal_test",
-      "target": "src_entities_jurnal_model_submission_schema_jurnalsubmissionpayload",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/entities/jurnal/ui/jurnal-card.tsx",
       "source_location": "L23",
       "weight": 1.0,
@@ -99438,7 +98751,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/entities/site-settings/api/get-site-settings.ts",
-      "source_location": "L48",
+      "source_location": "L38",
       "weight": 1.0,
       "source": "src_entities_site_settings_api_get_site_settings",
       "target": "src_entities_site_settings_api_get_site_settings_getherosettings",
@@ -99503,7 +98816,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/entities/site-settings/api/get-site-settings.ts",
-      "source_location": "L49",
+      "source_location": "L39",
       "weight": 1.0,
       "source": "src_entities_site_settings_api_get_site_settings_getherosettings",
       "target": "src_entities_site_settings_api_get_site_settings_getcachedherosettings",
@@ -100901,173 +100214,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_dokumenuploader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_props",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_dokumenuploader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L63",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client_customfieldsinput",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L58",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client_customfieldsprops",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client_pihakterkaitinput",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client_pihakterkaitprops",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client_pihakterkaitinput",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_dynamic_lists_client_customfieldsinput",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "target": "src_features_jurnal_submission_ui_components_foto_uploader_client_fotouploader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "target": "src_features_jurnal_submission_ui_components_foto_uploader_client_props",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_foto_uploader_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_components_foto_uploader_client_fotouploader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
-      "target": "src_features_jurnal_submission_ui_jurnal_submit_form_client_jurnalsubmitform",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/features/jurnal-sync/lib/upsert-jurnal.ts",
       "source_location": "L6",
       "weight": 1.0,
@@ -101818,7 +100964,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/shared/lib/db/index.ts",
-      "source_location": "L24",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "src_shared_lib_db_index",
       "target": "src_shared_lib_db_index_databaseexecutor",
@@ -101828,7 +100974,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/shared/lib/db/index.ts",
-      "source_location": "L23",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "src_shared_lib_db_index",
       "target": "src_shared_lib_db_index_db",
@@ -101838,7 +100984,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/shared/lib/db/index.ts",
-      "source_location": "L11",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "src_shared_lib_db_index",
       "target": "src_shared_lib_db_index_pool",
@@ -102686,16 +101832,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "tests/submit_jurnal.test.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "tests_submit_jurnal_test",
-      "target": "tests_submit_jurnal_test_cookieget",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "tsconfig.json",
       "source_location": "L2",
       "weight": 1.0,
@@ -102927,7 +102063,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/AGENTS.md",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "agents_agents_agents_md_lawet_hub_agent_entrypoint",
       "target": "agents_agents_authority",
@@ -102957,7 +102093,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".agents/AGENTS.md",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "agents_agents_agents_md_lawet_hub_agent_entrypoint",
       "target": "agents_agents_verification",
@@ -112095,5 +111231,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0c81f77f24db2a9206158a50e3b4b325e12266fa"
+  "built_at_commit": "32352086d78e7f3f1c51771883deeaedd6b6d5b5"
 }

@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "src/shared/lib/db/index.ts": {
-    "mtime": 1785934825.046173,
-    "ast_hash": "3a88aa3049b580f6808f9a3f9b29c037",
+    "mtime": 1785766694.9009888,
+    "ast_hash": "587984f82150778ad48a4814837d4d4d",
     "semantic_hash": ""
   },
   "src/shared/ui/futuristic-line.tsx": {
@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   ".agents/AGENTS.md": {
-    "mtime": 1785978447.4797015,
-    "ast_hash": "597ce8c489b0b13e7ff1a1d5e3f3a664",
+    "mtime": 1784380686.1071136,
+    "ast_hash": "fdcbe658dbaae5b1a4da7b6da1e69f7c",
     "semantic_hash": ""
   },
   ".agents/NEVER-DO.md": {
@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "src/features/lawet-auth/ui/login-form.client.tsx": {
-    "mtime": 1785948981.3384433,
-    "ast_hash": "3d0cac1428688e478614bfd45ec54959",
+    "mtime": 1785814581.7456098,
+    "ast_hash": "e10b7ecfc68decc2a67145d34b181809",
     "semantic_hash": ""
   },
   "src/features/service-auth/lib/verify-token.ts": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "src/app/(authoring)/jurnal-saya/page.tsx": {
-    "mtime": 1785978305.2301874,
-    "ast_hash": "92ce6615c550d690349baf69c031953d",
+    "mtime": 1785811583.1368566,
+    "ast_hash": "24641e2b0346d2798d0baf8549ecadf8",
     "semantic_hash": ""
   },
   "src/app/(authoring)/layout.tsx": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "src/app/(authoring)/pengajuan/page.tsx": {
-    "mtime": 1785978291.3029153,
-    "ast_hash": "b0a8d5075aff9a664397ac417a415e51",
+    "mtime": 1785814484.645334,
+    "ast_hash": "28d583ea2a35f29e18f36f9852b2bb93",
     "semantic_hash": ""
   },
   "src/app/(authoring)/sidebar.client.tsx": {
@@ -1230,8 +1230,8 @@
     "semantic_hash": ""
   },
   "src/entities/site-settings/api/get-site-settings.ts": {
-    "mtime": 1785978080.1377432,
-    "ast_hash": "c52601ec36970306c45f0c4eff5e4479",
+    "mtime": 1785291884.4021778,
+    "ast_hash": "f635ea39fe933fb14cd19a5c98f56b79",
     "semantic_hash": ""
   },
   "src/features/admin-auth/lib/require-admin.ts": {
@@ -1385,8 +1385,8 @@
     "semantic_hash": ""
   },
   "src/features/lawet-auth/ui/auth-button.client.tsx": {
-    "mtime": 1785948985.4010835,
-    "ast_hash": "4bbad7f190b5cde5e412858c71bda5c8",
+    "mtime": 1785814484.6433372,
+    "ast_hash": "c75d4dad06fb8e25227d56f38f2f1cd6",
     "semantic_hash": ""
   },
   ".github/workflows/quality.yml": {
@@ -1462,51 +1462,6 @@
   "tests/setup.ts": {
     "mtime": 1785814484.6408246,
     "ast_hash": "1964c5600e57872e44f7f7bfb7d1228a",
-    "semantic_hash": ""
-  },
-  "tests/login_redirect.test.ts": {
-    "mtime": 1785949003.4120939,
-    "ast_hash": "b579de24cac6e0afbbcc52411f199bb6",
-    "semantic_hash": ""
-  },
-  "src/entities/jurnal/api/submit-jurnal.action.ts": {
-    "mtime": 1785978422.349289,
-    "ast_hash": "94c0f03746bda67a6c8bf79e89e3d50f",
-    "semantic_hash": ""
-  },
-  "src/entities/jurnal/api/upload-media.action.ts": {
-    "mtime": 1785978326.5145078,
-    "ast_hash": "2acf911e9581815f7be13b873bc1775a",
-    "semantic_hash": ""
-  },
-  "src/entities/jurnal/model/submission-schema.ts": {
-    "mtime": 1785978284.4695034,
-    "ast_hash": "3074af8b9e0e2289325166e0c7a59330",
-    "semantic_hash": ""
-  },
-  "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx": {
-    "mtime": 1785978284.4702961,
-    "ast_hash": "8c66a62192a0d912f09c4ff0200b4aa7",
-    "semantic_hash": ""
-  },
-  "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx": {
-    "mtime": 1785978284.4708197,
-    "ast_hash": "4155d4b376306712802349319ee4faa9",
-    "semantic_hash": ""
-  },
-  "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx": {
-    "mtime": 1785978284.4713416,
-    "ast_hash": "dfb8b062c3a5454886a4a01446fadf83",
-    "semantic_hash": ""
-  },
-  "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx": {
-    "mtime": 1785978284.4718683,
-    "ast_hash": "60a87fc1f96e6f61c18d36bb743b887b",
-    "semantic_hash": ""
-  },
-  "tests/submit_jurnal.test.ts": {
-    "mtime": 1785978545.4619675,
-    "ast_hash": "8a02e951e2b1cb684bced32b6de907cd",
     "semantic_hash": ""
   }
 }

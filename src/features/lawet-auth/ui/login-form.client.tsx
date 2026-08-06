@@ -24,7 +24,7 @@ export function LoginForm() {
         if (res.user?.can_approve) {
           router.push('/approval')
         } else {
-          router.push('/pengajuan')
+          router.push('/jurnal-saya')
         }
       } else {
         setPin('')

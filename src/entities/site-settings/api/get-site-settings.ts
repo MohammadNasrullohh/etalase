@@ -32,7 +32,7 @@ const getCachedHeroSettings = unstable_cache(async (): Promise<HeroSettings> => 
       imagePath: settings?.heroImagePath || DEFAULT_HERO_IMAGE_PATH,
       title: settings?.heroTitle || DEFAULT_HERO_TITLE,
       subtitle: settings?.heroSubtitle || DEFAULT_HERO_SUBTITLE,
-      updatedAt: settings?.updatedAt ?? null,
+      updatedAt: settings?.updatedAt ? new Date(settings.updatedAt) : null,
     }
   } catch (error) {
     console.warn('Failed to fetch hero settings from database, using defaults.', error)

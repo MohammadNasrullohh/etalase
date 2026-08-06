@@ -78,7 +78,7 @@ export function AuthButton({ initialUser }: AuthButtonProps = {}) {
       {dropdownOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-[var(--color-surface-overlay)] border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
           <Link
-            href="/pengajuan"
+            href="/jurnal-saya"
             onClick={() => setDropdownOpen(false)}
             className="flex items-center gap-2 w-full px-4 py-3 text-left text-sm text-white hover:bg-white/5 transition-colors font-medium"
           >

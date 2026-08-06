@@ -88,7 +88,7 @@ export default async function JurnalSayaPage() {
           <Link href="/lawet?to=manage" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/15 px-4 text-sm font-semibold text-white/75 hover:bg-white/[0.06] hover:text-white">
             Kelola CRUD <ExternalLink className="h-4 w-4" />
           </Link>
-          <Link href="/lawet?to=submit" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-accent)] px-4 text-sm font-semibold text-[var(--color-text-on-accent)] hover:bg-[var(--color-accent-hover)]">
+          <Link href="/pengajuan" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-accent)] px-4 text-sm font-semibold text-[var(--color-text-on-accent)] hover:bg-[var(--color-accent-hover)]">
             <Plus className="h-4 w-4" /> Tambah jurnal
           </Link>
         </div>
