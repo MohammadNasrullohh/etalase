@@ -54,12 +54,7 @@ export function ApprovalQueue() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-ember-bright)]/25 bg-[var(--color-ember-bright)]/5 p-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
-        <span>Review dilakukan di Lawet Hub. Jurnal yang disetujui langsung masuk proses publish ke ALAS.</span>
-        <Link href="/lawet?to=approval" className="inline-flex min-h-11 shrink-0 items-center gap-2 font-semibold text-[var(--color-ember-bright)] hover:text-white">
-          Buka Lawet Hub <ExternalLink className="h-4 w-4" />
-        </Link>
-      </div>
+
       {queue.map(item => (
         <div
           key={item.id}

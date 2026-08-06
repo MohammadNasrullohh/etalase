@@ -16,6 +16,9 @@ export const jurnal = pgTable('jurnal', {
   redaksi:          text('redaksi'),
   divisi:           text('divisi'),
   is_published:     boolean('is_published').notNull().default(true),
+  workflow_status:  varchar('workflow_status', { length: 50 }).notNull().default('draft'),
+  workflow_notes:   text('workflow_notes'),
+  version:          integer('version').notNull().default(1),
   synced_at:        timestamp('synced_at', { withTimezone: true }).notNull().defaultNow(),
   created_at:       timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updated_at:       timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
@@ -62,4 +65,16 @@ export const serviceEvents = pgTable('service_events', {
   processed_at:    timestamp('processed_at', { withTimezone: true }).notNull().defaultNow(),
 }, (table) => [
   index('service_events_source_idx').on(table.resource_type, table.source_id),
+])
+
+export const alasOutbox = pgTable('alas_outbox', {
+  id:           uuid('id').primaryKey().defaultRandom(),
+  source_id:    uuid('source_id').notNull(),
+  operation:    varchar('operation', { length: 30 }).notNull(),
+  payload:      jsonb('payload').notNull(),
+  status:       varchar('status', { length: 30 }).notNull().default('pending'),
+  created_at:   timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updated_at:   timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [
+  index('alas_outbox_status_idx').on(table.status),
 ])

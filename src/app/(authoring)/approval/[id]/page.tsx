@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, CalendarDays, ExternalLink, FileText, Tags, UsersRound } from 'lucide-react'
 import { getApprovalJurnalAction } from '@/entities/jurnal/api/approve-jurnal.action'
 import { JurnalProgressTracker } from '@/features/jurnal-approval/ui/jurnal-progress-tracker'
+import { ApprovalActions } from '@/features/jurnal-approval/ui/approval-actions.client'
 
 /* Foto melewati proxy media terautentikasi; pengoptimal gambar Next tidak dapat meneruskan cookie sesi. */
 /* eslint-disable @next/next/no-img-element */
@@ -81,6 +82,7 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
 
           <aside className="space-y-6">
             <JurnalProgressTracker submittedBy={jurnal.submitter?.name || jurnal.created_by} submittedAt={jurnal.created_at} />
+            <ApprovalActions jurnalId={params.id} />
             <section className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
               <h2 className="text-sm font-semibold text-white/85">Ringkasan kegiatan</h2>
               <dl className="mt-4 space-y-3 text-sm">
