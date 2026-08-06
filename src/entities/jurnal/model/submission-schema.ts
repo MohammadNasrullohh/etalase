@@ -3,14 +3,18 @@ import { z } from 'zod'
 export const dokumentasiItemSchema = z.object({
   url: z.string().url('URL tidak valid'),
   caption: z.string().optional(),
-  type: z.enum(['image', 'video'], { required_error: 'Tipe harus image atau video' })
+  type: z.enum(['image', 'video'], {
+    errorMap: () => ({ message: 'Tipe harus image atau video' })
+  })
 })
 export type DokumentasiItem = z.infer<typeof dokumentasiItemSchema>
 
 export const dokumenPendukungItemSchema = z.object({
   nama: z.string().min(1, 'Nama dokumen wajib diisi'),
   url: z.string().url('URL dokumen tidak valid'),
-  tipe: z.enum(['pdf'], { required_error: 'Hanya menerima PDF' }),
+  tipe: z.enum(['pdf'], {
+    errorMap: () => ({ message: 'Hanya menerima PDF' })
+  }),
   is_public: z.boolean().optional()
 })
 export type DokumenPendukungItem = z.infer<typeof dokumenPendukungItemSchema>
