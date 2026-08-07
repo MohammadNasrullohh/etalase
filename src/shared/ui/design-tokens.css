@@ -1,3 +1,222 @@
 :root {
-  border-color: rgba(var(--color-ember-bright-rgb), 0.45) !important;
+  /* Semantic color roles — Warm Vintage Bookish Cream Theme (High Contrast) */
+  --color-canvas: #F4F0E6;
+  --color-canvas-raised: #EFEAE0;
+  --color-surface-raised: #FAF7F0;
+  --color-surface-overlay: #FFFDF8;
+  --color-text-primary: #1C1815;       /* Dark warm espresso (High Contrast: 14:1) */
+  --color-text-on-accent: #1C1815;
+  --color-text-inverse-muted: #4A4237;  /* High contrast muted body text (7.5:1) */
+  --color-text-muted: #6E6354;          /* Secondary metadata text (5.2:1 - WCAG AA) */
+  
+  --color-accent: #F5B748;              /* Warm golden amber button accent */
+  --color-accent-hover: #E5A838;
+  --color-accent-focus: #D99B26;
+  --color-accent-active-text: #1C1815;
+
+  /* Category & Badge Accent Colors */
+  --color-category-violet: #2D7A4D;     /* Warm leaf green */
+  --color-category-cyan: #195B8B;       /* Deep ocean blue */
+  --color-category-amber: #D99B26;      /* Warm golden brown */
+  --color-category-violet-text: #135429;
+  --color-category-cyan-text: #13466B;
+  --color-category-amber-text: #6E4810;
+  --color-category-ember-text: #7A2B0E;
+
+  --color-modal-start: #FAF7F0;
+  --color-modal-end: #F4F0E6;
+  --color-ink: #1C1815;
+  --color-ember-deep: #6E4810;
+  --color-ember-mid: #D99B26;
+  --color-ember-bright: #F5B748;
+  --color-ember-bright-rgb: 245, 183, 72;
+  --color-surface: #FAF7F0;
+  
+  /* ── Glass Accents ────────────────────────────────────────── */
+  --color-glass-1: var(--color-category-violet);
+  --color-glass-2: var(--color-category-cyan);
+  --color-glass-3: var(--color-category-amber);
+  --color-glass-4: var(--color-accent);
+  
+  --color-leader-outline: #D6CBB5;
+  --card-skew: -8deg;
+  
+  --anim-fast: 200ms;
+  --anim-normal: 350ms;
+  --anim-slow: 500ms;
+  --anim-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Design Tokens ────────────────────────────────────────── */
+  --glass-blur-sm:   8px;
+  --glass-blur-md:   14px;
+  --glass-blur-lg:   24px;
+  --glass-blur-xl:   32px;
+
+  --glass-bg-subtle:  rgba(250, 247, 240, 0.80);
+  --glass-bg-default: rgba(250, 247, 240, 0.95);
+  --glass-bg-mid:     #FFFDF8;
+  --glass-bg-strong:  #F4F0E6;
+
+  --glass-border-subtle:  #E4DDD0;
+  --glass-border-default: #D6CBB5;
+  --glass-border-bright:  #C8BEAB;
+
+  --glass-inset-top:  inset 0 1px 0 rgba(255, 255, 255, 0.90);
+  --glass-inset-top-bright: inset 0 1px 0 #FFFFFF;
+
+  --background-start: #F4F0E6;
+  --background-mid: #EFEAE0;
+  --background-end: #EADFCF;
+
+  --glass-fill: #FAF7F0;
+  --glass-fill-strong: #FFFDF8;
+  --glass-fill-subtle: #F4F0E6;
+  --glass-border: #E4DDD0;
+
+  --text-primary: #1C1815;
+  --text-secondary: #4A4237;
+  --text-muted: #6E6354;
+
+  --accent-dark: #1C1815;
+  --accent-green: #2D7A4D;
+  --accent-yellow: #F5B748;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-pill: 999px;
+
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+
+  --shadow-glass: 0 10px 30px rgba(90, 75, 55, 0.08);
+  --shadow-small: 0 4px 14px rgba(70, 58, 42, 0.06);
+}
+
+/* ── Surface Utilities ─────────────────────────────────── */
+
+.glass-subtle {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-inset-top);
+}
+
+.glass-surface {
+  background: var(--glass-bg-default);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  border: 1px solid var(--glass-border-default);
+  box-shadow: var(--glass-inset-top);
+}
+
+.glass-surface-md {
+  background: var(--glass-bg-mid);
+  backdrop-filter: blur(var(--glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+  border: 1px solid var(--glass-border-default);
+  box-shadow: var(--glass-inset-top-bright);
+}
+
+.glass-surface-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur-xl));
+  -webkit-backdrop-filter: blur(var(--glass-blur-xl));
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-inset-top);
+}
+
+.glass-hover:hover {
+  background: var(--glass-bg-mid);
+  border-color: var(--glass-border-bright);
+}
+
+/* Keyframes */
+@keyframes slide-from-left {
+  from { transform: translateX(-60px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(60px);  opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes slide-from-top {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.9) translateY(10px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.animate-slide-left {
+  animation: slide-from-left var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-slide-right {
+  animation: slide-from-right var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-slide-top {
+  animation: slide-from-top var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-fade-in {
+  animation: fade-in var(--anim-normal) var(--anim-ease) both;
+}
+
+.animate-scale-in {
+  animation: scale-in var(--anim-normal) var(--anim-ease) both;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card & photo styling */
+.jurnal-card-wrapper {
+  background: #FAF7F0;
+  border: 1px solid #E4DDD0;
+  box-shadow: 0 4px 16px rgba(90, 75, 55, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+  border-radius: var(--radius-lg);
+  transition: background var(--anim-fast) var(--anim-ease), border-color var(--anim-fast) var(--anim-ease), transform var(--anim-fast) var(--anim-ease), box-shadow var(--anim-fast) var(--anim-ease);
+}
+
+.jurnal-card-wrapper:hover,
+.jurnal-card-wrapper.is-active {
+  background: #FFFDF8;
+  border-color: #D6CBB5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(80, 65, 45, 0.10);
+}
+
+.photo-card {
+  transform: skewX(var(--card-skew));
+  background: #FAF7F0;
+  border: 1px solid #E4DDD0;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: transform var(--anim-fast) var(--anim-ease), border-color var(--anim-fast) var(--anim-ease), box-shadow var(--anim-fast) var(--anim-ease);
+}
+
+.photo-card:hover {
+  transform: skewX(var(--card-skew)) translateY(-6px) !important;
+  box-shadow: 0 8px 24px rgba(90, 75, 55, 0.15) !important;
+  border-color: #D6CBB5 !important;
 }
