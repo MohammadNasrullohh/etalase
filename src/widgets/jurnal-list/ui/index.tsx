@@ -16,6 +16,12 @@ interface JurnalListProps {
   lineTargetId?: string | null  // card yang sedang dituju FuturisticLine
   /** If provided, infinite scroll uses this ref's scroll instead of window scroll */
   scrollContainerRef?: React.RefObject<HTMLDivElement>
+  /**
+   * Ref yang dikontrol parent. Saat bernilai true, IntersectionObserver
+   * tidak akan menimpa activeId/activeDate (dipakai saat programmatic scroll
+   * dari klik tanggal kalender agar tidak terjadi race condition).
+   */
+  navigatingRef?: React.MutableRefObject<boolean>
 }
 
 export const JurnalList: React.FC<JurnalListProps> = ({
@@ -29,6 +35,7 @@ export const JurnalList: React.FC<JurnalListProps> = ({
   onLeaveHover,
   lineTargetId,
   scrollContainerRef,
+  navigatingRef,
 }) => {
   const {
     data,
@@ -63,6 +70,9 @@ export const JurnalList: React.FC<JurnalListProps> = ({
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
+        // Jika parent sedang melakukan programmatic scroll (dari klik kalender),
+        // abaikan semua intersection event agar tidak terjadi race condition.
+        if (navigatingRef?.current) return
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const cardId = entry.target.id.replace('jurnal-card-', '')

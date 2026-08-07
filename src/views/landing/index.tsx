@@ -31,6 +31,8 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
 
   const [hoverLine, setHoverLine] = useState<{ id: string; date: string } | null>(null)
   const listScrollRef = useRef<HTMLDivElement>(null)
+  // Flag yang memblokir IntersectionObserver selama scroll programatik dari kalender
+  const navigatingRef = useRef<boolean>(false)
 
   const [isSection3Visible, setIsSection3Visible] = useState(false)
   const section3Ref = useRef<HTMLElement>(null)
@@ -67,9 +69,13 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
     setHoverLine(null)
     setActiveDate(dateStr)
     if (q || kategori) resetFilter()
+    // Kunci observer agar tidak menimpa activeDate/activeId saat scroll berlangsung
+    navigatingRef.current = true
     setTimeout(() => {
       const el = listScrollRef.current?.querySelector(`[data-tanggal="${dateStr}"]`)
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      // Lepas kunci setelah smooth scroll selesai (~900ms)
+      setTimeout(() => { navigatingRef.current = false }, 900)
     }, 100)
   }
 
@@ -218,6 +224,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                   lineTargetId={hoverLine?.id ?? activeId}
                   onHover={(id, date) => setHoverLine({ id, date })}
                   onLeaveHover={() => setHoverLine(null)}
+                  navigatingRef={navigatingRef}
                 />
               </div>
 
