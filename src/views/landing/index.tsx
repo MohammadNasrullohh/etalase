@@ -25,19 +25,13 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeDate, setActiveDate] = useState<string | null>(null)
   const [selectedJurnalId, setSelectedJurnalId] = useState<string | null>(null)
-  // Selected leader state is removed since leadership panel is replaced by documentation panel
 
-  // Scroll state untuk animasi hero
   const [scrollY, setScrollY] = useState(0)
   const [vhPx, setVhPx] = useState(800)
 
-  // Hover state untuk FuturisticLine — satu object agar atomic (tidak intermediate render)
   const [hoverLine, setHoverLine] = useState<{ id: string; date: string } | null>(null)
-
-  // Ref untuk internal scroll container jurnal list
   const listScrollRef = useRef<HTMLDivElement>(null)
 
-  // Section 3 visibility — animasi masuk saat section arsip terlihat
   const [isSection3Visible, setIsSection3Visible] = useState(false)
   const section3Ref = useRef<HTMLElement>(null)
 
@@ -53,7 +47,6 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
     }
   }, [])
 
-  // IntersectionObserver untuk Section 3
   useEffect(() => {
     const el = section3Ref.current
     if (!el) return
@@ -71,7 +64,6 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
   }, [])
 
   const handleDateClick = (dateStr: string) => {
-    // Pilihan kalender harus langsung terlihat, tanpa tertimpa state hover kartu.
     setHoverLine(null)
     setActiveDate(dateStr)
     if (q || kategori) resetFilter()
@@ -81,75 +73,38 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
     }, 100)
   }
 
-  // Hero animation: progress 0→1 selama scroll 0→vhPx (section 1 habis)
   const progress = Math.min(scrollY / (vhPx || 800), 1)
-
-  // Banner parallax: bergerak lambat ke atas (lebih lambat dari scroll agar kelihatan depth)
   const bannerTranslate = scrollY * 0.4
-
-  // Judul hero: translasi ke atas 60% dari scroll, tapi stop di section boundary
   const titleTranslateY = -scrollY * 0.6
-
-  // Subtitle: hilang di 33% pertama scroll
   const subtitleOpacity = Math.max(1 - progress * 3, 0)
-
-  // Navbar sticky: mulai muncul saat 70% hero habis, fully visible di 100%
   const navProgress = Math.max(0, Math.min((progress - 0.7) / 0.3, 1))
   const navVisible = navProgress > 0
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/*
-       * Layout — 3 Section:
-       * ┌─────────────────────────────────────────┐  ← page scroll (window)
-       * │  SECTION 1 — Hero (100vh)                │
-       * │  Judul hero bergerak naik saat di-scroll   │
-       * ├─────────────────────────────────────────┤  ← navbar sticky muncul di sini
-       * │  SECTION 2 — Stats/Chart (100vh)         │
-       * │  Rekapitulasi kegiatan tahunan (D3)      │
-       * ├─────────────────────────────────────────┤
-       * │  SECTION 3 — Arsip Jurnal (100vh)        │
-       * │  ┌──────────────┬──────────────────────┐ │
-       * │  │ Jurnal List  │ Pimpinan + Calendar   │ │
-       * │  └──────────────┴──────────────────────┘ │
-       * └─────────────────────────────────────────┘
-       *   Page total = 300vh.
-      */}
       <div className="relative bg-[var(--color-canvas)] overflow-x-hidden min-h-screen">
 
-        {/* ═══════════════════════════════════════════
-            SECTION 1 — HERO (100vh)
-            Mengambil full viewport. Scroll window menyebabkan
-            judul hero bergerak naik.
-        ═══════════════════════════════════════════ */}
+        {/* SECTION 1 — HERO */}
         <section
           className="relative w-full overflow-hidden"
           style={{ height: '100vh' }}
         >
-          {/* Banner parallax background */}
           <div
             className="absolute bg-cover bg-center will-change-transform"
             style={{
               backgroundImage: `url('${heroImagePath}')`,
-              filter: 'grayscale(100%) brightness(40%) contrast(130%)',
+              filter: 'grayscale(60%) brightness(50%) contrast(110%)',
               transform: `translateY(${bannerTranslate}px)`,
               inset: '-15% 0 0 0',
               height: '130%',
             }}
           />
-          {/* Gradient blend ke Section 2 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)] via-[var(--color-canvas)]/5 to-black/25 z-10" />
-          {/* Floating glass decorative elements */}
-          <div className="absolute top-[10%] left-[5%] floating-glass" style={{ width: 180, height: 120, animation: 'float 8s ease-in-out infinite' }} />
-          <div className="absolute top-[30%] right-[10%] floating-glass" style={{ width: 140, height: 90, animation: 'float 9s ease-in-out infinite', animationDelay: '1s' }} />
-          <div className="absolute bottom-[20%] left-[25%] floating-glass" style={{ width: 200, height: 140, animation: 'float 10s ease-in-out infinite', animationDelay: '2s' }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-canvas)] via-[var(--color-canvas)]/30 to-black/20 z-10" />
 
-          {/* Title area — bergerak naik bersama scroll */}
           <div
             className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none select-none will-change-transform"
             style={{ transform: `translateY(${titleTranslateY}px)` }}
           >
-            {/* Logo Bawaslu — reveal from top */}
             <HeroLogoReveal
               src="/assets/logo.png"
               alt="Bawaslu Kebumen"
@@ -157,29 +112,22 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 opacity: subtitleOpacity > 0 ? subtitleOpacity : 0,
               }}
             />
-
-            {/* Judul hero — scramble reveal per huruf, kiri ke kanan */}
             <HeroTitleReveal title={heroTitle} className="leading-none" />
-
-            {/* Subtitle — scramble reveal, selesai 0.8s */}
             <HeroSubtitleReveal
               subtitle={heroSubtitle}
               style={{ opacity: subtitleOpacity }}
             />
 
-            {/* Scroll hint — glassmorphism pulsing button, klik langsung ke Section 3 */}
             <div
               className="mt-12 flex flex-col items-center gap-3"
               style={{ opacity: subtitleOpacity }}
             >
-              {/* ── Button glassmorphism ── */}
               <button
                 aria-label="Scroll ke Arsip Jurnal"
                 onClick={() => {
                   document.getElementById('section-arsip')?.scrollIntoView({ behavior: 'smooth' })
                 }}
                 style={{
-                  // Override pointer-events dari parent yang none
                   pointerEvents: 'auto',
                   position: 'relative',
                   display: 'flex',
@@ -188,77 +136,36 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                   gap: '10px',
                   padding: '14px 28px 16px',
                   borderRadius: '999px',
-                  background: 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(14px)',
-                  WebkitBackdropFilter: 'blur(14px)',
-                  border: '1px solid rgba(255,255,255,0.10)',
-                  boxShadow: '0 0 0 0 rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.07)',
+                  background: '#FAF7F0',
+                  border: '1px solid #E4DDD0',
+                  boxShadow: '0 4px 16px rgba(90, 75, 55, 0.1)',
                   cursor: 'pointer',
                   outline: 'none',
                   userSelect: 'none',
-                  transition: 'background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
-                }}
-                onMouseEnter={e => {
-                  const el = e.currentTarget
-                  el.style.background = 'rgba(255,255,255,0.08)'
-                  el.style.borderColor = 'rgba(255,255,255,0.22)'
-                  el.style.boxShadow = '0 0 24px 4px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.10)'
-                }}
-                onMouseLeave={e => {
-                  const el = e.currentTarget
-                  el.style.background = 'rgba(255,255,255,0.04)'
-                  el.style.borderColor = 'rgba(255,255,255,0.10)'
-                  el.style.boxShadow = '0 0 0 0 rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.07)'
+                  transition: 'all 0.25s ease',
                 }}
               >
-                {/* Pulsing ring 1 */}
-                <span
-                  aria-hidden="true"
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    borderRadius: '999px',
-                    border: '1px solid rgba(255,255,255,0.18)',
-                    animation: 'glassRingPulse 2s cubic-bezier(0.4,0,0.6,1) infinite',
-                    pointerEvents: 'none',
-                  }}
-                />
-                {/* Pulsing ring 2 — offset phase */}
-                <span
-                  aria-hidden="true"
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    borderRadius: '999px',
-                    border: '1px solid rgba(255,255,255,0.10)',
-                    animation: 'glassRingPulse 2s cubic-bezier(0.4,0,0.6,1) infinite 0.75s',
-                    pointerEvents: 'none',
-                  }}
-                />
-
                 <span
                   style={{
                     fontSize: '0.6rem',
                     letterSpacing: '0.38em',
-                    fontFamily: 'Roboto, sans-serif',
-                    fontWeight: 400,
-                    color: 'rgba(255,255,255,0.55)',
+                    fontFamily: 'IBM Plex Mono, monospace',
+                    fontWeight: 500,
+                    color: '#211E1B',
                   }}
                 >
                   SCROLL
                 </span>
-
-                {/* Arrow down */}
                 <svg
                   width="14"
                   height="8"
                   viewBox="0 0 14 8"
                   fill="none"
-                  style={{ opacity: 0.45, marginTop: '-2px' }}
+                  style={{ opacity: 0.7, marginTop: '-2px' }}
                 >
                   <path
                     d="M1 1l6 6 6-6"
-                    stroke="white"
+                    stroke="#211E1B"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -266,57 +173,24 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 </svg>
               </button>
             </div>
-
-            {/* Keyframe CSS untuk pulsing ring */}
-            <style>{`
-              @keyframes glassRingPulse {
-                0%   { transform: scale(1);    opacity: 0.6; }
-                60%  { transform: scale(1.55); opacity: 0;   }
-                100% { transform: scale(1.55); opacity: 0;   }
-              }
-              @keyframes float {
-                0%, 100% { transform: translateY(0) rotate(-18deg); }
-                50% { transform: translateY(-16px) rotate(-15deg); }
-              }
-            `}</style>
           </div>
         </section>
 
-        {/* ═══════════════════════════════════════════
-            SECTION 2 — STATS / CHART (100vh)
-            Rekapitulasi kegiatan tahunan menggunakan D3.js bar chart.
-            Navbar sticky muncul saat masuk section ini.
-        ═══════════════════════════════════════════ */}
+        {/* SECTION 2 — STATS */}
         <StatsSection />
 
-        {/* ═══════════════════════════════════════════
-            SECTION 3 — ARSIP JURNAL (100vh)
-            Jurnal List + Pimpinan + Kalender
-        ═══════════════════════════════════════════ */}
+        {/* SECTION 3 — ARSIP JURNAL */}
         <section
           id="section-arsip"
           ref={section3Ref}
           className="relative w-full bg-[var(--color-canvas)] lg:h-screen lg:overflow-hidden"
         >
-          {/* Ambient glow */}
-          <div className="absolute top-0 left-[-15%] w-[55vw] h-[55vw] rounded-full bg-glow-purple pointer-events-none opacity-25" />
-          <div className="absolute bottom-0 right-[-10%] w-[45vw] h-[45vw] rounded-full bg-glow-blue pointer-events-none opacity-30" />
-          {/* Floating glass decorative elements for Section 3 */}
-          <div className="absolute top-[-5%] left-[50%] floating-glass" style={{ width: 120, height: 80, animation: 'float 8.5s ease-in-out infinite' }} />
-          <div className="absolute bottom-[5%] right-[5%] floating-glass" style={{ width: 160, height: 110, animation: 'float 9.5s ease-in-out infinite', animationDelay: '1.5s' }} />
-
-          {/* Padded container — pt-20 agar tidak tertutup sticky navbar */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-6 lg:pb-8 flex flex-col lg:h-screen">
-            {/* ── Content grid ── */}
             <div className="
               grid grid-cols-1 lg:grid-cols-5
               gap-6 lg:gap-8
               lg:flex-1 lg:min-h-0
             ">
-              {/* Jurnal List:
-                  Mobile  → normal flow (window scroll)
-                  Desktop → internal overflow-y-auto */}
-              {/* Jurnal List — animasi fade-up dari kiri */}
               <div
                 ref={listScrollRef}
                 className="
@@ -327,7 +201,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 "
                 style={{
                   scrollbarWidth: 'thin',
-                  scrollbarColor: 'rgba(255,255,255,0.08) transparent',
+                  scrollbarColor: '#D6CBB5 transparent',
                   opacity: isSection3Visible ? 1 : 0,
                   transform: isSection3Visible ? 'translateY(0)' : 'translateY(32px)',
                   transitionDelay: '0ms',
@@ -347,7 +221,6 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 />
               </div>
 
-              {/* Kanan: Pimpinan + Calendar — animasi fade-up staggered */}
               <div
                 className="col-span-1 lg:col-span-2 flex flex-col gap-5 lg:overflow-hidden lg:min-h-0 transition-all duration-700 ease-out"
                 style={{
@@ -373,15 +246,15 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
           </div>
         </section>
 
-        {/* ─── Sticky header glass — muncul saat masuk ke Section 2 ─── */}
+        {/* Sticky header */}
         <header
           className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
           style={{
-            backgroundColor: `rgba(6, 6, 10, ${navProgress * 0.82})`,
+            backgroundColor: `rgba(244, 240, 230, ${navProgress * 0.95})`,
             backdropFilter: `blur(${navProgress * 28}px)`,
             WebkitBackdropFilter: `blur(${navProgress * 28}px)`,
-            borderBottom: `1px solid rgba(255,255,255,${navProgress * 0.07})`,
-            boxShadow: `0 1px 0 rgba(255,255,255,${navProgress * 0.04}), 0 4px 24px rgba(0,0,0,${navProgress * 0.3})`,
+            borderBottom: `1px solid rgba(228, 221, 208, ${navProgress})`,
+            boxShadow: `0 4px 16px rgba(90, 75, 55, ${navProgress * 0.08})`,
             transform: navVisible ? 'translateY(0)' : 'translateY(-100%)',
             opacity: navProgress,
             pointerEvents: navVisible ? 'auto' : 'none',
@@ -389,7 +262,6 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-3">
-            {/* Brand */}
             <div className="flex items-center gap-2.5 sm:gap-3 select-none flex-shrink-0">
               <div
                 className="flex items-center justify-center"
@@ -397,32 +269,31 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                   width: '32px',
                   height: '32px',
                   borderRadius: '8px',
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.10)',
+                  background: '#FAF7F0',
+                  border: '1px solid #E4DDD0',
                 }}
               >
                 <img
                   src="/assets/logo.png"
                   alt="Bawaslu"
-                  style={{ width: '20px', height: '20px', filter: 'brightness(0) invert(1)' }}
+                  style={{ width: '20px', height: '20px' }}
                   className="object-contain"
                 />
               </div>
               <span
-                className="text-white font-bold text-sm sm:text-base"
-                style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.15em' }}
+                className="text-[#211E1B] font-serif font-bold text-sm sm:text-base"
+                style={{ letterSpacing: '0.05em' }}
               >
                 {heroTitle}
               </span>
             </div>
 
-            {/* Search + filter + Auth */}
             <div className="flex items-center gap-2 justify-end">
               <div className="w-28 xs:w-40 sm:w-48 md:w-64">
                 <SearchBar value={q} onChange={(val) => setFilter(val, kategori)} />
               </div>
               <KategoriDropdown value={kategori} onChange={(val) => setFilter(q, val)} />
-              <div className="ml-1 sm:ml-2 border-l border-white/10 pl-2 sm:pl-3 flex items-center h-8">
+              <div className="ml-1 sm:ml-2 border-l border-[#E4DDD0] pl-2 sm:pl-3 flex items-center h-8">
                 <AuthButton />
               </div>
             </div>
@@ -434,9 +305,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
           isOpen={!!selectedJurnalId}
           onClose={() => setSelectedJurnalId(null)}
         />
-        <div />
 
-        {/* FuturisticLine — hanya desktop, disembunyikan saat modal aktif */}
         {!selectedJurnalId && (
           <div className="hidden lg:block">
             <FuturisticLine

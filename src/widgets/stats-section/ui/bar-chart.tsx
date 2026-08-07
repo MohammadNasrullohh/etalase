@@ -10,23 +10,17 @@ interface BarData {
 
 interface BarChartProps {
   data: BarData[]
-  /** Hanya render D3 saat section masuk viewport (dari IntersectionObserver parent) */
   isVisible: boolean
 }
-
-
 
 const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const tooltipRef = useRef<HTMLDivElement>(null)
-  // Track previous data to skip re-render if data hasn't actually changed
   const prevDataRef = useRef<string>('')
 
   useEffect(() => {
-    // Jangan render D3 sebelum section masuk viewport
     if (!isVisible || !svgRef.current || data.length === 0) return
 
-    // Skip D3 re-render if data values haven't changed
     const dataKey = JSON.stringify(data)
     if (dataKey === prevDataRef.current) return
     prevDataRef.current = dataKey
@@ -67,7 +61,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('class', 'grid-line')
         .attr('x1', 0).attr('x2', innerW)
         .attr('y1', d => yScale(d)).attr('y2', d => yScale(d))
-        .attr('stroke', 'rgba(255,255,255,0.06)')
+        .attr('stroke', '#E4DDD0')
         .attr('stroke-dasharray', '4 4')
 
       // Y axis
@@ -80,7 +74,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         )
         .call(ax => ax.select('.domain').remove())
         .selectAll('text')
-        .attr('fill', 'rgba(255,255,255,0.35)')
+        .attr('fill', '#7E7365')
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
 
@@ -92,11 +86,11 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('class', 'bar')
         .attr('x', d => xScale(d.kategori)!)
         .attr('width', xScale.bandwidth())
-        .attr('y', innerH)          // animate from bottom
+        .attr('y', innerH)
         .attr('height', 0)
-        .attr('rx', 4)
+        .attr('rx', 6)
         .attr('fill', d => getCategoryColor(d.kategori))
-        .attr('opacity', 0.12)
+        .attr('opacity', 0.85)
         .attr('stroke', d => getCategoryColor(d.kategori))
         .attr('stroke-width', '1.5px')
         .style('cursor', 'pointer')
@@ -119,14 +113,14 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
           .style('top', `${event.offsetY - 36}px`)
           .html(
             `<span style="color:${getCategoryColor(d.kategori)};font-weight:700">${getCategoryLabel(d.kategori)}</span>` +
-            `<br/><span style="font-size:1.1em;font-weight:700">${d.total}</span> kegiatan` +
-            `<br/><span style="opacity:0.6">${pct}% dari total</span>`
+            `<br/><span style="font-size:1.1em;font-weight:700;color:#211E1B">${d.total}</span> kegiatan` +
+            `<br/><span style="color:#7E7365">${pct}% dari total</span>`
           )
-        d3.select(this).attr('opacity', 0.35)
+        d3.select(this).attr('opacity', 1)
       })
       .on('mouseleave', function() {
         d3.select(tooltipRef.current!).style('display', 'none')
-        d3.select(this).attr('opacity', 0.12)
+        d3.select(this).attr('opacity', 0.85)
       })
 
       // Value labels on top of bars
@@ -138,9 +132,10 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('x', d => (xScale(d.kategori) ?? 0) + xScale.bandwidth() / 2)
         .attr('y', d => yScale(d.total) - 6)
         .attr('text-anchor', 'middle')
-        .attr('fill', 'rgba(255,255,255,0.5)')
+        .attr('fill', '#211E1B')
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
+        .attr('font-weight', '700')
         .attr('opacity', 0)
         .text(d => d.total)
         .transition()
@@ -151,9 +146,9 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
       g.append('g')
         .attr('transform', `translate(0,${innerH})`)
         .call(d3.axisBottom(xScale).tickSize(0))
-        .call(ax => ax.select('.domain').attr('stroke', 'rgba(255,255,255,0.1)'))
+        .call(ax => ax.select('.domain').attr('stroke', '#E4DDD0'))
         .selectAll('text')
-        .attr('fill', 'rgba(255,255,255,0.5)')
+        .attr('fill', '#595045')
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
         .attr('dy', '1.4em')
@@ -161,19 +156,16 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
     })
   }, [data, isVisible])
 
-
   return (
     <div className="relative w-full h-full">
       <svg ref={svgRef} className="w-full h-full" />
       <div
         ref={tooltipRef}
-        className="absolute hidden pointer-events-none z-50 px-3 py-2 rounded-xl text-xs text-white leading-relaxed"
+        className="absolute hidden pointer-events-none z-50 px-3 py-2 rounded-xl text-xs text-[#211E1B] leading-relaxed"
         style={{
-          background: 'rgba(6, 6, 10, 0.88)',
-          border: '1px solid rgba(255,255,255,0.14)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.4)',
+          background: '#FAF7F0',
+          border: '1px solid #E4DDD0',
+          boxShadow: '0 4px 16px rgba(90, 75, 55, 0.12)',
           fontFamily: 'monospace',
           whiteSpace: 'nowrap',
         }}
@@ -182,5 +174,4 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
   )
 }
 
-// Wrap in memo so parent scroll-state re-renders don't re-mount this component
 export const BarChart = memo(BarChartInner)

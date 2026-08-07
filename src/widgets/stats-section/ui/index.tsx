@@ -10,8 +10,6 @@ interface StatsData {
   stats: Record<string, number>
 }
 
-
-
 const StatsSectionInner: React.FC = () => {
   const [data, setData]                     = useState<StatsData | null>(null)
   const [selectedYear, setSelectedYear]     = useState<number | null>(null)
@@ -36,7 +34,6 @@ const StatsSectionInner: React.FC = () => {
 
   useEffect(() => { fetchStats() }, [fetchStats])
 
-  // IntersectionObserver — aktifkan chart saat 30% section masuk viewport
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
@@ -83,23 +80,16 @@ const StatsSectionInner: React.FC = () => {
       ref={sectionRef}
       className="relative w-full bg-[var(--color-canvas)] lg:h-screen lg:overflow-hidden"
     >
-      {/* Ambient glow */}
-      <div className="absolute top-0 right-[-10%] w-[50vw] h-[50vw] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%)' }}
-      />
-      <div className="absolute bottom-0 left-[-5%] w-[40vw] h-[40vw] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%)' }}
-      />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-8 lg:h-full flex flex-col">
 
         {/* ── Section header ── */}
         <div className="flex-shrink-0 mb-6">
-          <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/25 mb-1">
+          <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#7E7365] mb-1">
             Bawaslu Kebumen
           </p>
           <h2
-            className="text-2xl sm:text-3xl font-bold text-white"
-            style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.05em' }}
+            className="text-2xl sm:text-3xl font-serif font-bold text-[#211E1B]"
+            style={{ letterSpacing: '0.02em' }}
           >
             Rekapitulasi Kegiatan
           </h2>
@@ -108,7 +98,7 @@ const StatsSectionInner: React.FC = () => {
         {/* ── Main content grid ── */}
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-5 gap-6 min-h-0 pb-4">
 
-          {/* Chart area — glass panel */}
+          {/* Chart area */}
           <div
             className="col-span-1 lg:col-span-3 relative min-h-[280px] lg:min-h-0 glass-card p-4"
           >
@@ -118,11 +108,8 @@ const StatsSectionInner: React.FC = () => {
                   {[0, 1, 2].map(i => (
                     <div
                       key={i}
-                      className="w-1.5 h-6 rounded-full animate-pulse"
-                      style={{
-                        background: 'rgba(255,255,255,0.15)',
-                        animationDelay: `${i * 150}ms`,
-                      }}
+                      className="w-1.5 h-6 rounded-full animate-pulse bg-[#E4DDD0]"
+                      style={{ animationDelay: `${i * 150}ms` }}
                     />
                   ))}
                 </div>
@@ -132,25 +119,22 @@ const StatsSectionInner: React.FC = () => {
             )}
           </div>
 
-          {/* Legend + summary — glass panel, right side */}
+          {/* Legend + summary */}
           <div
             className="col-span-1 lg:col-span-2 flex flex-col justify-center gap-5 glass-card py-6 px-5"
           >
             {/* Total count */}
             <div className="flex items-baseline gap-3">
-              <span
-                className="text-4xl sm:text-5xl font-bold text-white"
-                style={{ fontFamily: 'Roboto, sans-serif' }}
-              >
+              <span className="text-4xl sm:text-5xl font-serif font-bold text-[#211E1B]">
                 {totalKegiatan}
               </span>
-              <span className="text-sm text-white/35 font-mono leading-snug">
+              <span className="text-sm text-[#7E7365] font-mono leading-snug">
                 kegiatan<br />tercatat
               </span>
             </div>
 
             {/* Divider */}
-            <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+            <div style={{ height: '1px', background: '#E4DDD0' }} />
 
             {/* Category legend */}
             <div className="flex flex-col gap-3">
@@ -165,27 +149,23 @@ const StatsSectionInner: React.FC = () => {
                       className="flex-shrink-0 w-2 h-2 rounded-full"
                       style={{ backgroundColor: getCategoryColor(k) }}
                     />
-                    <span className="text-xs text-white/50 font-mono w-20 flex-shrink-0">
+                    <span className="text-xs text-[#595045] font-mono w-20 flex-shrink-0">
                       {getCategoryLabel(k)}
                     </span>
-                    {/* Glass progress track */}
+                    {/* Progress track */}
                     <div
-                      className="flex-1 rounded-full overflow-hidden"
-                      style={{
-                        height: '4px',
-                        background: 'rgba(255,255,255,0.06)',
-                      }}
+                      className="flex-1 rounded-full overflow-hidden bg-[#E9E3D5]"
+                      style={{ height: '6px' }}
                     >
                       <div
                         className="h-full rounded-full transition-all duration-700"
                         style={{
                           width: `${pct}%`,
-                          backgroundColor: getCategoryColor(k),
-                          boxShadow: `0 0 6px ${getCategoryColor(k)}55`,
+                          backgroundColor: '#3CA768',
                         }}
                       />
                     </div>
-                    <span className="text-xs text-white/35 font-mono w-6 text-right flex-shrink-0">
+                    <span className="text-xs text-[#7E7365] font-mono w-6 text-right flex-shrink-0">
                       {val}
                     </span>
                   </div>
@@ -195,12 +175,12 @@ const StatsSectionInner: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Year selector — glass pill row ── */}
+        {/* ── Year selector ── */}
         <div
           className="flex-shrink-0 flex items-center gap-2 sm:gap-3 pt-4 pb-1 overflow-x-auto no-scrollbar"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+          style={{ borderTop: '1px solid #E4DDD0' }}
         >
-          <span className="text-[10px] font-mono uppercase tracking-widest text-white/20 flex-shrink-0 mr-2">
+          <span className="text-[10px] font-mono uppercase tracking-widest text-[#7E7365] flex-shrink-0 mr-2">
             Tahun
           </span>
           {(data?.years ?? []).map(year => {
@@ -209,23 +189,15 @@ const StatsSectionInner: React.FC = () => {
               <button
                 key={year}
                 onClick={() => handleYearClick(year)}
-                className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canvas)]"
+                className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B748]"
                 style={{
-                  background: isSelected
-                    ? 'rgba(124,58,237,0.20)'
-                    : 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  color: isSelected ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.30)',
-                  border: isSelected
-                    ? '1px solid rgba(124,58,237,0.55)'
-                    : '1px solid rgba(255,255,255,0.07)',
+                  background: isSelected ? '#F5B748' : '#FAF7F0',
+                  color: isSelected ? '#211E1B' : '#7E7365',
+                  border: isSelected ? '1px solid #E5A838' : '1px solid #E4DDD0',
                   fontWeight: isSelected ? 700 : 400,
                   fontSize: isSelected ? '1rem' : '0.875rem',
                   letterSpacing: '0.08em',
-                  boxShadow: isSelected
-                    ? '0 0 16px rgba(124,58,237,0.20), inset 0 1px 0 rgba(255,255,255,0.08)'
-                    : 'inset 0 1px 0 rgba(255,255,255,0.04)',
+                  boxShadow: isSelected ? '0 2px 8px rgba(245, 183, 72, 0.3)' : 'none',
                 }}
               >
                 {year}

@@ -73,21 +73,21 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
     >
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
-        <h3 className="text-sm font-mono uppercase tracking-widest text-white/50">
+        <h3 className="text-sm font-serif font-bold uppercase tracking-wider text-[var(--color-text-primary)]">
           {monthNames[month]} {year}
         </h3>
         <div className="flex gap-1.5">
           {/* Prev button */}
           <button
             onClick={handlePrevMonth}
-            className="p-1 rounded-lg bg-white/5 border border-white/10 text-white/45 hover:bg-white/10 hover:border-white/20 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-all duration-200"
+            className="p-1 rounded-lg bg-[#FAF7F0] border border-[#E4DDD0] text-[#685E52] hover:bg-[#F4F0E6] hover:text-[#211E1B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B748] transition-all duration-200"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           {/* Next button */}
           <button
             onClick={handleNextMonth}
-            className="p-1 rounded-lg bg-white/5 border border-white/10 text-white/45 hover:bg-white/10 hover:border-white/20 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-all duration-200"
+            className="p-1 rounded-lg bg-[#FAF7F0] border border-[#E4DDD0] text-[#685E52] hover:bg-[#F4F0E6] hover:text-[#211E1B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B748] transition-all duration-200"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -95,7 +95,7 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
       </div>
 
       {/* Day names header */}
-      <div className="grid grid-cols-7 gap-1 text-center font-mono text-[10px] text-white/30 uppercase mb-2 tracking-widest">
+      <div className="grid grid-cols-7 gap-1 text-center font-mono text-[10px] text-[#8C8070] uppercase mb-2 tracking-widest">
         <div>Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
       </div>
 
@@ -124,23 +124,23 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
               role={highlighted ? 'button' : undefined}
               id={`calendar-day-${getFullDateString(day)}`}
               className={`relative py-2 rounded-lg select-none transition-all duration-200 ${
-                highlighted ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-canvas)]' : 'cursor-default'
+                highlighted ? 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-canvas)]' : 'cursor-default'
               } ${
-                highlighted && !currentActive ? 'hover:bg-[rgba(var(--color-ember-bright-rgb),0.15)] hover:text-[var(--color-ember-bright)]' : ''
+                highlighted && !currentActive ? 'hover:bg-[#F5B748]/20 hover:text-[#211E1B]' : ''
               }`}
               style={{
                 color: currentActive
-                  ? 'var(--color-text-primary)'
+                  ? '#211E1B'
                   : highlighted
-                    ? 'rgba(255,255,255,0.85)'
-                    : 'rgba(255,255,255,0.18)',
+                    ? '#211E1B'
+                    : '#B8AD9E',
                 fontWeight: currentActive || highlighted ? 600 : 400,
                 background: currentActive
-                  ? 'var(--color-ember-bright)'
+                  ? '#F5B748'
                   : 'transparent',
                 transform: currentActive ? 'scale(1.1)' : 'scale(1)',
                 boxShadow: currentActive
-                  ? '0 0 14px rgba(var(--color-ember-bright-rgb), 0.55)'
+                  ? '0 2px 10px rgba(245, 183, 72, 0.45)'
                   : 'none',
               }}
             >
@@ -149,7 +149,7 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
               {highlighted && !currentActive && (
                 <span
                   className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-                  style={{ background: 'var(--color-ember-bright)', opacity: 0.7 }}
+                  style={{ background: '#3CA768' }}
                 />
               )}
             </div>
@@ -159,4 +159,3 @@ export const CalendarWidget: React.FC<CalendarWidgetProps> = ({ activeDate, onDa
     </div>
   )
 }
-

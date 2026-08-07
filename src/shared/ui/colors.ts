@@ -20,7 +20,6 @@ export const CATEGORY_COLORS = new Proxy<Record<string, string>>({}, {
     }
     if (colorMap[normalized]) return colorMap[normalized]
 
-    // Stable string hash mapped to the 4 accent colors
     const colors = [
       ACCENT_COLORS.violet,
       ACCENT_COLORS.cyan,
@@ -57,19 +56,18 @@ export const CATEGORY_STYLES = new Proxy<Record<string, React.CSSProperties>>({}
     if (typeof prop !== 'string') return undefined
     const normalized = prop.toLowerCase()
     const styleMap: Record<string, React.CSSProperties> = {
-      mou:       { background: 'color-mix(in srgb, var(--color-category-violet) 10%, transparent)', color: 'var(--color-category-violet-text)', border: '1px solid color-mix(in srgb, var(--color-category-violet) 20%, transparent)' },
-      audiensi:  { background: 'color-mix(in srgb, var(--color-category-cyan) 10%, transparent)', color: 'var(--color-category-cyan-text)', border: '1px solid color-mix(in srgb, var(--color-category-cyan) 20%, transparent)' },
-      pelaporan: { background: 'color-mix(in srgb, var(--color-category-amber) 10%, transparent)', color: 'var(--color-category-amber-text)', border: '1px solid color-mix(in srgb, var(--color-category-amber) 20%, transparent)' },
-      sengketa:  { background: 'color-mix(in srgb, var(--color-accent) 10%, transparent)', color: 'var(--color-category-ember-text)', border: '1px solid color-mix(in srgb, var(--color-accent) 20%, transparent)' },
-      lainnya:   { background: 'color-mix(in srgb, var(--color-category-violet) 10%, transparent)', color: 'var(--color-category-violet-text)', border: '1px solid color-mix(in srgb, var(--color-category-violet) 20%, transparent)' },
+      mou:       { background: '#EBF7ED', color: '#1B6E37', border: '1px solid #C4E8CB' },
+      audiensi:  { background: '#EDF5FB', color: '#195B8B', border: '1px solid #C4DFE8' },
+      pelaporan: { background: '#FDF5E6', color: '#8A5E14', border: '1px solid #F0DDB8' },
+      sengketa:  { background: '#FDF0EC', color: '#9E3B14', border: '1px solid #F2C9B8' },
+      lainnya:   { background: '#F4F0E6', color: '#595045', border: '1px solid #D8CFB8' },
     }
     if (styleMap[normalized]) return styleMap[normalized]
 
-    const color = CATEGORY_COLORS[normalized]
     return {
-      background: `color-mix(in srgb, ${color} 10%, transparent)`,
-      color,
-      border: `1px solid color-mix(in srgb, ${color} 20%, transparent)`,
+      background: '#FDF5E6',
+      color: '#8A5E14',
+      border: '1px solid #F0DDB8',
     }
   }
 })

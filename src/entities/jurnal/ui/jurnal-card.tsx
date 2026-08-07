@@ -1,7 +1,6 @@
 import React from 'react'
 import { getCategoryLabel, getCategoryStyle } from '@/shared/ui/colors'
 
-
 interface JurnalCardProps {
   id: string
   judul: string
@@ -17,8 +16,6 @@ interface JurnalCardProps {
   onLeaveHover?: () => void
   staggerDelay?: string
 }
-
-
 
 export const JurnalCard: React.FC<JurnalCardProps> = ({
   id,
@@ -57,7 +54,7 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
     <div
       id={`jurnal-card-${id}`}
       data-tanggal={tanggal_kegiatan}
-      className={`group jurnal-card relative animate-slide-left cursor-pointer mb-4 rounded-2xl jurnal-card-wrapper focus-visible:ring-2 focus-visible:ring-[var(--color-ember-bright)] focus:outline-none ${isActive ? 'is-active' : ''}`}
+      className={`group jurnal-card relative animate-slide-left cursor-pointer mb-4 rounded-2xl jurnal-card-wrapper focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus:outline-none ${isActive ? 'is-active' : ''}`}
       style={{
         animationDelay: staggerDelay,
         padding: '20px 24px',
@@ -97,24 +94,24 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
           <div
             className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-xl"
             style={{
-              border: '1px solid rgba(255,255,255,0.10)',
-              background: 'rgba(0,0,0,0.3)',
+              border: '1px solid #E4DDD0',
+              background: '#EFEAE0',
             }}
           >
             <img
               src={thumbnail_url}
               alt={judul}
-              className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
+              className="w-full h-full object-cover transition-all duration-300"
             />
           </div>
         )}
         <div className="flex-grow min-w-0">
-          <h3 className="text-base font-bold leading-snug mb-1 text-white group-hover:text-[var(--color-ember-bright)] transition-colors truncate">
+          <h3 className="text-base font-serif font-bold leading-snug mb-1 text-[var(--color-text-primary)] group-hover:text-[#2D7A4D] transition-colors truncate">
             {judul}
           </h3>
           {pihakNames && (
             <p className="text-xs text-[var(--color-text-muted)] line-clamp-1 mb-1">
-              Pihak: <span className="text-white/70">{pihakNames}</span>
+              Pihak: <span className="text-[var(--color-text-primary)] font-medium">{pihakNames}</span>
             </p>
           )}
           {tags && tags.length > 0 && (
@@ -124,9 +121,9 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
                   key={idx}
                   className="text-[9px] font-mono"
                   style={{
-                    color: 'rgba(255,255,255,0.35)',
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    color: '#685E52',
+                    background: '#F4F0E6',
+                    border: '1px solid #E0D8C8',
                     padding: '1px 6px',
                     borderRadius: '4px',
                   }}
@@ -142,7 +139,7 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
       {/* Right dot — FuturisticLine anchor */}
       <div
         className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-opacity duration-200 pointer-events-none group-hover:opacity-100 ${isLineTarget ? 'opacity-100' : 'opacity-0'}`}
-        style={{ backgroundColor: 'var(--color-ember-bright)' }}
+        style={{ backgroundColor: 'var(--color-accent)' }}
         id={`jurnal-card-dot-${id}`}
       />
     </div>
