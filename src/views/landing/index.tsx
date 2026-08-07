@@ -73,9 +73,14 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
     navigatingRef.current = true
     setTimeout(() => {
       const el = listScrollRef.current?.querySelector(`[data-tanggal="${dateStr}"]`)
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      // Lepas kunci setelah smooth scroll selesai (~900ms)
-      setTimeout(() => { navigatingRef.current = false }, 900)
+      if (el) {
+        // Set activeId langsung dari elemen yang ditemukan — jangan tunggu observer
+        const cardId = el.id.replace('jurnal-card-', '')
+        setActiveId(cardId)
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+      // Lepas kunci setelah smooth scroll selesai (~1000ms)
+      setTimeout(() => { navigatingRef.current = false }, 1000)
     }, 100)
   }
 
