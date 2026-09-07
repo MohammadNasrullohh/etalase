@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   ".agents/AGENTS.md": {
-    "mtime": 1788822552.0417893,
-    "ast_hash": "57d4c06e9f5f2e67d6abf5a42c2cffdb",
+    "mtime": 1785978447.4797015,
+    "ast_hash": "597ce8c489b0b13e7ff1a1d5e3f3a664",
     "semantic_hash": ""
   },
   ".agents/NEVER-DO.md": {
@@ -305,23 +305,23 @@
     "semantic_hash": ""
   },
   "src/app/api/jurnal/stats/route.ts": {
-    "mtime": 1788822829.2795708,
-    "ast_hash": "4534047a55cbc758df18535fa743523a",
+    "mtime": 1783006057.3867395,
+    "ast_hash": "130d7f36e7e0a50e14ae9068bb7c5ec3",
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/get-jurnal-stats.ts": {
-    "mtime": 1788822818.3577414,
-    "ast_hash": "ad37d8d4c828758d0e8f5304c4887879",
+    "mtime": 1785814581.7436113,
+    "ast_hash": "1fea1af5ab067a820a59ccf88a5c4cfd",
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/bar-chart.tsx": {
-    "mtime": 1788822871.958289,
-    "ast_hash": "204a199dcbce1ac2b0af60141d4f8001",
+    "mtime": 1788784139.0448868,
+    "ast_hash": "c6596e0974b17b3ec0321dceafea908c",
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/index.tsx": {
-    "mtime": 1788822897.6205618,
-    "ast_hash": "ccdd3862afbfff44d86b122c1d45609f",
+    "mtime": 1788784131.7540014,
+    "ast_hash": "14a02acec1f9f113a72ed794e454f543",
     "semantic_hash": ""
   },
   "src/widgets/documentation-panel/ui/index.tsx": {
@@ -1612,31 +1612,6 @@
   "updated_design_section_stats.png": {
     "mtime": 1786076064.5436127,
     "ast_hash": "4a3b7ab65dc12e613ec875d4d7731d3b",
-    "semantic_hash": ""
-  },
-  "src/widgets/stats-section/ui/activity-panel.tsx": {
-    "mtime": 1788822881.4157817,
-    "ast_hash": "836c8424598bcabbdb69d1519705a303",
-    "semantic_hash": ""
-  },
-  "src/widgets/stats-section/ui/kpi-metric-strip.tsx": {
-    "mtime": 1788822849.981464,
-    "ast_hash": "be968185b4125fc4e45e24851c04210e",
-    "semantic_hash": ""
-  },
-  "src/widgets/stats-section/ui/trend-chart.tsx": {
-    "mtime": 1788822860.923977,
-    "ast_hash": "2778da7c00605effa3180072dec0f0dc",
-    "semantic_hash": ""
-  },
-  "tests/stats_api.test.ts": {
-    "mtime": 1788822780.166896,
-    "ast_hash": "c9ad94cdcebcbf0c0db00d1a5aa0aa74",
-    "semantic_hash": ""
-  },
-  "public/uploads/hero/hero-55345e8e-aa5d-4519-b851-7b4cb322c142.webp": {
-    "mtime": 1788822441.806,
-    "ast_hash": "39fc47afcd009912f1172ae5b46f39db",
     "semantic_hash": ""
   }
 }

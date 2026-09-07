@@ -14,14 +14,18 @@ export async function GET(request: NextRequest) {
       ? parseInt(yearParam, 10)
       : (years[years.length - 1] ?? new Date().getFullYear())
 
-    const stats = await getJurnalStatsByYear(targetYear)
+    const result = await getJurnalStatsByYear(targetYear)
 
     return NextResponse.json(
       {
         status: 'ok',
         years,
         year: targetYear,
-        stats,
+        stats: result.stats,
+        monthly_trend: result.monthly_trend,
+        division_stats: result.division_stats,
+        kpi_summary: result.kpi_summary,
+        recent_highlights: result.recent_highlights,
       },
       {
         headers: {
