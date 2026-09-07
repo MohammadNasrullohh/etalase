@@ -68,7 +68,9 @@ export function ApprovalQueue() {
               <span className="px-2 py-0.5 bg-amber-500/15 text-amber-800 border border-amber-500/25 rounded-full text-[10px] font-bold font-mono tracking-widest uppercase flex items-center gap-1">
                 <Clock className="w-3 h-3" /> Menunggu Persetujuan
               </span>
-              <span className="text-[10px] text-[var(--color-text-muted)] font-mono">{new Date(item.created_at).toLocaleDateString('id-ID')}</span>
+              <span className="text-[10px] text-[var(--color-text-muted)] font-mono">
+                {item.created_at ? new Date(item.created_at).toLocaleDateString('id-ID') : (item.tanggal_kegiatan || '-')}
+              </span>
             </div>
             
             <h3 className="text-lg font-bold text-[var(--color-text-primary)] flex items-start gap-2">
@@ -77,7 +79,7 @@ export function ApprovalQueue() {
             </h3>
             
             <div className="text-xs text-[var(--color-text-muted)] font-mono flex gap-4">
-              <span>Oleh: {item.submitter?.name || 'Sistem'}</span>
+              <span>Oleh: {item.submitter?.name || item.created_by || 'Sistem'}</span>
               <span>Divisi: {item.divisi || '-'}</span>
             </div>
           </div>

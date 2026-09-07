@@ -77,20 +77,34 @@ describe('ALAS Local Write Workflow', () => {
     expect(db.insert).toHaveBeenCalledTimes(2)
   })
 
-  it('Skenario 2 & 5: Approval Queue and Approve Action', async () => {
+  it('Skenario 2 & 5: Approval Queue and Approve Action (Lawet Hub Centralized)', async () => {
+    const fetchSpy = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [{ id: '1', judul: 'Rapat Koordinasi Bawaslu' }],
+    })
+    vi.stubGlobal('fetch', fetchSpy)
+    vi.stubEnv('LAWET_API_URL', 'http://127.0.0.1:2002')
+
     const { approveJurnalAction, getApprovalQueueAction } = await import('@/entities/jurnal/api/approve-jurnal.action')
     
-    // Fetch Queue
+    // Fetch Queue dari Lawet Hub
     const queueRes = await getApprovalQueueAction()
     expect(queueRes.success).toBe(true)
-    expect(db.select).toHaveBeenCalled()
+    expect(fetchSpy).toHaveBeenCalledWith(
+      'http://127.0.0.1:2002/api/v1/jurnal-alas/approval-queue',
+      expect.any(Object)
+    )
 
-    // Approve Action
+    // Approve Action ke Lawet Hub
+    fetchSpy.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ status: 'ok' }),
+    })
     const approveRes = await approveJurnalAction('1')
     expect(approveRes.success).toBe(true)
-    
-    // Updates local DB and inserts into outbox
-    expect(db.update).toHaveBeenCalled()
-    expect(db.insert).toHaveBeenCalled()
+    expect(fetchSpy).toHaveBeenCalledWith(
+      'http://127.0.0.1:2002/api/v1/jurnal-alas/1/approve',
+      expect.any(Object)
+    )
   })
 })

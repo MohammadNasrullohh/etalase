@@ -18,9 +18,9 @@ describe('Lawet dashboard security boundary', () => {
     vi.stubEnv('LAWET_API_URL', 'http://lawet.internal')
   })
 
-  it('identifies ALAS when requesting a Lawet access token', async () => {
+  it('authenticates with Lawet Hub without read-only restrictions (ADR-0005)', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({
-      access_token: 'read-token',
+      access_token: 'auth-token',
       user: { id: 'user-1' },
     }), { status: 200, headers: { 'Content-Type': 'application/json' } }))
     vi.stubGlobal('fetch', fetchMock)
@@ -31,7 +31,7 @@ describe('Lawet dashboard security boundary', () => {
     expect(fetchMock).toHaveBeenCalledWith(
       'http://lawet.internal/api/v1/auth/login',
       expect.objectContaining({
-        headers: expect.objectContaining({ 'X-Lawet-Client': 'alas-dashboard' }),
+        headers: expect.objectContaining({ 'Content-Type': 'application/json' }),
       }),
     )
   })

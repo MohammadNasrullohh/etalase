@@ -25,7 +25,11 @@ type JurnalDetail = {
 }
 
 function formatDate(value: string) {
-  return new Intl.DateTimeFormat('id-ID', { dateStyle: 'full' }).format(new Date(`${value}T00:00:00`))
+  if (!value) return '—'
+  const isoDate = value.includes('T') ? value : `${value}T00:00:00`
+  const date = new Date(isoDate)
+  if (Number.isNaN(date.getTime())) return value
+  return new Intl.DateTimeFormat('id-ID', { dateStyle: 'full' }).format(date)
 }
 
 export default async function ApprovalDetailPage({ params }: { params: { id: string } }) {

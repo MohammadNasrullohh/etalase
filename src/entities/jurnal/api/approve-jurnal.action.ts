@@ -1,16 +1,41 @@
 'use server'
 
 import { cookies } from 'next/headers'
-import { db } from '@/shared/lib/db'
-import { jurnal, alasOutbox } from '../../../../drizzle/schema'
-import { eq, or } from 'drizzle-orm'
+
+const LAWET_API_URL = process.env.LAWET_API_URL as string
+
+async function fetchWithToken(endpoint: string, options: RequestInit = {}) {
+  const token = cookies().get('lawet_token')?.value
+  if (!token) throw new Error('Unauthorized')
+
+  if (!LAWET_API_URL) throw new Error('LAWET_API_URL belum dikonfigurasi')
+
+  const res = await fetch(`${LAWET_API_URL}${endpoint}`, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+      ...options.headers,
+    },
+    cache: 'no-store',
+  })
+
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}))
+    let msg = 'Request failed'
+    if (data?.detail) {
+      if (typeof data.detail === 'string') msg = data.detail
+      else if (Array.isArray(data.detail)) msg = data.detail.map((d: any) => d.msg).join(', ')
+    }
+    throw new Error(msg)
+  }
+
+  return res.json()
+}
 
 export async function getApprovalQueueAction() {
-  const token = cookies().get('lawet_token')?.value
-  if (!token) return { success: false, error: 'Unauthorized' }
-
   try {
-    const data = await db.select().from(jurnal).where(or(eq(jurnal.workflow_status, 'submitted'), eq(jurnal.workflow_status, 'revision_required')))
+    const data = await fetchWithToken('/api/v1/jurnal-alas/approval-queue')
     return { success: true, data }
   } catch (error: any) {
     return { success: false, error: error.message }
@@ -18,66 +43,32 @@ export async function getApprovalQueueAction() {
 }
 
 export async function getApprovalJurnalAction(id: string) {
-  const token = cookies().get('lawet_token')?.value
-  if (!token) return { success: false, error: 'Unauthorized' }
-
   try {
-    const data = await db.select().from(jurnal).where(eq(jurnal.id, id as any)).limit(1)
-    if (!data.length) return { success: false, error: 'Jurnal tidak ditemukan' }
-    return { success: true, data: data[0] }
+    const data = await fetchWithToken(`/api/v1/jurnal-alas/approval-queue/${encodeURIComponent(id)}`)
+    return { success: true, data }
   } catch (error: any) {
     return { success: false, error: error.message }
   }
 }
 
 export async function approveJurnalAction(id: string) {
-  const token = cookies().get('lawet_token')?.value
-  if (!token) return { success: false, error: 'Unauthorized' }
-
   try {
-    const data = await db.update(jurnal).set({
-      workflow_status: 'approved',
-      is_published: true,
-      updated_at: new Date()
-    }).where(eq(jurnal.id, id as any)).returning()
-
-    if (!data.length) return { success: false, error: 'Jurnal tidak ditemukan' }
-
-    await db.insert(alasOutbox).values({
-      source_id: data[0].source_id,
-      operation: 'UPDATE_JURNAL_STATUS',
-      payload: { status: 'approved' },
-      status: 'pending'
+    const data = await fetchWithToken(`/api/v1/jurnal-alas/${encodeURIComponent(id)}/approve`, {
+      method: 'POST',
     })
-
-    return { success: true, data: data[0] }
+    return { success: true, data }
   } catch (error: any) {
     return { success: false, error: error.message }
   }
 }
 
 export async function requestRevisionAction(id: string, notes: string) {
-  const token = cookies().get('lawet_token')?.value
-  if (!token) return { success: false, error: 'Unauthorized' }
-
   try {
-    const data = await db.update(jurnal).set({
-      workflow_status: 'revision_required',
-      workflow_notes: notes,
-      is_published: false,
-      updated_at: new Date()
-    }).where(eq(jurnal.id, id as any)).returning()
-
-    if (!data.length) return { success: false, error: 'Jurnal tidak ditemukan' }
-
-    await db.insert(alasOutbox).values({
-      source_id: data[0].source_id,
-      operation: 'UPDATE_JURNAL_STATUS',
-      payload: { status: 'revision_required', notes },
-      status: 'pending'
+    const data = await fetchWithToken(`/api/v1/jurnal-alas/${encodeURIComponent(id)}/reject`, {
+      method: 'POST',
+      body: JSON.stringify({ notes }),
     })
-
-    return { success: true, data: data[0] }
+    return { success: true, data }
   } catch (error: any) {
     return { success: false, error: error.message }
   }

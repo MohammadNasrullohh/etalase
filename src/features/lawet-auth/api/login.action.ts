@@ -10,7 +10,6 @@ export async function loginAction(username: string, pin: string) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Lawet-Client': 'alas-dashboard',
       },
       body: JSON.stringify({ username, pin }),
     })
