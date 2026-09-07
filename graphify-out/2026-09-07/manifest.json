@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "drizzle/schema.ts": {
-    "mtime": 1785981354.481548,
-    "ast_hash": "dd9d509c65aaa9374ac1af6d5d38aef4",
+    "mtime": 1785766516.0359964,
+    "ast_hash": "02b96394de115f2d2dacfebe286ac120",
     "semantic_hash": ""
   },
   "next.config.mjs": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1786005127.2793672,
-    "ast_hash": "83c29a176dba10fd1a3ba49d3dbf02e9",
+    "mtime": 1785814484.6398187,
+    "ast_hash": "939d149a8517561c3209c4b41cee65cf",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -125,13 +125,13 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/ui/jurnal-card.tsx": {
-    "mtime": 1788784163.9915867,
-    "ast_hash": "8ff9961b164a17c5e8c5c834de06cae6",
+    "mtime": 1785814581.7446096,
+    "ast_hash": "78f1361a653ac053eae3bae059a42844",
     "semantic_hash": ""
   },
   "src/entities/jurnal/ui/jurnal-detail-modal.client.tsx": {
-    "mtime": 1788784174.3390915,
-    "ast_hash": "7b4515dbbb23f31ab5fda0fc426ba50c",
+    "mtime": 1785814581.7486079,
+    "ast_hash": "cba8705cfe375b3a7d7bc930d508c570",
     "semantic_hash": ""
   },
   "src/entities/pimpinan/api/get-pimpinan-detail.ts": {
@@ -150,13 +150,13 @@
     "semantic_hash": ""
   },
   "src/features/jurnal-filter/ui/kategori-dropdown.client.tsx": {
-    "mtime": 1788784184.087382,
-    "ast_hash": "505b4cadfe6f94ebbfd0571752e07d2a",
+    "mtime": 1785814581.7501118,
+    "ast_hash": "6952d905854bef28d43693098d6e3374",
     "semantic_hash": ""
   },
   "src/features/jurnal-filter/ui/search-bar.client.tsx": {
-    "mtime": 1788784179.1972432,
-    "ast_hash": "408611397b3a90fee13a4716385bf467",
+    "mtime": 1785814581.7501118,
+    "ast_hash": "a1e1200b01fbaa5753448c4810a94b15",
     "semantic_hash": ""
   },
   "src/features/jurnal-sync/lib/upsert-jurnal.ts": {
@@ -180,23 +180,23 @@
     "semantic_hash": ""
   },
   "src/views/landing/index.tsx": {
-    "mtime": 1788784216.2887623,
-    "ast_hash": "49e3c8dd22e89d24a348e35cb65e1673",
+    "mtime": 1785814711.7148137,
+    "ast_hash": "9a42b151c69c849c97372f434fbbbf8c",
     "semantic_hash": ""
   },
   "src/widgets/calendar-widget/ui/index.tsx": {
-    "mtime": 1788784147.9920642,
-    "ast_hash": "ef2ed9c28d0d02a127c0977191d91c7a",
+    "mtime": 1785814821.647233,
+    "ast_hash": "38fee03c29ee962fc14134897224b719",
     "semantic_hash": ""
   },
   "src/widgets/jurnal-list/ui/index.tsx": {
-    "mtime": 1786084539.9608274,
-    "ast_hash": "1c143781e5482065197382883101d4b5",
+    "mtime": 1785814670.7860231,
+    "ast_hash": "decd5666a3905522a5cbf4f194117974",
     "semantic_hash": ""
   },
   "tailwind.config.ts": {
-    "mtime": 1788783614.73767,
-    "ast_hash": "1c3d611800c81ecd9a259115aecf4a32",
+    "mtime": 1782910178.8256066,
+    "ast_hash": "8b2b0e035ce47c1508784017a7e1ad18",
     "semantic_hash": ""
   },
   "tests/JurnalCard.test.tsx": {
@@ -315,18 +315,18 @@
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/bar-chart.tsx": {
-    "mtime": 1788784139.0448868,
-    "ast_hash": "c6596e0974b17b3ec0321dceafea908c",
+    "mtime": 1783153034.8328285,
+    "ast_hash": "03de4f9cab6d9adc7abf7697c06c0d64",
     "semantic_hash": ""
   },
   "src/widgets/stats-section/ui/index.tsx": {
-    "mtime": 1788784131.7540014,
-    "ast_hash": "14a02acec1f9f113a72ed794e454f543",
+    "mtime": 1785814581.7546313,
+    "ast_hash": "d9781e07a53a3a0bdabee2d93bac9400",
     "semantic_hash": ""
   },
   "src/widgets/documentation-panel/ui/index.tsx": {
-    "mtime": 1788784156.953733,
-    "ast_hash": "381e7da1cc9cddf5dc9875a2c90f698e",
+    "mtime": 1785814711.7158124,
+    "ast_hash": "45a4441205006eab0045c52be743617d",
     "semantic_hash": ""
   },
   "drizzle/migrations/0001_boring_frog_thor.sql": {
@@ -345,8 +345,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/colors.ts": {
-    "mtime": 1786076034.3418596,
-    "ast_hash": "b638391f4f07dd858446090345dcbc42",
+    "mtime": 1785814581.7476096,
+    "ast_hash": "c9b10619970398cf68910ad75a4f2666",
     "semantic_hash": ""
   },
   "src/views/landing/hero-text-reveal.client.tsx": {
@@ -375,13 +375,13 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/approve-jurnal.action.ts": {
-    "mtime": 1785981654.1924107,
-    "ast_hash": "20fdfa8f2030349315eb4765b31a4d82",
+    "mtime": 1785814581.740095,
+    "ast_hash": "98e557aff5f468c6d29882f8c9a6c2db",
     "semantic_hash": ""
   },
   "src/features/jurnal-approval/ui/approval-queue.client.tsx": {
-    "mtime": 1788783963.408002,
-    "ast_hash": "5c7fe5a9eb705b2f2e180e84553e3102",
+    "mtime": 1785811710.7144654,
+    "ast_hash": "0bb4aa195ce87615c87468bbfce23790",
     "semantic_hash": ""
   },
   "src/features/lawet-auth/api/login.action.ts": {
@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "src/features/lawet-auth/ui/login-form.client.tsx": {
-    "mtime": 1788783814.3034756,
-    "ast_hash": "b97890007c1c82edf1743accb72d900a",
+    "mtime": 1785948981.3384433,
+    "ast_hash": "3d0cac1428688e478614bfd45ec54959",
     "semantic_hash": ""
   },
   "src/features/service-auth/lib/verify-token.ts": {
@@ -400,13 +400,13 @@
     "semantic_hash": ""
   },
   "src/views/approval/ui/index.tsx": {
-    "mtime": 1788783932.096088,
-    "ast_hash": "5ee4d5252c6ec5575a9abdb321f68f99",
+    "mtime": 1785285761.9227414,
+    "ast_hash": "6ad9f778058d872cbab3dab07e2fe6bf",
     "semantic_hash": ""
   },
   "src/views/login/ui/index.tsx": {
-    "mtime": 1788783791.52834,
-    "ast_hash": "87751efe06f7793c297b0884bbf17cb7",
+    "mtime": 1785285750.11322,
+    "ast_hash": "f1a6f588a4642ad825db571614d26ae2",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -780,13 +780,13 @@
     "semantic_hash": ""
   },
   "src/app/(authoring)/authoring-shell.client.tsx": {
-    "mtime": 1788783642.6739564,
-    "ast_hash": "98f05cd3edea384b1eab400dd524149a",
+    "mtime": 1785814484.6433372,
+    "ast_hash": "75d34f42d95d7c0fa9955716a279cd0b",
     "semantic_hash": ""
   },
   "src/app/(authoring)/jurnal-saya/page.tsx": {
-    "mtime": 1788783710.039451,
-    "ast_hash": "55817a41727b7232fb033f5215403fd7",
+    "mtime": 1785978305.2301874,
+    "ast_hash": "92ce6615c550d690349baf69c031953d",
     "semantic_hash": ""
   },
   "src/app/(authoring)/layout.tsx": {
@@ -800,8 +800,8 @@
     "semantic_hash": ""
   },
   "src/app/(authoring)/sidebar.client.tsx": {
-    "mtime": 1788783691.5821154,
-    "ast_hash": "6fe559656817592a04f4a216799fa761",
+    "mtime": 1785285750.11322,
+    "ast_hash": "f5ef2b2ecf7d4c967f3cf2a2874fed06",
     "semantic_hash": ""
   },
   "src/app/api/v1/jurnal-alas/media/[...path]/route.ts": {
@@ -820,8 +820,8 @@
     "semantic_hash": ""
   },
   "src/features/jurnal-saya/ui/my-jurnal-card.client.tsx": {
-    "mtime": 1788783733.502449,
-    "ast_hash": "0c2b6e28d9c126b06157349567ac5a04",
+    "mtime": 1785811536.6553826,
+    "ast_hash": "e8e26b74d5df4da4197d14e70cf56dbd",
     "semantic_hash": ""
   },
   ".agents/README.md": {
@@ -1220,8 +1220,8 @@
     "semantic_hash": ""
   },
   "src/app/admin/hero-settings.client.tsx": {
-    "mtime": 1788783886.8686056,
-    "ast_hash": "1a9cc0885027301f0562411746fea82f",
+    "mtime": 1785292358.2193584,
+    "ast_hash": "6565f1a59e7de48c330197d6623302ae",
     "semantic_hash": ""
   },
   "src/app/api/admin/hero/route.ts": {
@@ -1260,18 +1260,18 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1788783849.4742174,
-    "ast_hash": "0c34220f433a741159cd461681dd0015",
+    "mtime": 1785978703.3411014,
+    "ast_hash": "4098493f024eeb9190976020e82e84c0",
     "semantic_hash": ""
   },
   "src/app/(authoring)/approval/[id]/page.tsx": {
-    "mtime": 1788784289.7618659,
-    "ast_hash": "c83a16ba0e15d0ae0552598ef5ceb43e",
+    "mtime": 1785811920.8385503,
+    "ast_hash": "58d00a8a7b50e9ae052ccf09bf6b6392",
     "semantic_hash": ""
   },
   "src/features/jurnal-approval/ui/jurnal-progress-tracker.tsx": {
-    "mtime": 1788784002.5833,
-    "ast_hash": "87a34caf1a590126f1fb834891863179",
+    "mtime": 1785814581.7446096,
+    "ast_hash": "b12b9f38821f565ba32d86a143f347df",
     "semantic_hash": ""
   },
   "drizzle/migrations/0005_hero_title_settings.sql": {
@@ -1325,8 +1325,8 @@
     "semantic_hash": ""
   },
   "src/app/admin/hero-subtitle-settings.client.tsx": {
-    "mtime": 1788783864.1213696,
-    "ast_hash": "cf86211b9c9cf8a7816604a8eb8f7c0a",
+    "mtime": 1785292309.4960663,
+    "ast_hash": "c562a9875c29579766aa61543228a149",
     "semantic_hash": ""
   },
   "tests/jurnal-progress-tracker.test.tsx": {
@@ -1365,8 +1365,8 @@
     "semantic_hash": ""
   },
   "src/app/lawet/page.tsx": {
-    "mtime": 1788784191.011773,
-    "ast_hash": "0a18fcb059627605118bfeffc303f119",
+    "mtime": 1785811433.9881508,
+    "ast_hash": "2bb4c586927e294fa4141c165f940a89",
     "semantic_hash": ""
   },
   "tests/lawet_dashboard_boundary.test.ts": {
@@ -1385,8 +1385,8 @@
     "semantic_hash": ""
   },
   "src/features/lawet-auth/ui/auth-button.client.tsx": {
-    "mtime": 1788783830.9819405,
-    "ast_hash": "39059ba91f6559b91478c2ed7f226d05",
+    "mtime": 1785948985.4010835,
+    "ast_hash": "4bbad7f190b5cde5e412858c71bda5c8",
     "semantic_hash": ""
   },
   ".github/workflows/quality.yml": {
@@ -1440,8 +1440,8 @@
     "semantic_hash": ""
   },
   "src/features/jurnal-saya/ui/journal-report-download.client.tsx": {
-    "mtime": 1788783751.66504,
-    "ast_hash": "a5cf9c95187149dc7ac25bd8df537ea8",
+    "mtime": 1785811502.2394955,
+    "ast_hash": "8d676c0b2186877369459058cdcf86fe",
     "semantic_hash": ""
   },
   "tests/jurnal_report.test.ts": {
@@ -1470,8 +1470,8 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/submit-jurnal.action.ts": {
-    "mtime": 1785981685.6440997,
-    "ast_hash": "2bd8910227fea7c272dddd16b257dbee",
+    "mtime": 1785978422.349289,
+    "ast_hash": "94c0f03746bda67a6c8bf79e89e3d50f",
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/upload-media.action.ts": {
@@ -1480,138 +1480,33 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/model/submission-schema.ts": {
-    "mtime": 1785981859.519607,
-    "ast_hash": "6edf226e2e756c6cd6543c5761387a15",
+    "mtime": 1785978284.4695034,
+    "ast_hash": "3074af8b9e0e2289325166e0c7a59330",
     "semantic_hash": ""
   },
   "src/features/jurnal-submission/ui/components/dokumen-uploader.client.tsx": {
-    "mtime": 1788784091.2386358,
-    "ast_hash": "8df9376da09d0114390900fd9ced1712",
+    "mtime": 1785978284.4702961,
+    "ast_hash": "8c66a62192a0d912f09c4ff0200b4aa7",
     "semantic_hash": ""
   },
   "src/features/jurnal-submission/ui/components/dynamic-lists.client.tsx": {
-    "mtime": 1788784098.786986,
-    "ast_hash": "d740c4cdc7fe312a82207a5725b74213",
+    "mtime": 1785978284.4708197,
+    "ast_hash": "4155d4b376306712802349319ee4faa9",
     "semantic_hash": ""
   },
   "src/features/jurnal-submission/ui/components/foto-uploader.client.tsx": {
-    "mtime": 1788784061.126276,
-    "ast_hash": "3dad87aa281da27f3cf4331caa47084f",
+    "mtime": 1785978284.4713416,
+    "ast_hash": "dfb8b062c3a5454886a4a01446fadf83",
     "semantic_hash": ""
   },
   "src/features/jurnal-submission/ui/jurnal-submit-form.client.tsx": {
-    "mtime": 1788784050.5534258,
-    "ast_hash": "940e4373af95dcd17188736584647ed1",
+    "mtime": 1785978284.4718683,
+    "ast_hash": "60a87fc1f96e6f61c18d36bb743b887b",
     "semantic_hash": ""
   },
   "tests/submit_jurnal.test.ts": {
-    "mtime": 1785982023.2996528,
-    "ast_hash": "02476ed0988942349be0e1003030a657",
-    "semantic_hash": ""
-  },
-  "playwright.config.ts": {
-    "mtime": 1786068671.364497,
-    "ast_hash": "bacade47b5b05148979e29bea0702f19",
-    "semantic_hash": ""
-  },
-  "src/app/api/mock/api/v1/auth/me/route.ts": {
-    "mtime": 1786068669.3351347,
-    "ast_hash": "04a7782835cbccd9f9faf3f262ecb5d9",
-    "semantic_hash": ""
-  },
-  "src/entities/jurnal/api/resubmit-jurnal.action.ts": {
-    "mtime": 1786005114.614075,
-    "ast_hash": "b8777c1b33afe0dfa8474ed1cc4ed84a",
-    "semantic_hash": ""
-  },
-  "src/features/jurnal-approval/ui/approval-actions.client.tsx": {
-    "mtime": 1788784016.126154,
-    "ast_hash": "ba7ea2e5d9939c94e556a4e1aa47b6d3",
-    "semantic_hash": ""
-  },
-  "test-results/.last-run.json": {
-    "mtime": 1786069809.2944102,
-    "ast_hash": "f196824657d8858bc7fa44eecbba38b1",
-    "semantic_hash": ""
-  },
-  "tests/alas_local_workflow.test.ts": {
-    "mtime": 1785981692.7139616,
-    "ast_hash": "7dd6a0cdb20689de5ae56b82a6016de3",
-    "semantic_hash": ""
-  },
-  "tests/e2e/workflow-jurnal.spec.ts": {
-    "mtime": 1786068712.7543209,
-    "ast_hash": "dcd61948310d5e2b8b61f7a410f3bc99",
-    "semantic_hash": ""
-  },
-  "tests/workflow_jurnal_lifecycle.test.ts": {
-    "mtime": 1786005214.7875903,
-    "ast_hash": "9fbce77d23344f86e7086ae51ddf4026",
-    "semantic_hash": ""
-  },
-  ".playwright-mcp/page-2026-08-07T04-11-03-369Z.yml": {
-    "mtime": 1786075863.3704064,
-    "ast_hash": "d8944b8544cfd4d7e3da464ba323ae97",
-    "semantic_hash": ""
-  },
-  ".playwright-mcp/page-2026-08-07T04-14-04-001Z.yml": {
-    "mtime": 1786076044.001822,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  ".playwright-mcp/page-2026-08-07T04-14-12-328Z.yml": {
-    "mtime": 1786076052.3303134,
-    "ast_hash": "e08b90f5df0142c8b68a0c4a33aeeea0",
-    "semantic_hash": ""
-  },
-  ".playwright-mcp/page-2026-08-07T06-30-05-918Z.yml": {
-    "mtime": 1786084205.91931,
-    "ast_hash": "9af25bf1f60246e9dc8db6ef6ae22705",
-    "semantic_hash": ""
-  },
-  ".playwright-mcp/page-2026-08-07T06-30-50-992Z.yml": {
-    "mtime": 1786084250.9942336,
-    "ast_hash": "1d6638ed4c7408c354502e0c88fde831",
-    "semantic_hash": ""
-  },
-  "docs/adr/0004-alas-local-write-workflow.md": {
-    "mtime": 1785981141.0841286,
-    "ast_hash": "9b483f98870f8efbd99ce50627c7aa36",
-    "semantic_hash": ""
-  },
-  "playwright-report/index.html": {
-    "mtime": 1786069809.293411,
-    "ast_hash": "8d63ed47ca6d9eab4cab484a659ab6dc",
-    "semantic_hash": ""
-  },
-  "contrast_audit_final.png": {
-    "mtime": 1786084255.521247,
-    "ast_hash": "dcb060f3d58fd03a87a48bbefa782b38",
-    "semantic_hash": ""
-  },
-  "contrast_check_section_arsip.png": {
-    "mtime": 1786084210.6855662,
-    "ast_hash": "cd4802ebdee8a35948a1ccc8ade7932e",
-    "semantic_hash": ""
-  },
-  "initial_state.png": {
-    "mtime": 1786075867.0437882,
-    "ast_hash": "c3f70994ddf04fda3de6129d32a2b462",
-    "semantic_hash": ""
-  },
-  "updated_design_hero.png": {
-    "mtime": 1786076053.9122927,
-    "ast_hash": "d48625f4d30c04d1abe016693149f5cf",
-    "semantic_hash": ""
-  },
-  "updated_design_section_arsip.png": {
-    "mtime": 1786076060.1963706,
-    "ast_hash": "f68bb31799a7985e645b468cb5eb0d29",
-    "semantic_hash": ""
-  },
-  "updated_design_section_stats.png": {
-    "mtime": 1786076064.5436127,
-    "ast_hash": "4a3b7ab65dc12e613ec875d4d7731d3b",
+    "mtime": 1785978545.4619675,
+    "ast_hash": "8a02e951e2b1cb684bced32b6de907cd",
     "semantic_hash": ""
   }
 }

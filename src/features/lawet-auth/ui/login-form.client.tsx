@@ -81,9 +81,9 @@ export function LoginForm() {
   }
 
   return (
-    <div className="relative w-full max-w-sm mx-auto glass-surface rounded-2xl p-8 border border-white/10 z-10">
+    <div className="relative w-full max-w-sm mx-auto glass-surface rounded-2xl p-8 border border-[var(--glass-border-default)] shadow-xl z-10">
       {errorMsg && (
-        <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-xs font-mono text-center">
+        <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-700 text-xs font-mono text-center">
           {errorMsg}
         </div>
       )}
@@ -91,21 +91,21 @@ export function LoginForm() {
       {step === 1 ? (
         <div className="animate-in fade-in zoom-in duration-300">
           <div className="text-center mb-8">
-            <h3 className="text-xl font-bold text-white tracking-widest font-mono mb-2">OTORISASI</h3>
-            <p className="text-sm text-gray-400">Sistem Pengajuan & Approval {siteTitle}</p>
+            <h3 className="text-xl font-bold text-[var(--color-text-primary)] tracking-widest font-mono mb-2">OTORISASI</h3>
+            <p className="text-sm text-[var(--color-text-muted)]">Sistem Pengajuan & Approval {siteTitle}</p>
           </div>
 
           <form onSubmit={handleNext} className="space-y-6">
             <div>
-              <label htmlFor="login-username" className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 font-mono">
+              <label htmlFor="login-username" className="block text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-2 font-mono">
                 ID PENGGUNA
               </label>
               <div className="relative">
-                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-500" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[var(--color-text-muted)]" />
                 <input
                   id="login-username"
                   type="text"
-                  className="w-full bg-black/50 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-[var(--color-ember-bright)] transition-colors"
+                  className="w-full bg-[var(--color-surface-overlay)] border border-[var(--glass-border-default)] rounded-xl py-3 pl-11 pr-4 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-[var(--color-accent)] transition-colors shadow-sm"
                   placeholder="Masukkan username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -117,7 +117,7 @@ export function LoginForm() {
 
             <button
               type="submit"
-              className="w-full bg-[var(--color-ember-bright)] text-black font-bold py-3 px-4 rounded-xl hover:bg-white active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer font-mono text-xs uppercase tracking-wider"
+              className="w-full bg-[var(--color-accent)] text-[var(--color-text-on-accent)] font-bold py-3 px-4 rounded-xl hover:bg-[var(--color-accent-hover)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer font-mono text-xs uppercase tracking-wider shadow-sm"
             >
               Lanjutkan <ChevronRight className="w-4 h-4" />
             </button>
@@ -132,28 +132,28 @@ export function LoginForm() {
                 setPin('')
                 setErrorMsg('')
               }}
-              className="text-xs font-mono font-bold text-gray-400 hover:text-white py-1 px-2 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="text-xs font-mono font-bold text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] py-1 px-2 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> KEMBALI
             </button>
-            <span className="text-[10px] font-mono text-[var(--color-ember-bright)] bg-[var(--color-ember-bright)]/10 py-1 px-2.5 rounded-full flex items-center gap-1.5">
+            <span className="text-[10px] font-mono text-[var(--color-accent-active-text)] bg-[var(--color-accent)]/20 py-1 px-2.5 rounded-full flex items-center gap-1.5 border border-[var(--color-accent)]/30">
               <User className="w-3.5 h-3.5" />
               <span>{username}</span>
             </span>
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-white tracking-widest font-mono mb-2">PIN AKSES</h3>
-            <p className="text-sm text-gray-400">Masukkan 4 digit PIN keamanan</p>
+            <h3 className="text-xl font-bold text-[var(--color-text-primary)] tracking-widest font-mono mb-2">PIN AKSES</h3>
+            <p className="text-sm text-[var(--color-text-muted)]">Masukkan 4 digit PIN keamanan</p>
           </div>
 
-          <div className="flex justify-center gap-4 my-4 py-4 px-6 bg-black/30 rounded-2xl border border-white/5">
+          <div className="flex justify-center gap-4 my-4 py-4 px-6 bg-[var(--color-canvas)] rounded-2xl border border-[var(--glass-border-subtle)]">
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={i}
                 className={`w-3.5 h-3.5 rounded-full transition-all duration-300 ${pin.length > i
-                  ? 'bg-[var(--color-ember-bright)] shadow-[0_0_10px_var(--color-ember-bright)] scale-110'
-                  : 'bg-gray-800'
+                  ? 'bg-[var(--color-accent)] shadow-[0_0_8px_var(--color-accent)] scale-110'
+                  : 'bg-[var(--color-canvas-raised)] border border-[var(--glass-border-default)]'
                   }`}
               />
             ))}
@@ -166,7 +166,7 @@ export function LoginForm() {
                 type="button"
                 onClick={() => handleNumber(String(num))}
                 disabled={isLoading}
-                className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--color-ember-bright)]/50 active:scale-95 disabled:opacity-40 transition-all cursor-pointer font-mono"
+                className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-[var(--color-text-primary)] bg-[var(--color-surface-overlay)] border border-[var(--glass-border-default)] hover:bg-[var(--color-surface-raised)] hover:border-[var(--color-accent)] active:scale-95 disabled:opacity-40 transition-all cursor-pointer font-mono shadow-sm"
               >
                 {num}
               </button>
@@ -176,7 +176,7 @@ export function LoginForm() {
               type="button"
               onClick={() => handleNumber('0')}
               disabled={isLoading}
-              className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--color-ember-bright)]/50 active:scale-95 disabled:opacity-40 transition-all cursor-pointer font-mono"
+              className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-[var(--color-text-primary)] bg-[var(--color-surface-overlay)] border border-[var(--glass-border-default)] hover:bg-[var(--color-surface-raised)] hover:border-[var(--color-accent)] active:scale-95 disabled:opacity-40 transition-all cursor-pointer font-mono shadow-sm"
             >
               0
             </button>
@@ -184,14 +184,14 @@ export function LoginForm() {
               type="button"
               onClick={handleBackspace}
               disabled={isLoading || pin.length === 0}
-              className="w-14 h-14 rounded-full flex items-center justify-center text-gray-400 hover:text-white active:scale-90 disabled:opacity-40 transition-all cursor-pointer"
+              className="w-14 h-14 rounded-full flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] active:scale-90 disabled:opacity-40 transition-all cursor-pointer"
             >
               <Delete className="w-5.5 h-5.5" />
             </button>
           </div>
 
           {isLoading && (
-            <div className="mt-6 text-xs font-mono text-[var(--color-ember-bright)] animate-pulse uppercase tracking-widest">
+            <div className="mt-6 text-xs font-mono text-[var(--color-category-amber-text)] font-semibold animate-pulse uppercase tracking-widest">
               Memverifikasi...
             </div>
           )}

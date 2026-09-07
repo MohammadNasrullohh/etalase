@@ -61,7 +61,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('class', 'grid-line')
         .attr('x1', 0).attr('x2', innerW)
         .attr('y1', d => yScale(d)).attr('y2', d => yScale(d))
-        .attr('stroke', '#E4DDD0')
+        .attr('stroke', 'var(--color-border-subtle)')
         .attr('stroke-dasharray', '4 4')
 
       // Y axis
@@ -74,7 +74,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         )
         .call(ax => ax.select('.domain').remove())
         .selectAll('text')
-        .attr('fill', '#7E7365')
+        .attr('fill', 'var(--color-text-muted)')
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
 
@@ -113,8 +113,8 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
           .style('top', `${event.offsetY - 36}px`)
           .html(
             `<span style="color:${getCategoryColor(d.kategori)};font-weight:700">${getCategoryLabel(d.kategori)}</span>` +
-            `<br/><span style="font-size:1.1em;font-weight:700;color:#211E1B">${d.total}</span> kegiatan` +
-            `<br/><span style="color:#7E7365">${pct}% dari total</span>`
+            `<br/><span style="font-size:1.1em;font-weight:700;color:var(--color-text-primary)">${d.total}</span> kegiatan` +
+            `<br/><span style="color:var(--color-text-muted)">${pct}% dari total</span>`
           )
         d3.select(this).attr('opacity', 1)
       })
@@ -132,7 +132,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
         .attr('x', d => (xScale(d.kategori) ?? 0) + xScale.bandwidth() / 2)
         .attr('y', d => yScale(d.total) - 6)
         .attr('text-anchor', 'middle')
-        .attr('fill', '#211E1B')
+        .attr('fill', 'var(--color-text-primary)')
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
         .attr('font-weight', '700')
@@ -146,9 +146,9 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
       g.append('g')
         .attr('transform', `translate(0,${innerH})`)
         .call(d3.axisBottom(xScale).tickSize(0))
-        .call(ax => ax.select('.domain').attr('stroke', '#E4DDD0'))
+        .call(ax => ax.select('.domain').attr('stroke', 'var(--color-border-subtle)'))
         .selectAll('text')
-        .attr('fill', '#595045')
+        .attr('fill', 'var(--color-text-secondary)')
         .attr('font-size', '11px')
         .attr('font-family', 'monospace')
         .attr('dy', '1.4em')
@@ -161,14 +161,7 @@ const BarChartInner: React.FC<BarChartProps> = ({ data, isVisible }) => {
       <svg ref={svgRef} className="w-full h-full" />
       <div
         ref={tooltipRef}
-        className="absolute hidden pointer-events-none z-50 px-3 py-2 rounded-xl text-xs text-[#211E1B] leading-relaxed"
-        style={{
-          background: '#FAF7F0',
-          border: '1px solid #E4DDD0',
-          boxShadow: '0 4px 16px rgba(90, 75, 55, 0.12)',
-          fontFamily: 'monospace',
-          whiteSpace: 'nowrap',
-        }}
+        className="absolute hidden pointer-events-none z-50 px-3 py-2 rounded-xl text-xs text-[var(--color-text-primary)] leading-relaxed bg-[var(--color-surface)] border border-[var(--color-border-subtle)] shadow-lg font-mono whitespace-nowrap"
       />
     </div>
   )

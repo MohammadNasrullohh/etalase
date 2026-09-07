@@ -75,10 +75,9 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
       {/* Panel header */}
       <div className="flex items-center gap-2 mb-4">
         <div
-          className="w-1.5 h-4 rounded-full"
-          style={{ background: '#F5B748' }}
+          className="w-1.5 h-4 rounded-full bg-[var(--color-accent-focus)]"
         />
-        <h3 className="text-xs font-serif font-bold uppercase tracking-wider text-[#7E7365]">
+        <h3 className="text-xs font-serif font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
           Dokumentasi Kegiatan
         </h3>
       </div>
@@ -100,13 +99,9 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
         </div>
       ) : displayPhotos.length === 0 ? (
         <div
-          className="py-6 text-center rounded-xl"
-          style={{
-            background: '#FAF7F0',
-            border: '1px dashed #D6CBB5',
-          }}
+          className="py-6 text-center rounded-xl bg-[var(--color-surface)] border border-dashed border-[var(--color-border-subtle)]"
         >
-          <p className="text-xs font-mono text-[#7E7365]">
+          <p className="text-xs font-mono text-[var(--color-text-muted)]">
             Tidak ada dokumentasi pada tanggal ini
           </p>
         </div>
@@ -121,7 +116,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
             return (
               <div
                 key={photo.url}
-                className="group relative flex flex-col items-center cursor-pointer animate-slide-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B748] rounded-xl"
+                className="group relative flex flex-col items-center cursor-pointer animate-slide-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-focus)] rounded-xl"
                 style={{ animationDelay: delayMs }}
                 onClick={() => setSelectedPhoto(photo)}
                 tabIndex={0}
@@ -155,11 +150,11 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
                 </div>
 
                 {/* Caption tooltip */}
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 text-center whitespace-nowrap z-10 pointer-events-none bg-[#FAF7F0] border border-[#E4DDD0] p-1.5 rounded-lg shadow-md">
-                  <div className="font-bold text-xs text-[#211E1B] truncate max-w-[120px]">
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 text-center whitespace-nowrap z-10 pointer-events-none bg-[var(--color-surface)] border border-[var(--color-border-subtle)] p-1.5 rounded-lg shadow-md">
+                  <div className="font-bold text-xs text-[var(--color-text-primary)] truncate max-w-[120px]">
                     {photo.caption || 'Dokumentasi'}
                   </div>
-                  <div className="text-[9px] font-mono uppercase text-[#7E7365] truncate max-w-[120px]">
+                  <div className="text-[9px] font-mono uppercase text-[var(--color-text-muted)] truncate max-w-[120px]">
                     {photo.jurnalTitle}
                   </div>
                 </div>
@@ -175,7 +170,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
           className="fixed inset-0 z-[9999] flex items-center justify-center cursor-zoom-out animate-fade-in"
           onClick={() => setSelectedPhoto(null)}
           style={{
-            background: 'rgba(33, 30, 27, 0.75)',
+            background: 'rgba(28, 24, 21, 0.75)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             padding: '5vh 15vw',
@@ -188,7 +183,7 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
           >
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute flex items-center justify-center transition-all duration-200 w-8 h-8 rounded-full bg-[#FAF7F0] border border-[#E4DDD0] text-[#211E1B] hover:bg-[#F4F0E6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B748] z-10 cursor-pointer"
+              className="absolute flex items-center justify-center transition-all duration-200 w-8 h-8 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-focus)] z-10 cursor-pointer"
               style={{
                 top: '-14px',
                 right: '-14px',
@@ -212,11 +207,11 @@ export const DocumentationPanel: React.FC<DocumentationPanelProps> = ({ activeDa
               }}
             />
 
-            <div className="text-center px-5 py-2.5 rounded-2xl w-full bg-[#FAF7F0] border border-[#E4DDD0]">
-              <h4 className="text-[#211E1B] text-sm font-bold mb-0.5">
+            <div className="text-center px-5 py-2.5 rounded-2xl w-full bg-[var(--color-surface)] border border-[var(--color-border-subtle)]">
+              <h4 className="text-[var(--color-text-primary)] text-sm font-bold mb-0.5">
                 {selectedPhoto.caption || 'Dokumentasi Kegiatan'}
               </h4>
-              <p className="text-xs text-[#7E7365] font-mono">
+              <p className="text-xs text-[var(--color-text-muted)] font-mono">
                 {selectedPhoto.jurnalTitle}
               </p>
             </div>

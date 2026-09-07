@@ -35,18 +35,18 @@ export const KategoriDropdown: React.FC<KategoriDropdownProps> = ({ value, onCha
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="px-3 py-1.5 text-xs rounded-full bg-[#FAF7F0] text-[#211E1B] border border-[#E4DDD0] focus:outline-none focus:border-[#F5B748] cursor-pointer select-none transition-colors"
+      className="px-3 py-1.5 text-xs rounded-full bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] focus:outline-none focus:border-[var(--color-accent-focus)] cursor-pointer select-none transition-colors"
     >
-      <option value="" className="bg-[#FAF7F0] text-[#211E1B]">Semua Kategori</option>
+      <option value="" className="bg-[var(--color-surface)] text-[var(--color-text-primary)]">Semua Kategori</option>
       {filteredCategories.map((cat) => {
         const label = getCategoryLabel(cat)
         return (
-          <option key={cat} value={cat} className="bg-[#FAF7F0] text-[#211E1B]">
+          <option key={cat} value={cat} className="bg-[var(--color-surface)] text-[var(--color-text-primary)]">
             {label}
           </option>
         )
       })}
-      <option value="lainnya" className="bg-[#FAF7F0] text-[#211E1B]">Lainnya</option>
+      <option value="lainnya" className="bg-[var(--color-surface)] text-[var(--color-text-primary)]">Lainnya</option>
     </select>
   )
 }

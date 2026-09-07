@@ -147,9 +147,9 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                   gap: '10px',
                   padding: '14px 28px 16px',
                   borderRadius: '999px',
-                  background: '#FAF7F0',
-                  border: '1px solid #E4DDD0',
-                  boxShadow: '0 4px 16px rgba(90, 75, 55, 0.1)',
+                  background: 'var(--color-surface)',
+                  border: '1px solid var(--color-border-subtle)',
+                  boxShadow: 'var(--shadow-elevation-1)',
                   cursor: 'pointer',
                   outline: 'none',
                   userSelect: 'none',
@@ -162,7 +162,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                     letterSpacing: '0.38em',
                     fontFamily: 'IBM Plex Mono, monospace',
                     fontWeight: 500,
-                    color: '#211E1B',
+                    color: 'var(--color-text-primary)',
                   }}
                 >
                   SCROLL
@@ -176,7 +176,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 >
                   <path
                     d="M1 1l6 6 6-6"
-                    stroke="#211E1B"
+                    stroke="var(--color-text-primary)"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -212,7 +212,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 "
                 style={{
                   scrollbarWidth: 'thin',
-                  scrollbarColor: '#D6CBB5 transparent',
+                  scrollbarColor: 'var(--color-border-subtle) transparent',
                   opacity: isSection3Visible ? 1 : 0,
                   transform: isSection3Visible ? 'translateY(0)' : 'translateY(32px)',
                   transitionDelay: '0ms',
@@ -276,13 +276,11 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
           <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5 sm:gap-3 select-none flex-shrink-0">
               <div
-                className="flex items-center justify-center"
+                className="flex items-center justify-center bg-[var(--color-surface)] border border-[var(--color-border-subtle)]"
                 style={{
                   width: '32px',
                   height: '32px',
                   borderRadius: '8px',
-                  background: '#FAF7F0',
-                  border: '1px solid #E4DDD0',
                 }}
               >
                 <img
@@ -293,7 +291,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 />
               </div>
               <span
-                className="text-[#211E1B] font-serif font-bold text-sm sm:text-base"
+                className="text-[var(--color-text-primary)] font-serif font-bold text-sm sm:text-base"
                 style={{ letterSpacing: '0.05em' }}
               >
                 {heroTitle}
@@ -305,7 +303,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                 <SearchBar value={q} onChange={(val) => setFilter(val, kategori)} />
               </div>
               <KategoriDropdown value={kategori} onChange={(val) => setFilter(q, val)} />
-              <div className="ml-1 sm:ml-2 border-l border-[#E4DDD0] pl-2 sm:pl-3 flex items-center h-8">
+              <div className="ml-1 sm:ml-2 border-l border-[var(--color-border-subtle)] pl-2 sm:pl-3 flex items-center h-8">
                 <AuthButton />
               </div>
             </div>

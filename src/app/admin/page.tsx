@@ -15,7 +15,7 @@ export default async function AdminPage() {
       <div className="mx-auto max-w-4xl">
         <p className="text-sm text-[var(--color-accent-hover)]">Administrasi</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-[-0.025em]">Tampilan beranda</h1>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-white/65">
+        <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--color-text-muted)]">
           Kelola judul, subtitle, dan gambar utama yang dilihat publik. Setiap unggahan divalidasi, metadata dihapus, lalu disimpan sebagai WebP yang dioptimalkan.
         </p>
         <HeroSubtitleSettingsPanel initialSubtitle={hero.subtitle} />

@@ -201,9 +201,7 @@
   "199": "normalizeGitHubEvent",
   "200": "Arsitektur Pengujian",
   "201": "seed.ts",
-  "202": "workflow-jurnal.spec.ts",
   "203": "page.tsx",
   "204": "lawet_dashboard_boundary.test.ts",
-  "205": "production_compose_security.test.ts",
-  "206": "submit_jurnal.test.ts"
+  "205": "production_compose_security.test.ts"
 }

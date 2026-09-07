@@ -2,8 +2,10 @@
   /* Semantic color roles — Warm Vintage Bookish Cream Theme (High Contrast) */
   --color-canvas: #F4F0E6;
   --color-canvas-raised: #EFEAE0;
+  --color-base: #F4F0E6;
   --color-surface-raised: #FAF7F0;
   --color-surface-overlay: #FFFDF8;
+  --color-surface: #FAF7F0;
   --color-text-primary: #1C1815;       /* Dark warm espresso (High Contrast: 14:1) */
   --color-text-on-accent: #1C1815;
   --color-text-inverse-muted: #4A4237;  /* High contrast muted body text (7.5:1) */
@@ -13,6 +15,11 @@
   --color-accent-hover: #E5A838;
   --color-accent-focus: #D99B26;
   --color-accent-active-text: #1C1815;
+
+  /* Semantic Borders */
+  --color-border-subtle: #E4DDD0;
+  --color-border-default: #D6CBB5;
+  --color-border-strong: #C8BEAB;
 
   /* Category & Badge Accent Colors */
   --color-category-violet: #2D7A4D;     /* Warm leaf green */
@@ -191,8 +198,8 @@
 
 /* Card & photo styling */
 .jurnal-card-wrapper {
-  background: #FAF7F0;
-  border: 1px solid #E4DDD0;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--glass-border-subtle);
   box-shadow: 0 4px 16px rgba(90, 75, 55, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
   border-radius: var(--radius-lg);
   transition: background var(--anim-fast) var(--anim-ease), border-color var(--anim-fast) var(--anim-ease), transform var(--anim-fast) var(--anim-ease), box-shadow var(--anim-fast) var(--anim-ease);
@@ -200,16 +207,16 @@
 
 .jurnal-card-wrapper:hover,
 .jurnal-card-wrapper.is-active {
-  background: #FFFDF8;
-  border-color: #D6CBB5;
+  background: var(--color-surface-overlay);
+  border-color: var(--glass-border-default);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(80, 65, 45, 0.10);
 }
 
 .photo-card {
   transform: skewX(var(--card-skew));
-  background: #FAF7F0;
-  border: 1px solid #E4DDD0;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--glass-border-subtle);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   transition: transform var(--anim-fast) var(--anim-ease), border-color var(--anim-fast) var(--anim-ease), box-shadow var(--anim-fast) var(--anim-ease);
@@ -218,5 +225,5 @@
 .photo-card:hover {
   transform: skewX(var(--card-skew)) translateY(-6px) !important;
   box-shadow: 0 8px 24px rgba(90, 75, 55, 0.15) !important;
-  border-color: #D6CBB5 !important;
+  border-color: var(--glass-border-default) !important;
 }

@@ -16,13 +16,16 @@ export default function LawetRedirectPage({
   if (target) redirect(target)
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[var(--color-base)] px-6 text-white">
-      <div className="max-w-lg rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center">
-        <h1 className="text-xl font-semibold">Lawet Hub belum dikonfigurasi</h1>
-        <p className="mt-3 text-sm leading-6 text-white/60">
+    <main className="flex min-h-screen items-center justify-center bg-[var(--color-canvas)] px-6 text-[var(--color-text-primary)]">
+      <div className="max-w-lg rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-8 text-center shadow-lg">
+        <h1 className="text-xl font-serif font-bold">Lawet Hub belum dikonfigurasi</h1>
+        <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
           Administrator perlu mengisi LAWET_PUBLIC_URL agar tautan workflow dapat dibuka.
         </p>
-        <Link href="/" className="mt-6 inline-flex min-h-11 items-center rounded-xl border border-white/15 px-5 text-sm font-semibold hover:bg-white/[0.06]">
+        <Link
+          href="/"
+          className="mt-6 inline-flex min-h-11 items-center rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] hover:border-[var(--color-border-default)] transition-colors"
+        >
           Kembali ke ALAS
         </Link>
       </div>

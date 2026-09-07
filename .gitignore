@@ -34,5 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
 .env
+
+# testing & telemetry artifacts
+.playwright-mcp/
+*.png
+.agents/WORKFLOW_LOG.md

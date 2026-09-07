@@ -104,15 +104,15 @@ export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdat
     : 'Menggunakan gambar bawaan'
 
   return (
-    <section id="hero" className="mt-10 border-t border-white/10 pt-8">
-      <form onSubmit={saveTitle} className="border-b border-white/10 pb-8">
+    <section id="hero" className="mt-10 border-t border-[var(--glass-border-subtle)] pt-8">
+      <form onSubmit={saveTitle} className="border-b border-[var(--glass-border-subtle)] pb-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
-            <label htmlFor="hero-title" className="flex items-center gap-2 text-lg font-semibold">
+            <label htmlFor="hero-title" className="flex items-center gap-2 text-lg font-semibold text-[var(--color-text-primary)]">
               <Type className="h-5 w-5 text-[var(--color-accent-hover)]" aria-hidden="true" />
               Judul besar hero
             </label>
-            <p className="mt-1 text-sm leading-6 text-white/60">Nama ini tampil pada Hero, navbar, authoring, login, approval, dan judul tab. Maksimum {MAX_HERO_TITLE_LENGTH} karakter.</p>
+            <p className="mt-1 text-sm leading-6 text-[var(--color-text-muted)]">Nama ini tampil pada Hero, navbar, authoring, login, approval, dan judul tab. Maksimum {MAX_HERO_TITLE_LENGTH} karakter.</p>
             <input
               id="hero-title"
               value={title}
@@ -123,58 +123,58 @@ export function HeroSettingsPanel({ initialImagePath, initialTitle, initialUpdat
               }}
               maxLength={MAX_HERO_TITLE_LENGTH}
               required
-              className="mt-4 min-h-11 w-full rounded-lg border border-white/15 bg-white/[0.04] px-3 text-base text-white outline-none transition-colors placeholder:text-white/40 hover:border-[var(--color-accent-hover)] focus:border-[var(--color-accent-hover)] focus:ring-2 focus:ring-[color:var(--color-accent-hover)]/30"
+              className="mt-4 min-h-11 w-full rounded-lg border border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-3 text-base text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-muted)]/60 hover:border-[var(--color-accent-hover)] focus:border-[var(--color-accent-hover)] focus:ring-2 focus:ring-[color:var(--color-accent-hover)]/30 shadow-sm"
               aria-describedby="hero-title-status"
             />
           </div>
-          <button type="submit" disabled={titleStatus === 'saving'} className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-on-accent)] transition-colors hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-focus)] focus:ring-offset-2 focus:ring-offset-[var(--color-canvas-raised)] disabled:cursor-not-allowed disabled:opacity-55">
+          <button type="submit" disabled={titleStatus === 'saving'} className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-on-accent)] transition-colors hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-focus)] focus:ring-offset-2 focus:ring-offset-[var(--color-canvas-raised)] disabled:cursor-not-allowed disabled:opacity-55 shadow-sm">
             {titleStatus === 'saving' ? 'Menyimpan…' : 'Simpan judul'}
           </button>
         </div>
         {titleMessage && (
-          <p id="hero-title-status" role="status" className={`mt-3 flex items-center gap-2 text-sm ${titleStatus === 'error' ? 'text-red-300' : titleStatus === 'success' ? 'text-emerald-300' : 'text-white/65'}`}>
+          <p id="hero-title-status" role="status" className={`mt-3 flex items-center gap-2 text-sm ${titleStatus === 'error' ? 'text-red-700' : titleStatus === 'success' ? 'text-emerald-800' : 'text-[var(--color-text-muted)]'}`}>
             {titleStatus === 'saving' ? <LoaderCircle className="h-4 w-4 animate-spin" /> : titleStatus === 'success' ? <Check className="h-4 w-4" /> : null}
             {titleMessage}
           </p>
         )}
       </form>
 
-      <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_19rem] xl:items-start">
+      <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_19rem] xl:items-start pt-8">
         <div>
-          <div className="overflow-hidden rounded-xl bg-black">
+          <div className="overflow-hidden rounded-xl border border-[var(--glass-border-default)] bg-black/5 shadow-sm">
             <img src={displayImage} alt="Pratinjau hero beranda" className="aspect-[16/9] w-full object-cover" />
           </div>
-          <p className="mt-3 text-sm text-white/55">Terakhir diperbarui: {updatedLabel}</p>
+          <p className="mt-3 text-sm text-[var(--color-text-muted)]">Terakhir diperbarui: {updatedLabel}</p>
         </div>
 
         <form onSubmit={upload} className="space-y-5">
           <div>
-            <h2 className="text-lg font-semibold">Ganti hero image</h2>
-            <p className="mt-1 text-sm leading-6 text-white/60">Rasio 16:9 direkomendasikan. File sumber maksimum 8 MB.</p>
+            <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">Ganti hero image</h2>
+            <p className="mt-1 text-sm leading-6 text-[var(--color-text-muted)]">Rasio 16:9 direkomendasikan. File sumber maksimum 8 MB.</p>
           </div>
 
           <input ref={fileInputRef} id="hero-image" type="file" accept="image/jpeg,image/png,image/webp,image/avif" onChange={selectFile} className="sr-only" />
-          <label htmlFor="hero-image" className="flex min-h-32 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-white/20 bg-white/[0.03] px-5 text-center transition-colors hover:border-[var(--color-accent)]/70 hover:bg-[var(--color-accent)]/5">
+          <label htmlFor="hero-image" className="flex min-h-32 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-5 text-center transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-surface-raised)] shadow-sm">
             <ImageUp className="h-6 w-6 text-[var(--color-accent-hover)]" aria-hidden="true" />
-            <span className="mt-3 text-sm font-medium text-white">{file ? file.name : 'Pilih gambar'}</span>
-            <span className="mt-1 text-xs text-white/50">JPEG, PNG, WebP, atau AVIF</span>
+            <span className="mt-3 text-sm font-medium text-[var(--color-text-primary)]">{file ? file.name : 'Pilih gambar'}</span>
+            <span className="mt-1 text-xs text-[var(--color-text-muted)]">JPEG, PNG, WebP, atau AVIF</span>
           </label>
 
-          <div className="rounded-lg bg-white/[0.03] p-4 text-sm text-white/65">
+          <div className="rounded-lg bg-[var(--color-surface-overlay)] border border-[var(--glass-border-subtle)] p-4 text-sm text-[var(--color-text-muted)] shadow-sm">
             <div className="flex gap-3">
-              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" aria-hidden="true" />
+              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
               <p>Gambar divalidasi di server, orientasi diperbaiki, metadata dihapus, dan dikonversi ke WebP 1920 × 1080 (kualitas 82).</p>
             </div>
           </div>
 
           {message && (
-            <p role="status" className={`flex items-center gap-2 text-sm ${status === 'error' ? 'text-red-300' : status === 'success' ? 'text-emerald-300' : 'text-white/65'}`}>
+            <p role="status" className={`flex items-center gap-2 text-sm ${status === 'error' ? 'text-red-700' : status === 'success' ? 'text-emerald-800' : 'text-[var(--color-text-muted)]'}`}>
               {status === 'uploading' ? <LoaderCircle className="h-4 w-4 animate-spin" /> : status === 'success' ? <Check className="h-4 w-4" /> : null}
               {message}
             </p>
           )}
 
-          <button type="submit" disabled={status === 'uploading'} className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[var(--color-accent)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text-on-accent)] transition-colors hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-focus)] focus:ring-offset-2 focus:ring-offset-[var(--color-canvas-raised)] disabled:cursor-not-allowed disabled:opacity-55">
+          <button type="submit" disabled={status === 'uploading'} className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[var(--color-accent)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text-on-accent)] transition-colors hover:bg-[var(--color-accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-focus)] focus:ring-offset-2 focus:ring-offset-[var(--color-canvas-raised)] disabled:cursor-not-allowed disabled:opacity-55 shadow-sm">
             {status === 'uploading' ? 'Memproses…' : 'Simpan gambar hero'}
           </button>
         </form>

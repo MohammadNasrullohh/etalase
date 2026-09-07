@@ -21,7 +21,7 @@ type JurnalDetail = {
   custom_fields?: Array<{ label?: string; value?: string }>
   tags?: string[]
   submitter?: { name?: string } | null
-  created_at?: string | null
+  created_at?: string | Date | null
 }
 
 function formatDate(value: string) {
@@ -31,19 +31,19 @@ function formatDate(value: string) {
 export default async function ApprovalDetailPage({ params }: { params: { id: string } }) {
   const result = await getApprovalJurnalAction(params.id)
   if (!result.success || !result.data) notFound()
-  const jurnal = result.data as JurnalDetail
+  const jurnal = result.data as unknown as JurnalDetail
 
   return (
     <section className="min-h-full bg-[var(--color-canvas-raised)] px-5 py-8 text-[var(--color-text-primary)] sm:px-8 lg:px-12 lg:py-10">
       <div className="mx-auto max-w-5xl">
-        <Link href="/approval" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-white">
+        <Link href="/approval" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-primary)]">
           <ArrowLeft className="h-4 w-4" /> Kembali ke Approval
         </Link>
 
-        <div className="mt-6 border-b border-white/10 pb-7">
+        <div className="mt-6 border-b border-[var(--glass-border-subtle)] pb-7">
           <p className="text-sm font-medium text-[var(--color-accent-hover)]">Menunggu persetujuan</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-[-0.025em] text-balance">{jurnal.judul}</h1>
-          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/60">
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-text-muted)]">
             <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4 text-[var(--color-accent-hover)]" />{formatDate(jurnal.tanggal_kegiatan)}</span>
             <span>Oleh: {jurnal.submitter?.name || jurnal.created_by || '—'}</span>
             <span>Divisi: {jurnal.divisi || '—'}</span>
@@ -54,12 +54,12 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
           <div className="space-y-8">
             {jurnal.dokumentasi?.length ? (
               <section>
-                <h2 className="text-lg font-semibold">Dokumentasi</h2>
+                <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">Dokumentasi</h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   {jurnal.dokumentasi.map((foto, index) => (
-                    <figure key={`${foto.url}-${index}`} className="overflow-hidden rounded-xl border border-white/10 bg-black/30">
+                    <figure key={`${foto.url}-${index}`} className="overflow-hidden rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-overlay)] shadow-sm">
                       {foto.url ? <img src={foto.url} alt={foto.caption || `Dokumentasi ${index + 1}`} loading="lazy" decoding="async" className="aspect-video w-full object-cover" /> : null}
-                      {foto.caption ? <figcaption className="px-3 py-2 text-sm text-white/65">{foto.caption}</figcaption> : null}
+                      {foto.caption ? <figcaption className="px-3 py-2 text-sm text-[var(--color-text-muted)]">{foto.caption}</figcaption> : null}
                     </figure>
                   ))}
                 </div>
@@ -68,11 +68,11 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
 
             {jurnal.dokumen_pendukung?.length ? (
               <section>
-                <h2 className="flex items-center gap-2 text-lg font-semibold"><FileText className="h-5 w-5 text-[var(--color-accent-hover)]" />Dokumen pendukung</h2>
-                <div className="mt-3 divide-y divide-white/10 rounded-xl border border-white/10 bg-white/[0.03]">
+                <h2 className="flex items-center gap-2 text-lg font-semibold text-[var(--color-text-primary)]"><FileText className="h-5 w-5 text-[var(--color-accent-hover)]" />Dokumen pendukung</h2>
+                <div className="mt-3 divide-y divide-[var(--glass-border-subtle)] rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] shadow-sm">
                   {jurnal.dokumen_pendukung.map((dokumen, index) => (
-                    <a key={`${dokumen.url}-${index}`} href={dokumen.url} target="_blank" rel="noreferrer" className="flex min-h-12 items-center justify-between gap-4 px-4 text-sm text-white/75 transition-colors hover:bg-white/[0.04] hover:text-white">
-                      <span>{dokumen.nama || `Dokumen ${index + 1}`}</span><ExternalLink className="h-4 w-4 shrink-0 text-white/45" />
+                    <a key={`${dokumen.url}-${index}`} href={dokumen.url} target="_blank" rel="noreferrer" className="flex min-h-12 items-center justify-between gap-4 px-4 text-sm text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-canvas-raised)]">
+                      <span>{dokumen.nama || `Dokumen ${index + 1}`}</span><ExternalLink className="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" />
                     </a>
                   ))}
                 </div>
@@ -81,19 +81,19 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
           </div>
 
           <aside className="space-y-6">
-            <JurnalProgressTracker submittedBy={jurnal.submitter?.name || jurnal.created_by} submittedAt={jurnal.created_at} />
+            <JurnalProgressTracker submittedBy={jurnal.submitter?.name || jurnal.created_by} submittedAt={jurnal.created_at ? (typeof jurnal.created_at === 'string' ? jurnal.created_at : jurnal.created_at.toISOString()) : undefined} />
             <ApprovalActions jurnalId={params.id} />
-            <section className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-              <h2 className="text-sm font-semibold text-white/85">Ringkasan kegiatan</h2>
+            <section className="rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">Ringkasan kegiatan</h2>
               <dl className="mt-4 space-y-3 text-sm">
-                <div><dt className="text-white/45">Kategori</dt><dd className="mt-1 capitalize">{jurnal.kategori}</dd></div>
-                {jurnal.link_publikasi ? <div><dt className="text-white/45">Publikasi</dt><dd className="mt-1"><a href={jurnal.link_publikasi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[var(--color-accent-hover)] hover:text-white">Buka tautan <ExternalLink className="h-3.5 w-3.5" /></a></dd></div> : null}
+                <div><dt className="text-[var(--color-text-muted)]">Kategori</dt><dd className="mt-1 capitalize text-[var(--color-text-primary)]">{jurnal.kategori}</dd></div>
+                {jurnal.link_publikasi ? <div><dt className="text-[var(--color-text-muted)]">Publikasi</dt><dd className="mt-1"><a href={jurnal.link_publikasi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-[var(--color-accent-hover)] hover:underline">Buka tautan <ExternalLink className="h-3.5 w-3.5" /></a></dd></div> : null}
               </dl>
             </section>
 
-            {jurnal.tags?.length ? <section><h2 className="flex items-center gap-2 text-sm font-semibold"><Tags className="h-4 w-4 text-[var(--color-accent-hover)]" />Tags</h2><div className="mt-3 flex flex-wrap gap-2">{jurnal.tags.map((tag) => <span key={tag} className="rounded-full bg-white/[0.06] px-2.5 py-1 text-xs text-white/70">{tag}</span>)}</div></section> : null}
-            {jurnal.pihak_terkait?.length ? <section><h2 className="flex items-center gap-2 text-sm font-semibold"><UsersRound className="h-4 w-4 text-[var(--color-accent-hover)]" />Pihak terkait</h2><ul className="mt-3 space-y-2 text-sm text-white/65">{jurnal.pihak_terkait.map((pihak, index) => <li key={`${pihak.nama}-${index}`}><span className="text-white/85">{pihak.nama}</span>{pihak.instansi ? ` · ${pihak.instansi}` : ''}</li>)}</ul></section> : null}
-            {jurnal.custom_fields?.length ? <section><h2 className="text-sm font-semibold">Informasi tambahan</h2><dl className="mt-3 space-y-2 text-sm">{jurnal.custom_fields.map((field, index) => <div key={`${field.label}-${index}`}><dt className="text-white/45">{field.label}</dt><dd className="mt-0.5 text-white/75">{field.value}</dd></div>)}</dl></section> : null}
+            {jurnal.tags?.length ? <section className="rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] p-5 shadow-sm"><h2 className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)]"><Tags className="h-4 w-4 text-[var(--color-accent-hover)]" />Tags</h2><div className="mt-3 flex flex-wrap gap-2">{jurnal.tags.map((tag) => <span key={tag} className="rounded-full border border-[var(--glass-border-subtle)] bg-[var(--color-canvas)] px-2.5 py-1 text-xs text-[var(--color-text-primary)]">{tag}</span>)}</div></section> : null}
+            {jurnal.pihak_terkait?.length ? <section className="rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] p-5 shadow-sm"><h2 className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)]"><UsersRound className="h-4 w-4 text-[var(--color-accent-hover)]" />Pihak terkait</h2><ul className="mt-3 space-y-2 text-sm text-[var(--color-text-muted)]">{jurnal.pihak_terkait.map((pihak, index) => <li key={`${pihak.nama}-${index}`}><span className="text-[var(--color-text-primary)] font-medium">{pihak.nama}</span>{pihak.instansi ? ` · ${pihak.instansi}` : ''}</li>)}</ul></section> : null}
+            {jurnal.custom_fields?.length ? <section className="rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] p-5 shadow-sm"><h2 className="text-sm font-semibold text-[var(--color-text-primary)]">Informasi tambahan</h2><dl className="mt-3 space-y-2 text-sm">{jurnal.custom_fields.map((field, index) => <div key={`${field.label}-${index}`}><dt className="text-[var(--color-text-muted)]">{field.label}</dt><dd className="mt-0.5 text-[var(--color-text-primary)]">{field.value}</dd></div>)}</dl></section> : null}
           </aside>
         </div>
       </div>

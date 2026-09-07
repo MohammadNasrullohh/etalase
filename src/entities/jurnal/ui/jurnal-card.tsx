@@ -92,11 +92,7 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
       <div className="flex gap-4">
         {thumbnail_url && (
           <div
-            className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-xl"
-            style={{
-              border: '1px solid #E4DDD0',
-              background: '#EFEAE0',
-            }}
+            className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)]"
           >
             <img
               src={thumbnail_url}
@@ -106,7 +102,7 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
           </div>
         )}
         <div className="flex-grow min-w-0">
-          <h3 className="text-base font-serif font-bold leading-snug mb-1 text-[var(--color-text-primary)] group-hover:text-[#2D7A4D] transition-colors truncate">
+          <h3 className="text-base font-serif font-bold leading-snug mb-1 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-emerald)] transition-colors truncate">
             {judul}
           </h3>
           {pihakNames && (
@@ -119,14 +115,7 @@ export const JurnalCard: React.FC<JurnalCardProps> = ({
               {tags.map((t: string, idx: number) => (
                 <span
                   key={idx}
-                  className="text-[9px] font-mono"
-                  style={{
-                    color: '#685E52',
-                    background: '#F4F0E6',
-                    border: '1px solid #E0D8C8',
-                    padding: '1px 6px',
-                    borderRadius: '4px',
-                  }}
+                  className="text-[9px] font-mono px-1.5 py-0.5 rounded text-[var(--color-text-secondary)] bg-[var(--color-surface)] border border-[var(--color-border-subtle)]"
                 >
                   #{t}
                 </span>

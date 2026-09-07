@@ -65,33 +65,33 @@ export function JournalReportDownload({ items, generatedBy, divisionName, canRev
   }
 
   return (
-    <section className="rounded-2xl border border-white/10 bg-white/[0.035] p-5" aria-labelledby="journal-report-title">
+    <section className="rounded-2xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] p-5 shadow-sm" aria-labelledby="journal-report-title">
       <div className="flex items-start gap-3">
         <div className="rounded-xl bg-[var(--color-accent)]/15 p-2.5 text-[var(--color-accent-hover)]">
           <FileDown className="h-5 w-5" />
         </div>
         <div>
-          <h2 id="journal-report-title" className="font-semibold text-white">Laporan PDF jurnal</h2>
-          <p className="mt-1 text-sm leading-5 text-white/55">Rekap jurnal yang sudah terbit dalam format F4 portrait.</p>
+          <h2 id="journal-report-title" className="font-semibold text-[var(--color-text-primary)]">Laporan PDF jurnal</h2>
+          <p className="mt-1 text-sm leading-5 text-[var(--color-text-muted)]">Rekap jurnal yang sudah terbit dalam format F4 portrait.</p>
         </div>
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        <label className="text-xs font-medium text-white/65">
+        <label className="text-xs font-medium text-[var(--color-text-muted)]">
           Bulan
-          <select value={month} onChange={(event) => setMonth(Number(event.target.value))} className="mt-1.5 min-h-11 w-full rounded-xl border border-white/10 bg-black/30 px-3 text-sm text-white">
+          <select value={month} onChange={(event) => setMonth(Number(event.target.value))} className="mt-1.5 min-h-11 w-full rounded-xl border border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-3 text-sm text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)]">
             {MONTHS.map((label, index) => <option key={label} value={index + 1}>{label}</option>)}
           </select>
         </label>
-        <label className="text-xs font-medium text-white/65">
+        <label className="text-xs font-medium text-[var(--color-text-muted)]">
           Tahun
-          <select value={year} onChange={(event) => setYear(Number(event.target.value))} className="mt-1.5 min-h-11 w-full rounded-xl border border-white/10 bg-black/30 px-3 text-sm text-white">
+          <select value={year} onChange={(event) => setYear(Number(event.target.value))} className="mt-1.5 min-h-11 w-full rounded-xl border border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-3 text-sm text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)]">
             {[year - 1, year, year + 1].map((option) => <option key={option} value={option}>{option}</option>)}
           </select>
         </label>
-        <label className="text-xs font-medium text-white/65">
+        <label className="text-xs font-medium text-[var(--color-text-muted)]">
           Cakupan
-          <select value={scope} onChange={(event) => setScope(event.target.value as JournalReportScope)} className="mt-1.5 min-h-11 w-full rounded-xl border border-white/10 bg-black/30 px-3 text-sm text-white">
+          <select value={scope} onChange={(event) => setScope(event.target.value as JournalReportScope)} className="mt-1.5 min-h-11 w-full rounded-xl border border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-3 text-sm text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)]">
             <option value="mine">Jurnal Saya</option>
             {canReview ? <option value="subordinate">Jurnal Bawahan</option> : null}
             {canReview ? <option value="all">Semua yang Terlihat</option> : null}

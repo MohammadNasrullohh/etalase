@@ -39,18 +39,18 @@ export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: P
   ]
 
   return (
-    <aside className="w-[280px] h-full bg-[var(--color-surface-raised)] lg:border-r border-white/10 flex flex-col">
+    <aside className="w-[280px] h-full bg-[var(--color-surface-raised)] lg:border-r border-[var(--glass-border-subtle)] flex flex-col">
       {/* Brand */}
-      <div className="h-16 flex items-center px-6 border-b border-white/10 shrink-0">
+      <div className="h-16 flex items-center px-6 border-b border-[var(--glass-border-subtle)] shrink-0">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 border border-white/10">
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--color-canvas)] border border-[var(--glass-border-subtle)]">
             <img
               src="/assets/logo.png"
               alt="Bawaslu"
-              className="w-5 h-5 object-contain filter brightness-0 invert"
+              className="w-5 h-5 object-contain"
             />
           </div>
-          <span className="text-white font-bold text-lg font-mono tracking-widest uppercase">
+          <span className="text-[var(--color-text-primary)] font-bold text-lg font-mono tracking-widest uppercase">
             {siteTitle}
           </span>
         </Link>
@@ -59,7 +59,7 @@ export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: P
       {/* Navigation */}
       <nav className="flex-1 py-6 px-4 space-y-1.5 overflow-y-auto">
         <div className="px-3 mb-2">
-          <p className="text-xs font-bold text-white/30 uppercase tracking-widest">Menu Utama</p>
+          <p className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest">Menu Utama</p>
         </div>
 
         {links.map((link) => {
@@ -71,8 +71,8 @@ export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: P
               onClick={onMobileClose}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                 active 
-                  ? 'bg-[var(--color-ember-bright)]/10 text-[var(--color-ember-bright)] font-semibold' 
-                  : 'text-white/70 hover:bg-white/5 hover:text-white'
+                  ? 'bg-[var(--color-accent)]/20 text-[var(--color-accent-active-text)] font-semibold border border-[var(--color-accent)]/30' 
+                  : 'text-[var(--color-text-inverse-muted)] hover:bg-[var(--color-canvas-raised)] hover:text-[var(--color-text-primary)]'
               }`}
             >
               {link.icon}
@@ -82,11 +82,11 @@ export function AuthoringSidebarClient({ isApprover, isAdmin, onMobileClose }: P
         })}
       </nav>
 
-      <div className="p-4 border-t border-white/10 shrink-0">
+      <div className="p-4 border-t border-[var(--glass-border-subtle)] shrink-0">
         <Link
           href="/"
           onClick={onMobileClose}
-          className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-white/50 hover:bg-white/5 hover:text-white transition-colors text-sm font-medium"
+          className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-[var(--color-text-muted)] hover:bg-[var(--color-canvas-raised)] hover:text-[var(--color-text-primary)] transition-colors text-sm font-medium"
         >
           <Home className="w-4 h-4" />
           Kembali ke Beranda

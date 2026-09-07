@@ -44,21 +44,21 @@ export function ApprovalActions({ jurnalId }: { jurnalId: string }) {
 
   return (
     <div className="mt-6 space-y-4">
-      {error && <div className="text-red-400 text-sm font-mono bg-red-500/10 p-3 rounded-lg border border-red-500/20">{error}</div>}
+      {error && <div className="text-red-700 text-sm font-mono bg-red-50 p-3 rounded-lg border border-red-200">{error}</div>}
       
       {!showNotes ? (
         <div className="flex gap-4">
           <button
             onClick={handleApprove}
             disabled={loading}
-            className="flex-1 bg-green-500 hover:bg-green-400 text-black font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm uppercase tracking-wider disabled:opacity-50"
+            className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm uppercase tracking-wider disabled:opacity-50 shadow-sm"
           >
             <Check className="w-4 h-4" /> Approve
           </button>
           <button
             onClick={() => setShowNotes(true)}
             disabled={loading}
-            className="flex-1 bg-red-500 hover:bg-red-400 text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm uppercase tracking-wider disabled:opacity-50"
+            className="flex-1 bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm uppercase tracking-wider disabled:opacity-50 shadow-sm"
           >
             <X className="w-4 h-4" /> Minta Revisi
           </button>
@@ -69,20 +69,20 @@ export function ApprovalActions({ jurnalId }: { jurnalId: string }) {
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Tulis catatan revisi untuk staf..."
-            className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition-colors h-24 resize-none"
+            className="w-full bg-[var(--color-surface-overlay)] border border-[var(--glass-border-default)] rounded-xl px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-red-500 transition-colors h-24 resize-none shadow-sm"
           />
           <div className="flex gap-3">
             <button
               onClick={handleReject}
               disabled={loading}
-              className="flex-1 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-xl transition-all text-sm uppercase tracking-wider disabled:opacity-50"
+              className="flex-1 bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-xl transition-all text-sm uppercase tracking-wider disabled:opacity-50 shadow-sm"
             >
               Kirim Revisi
             </button>
             <button
               onClick={() => setShowNotes(false)}
               disabled={loading}
-              className="flex-1 bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded-xl transition-all text-sm uppercase tracking-wider disabled:opacity-50"
+              className="flex-1 bg-[var(--color-surface-raised)] border border-[var(--glass-border-default)] hover:bg-[var(--color-canvas-raised)] text-[var(--color-text-primary)] font-bold py-2 px-4 rounded-xl transition-all text-sm uppercase tracking-wider disabled:opacity-50 shadow-sm"
             >
               Batal
             </button>

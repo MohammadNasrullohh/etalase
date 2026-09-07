@@ -55,12 +55,10 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
 
       {/* Modal Container */}
       <div
-        className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-xl shadow-2xl z-10 animate-scale-in"
+        className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-xl shadow-2xl z-10 animate-scale-in bg-[var(--color-canvas)] border border-[var(--color-border-subtle)]"
         style={{
-          background: '#FAF7F0',
-          border: '1px solid #E4DDD0',
           scrollbarWidth: 'thin',
-          scrollbarColor: '#D6CBB5 transparent',
+          scrollbarColor: 'var(--color-border-subtle) transparent',
         }}
       >
         {/* Top accent line in kategori color */}
@@ -74,16 +72,16 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-full transition-colors z-20 bg-[#F4F0E6] border border-[#D6CBB5] text-[#1C1815] hover:bg-[#EFEAE0]"
+          className="absolute top-4 right-4 p-1.5 rounded-full transition-colors z-20 bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-raised)]"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="p-6 md:p-8">
           {isLoading ? (
-            <div className="py-12 text-center text-[#6E6354] font-mono text-sm">Memuat data...</div>
+            <div className="py-12 text-center text-[var(--color-text-muted)] font-mono text-sm">Memuat data...</div>
           ) : error || !item ? (
-            <div className="py-12 text-center text-[#C53030] font-mono text-sm">
+            <div className="py-12 text-center text-red-600 font-mono text-sm">
               {error ? (error as Error).message : 'Data tidak ditemukan'}
             </div>
           ) : (
@@ -96,14 +94,14 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                 >
                   {getCategoryLabel(item.kategori)}
                 </span>
-                <h2 className="text-xl md:text-2xl font-serif font-bold leading-tight mb-2 pr-8 text-[#1C1815]">
+                <h2 className="text-xl md:text-2xl font-serif font-bold leading-tight mb-2 pr-8 text-[var(--color-text-primary)]">
                   {item.judul}
                 </h2>
-                <div className="flex flex-wrap items-center gap-x-4 font-mono text-xs text-[#6E6354]">
+                <div className="flex flex-wrap items-center gap-x-4 font-mono text-xs text-[var(--color-text-muted)]">
                   <span>{formatDate(item.tanggal_kegiatan)}</span>
                   {item.redaksi && (
                     <span className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#D6CBB5]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border-subtle)]" />
                       Redaksi: {item.redaksi}
                     </span>
                   )}
@@ -113,7 +111,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                     {item.tags.map((t: string, idx: number) => (
                       <span
                         key={idx}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#F4F0E6] border border-[#D6CBB5] text-[#4A4237]"
+                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)]"
                       >
                         #{t}
                       </span>
@@ -128,7 +126,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                   href={item.link_publikasi}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 mb-6 text-sm font-bold rounded-lg transition-all bg-[#EDF5FB] border border-[#B5D7ED] text-[#13466B] hover:bg-[#DCEBF7]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 mb-6 text-sm font-bold rounded-lg transition-all bg-[var(--color-accent-sky)]/15 border border-[var(--color-accent-sky)]/30 text-[var(--color-accent-sky)] hover:bg-[var(--color-accent-sky)]/25"
                 >
                   Lihat Artikel Resmi <ExternalLink className="w-4 h-4" />
                 </a>
@@ -137,12 +135,12 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
               {/* Pihak Terkait */}
               {item.pihak_terkait && item.pihak_terkait.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#6E6354] mb-2 font-bold">Pihak Terkait:</h4>
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-2 font-bold">Pihak Terkait:</h4>
                   <div className="flex flex-wrap gap-2">
                     {item.pihak_terkait.map((p: any, idx: number) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 text-xs font-mono rounded bg-[#F4F0E6] border border-[#D6CBB5] text-[#1C1815]"
+                        className="px-3 py-1 text-xs font-mono rounded bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)]"
                       >
                         {p.nama} {p.instansi ? `(${p.instansi})` : ''}
                       </span>
@@ -154,12 +152,12 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
               {/* Dokumentasi Media */}
               {item.dokumentasi && item.dokumentasi.length > 0 && (
                 <div className="mb-8">
-                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#6E6354] mb-3 font-bold">Dokumentasi Media:</h4>
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-3 font-bold">Dokumentasi Media:</h4>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {item.dokumentasi.map((m: any, idx: number) => {
                       if (m.type === 'video') {
                         return (
-                          <div key={idx} className="relative aspect-[4/3] bg-black rounded-lg overflow-hidden border border-[#E4DDD0]">
+                          <div key={idx} className="relative aspect-[4/3] bg-black rounded-lg overflow-hidden border border-[var(--color-border-subtle)]">
                             <video src={m.url} className="w-full h-full object-cover" controls />
                           </div>
                         )
@@ -168,7 +166,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                         <div
                           key={idx}
                           onClick={() => setSelectedImage(m.url)}
-                          className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer group border border-[#E4DDD0] bg-[#F4F0E6]"
+                          className="relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer group border border-[var(--color-border-subtle)] bg-[var(--color-surface)]"
                         >
                           <img
                             src={m.url}
@@ -176,7 +174,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                           {m.caption && (
-                            <div className="absolute inset-x-0 bottom-0 bg-[#1C1815]/85 text-white text-[10px] p-1.5 truncate opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute inset-x-0 bottom-0 bg-[var(--color-ink)]/85 text-white text-[10px] p-1.5 truncate opacity-0 group-hover:opacity-100 transition-opacity">
                               {m.caption}
                             </div>
                           )}
@@ -189,8 +187,8 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
 
               {/* Dokumen Pendukung */}
               {item.dokumen_pendukung && item.dokumen_pendukung.length > 0 && (
-                <div className="mb-8 p-4 rounded-lg bg-[#F4F0E6] border border-[#E4DDD0]">
-                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#6E6354] mb-3 font-bold">Dokumen Pendukung Resmi (Read-Only):</h4>
+                <div className="mb-8 p-4 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border-subtle)]">
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-3 font-bold">Dokumen Pendukung Resmi (Read-Only):</h4>
                   <div className="space-y-2">
                     {item.dokumen_pendukung.map((doc: any, idx: number) => (
                       <a
@@ -198,14 +196,14 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
                         href={doc.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-2.5 rounded-lg transition-colors group bg-[#FAF7F0] border border-[#D6CBB5] hover:bg-[#EFEAE0]"
+                        className="flex items-center gap-3 p-2.5 rounded-lg transition-colors group bg-[var(--color-canvas)] border border-[var(--color-border-subtle)] hover:bg-[var(--color-surface-raised)]"
                       >
-                        <FileText className="w-5 h-5 flex-shrink-0 text-[#2D7A4D]" />
+                        <FileText className="w-5 h-5 flex-shrink-0 text-[var(--color-accent-emerald)]" />
                         <div className="flex-grow min-w-0">
-                          <div className="text-sm font-bold text-[#1C1815] truncate">{doc.nama}</div>
-                          <div className="text-[10px] font-mono text-[#6E6354] uppercase">{doc.tipe} Document</div>
+                          <div className="text-sm font-bold text-[var(--color-text-primary)] truncate">{doc.nama}</div>
+                          <div className="text-[10px] font-mono text-[var(--color-text-muted)] uppercase">{doc.tipe} Document</div>
                         </div>
-                        <ExternalLink className="w-4 h-4 flex-shrink-0 text-[#6E6354]" />
+                        <ExternalLink className="w-4 h-4 flex-shrink-0 text-[var(--color-text-muted)]" />
                       </a>
                     ))}
                   </div>
@@ -214,14 +212,14 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
 
               {/* Custom Fields */}
               {item.custom_fields && item.custom_fields.length > 0 && (
-                <div className="border-t pt-6 border-[#E4DDD0]">
-                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#6E6354] mb-3 font-bold">Metadata Tambahan:</h4>
+                <div className="border-t pt-6 border-[var(--color-border-subtle)]">
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-3 font-bold">Metadata Tambahan:</h4>
                   <table className="w-full text-sm border-collapse">
                     <tbody>
                       {item.custom_fields.map((f: any, idx: number) => (
-                        <tr key={idx} className="border-b last:border-0 border-[#E4DDD0]">
-                          <td className="py-2.5 font-mono text-xs text-[#6E6354] w-1/3">{f.label}</td>
-                          <td className="py-2.5 font-medium text-[#1C1815]">{f.value}</td>
+                        <tr key={idx} className="border-b last:border-0 border-[var(--color-border-subtle)]">
+                          <td className="py-2.5 font-mono text-xs text-[var(--color-text-muted)] w-1/3">{f.label}</td>
+                          <td className="py-2.5 font-medium text-[var(--color-text-primary)]">{f.value}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -235,10 +233,10 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({ id, isOpen
 
       {/* Media Lightbox */}
       {selectedImage && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-[#1C1815]/90">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80">
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 p-2 rounded-full text-[#1C1815] bg-[#FAF7F0] border border-[#D6CBB5]"
+            className="absolute top-4 right-4 p-2 rounded-full text-[var(--color-text-primary)] bg-[var(--color-surface)] border border-[var(--color-border-subtle)] hover:bg-[var(--color-surface-raised)]"
           >
             <X className="w-6 h-6" />
           </button>

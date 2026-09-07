@@ -19,7 +19,7 @@ export function AuthoringShellClient({ isApprover, isAdmin, user, children }: Pr
   const siteTitle = useSiteTitle()
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[var(--color-ink)]">
+    <div className="flex h-screen overflow-hidden bg-[var(--color-canvas)] text-[var(--color-text-primary)]">
       
       {/* Desktop Sidebar */}
       <div className="hidden lg:block">
@@ -33,7 +33,7 @@ export function AuthoringShellClient({ isApprover, isAdmin, user, children }: Pr
         }`}
       >
         <div 
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm" 
           onClick={() => setMobileMenuOpen(false)}
         />
         <div 
@@ -49,20 +49,20 @@ export function AuthoringShellClient({ isApprover, isAdmin, user, children }: Pr
       <div className="flex-1 flex flex-col min-w-0">
         
         {/* Top Navbar */}
-        <header className="h-16 bg-[var(--color-surface-raised)] border-b border-white/10 flex items-center justify-between px-4 sm:px-6 z-10 shrink-0">
+        <header className="h-16 bg-[var(--color-surface-raised)] border-b border-[var(--glass-border-subtle)] flex items-center justify-between px-4 sm:px-6 z-10 shrink-0">
           <div className="flex items-center gap-3">
             <button 
-              className="lg:hidden p-2 -ml-2 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+              className="lg:hidden p-2 -ml-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-canvas-raised)] rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(true)}
             >
               <Menu className="w-5 h-5" />
             </button>
-            <span className="text-white font-bold tracking-widest font-mono lg:hidden text-sm">
+            <span className="text-[var(--color-text-primary)] font-bold tracking-widest font-mono lg:hidden text-sm">
               {siteTitle} PANEL
             </span>
           </div>
           
-          <div className="hidden lg:flex items-center text-white/50 text-sm font-medium">
+          <div className="hidden lg:flex items-center text-[var(--color-text-muted)] text-sm font-medium">
             Panel Arsip Langkah Bawaslu Kebumen
           </div>
           
