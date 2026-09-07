@@ -25,7 +25,7 @@ Only Troubleshooter may consult a second stage after locating the failure.
 
 ## Verification
 
-- Changed behavior needs focused owning-layer coverage; make bug regressions fail first when practical. Start narrow; broaden for shared contracts, schema, dependencies, generators, architecture, cross-feature impact, or release risk.
+- Prioritize test-first coding (TDD): write or update failing tests at the owning layer before implementing code changes; ensure bug regressions reproduce and fail first. Start narrow; broaden for shared contracts, schema, dependencies, generators, architecture, cross-feature impact, or release risk.
 - Docs, comments, and agent policies use structural checks; report unrun checks and residual risk.
 
 Communication: begin with the active role; address `Admin` in concise formal Indonesian unless requested otherwise.
