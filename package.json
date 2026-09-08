@@ -12,6 +12,8 @@
     "boundary:check": "node scripts/check-repository-isolation.mjs --root . --source . --forbid-package lawet-hub --forbid-package @lawet --forbid-package lawethub --forbid-package lawet_hub",
     "boundary:test": "node --test scripts/check-repository-isolation.test.mjs",
     "arch:check": "npm run boundary:check && depcruise src --config .dependency-cruiser.cjs --output-type err-long",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx drizzle/seed.ts",
     "start": "next start",
     "lint": "next lint"
   },

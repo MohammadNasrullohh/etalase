@@ -1,6 +1,6 @@
 import { Pool } from 'pg'
 import { drizzle } from 'drizzle-orm/node-postgres'
-import { jurnal, pimpinan } from './schema'
+import { jurnal, pimpinan, siteSettings } from './schema'
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || "postgresql://alas_user:change-this-strong-password@localhost:5433/alas",
@@ -10,6 +10,25 @@ const db = drizzle(pool)
 
 async function main() {
   console.log("Seeding database...")
+
+  // Seed Site Settings
+  await db
+    .insert(siteSettings)
+    .values({
+      id: 1,
+      hero_title: "ALAS",
+      hero_subtitle: "Arsip Langkah Bawaslu Kebumen",
+      hero_image_path: null,
+      updated_at: new Date(),
+    })
+    .onConflictDoUpdate({
+      target: siteSettings.id,
+      set: {
+        hero_title: "ALAS",
+        hero_subtitle: "Arsip Langkah Bawaslu Kebumen",
+      },
+    })
+  console.log("Seeded site settings successfully.")
 
   // Clean old data
   await db.delete(jurnal)
@@ -359,7 +378,7 @@ async function main() {
   for (const j of jurnalData) {
     await db.insert(jurnal).values(j)
   }
-  console.log("Seeded 4 jurnal entries successfully.")
+  console.log(`Seeded ${jurnalData.length} jurnal entries successfully.`)
 
   console.log("Seeding complete!")
   pool.end()
