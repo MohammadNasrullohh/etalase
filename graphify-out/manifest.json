@@ -1654,11 +1654,6 @@
     "ast_hash": "d011888c9d4d82b4b6badcb70ce2f0d1",
     "semantic_hash": ""
   },
-  "public/uploads/hero/hero-a4719e5a-0199-492c-a8b9-f081b57f17b8.webp": {
-    "mtime": 1788824375.354,
-    "ast_hash": "9a7ba96bf23b5568a2ad6fcf7b4938a4",
-    "semantic_hash": ""
-  },
   "tests/dokumen-uploader.test.tsx": {
     "mtime": 1788829776.3314142,
     "ast_hash": "fd1dc98dc8a760791d5b1b8378a196fb",

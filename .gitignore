@@ -6,37 +6,104 @@
 .pnp.js
 .yarn/install-state.gz
 
-# testing
+# testing & test artifacts
 /coverage
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+/.vitest/
+/vitest-results/
 
-# next.js
+# next.js & production builds
 /.next/
 /out/
-
-# production
 /build
+/dist
 
-# misc
-.DS_Store
+# runtime uploads & user generated media
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# environment & secrets
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 *.pem
+*.key
+*.cert
 
-# debug
+# debug & package manager logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# local env files
-.env*.local
+pnpm-debug.log*
+lerna-debug.log*
+*.log
 
 # vercel
 .vercel
 
-# typescript
+# typescript & build caches
 *.tsbuildinfo
 next-env.d.ts
-.env
+.eslintcache
+.stylelintcache
 
-# testing & telemetry artifacts
+# agent, telemetry & local tooling artifacts
 .playwright-mcp/
-*.png
 .agents/WORKFLOW_LOG.md
+.impeccable/config.local.json
+.impeccable/*.local.*
+graphify-out/cache/
+
+# temporary images, audit screenshots & visual diffs
+*.png
+/*.jpg
+/*.jpeg
+/*.webp
+
+# preserve legitimate static assets
+!/public/assets/**
+!/assets/**
+
+# IDEs, editors & OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+Thumbs.db:encryptable
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+*~
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# python & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+ENV/
+env/
