@@ -1,3 +1,0 @@
-[     485ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ http://localhost:2002/api/v1/auth/refresh:0
-[     601ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:2002/favicon.ico:0
-[    2697ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8400/live.js:0

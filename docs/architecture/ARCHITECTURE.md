@@ -58,7 +58,7 @@ Route di `src/app/api/service/` menerima bearer service token. Semua operasi tul
 
 Lawet Hub mencatat desired state ke transactional outbox. Worker mengirimnya dengan timeout serta exponential backoff dari env, dan reconciliation berkala mengantrekan ulang proyeksi yang seharusnya published, draft setelah unpublish, atau deleted. Keputusan lengkap ada di [ADR-0001](../adr/0001-direct-service-delivery-guarantees.md).
 
-Kontrak payload, header, status respons, retry, dan reconciliation berada di [INTEGRATION.md](../../INTEGRATION.md). Saat kontrak berubah, producer, consumer, test, dan dokumen integrasi harus diperbarui dalam perubahan yang sama.
+Kontrak payload, header, status respons, retry, dan reconciliation berada di [INTEGRATION.md](INTEGRATION.md). Saat kontrak berubah, producer, consumer, test, dan dokumen integrasi harus diperbarui dalam perubahan yang sama.
 
 ## Repository Isolation
 

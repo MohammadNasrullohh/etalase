@@ -54,11 +54,13 @@ next-env.d.ts
 .stylelintcache
 
 # agent, telemetry & local tooling artifacts
+.agents/
+.codex/
+.impeccable/
+.github/skills/
+.github/hooks/
+graphify-out/
 .playwright-mcp/
-.agents/WORKFLOW_LOG.md
-.impeccable/config.local.json
-.impeccable/*.local.*
-graphify-out/cache/
 
 # temporary images, audit screenshots & visual diffs
 *.png
