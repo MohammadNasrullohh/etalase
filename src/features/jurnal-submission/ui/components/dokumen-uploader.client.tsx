@@ -37,7 +37,7 @@ export function DokumenUploader({ value, onChange }: Props) {
 
     const res = await uploadDokumenAction(formData)
     if (res.success && res.data?.url) {
-      onChange([...value, { nama: namaDokumen, url: res.data.object_name, tipe: 'pdf', is_public: true }])
+      onChange([...value, { nama: namaDokumen, url: res.data.object_name, tipe: 'pdf', is_public: false }])
     } else {
       setError(res.error || 'Gagal mengunggah dokumen')
     }
@@ -47,6 +47,16 @@ export function DokumenUploader({ value, onChange }: Props) {
 
   const removeDokumen = (index: number) => {
     const newVal = value.filter((_, i) => i !== index)
+    onChange(newVal)
+  }
+
+  const togglePublic = (index: number) => {
+    const newVal = value.map((item, i) => {
+      if (i === index) {
+        return { ...item, is_public: !item.is_public }
+      }
+      return item
+    })
     onChange(newVal)
   }
 
@@ -77,13 +87,24 @@ export function DokumenUploader({ value, onChange }: Props) {
                   <p className="text-xs text-[var(--color-text-muted)]">PDF Document</p>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => removeDokumen(index)}
-                className="text-xs px-2 py-1 rounded bg-red-500/10 text-red-600 hover:bg-red-500/20 transition-colors"
-              >
-                Hapus
-              </button>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <label className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={item.is_public === true}
+                    onChange={() => togglePublic(index)}
+                    className="w-4 h-4 rounded border-[var(--color-border-subtle)] text-[var(--color-accent-hover)] focus:ring-[var(--color-accent)] cursor-pointer"
+                  />
+                  <span>(public)</span>
+                </label>
+                <button
+                  type="button"
+                  onClick={() => removeDokumen(index)}
+                  className="text-xs px-2 py-1 rounded bg-red-500/10 text-red-600 hover:bg-red-500/20 transition-colors"
+                >
+                  Hapus
+                </button>
+              </div>
             </div>
           ))}
         </div>

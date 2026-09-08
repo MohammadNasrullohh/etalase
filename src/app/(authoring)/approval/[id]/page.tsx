@@ -16,7 +16,7 @@ type JurnalDetail = {
   divisi?: string | null
   link_publikasi?: string | null
   dokumentasi?: Array<{ url?: string; caption?: string }>
-  dokumen_pendukung?: Array<{ nama?: string; url?: string; tipe?: string }>
+  dokumen_pendukung?: Array<{ nama?: string; url?: string; tipe?: string; is_public?: boolean }>
   pihak_terkait?: Array<{ nama?: string; instansi?: string }>
   custom_fields?: Array<{ label?: string; value?: string }>
   tags?: string[]
@@ -76,7 +76,15 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
                 <div className="mt-3 divide-y divide-[var(--glass-border-subtle)] rounded-xl border border-[var(--glass-border-subtle)] bg-[var(--color-surface-raised)] shadow-sm">
                   {jurnal.dokumen_pendukung.map((dokumen, index) => (
                     <a key={`${dokumen.url}-${index}`} href={dokumen.url} target="_blank" rel="noreferrer" className="flex min-h-12 items-center justify-between gap-4 px-4 text-sm text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-canvas-raised)]">
-                      <span>{dokumen.nama || `Dokumen ${index + 1}`}</span><ExternalLink className="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" />
+                      <div className="flex items-center gap-2.5 truncate">
+                        <span className="truncate">{dokumen.nama || `Dokumen ${index + 1}`}</span>
+                        {dokumen.is_public ? (
+                          <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-600 border border-emerald-500/20">Publik</span>
+                        ) : (
+                          <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-600 border border-amber-500/20">Internal</span>
+                        )}
+                      </div>
+                      <ExternalLink className="h-4 w-4 shrink-0 text-[var(--color-text-muted)]" />
                     </a>
                   ))}
                 </div>

@@ -11,7 +11,7 @@ export const dokumenPendukungItemSchema = z.object({
   nama: z.string().min(1, 'Nama dokumen wajib diisi'),
   url: z.string().url('URL dokumen tidak valid'),
   tipe: z.enum(['pdf']),
-  is_public: z.boolean().optional()
+  is_public: z.boolean().default(false)
 })
 export type DokumenPendukungItem = z.infer<typeof dokumenPendukungItemSchema>
 

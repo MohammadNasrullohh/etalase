@@ -50,7 +50,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_signals_latestcritique",
-      "community": 26,
+      "community": 83,
       "norm_label": "latestcritique()"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_monorepo_fallback_project_dirs",
-      "community": 98,
+      "community": 118,
       "norm_label": "monorepo_fallback_project_dirs"
     },
     {
@@ -240,7 +240,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolvecontextdir",
-      "community": 98,
+      "community": 70,
       "norm_label": "resolvecontextdir()"
     },
     {
@@ -260,7 +260,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolvecontext",
-      "community": 98,
+      "community": 70,
       "norm_label": "resolvecontext()"
     },
     {
@@ -290,7 +290,7 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolveproject",
-      "community": 98,
+      "community": 70,
       "norm_label": "resolveproject()"
     },
     {
@@ -310,7 +310,7 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolvelocalcontextdir",
-      "community": 98,
+      "community": 70,
       "norm_label": "resolvelocalcontextdir()"
     },
     {
@@ -320,7 +320,7 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolveenvcontextdir",
-      "community": 98,
+      "community": 70,
       "norm_label": "resolveenvcontextdir()"
     },
     {
@@ -330,7 +330,7 @@
       "source_location": "L206",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolvetargetdir",
-      "community": 98,
+      "community": 70,
       "norm_label": "resolvetargetdir()"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "L218",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_findmonoreporoot",
-      "community": 98,
+      "community": 70,
       "norm_label": "findmonoreporoot()"
     },
     {
@@ -360,7 +360,7 @@
       "source_location": "L243",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_hasgitboundary",
-      "community": 98,
+      "community": 70,
       "norm_label": "hasgitboundary()"
     },
     {
@@ -460,7 +460,7 @@
       "source_location": "L408",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_iscandidateprojectroot",
-      "community": 118,
+      "community": 70,
       "norm_label": "iscandidateprojectroot()"
     },
     {
@@ -490,7 +490,7 @@
       "source_location": "L442",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_resolveworkspaceprojectroot",
-      "community": 98,
+      "community": 118,
       "norm_label": "resolveworkspaceprojectroot()"
     },
     {
@@ -510,7 +510,7 @@
       "source_location": "L474",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_nearestprojectlikeroot",
-      "community": 98,
+      "community": 118,
       "norm_label": "nearestprojectlikeroot()"
     },
     {
@@ -520,7 +520,7 @@
       "source_location": "L491",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_nearestpackagerootbetween",
-      "community": 118,
+      "community": 70,
       "norm_label": "nearestpackagerootbetween()"
     },
     {
@@ -550,7 +550,7 @@
       "source_location": "L529",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_readworkspacepatterns",
-      "community": 70,
+      "community": 112,
       "norm_label": "readworkspacepatterns()"
     },
     {
@@ -560,7 +560,7 @@
       "source_location": "L537",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_readpackageworkspaces",
-      "community": 70,
+      "community": 112,
       "norm_label": "readpackageworkspaces()"
     },
     {
@@ -570,7 +570,7 @@
       "source_location": "L545",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_readlernaworkspaces",
-      "community": 70,
+      "community": 112,
       "norm_label": "readlernaworkspaces()"
     },
     {
@@ -580,7 +580,7 @@
       "source_location": "L550",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_readpnpmworkspaces",
-      "community": 70,
+      "community": 112,
       "norm_label": "readpnpmworkspaces()"
     },
     {
@@ -590,7 +590,7 @@
       "source_location": "L580",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_stripyamlinlinecomment",
-      "community": 70,
+      "community": 112,
       "norm_label": "stripyamlinlinecomment()"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L593",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_parseyamlflowlist",
-      "community": 70,
+      "community": 112,
       "norm_label": "parseyamlflowlist()"
     },
     {
@@ -610,7 +610,7 @@
       "source_location": "L617",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_unquoteyamlvalue",
-      "community": 70,
+      "community": 112,
       "norm_label": "unquoteyamlvalue()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L623",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_readjson",
-      "community": 70,
+      "community": 112,
       "norm_label": "readjson()"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L677",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_firstexisting",
-      "community": 98,
+      "community": 70,
       "norm_label": "firstexisting()"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L693",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_escaperegexp",
-      "community": 118,
+      "community": 83,
       "norm_label": "escaperegexp()"
     },
     {
@@ -820,7 +820,7 @@
       "source_location": "L953",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_context_parseclioptions",
-      "community": 133,
+      "community": 88,
       "norm_label": "parseclioptions()"
     },
     {
@@ -1020,7 +1020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp",
-      "community": 28,
+      "community": 98,
       "norm_label": "detect-csp.mjs"
     },
     {
@@ -1030,7 +1030,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_skip_dirs",
-      "community": 28,
+      "community": 98,
       "norm_label": "skip_dirs"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_scan_exts",
-      "community": 28,
+      "community": 98,
       "norm_label": "scan_exts"
     },
     {
@@ -1050,7 +1050,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_layout_exts",
-      "community": 28,
+      "community": 98,
       "norm_label": "layout_exts"
     },
     {
@@ -1060,7 +1060,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_monorepo_helper_signals",
-      "community": 28,
+      "community": 98,
       "norm_label": "monorepo_helper_signals"
     },
     {
@@ -1070,7 +1070,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_sveltekit_csp_signals",
-      "community": 28,
+      "community": 98,
       "norm_label": "sveltekit_csp_signals"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_nuxt_security_signals",
-      "community": 28,
+      "community": 98,
       "norm_label": "nuxt_security_signals"
     },
     {
@@ -1090,7 +1090,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_inline_header_signals",
-      "community": 28,
+      "community": 98,
       "norm_label": "inline_header_signals"
     },
     {
@@ -1100,7 +1100,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_nuxt_route_rules_signals",
-      "community": 28,
+      "community": 98,
       "norm_label": "nuxt_route_rules_signals"
     },
     {
@@ -1110,7 +1110,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_detectcsp",
-      "community": 28,
+      "community": 98,
       "norm_label": "detectcsp()"
     },
     {
@@ -1120,7 +1120,7 @@
       "source_location": "L164",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detect_csp_walk",
-      "community": 28,
+      "community": 98,
       "norm_label": "walk()"
     },
     {
@@ -2020,7 +2020,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_design_system_resolvedesignsidecarpath",
-      "community": 102,
+      "community": 30,
       "norm_label": "resolvedesignsidecarpath()"
     },
     {
@@ -2030,7 +2030,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_design_system_parsefrontmatter",
-      "community": 102,
+      "community": 30,
       "norm_label": "parsefrontmatter()"
     },
     {
@@ -2090,7 +2090,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_design_system_safereadjson",
-      "community": 102,
+      "community": 30,
       "norm_label": "safereadjson()"
     },
     {
@@ -2280,7 +2280,7 @@
       "source_location": "L378",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_design_system_loaddesignsystemforcwd",
-      "community": 102,
+      "community": 30,
       "norm_label": "loaddesignsystemforcwd()"
     },
     {
@@ -2520,7 +2520,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isbrandfontonowndomain",
-      "community": 38,
+      "community": 124,
       "norm_label": "isbrandfontonowndomain()"
     },
     {
@@ -2640,7 +2640,7 @@
       "source_location": "L734",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isemojionlytext",
-      "community": 193,
+      "community": 61,
       "norm_label": "isemojionlytext()"
     },
     {
@@ -2670,7 +2670,7 @@
       "source_location": "L854",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkicontile",
-      "community": 193,
+      "community": 61,
       "norm_label": "checkicontile()"
     },
     {
@@ -2680,7 +2680,7 @@
       "source_location": "L904",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_resolveserif",
-      "community": 38,
+      "community": 129,
       "norm_label": "resolveserif()"
     },
     {
@@ -2790,7 +2790,7 @@
       "source_location": "L1442",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_parseradiustopx",
-      "community": 193,
+      "community": 152,
       "norm_label": "parseradiustopx()"
     },
     {
@@ -2800,7 +2800,7 @@
       "source_location": "L1456",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_resolveborderradiuspx",
-      "community": 193,
+      "community": 152,
       "norm_label": "resolveborderradiuspx()"
     },
     {
@@ -2830,7 +2830,7 @@
       "source_location": "L1508",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementicontiledom",
-      "community": 193,
+      "community": 61,
       "norm_label": "checkelementicontiledom()"
     },
     {
@@ -2990,7 +2990,7 @@
       "source_location": "L1937",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_resolvefontsizepx",
-      "community": 38,
+      "community": 85,
       "norm_label": "resolvefontsizepx()"
     },
     {
@@ -3090,7 +3090,7 @@
       "source_location": "L2389",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkpagequalityfromdoc",
-      "community": 38,
+      "community": 124,
       "norm_label": "checkpagequalityfromdoc()"
     },
     {
@@ -3100,7 +3100,7 @@
       "source_location": "L2410",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkpagequalitydom",
-      "community": 38,
+      "community": 124,
       "norm_label": "checkpagequalitydom()"
     },
     {
@@ -3110,7 +3110,7 @@
       "source_location": "L2420",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementquality",
-      "community": 38,
+      "community": 85,
       "norm_label": "checkelementquality()"
     },
     {
@@ -3140,7 +3140,7 @@
       "source_location": "L2513",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementicontile",
-      "community": 193,
+      "community": 61,
       "norm_label": "checkelementicontile()"
     },
     {
@@ -3200,7 +3200,7 @@
       "source_location": "L2620",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checktypography",
-      "community": 38,
+      "community": 124,
       "norm_label": "checktypography()"
     },
     {
@@ -3290,7 +3290,7 @@
       "source_location": "L2941",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkoversizedh1",
-      "community": 38,
+      "community": 85,
       "norm_label": "checkoversizedh1()"
     },
     {
@@ -3300,7 +3300,7 @@
       "source_location": "L2959",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementoversizedh1",
-      "community": 38,
+      "community": 85,
       "norm_label": "checkelementoversizedh1()"
     },
     {
@@ -3310,7 +3310,7 @@
       "source_location": "L2966",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementoversizedh1dom",
-      "community": 38,
+      "community": 85,
       "norm_label": "checkelementoversizedh1dom()"
     },
     {
@@ -3400,7 +3400,7 @@
       "source_location": "L3055",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_classselector",
-      "community": 69,
+      "community": 38,
       "norm_label": "classselector()"
     },
     {
@@ -3500,7 +3500,7 @@
       "source_location": "L3205",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_metriclengthpx",
-      "community": 140,
+      "community": 38,
       "norm_label": "metriclengthpx()"
     },
     {
@@ -3510,7 +3510,7 @@
       "source_location": "L3211",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_firstmetriclengthpx",
-      "community": 140,
+      "community": 38,
       "norm_label": "firstmetriclengthpx()"
     },
     {
@@ -3520,7 +3520,7 @@
       "source_location": "L3219",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_expandboxshorthand",
-      "community": 140,
+      "community": 38,
       "norm_label": "expandboxshorthand()"
     },
     {
@@ -3530,7 +3530,7 @@
       "source_location": "L3226",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_clippedbyinset",
-      "community": 140,
+      "community": 38,
       "norm_label": "clippedbyinset()"
     },
     {
@@ -3540,7 +3540,7 @@
       "source_location": "L3238",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_clippedbyrect",
-      "community": 140,
+      "community": 38,
       "norm_label": "clippedbyrect()"
     },
     {
@@ -3550,7 +3550,7 @@
       "source_location": "L3248",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isscreenreaderonlytextstyle",
-      "community": 140,
+      "community": 38,
       "norm_label": "isscreenreaderonlytextstyle()"
     },
     {
@@ -3560,7 +3560,7 @@
       "source_location": "L3265",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isrenderedforbrowserrule",
-      "community": 69,
+      "community": 38,
       "norm_label": "isrenderedforbrowserrule()"
     },
     {
@@ -3570,7 +3570,7 @@
       "source_location": "L3277",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_checkelementtextoverflowdom",
-      "community": 69,
+      "community": 38,
       "norm_label": "checkelementtextoverflowdom()"
     },
     {
@@ -3720,7 +3720,7 @@
       "source_location": "L3871",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_getdirecttext",
-      "community": 69,
+      "community": 61,
       "norm_label": "getdirecttext()"
     },
     {
@@ -3730,7 +3730,7 @@
       "source_location": "L3878",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_getdirecttextrect",
-      "community": 69,
+      "community": 61,
       "norm_label": "getdirecttextrect()"
     },
     {
@@ -3740,7 +3740,7 @@
       "source_location": "L3906",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_collectvisualcontrastreasons",
-      "community": 69,
+      "community": 61,
       "norm_label": "collectvisualcontrastreasons()"
     },
     {
@@ -3750,7 +3750,7 @@
       "source_location": "L3961",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_collectvisualcontrastcandidates",
-      "community": 69,
+      "community": 61,
       "norm_label": "collectvisualcontrastcandidates()"
     },
     {
@@ -3780,7 +3780,7 @@
       "source_location": "L4043",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_pickworstcontrastcolor",
-      "community": 61,
+      "community": 84,
       "norm_label": "pickworstcontrastcolor()"
     },
     {
@@ -3910,7 +3910,7 @@
       "source_location": "L4314",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_textsamplepoints",
-      "community": 69,
+      "community": 84,
       "norm_label": "textsamplepoints()"
     },
     {
@@ -3930,7 +3930,7 @@
       "source_location": "L4393",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_analyzevisualcontrastcandidate",
-      "community": 69,
+      "community": 84,
       "norm_label": "analyzevisualcontrastcandidate()"
     },
     {
@@ -4030,7 +4030,7 @@
       "source_location": "L4613",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_browsercolorsclose",
-      "community": 79,
+      "community": 124,
       "norm_label": "browsercolorsclose()"
     },
     {
@@ -4040,7 +4040,7 @@
       "source_location": "L4622",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_detect_antipatterns_browser_isbrowserdesigncolorallowed",
-      "community": 79,
+      "community": 124,
       "norm_label": "isbrowserdesigncolorallowed()"
     },
     {
@@ -4440,7 +4440,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_regex_detect_text_isneutralbordercolor",
-      "community": 80,
+      "community": 128,
       "norm_label": "isneutralbordercolor()"
     },
     {
@@ -4870,7 +4870,7 @@
       "source_location": "L749",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_css_cascade_staticelement_textcontent",
-      "community": 80,
+      "community": 21,
       "norm_label": ".textcontent()"
     },
     {
@@ -4880,7 +4880,7 @@
       "source_location": "L752",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_css_cascade_staticelement_classname",
-      "community": 48,
+      "community": 21,
       "norm_label": ".classname()"
     },
     {
@@ -5090,7 +5090,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_engines_static_html_detect_html_checkstaticpagetypography",
-      "community": 129,
+      "community": 80,
       "norm_label": "checkstaticpagetypography()"
     },
     {
@@ -5480,7 +5480,7 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_registry_antipatterns_filterbyproviders",
-      "community": 102,
+      "community": 80,
       "norm_label": "filterbyproviders()"
     },
     {
@@ -5520,7 +5520,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkborders",
-      "community": 129,
+      "community": 128,
       "norm_label": "checkborders()"
     },
     {
@@ -5560,7 +5560,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_heading_tags",
-      "community": 193,
+      "community": 61,
       "norm_label": "heading_tags"
     },
     {
@@ -5630,7 +5630,7 @@
       "source_location": "L366",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_layout_transition_props",
-      "community": 16,
+      "community": 152,
       "norm_label": "layout_transition_props"
     },
     {
@@ -5640,7 +5640,7 @@
       "source_location": "L373",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkmotion",
-      "community": 16,
+      "community": 152,
       "norm_label": "checkmotion()"
     },
     {
@@ -5720,7 +5720,7 @@
       "source_location": "L792",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementbordersdom",
-      "community": 129,
+      "community": 128,
       "norm_label": "checkelementbordersdom()"
     },
     {
@@ -5890,7 +5890,7 @@
       "source_location": "L1159",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementmotiondom",
-      "community": 16,
+      "community": 152,
       "norm_label": "checkelementmotiondom()"
     },
     {
@@ -6040,7 +6040,7 @@
       "source_location": "L1715",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkpagequalityfromdoc",
-      "community": 80,
+      "community": 16,
       "norm_label": "checkpagequalityfromdoc()"
     },
     {
@@ -6050,7 +6050,7 @@
       "source_location": "L1736",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkpagequalitydom",
-      "community": 80,
+      "community": 16,
       "norm_label": "checkpagequalitydom()"
     },
     {
@@ -6070,7 +6070,7 @@
       "source_location": "L1755",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementborders",
-      "community": 129,
+      "community": 128,
       "norm_label": "checkelementborders()"
     },
     {
@@ -6130,7 +6130,7 @@
       "source_location": "L1927",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_rules_checks_checkelementmotion",
-      "community": 16,
+      "community": 102,
       "norm_label": "checkelementmotion()"
     },
     {
@@ -6570,7 +6570,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_color_isneutralcolor",
-      "community": 80,
+      "community": 128,
       "norm_label": "isneutralcolor()"
     },
     {
@@ -6670,7 +6670,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_constants_border_safe_tags",
-      "community": 129,
+      "community": 128,
       "norm_label": "border_safe_tags"
     },
     {
@@ -6880,7 +6880,7 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_detector_shared_inline_ignores_applyinlineignores",
-      "community": 77,
+      "community": 80,
       "norm_label": "applyinlineignores()"
     },
     {
@@ -7630,7 +7630,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_ack_exts",
-      "community": 104,
+      "community": 24,
       "norm_label": "ack_exts"
     },
     {
@@ -7690,7 +7690,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_safereadjson",
-      "community": 104,
+      "community": 24,
       "norm_label": "safereadjson()"
     },
     {
@@ -7790,7 +7790,7 @@
       "source_location": "L196",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_readconfig",
-      "community": 104,
+      "community": 24,
       "norm_label": "readconfig()"
     },
     {
@@ -7800,7 +7800,7 @@
       "source_location": "L210",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_hooksection",
-      "community": 104,
+      "community": 24,
       "norm_label": "hooksection()"
     },
     {
@@ -7810,7 +7810,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_detectorsection",
-      "community": 104,
+      "community": 24,
       "norm_label": "detectorsection()"
     },
     {
@@ -7820,7 +7820,7 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_numberor",
-      "community": 104,
+      "community": 24,
       "norm_label": "numberor()"
     },
     {
@@ -7830,7 +7830,7 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_clonedefaultconfig",
-      "community": 104,
+      "community": 24,
       "norm_label": "clonedefaultconfig()"
     },
     {
@@ -7840,7 +7840,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_applydetectorconfigsource",
-      "community": 104,
+      "community": 24,
       "norm_label": "applydetectorconfigsource()"
     },
     {
@@ -7850,7 +7850,7 @@
       "source_location": "L264",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_normalizeextensionentries",
-      "community": 104,
+      "community": 24,
       "norm_label": "normalizeextensionentries()"
     },
     {
@@ -7860,7 +7860,7 @@
       "source_location": "L279",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_mergeextensions",
-      "community": 104,
+      "community": 24,
       "norm_label": "mergeextensions()"
     },
     {
@@ -7870,7 +7870,7 @@
       "source_location": "L286",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_matchconfiguredextension",
-      "community": 104,
+      "community": 40,
       "norm_label": "matchconfiguredextension()"
     },
     {
@@ -7880,7 +7880,7 @@
       "source_location": "L302",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_applyconfigsource",
-      "community": 104,
+      "community": 24,
       "norm_label": "applyconfigsource()"
     },
     {
@@ -7890,7 +7890,7 @@
       "source_location": "L323",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_uniquestrings",
-      "community": 104,
+      "community": 24,
       "norm_label": "uniquestrings()"
     },
     {
@@ -7910,7 +7910,7 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_normalizeignorerule",
-      "community": 24,
+      "community": 103,
       "norm_label": "normalizeignorerule()"
     },
     {
@@ -8040,7 +8040,7 @@
       "source_location": "L516",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_mergeignorevalues",
-      "community": 104,
+      "community": 24,
       "norm_label": "mergeignorevalues()"
     },
     {
@@ -8050,7 +8050,7 @@
       "source_location": "L527",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_ignorevaluefileskey",
-      "community": 104,
+      "community": 24,
       "norm_label": "ignorevaluefileskey()"
     },
     {
@@ -8070,7 +8070,7 @@
       "source_location": "L542",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_persistcache",
-      "community": 40,
+      "community": 24,
       "norm_label": "persistcache()"
     },
     {
@@ -8080,7 +8080,7 @@
       "source_location": "L566",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_ensurehookgitexcludes",
-      "community": 45,
+      "community": 24,
       "norm_label": "ensurehookgitexcludes()"
     },
     {
@@ -8160,7 +8160,7 @@
       "source_location": "L669",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_globtoregex",
-      "community": 24,
+      "community": 103,
       "norm_label": "globtoregex()"
     },
     {
@@ -8170,7 +8170,7 @@
       "source_location": "L704",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_matchesanyglob",
-      "community": 24,
+      "community": 103,
       "norm_label": "matchesanyglob()"
     },
     {
@@ -8180,7 +8180,7 @@
       "source_location": "L722",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_filterfindings",
-      "community": 24,
+      "community": 103,
       "norm_label": "filterfindings()"
     },
     {
@@ -8190,7 +8190,7 @@
       "source_location": "L734",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_isignoredfindingvalue",
-      "community": 24,
+      "community": 103,
       "norm_label": "isignoredfindingvalue()"
     },
     {
@@ -8200,7 +8200,7 @@
       "source_location": "L749",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_findingmatchesscopedignorefile",
-      "community": 24,
+      "community": 103,
       "norm_label": "findingmatchesscopedignorefile()"
     },
     {
@@ -8210,7 +8210,7 @@
       "source_location": "L763",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_extractfindingignorevalue",
-      "community": 24,
+      "community": 103,
       "norm_label": "extractfindingignorevalue()"
     },
     {
@@ -8220,7 +8220,7 @@
       "source_location": "L777",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_extractfindingignorevalueraw",
-      "community": 24,
+      "community": 103,
       "norm_label": "extractfindingignorevalueraw()"
     },
     {
@@ -8230,7 +8230,7 @@
       "source_location": "L808",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_extractmotionignorevalue",
-      "community": 24,
+      "community": 103,
       "norm_label": "extractmotionignorevalue()"
     },
     {
@@ -8240,7 +8240,7 @@
       "source_location": "L826",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_cleanignorevaluedisplay",
-      "community": 24,
+      "community": 103,
       "norm_label": "cleanignorevaluedisplay()"
     },
     {
@@ -8330,7 +8330,7 @@
       "source_location": "L997",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_formatfindingignorecommand",
-      "community": 24,
+      "community": 103,
       "norm_label": "formatfindingignorecommand()"
     },
     {
@@ -8390,7 +8390,7 @@
       "source_location": "L1092",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_parsegithubtoolargs",
-      "community": 24,
+      "community": 133,
       "norm_label": "parsegithubtoolargs()"
     },
     {
@@ -8400,7 +8400,7 @@
       "source_location": "L1115",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_lookslikeapplypatch",
-      "community": 24,
+      "community": 133,
       "norm_label": "lookslikeapplypatch()"
     },
     {
@@ -8410,7 +8410,7 @@
       "source_location": "L1129",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_applypatchtext",
-      "community": 24,
+      "community": 133,
       "norm_label": "applypatchtext()"
     },
     {
@@ -8420,7 +8420,7 @@
       "source_location": "L1142",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_normalizegithubevent",
-      "community": 24,
+      "community": 133,
       "norm_label": "normalizegithubevent()"
     },
     {
@@ -8430,7 +8430,7 @@
       "source_location": "L1174",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_normalizehookevent",
-      "community": 24,
+      "community": 133,
       "norm_label": "normalizehookevent()"
     },
     {
@@ -8440,7 +8440,7 @@
       "source_location": "L1199",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_envprojectdir",
-      "community": 24,
+      "community": 133,
       "norm_label": "envprojectdir()"
     },
     {
@@ -8600,7 +8600,7 @@
       "source_location": "L1430",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_hook_lib_shouldemitackforfile",
-      "community": 104,
+      "community": 24,
       "norm_label": "shouldemitackforfile()"
     },
     {
@@ -9800,7 +9800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_lib_target_args",
-      "community": 133,
+      "community": 88,
       "norm_label": "target-args.mjs"
     },
     {
@@ -9810,7 +9810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_lib_target_args_targetargerror",
-      "community": 133,
+      "community": 88,
       "norm_label": "targetargerror"
     },
     {
@@ -9820,7 +9820,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_lib_target_args_targetargerror_constructor",
-      "community": 133,
+      "community": 88,
       "norm_label": ".constructor()"
     },
     {
@@ -9830,7 +9830,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_lib_target_args_parsetargetpath",
-      "community": 133,
+      "community": 88,
       "norm_label": "parsetargetpath()"
     },
     {
@@ -9840,7 +9840,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_lib_target_args_parsetargetoptions",
-      "community": 133,
+      "community": 88,
       "norm_label": "parsetargetoptions()"
     },
     {
@@ -10500,7 +10500,7 @@
       "source_location": "L870",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_stripmanualeditruntimestate",
-      "community": 3,
+      "community": 54,
       "norm_label": "stripmanualeditruntimestate()"
     },
     {
@@ -10510,7 +10510,7 @@
       "source_location": "L893",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_sanitizedcontextouterhtml",
-      "community": 3,
+      "community": 54,
       "norm_label": "sanitizedcontextouterhtml()"
     },
     {
@@ -10580,7 +10580,7 @@
       "source_location": "L1005",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_normalizemanualcontexttext",
-      "community": 3,
+      "community": 54,
       "norm_label": "normalizemanualcontexttext()"
     },
     {
@@ -11080,7 +11080,7 @@
       "source_location": "L1831",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_cursorforplaceholderedge",
-      "community": 31,
+      "community": 3,
       "norm_label": "cursorforplaceholderedge()"
     },
     {
@@ -11250,7 +11250,7 @@
       "source_location": "L2100",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_buildplaceholderresizehandles",
-      "community": 31,
+      "community": 3,
       "norm_label": "buildplaceholderresizehandles()"
     },
     {
@@ -11630,7 +11630,7 @@
       "source_location": "L3279",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_unwrapmixedcontenttextnodes",
-      "community": 3,
+      "community": 54,
       "norm_label": "unwrapmixedcontenttextnodes()"
     },
     {
@@ -11770,7 +11770,7 @@
       "source_location": "L3487",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_documentrefforelement",
-      "community": 3,
+      "community": 54,
       "norm_label": "documentrefforelement()"
     },
     {
@@ -11780,7 +11780,7 @@
       "source_location": "L3504",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_documentrefsegment",
-      "community": 3,
+      "community": 54,
       "norm_label": "documentrefsegment()"
     },
     {
@@ -11790,7 +11790,7 @@
       "source_location": "L3509",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_documentrefidsuffix",
-      "community": 3,
+      "community": 54,
       "norm_label": "documentrefidsuffix()"
     },
     {
@@ -11800,7 +11800,7 @@
       "source_location": "L3513",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_documentrefclasssuffix",
-      "community": 3,
+      "community": 54,
       "norm_label": "documentrefclasssuffix()"
     },
     {
@@ -11810,7 +11810,7 @@
       "source_location": "L3524",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_normalizedocumentreftoken",
-      "community": 3,
+      "community": 54,
       "norm_label": "normalizedocumentreftoken()"
     },
     {
@@ -11820,7 +11820,7 @@
       "source_location": "L3528",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_indexamongsametag",
-      "community": 3,
+      "community": 54,
       "norm_label": "indexamongsametag()"
     },
     {
@@ -11830,7 +11830,7 @@
       "source_location": "L3542",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_copyeditleafcontext",
-      "community": 3,
+      "community": 54,
       "norm_label": "copyeditleafcontext()"
     },
     {
@@ -11840,7 +11840,7 @@
       "source_location": "L3556",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_nearbyeditabletextsformanualedit",
-      "community": 3,
+      "community": 54,
       "norm_label": "nearbyeditabletextsformanualedit()"
     },
     {
@@ -11850,7 +11850,7 @@
       "source_location": "L3576",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_copyeditcontainercontext",
-      "community": 3,
+      "community": 54,
       "norm_label": "copyeditcontainercontext()"
     },
     {
@@ -12110,7 +12110,7 @@
       "source_location": "L4008",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_onpendingtrashclick",
-      "community": 3,
+      "community": 54,
       "norm_label": "onpendingtrashclick()"
     },
     {
@@ -12190,7 +12190,7 @@
       "source_location": "L4196",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_restorediscardedmanualedits",
-      "community": 3,
+      "community": 54,
       "norm_label": "restorediscardedmanualedits()"
     },
     {
@@ -12200,7 +12200,7 @@
       "source_location": "L4215",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_canrestoremanualeditelement",
-      "community": 3,
+      "community": 54,
       "norm_label": "canrestoremanualeditelement()"
     },
     {
@@ -12210,7 +12210,7 @@
       "source_location": "L4221",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_mixedtextwraprestorehint",
-      "community": 3,
+      "community": 54,
       "norm_label": "mixedtextwraprestorehint()"
     },
     {
@@ -12220,7 +12220,7 @@
       "source_location": "L4232",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_restoremixedtextnodemanualedit",
-      "community": 3,
+      "community": 54,
       "norm_label": "restoremixedtextnodemanualedit()"
     },
     {
@@ -12230,7 +12230,7 @@
       "source_location": "L4250",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_directmixedtextrestorenodes",
-      "community": 3,
+      "community": 54,
       "norm_label": "directmixedtextrestorenodes()"
     },
     {
@@ -12240,7 +12240,7 @@
       "source_location": "L4260",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_findmanualeditrestoreelement",
-      "community": 3,
+      "community": 54,
       "norm_label": "findmanualeditrestoreelement()"
     },
     {
@@ -12250,7 +12250,7 @@
       "source_location": "L4279",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_querymanualeditref",
-      "community": 3,
+      "community": 54,
       "norm_label": "querymanualeditref()"
     },
     {
@@ -12260,7 +12260,7 @@
       "source_location": "L4299",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_parsemanualeditrefsegment",
-      "community": 3,
+      "community": 54,
       "norm_label": "parsemanualeditrefsegment()"
     },
     {
@@ -12270,7 +12270,7 @@
       "source_location": "L4315",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_elementmatchesmanualrefsegment",
-      "community": 3,
+      "community": 54,
       "norm_label": "elementmatchesmanualrefsegment()"
     },
     {
@@ -12280,7 +12280,7 @@
       "source_location": "L4326",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_cssident",
-      "community": 3,
+      "community": 54,
       "norm_label": "cssident()"
     },
     {
@@ -13270,7 +13270,7 @@
       "source_location": "L6807",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_loadmodernscreenshot",
-      "community": 54,
+      "community": 3,
       "norm_label": "loadmodernscreenshot()"
     },
     {
@@ -13310,7 +13310,7 @@
       "source_location": "L6893",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_istransparentcolor",
-      "community": 54,
+      "community": 3,
       "norm_label": "istransparentcolor()"
     },
     {
@@ -13320,7 +13320,7 @@
       "source_location": "L6909",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_resolvecanvasbackground",
-      "community": 54,
+      "community": 3,
       "norm_label": "resolvecanvasbackground()"
     },
     {
@@ -13330,7 +13330,7 @@
       "source_location": "L6930",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_capturechromenodes",
-      "community": 54,
+      "community": 3,
       "norm_label": "capturechromenodes()"
     },
     {
@@ -13340,7 +13340,7 @@
       "source_location": "L6954",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_hidecapturechromeforshaderproxy",
-      "community": 54,
+      "community": 3,
       "norm_label": "hidecapturechromeforshaderproxy()"
     },
     {
@@ -13350,7 +13350,7 @@
       "source_location": "L6973",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_shoulduseancestorcropshaderproxy",
-      "community": 54,
+      "community": 3,
       "norm_label": "shoulduseancestorcropshaderproxy()"
     },
     {
@@ -13360,7 +13360,7 @@
       "source_location": "L6983",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_paintsshaderproxysurface",
-      "community": 54,
+      "community": 3,
       "norm_label": "paintsshaderproxysurface()"
     },
     {
@@ -13370,7 +13370,7 @@
       "source_location": "L6990",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_findshaderproxycaptureroot",
-      "community": 54,
+      "community": 3,
       "norm_label": "findshaderproxycaptureroot()"
     },
     {
@@ -13380,7 +13380,7 @@
       "source_location": "L7013",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_captureelementfromrenderedancestor",
-      "community": 54,
+      "community": 3,
       "norm_label": "captureelementfromrenderedancestor()"
     },
     {
@@ -13390,7 +13390,7 @@
       "source_location": "L7037",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_captureelementtoblob",
-      "community": 54,
+      "community": 3,
       "norm_label": "captureelementtoblob()"
     },
     {
@@ -13410,7 +13410,7 @@
       "source_location": "L7241",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_csscolortorgb01",
-      "community": 54,
+      "community": 3,
       "norm_label": "csscolortorgb01()"
     },
     {
@@ -13420,7 +13420,7 @@
       "source_location": "L7255",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_resolvepaperrgb",
-      "community": 54,
+      "community": 3,
       "norm_label": "resolvepaperrgb()"
     },
     {
@@ -13430,7 +13430,7 @@
       "source_location": "L7272",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_paintsbackdrop",
-      "community": 54,
+      "community": 3,
       "norm_label": "paintsbackdrop()"
     },
     {
@@ -13440,7 +13440,7 @@
       "source_location": "L7287",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_findbackdropancestor",
-      "community": 54,
+      "community": 3,
       "norm_label": "findbackdropancestor()"
     },
     {
@@ -13450,7 +13450,7 @@
       "source_location": "L7298",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_averagergb01",
-      "community": 54,
+      "community": 3,
       "norm_label": "averagergb01()"
     },
     {
@@ -13460,7 +13460,7 @@
       "source_location": "L7309",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_dominantrgb01",
-      "community": 54,
+      "community": 3,
       "norm_label": "dominantrgb01()"
     },
     {
@@ -13470,7 +13470,7 @@
       "source_location": "L7335",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_samplesurroundingrgb",
-      "community": 54,
+      "community": 3,
       "norm_label": "samplesurroundingrgb()"
     },
     {
@@ -13480,7 +13480,7 @@
       "source_location": "L7353",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_compileshader",
-      "community": 54,
+      "community": 3,
       "norm_label": "compileshader()"
     },
     {
@@ -13510,7 +13510,7 @@
       "source_location": "L7386",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_showshaderbitmapfallback",
-      "community": 54,
+      "community": 3,
       "norm_label": "showshaderbitmapfallback()"
     },
     {
@@ -13520,7 +13520,7 @@
       "source_location": "L7405",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_showshaderoverlay",
-      "community": 54,
+      "community": 3,
       "norm_label": "showshaderoverlay()"
     },
     {
@@ -13560,7 +13560,7 @@
       "source_location": "L7602",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_snapshotacceptedvariantdom",
-      "community": 3,
+      "community": 54,
       "norm_label": "snapshotacceptedvariantdom()"
     },
     {
@@ -13570,7 +13570,7 @@
       "source_location": "L7615",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_browser_selectorforacceptedroot",
-      "community": 3,
+      "community": 54,
       "norm_label": "selectorforacceptedroot()"
     },
     {
@@ -16020,7 +16020,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_discard_manual_edits_buffer",
-      "community": 28,
+      "community": 147,
       "norm_label": "buffer"
     },
     {
@@ -16140,7 +16140,7 @@
       "source_location": "L243",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_inject_resolvefiles",
-      "community": 28,
+      "community": 88,
       "norm_label": "resolvefiles()"
     },
     {
@@ -16150,7 +16150,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_inject_globtoregex",
-      "community": 28,
+      "community": 88,
       "norm_label": "globtoregex()"
     },
     {
@@ -17300,7 +17300,7 @@
       "source_location": "L976",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_server_applylegacydeferredacceptsonstartup",
-      "community": 191,
+      "community": 42,
       "norm_label": "applylegacydeferredacceptsonstartup()"
     },
     {
@@ -17410,7 +17410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_target",
-      "community": 133,
+      "community": 88,
       "norm_label": "live-target.mjs"
     },
     {
@@ -17420,7 +17420,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_target_resolvelivetarget",
-      "community": 133,
+      "community": 88,
       "norm_label": "resolvelivetarget()"
     },
     {
@@ -19120,7 +19120,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_svelte_component_findsveltecomponentmanifest",
-      "community": 191,
+      "community": 42,
       "norm_label": "findsveltecomponentmanifest()"
     },
     {
@@ -19130,7 +19130,7 @@
       "source_location": "L255",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_svelte_component_readmanifest",
-      "community": 191,
+      "community": 42,
       "norm_label": "readmanifest()"
     },
     {
@@ -19380,7 +19380,7 @@
       "source_location": "L744",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_svelte_component_deferredacceptspath",
-      "community": 191,
+      "community": 42,
       "norm_label": "deferredacceptspath()"
     },
     {
@@ -19390,7 +19390,7 @@
       "source_location": "L749",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_svelte_component_readdeferredaccepts",
-      "community": 191,
+      "community": 42,
       "norm_label": "readdeferredaccepts()"
     },
     {
@@ -19400,7 +19400,7 @@
       "source_location": "L758",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_svelte_component_writedeferredaccept",
-      "community": 191,
+      "community": 42,
       "norm_label": "writedeferredaccept()"
     },
     {
@@ -19410,7 +19410,7 @@
       "source_location": "L767",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_live_svelte_component_applydeferredsveltecomponentaccepts",
-      "community": 191,
+      "community": 42,
       "norm_label": "applydeferredsveltecomponentaccepts()"
     },
     {
@@ -19730,7 +19730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_scripts_modern_screenshot_umd_q",
-      "community": 48,
+      "community": 26,
       "norm_label": "q()"
     },
     {
@@ -20550,7 +20550,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "drizzle_schema_serviceevents",
-      "community": 86,
+      "community": 22,
       "norm_label": "serviceevents"
     },
     {
@@ -21800,7 +21800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_jurnal_stats_route",
-      "community": 198,
+      "community": 33,
       "norm_label": "route.ts"
     },
     {
@@ -21810,7 +21810,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_jurnal_stats_route_get",
-      "community": 198,
+      "community": 33,
       "norm_label": "get()"
     },
     {
@@ -21840,7 +21840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_pimpinan_id_route",
-      "community": 201,
+      "community": 86,
       "norm_label": "route.ts"
     },
     {
@@ -21850,7 +21850,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_pimpinan_id_route_get",
-      "community": 201,
+      "community": 86,
       "norm_label": "get()"
     },
     {
@@ -21860,7 +21860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_pimpinan_route",
-      "community": 207,
+      "community": 86,
       "norm_label": "route.ts"
     },
     {
@@ -21870,7 +21870,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_app_api_pimpinan_route_get",
-      "community": 207,
+      "community": 86,
       "norm_label": "get()"
     },
     {
@@ -22010,7 +22010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_api_service_pimpinan_route",
-      "community": 86,
+      "community": 22,
       "norm_label": "route.ts"
     },
     {
@@ -22350,7 +22350,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_stats_activityhighlight",
-      "community": 33,
+      "community": 135,
       "norm_label": "activityhighlight"
     },
     {
@@ -22380,7 +22380,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_stats_getjurnalyears",
-      "community": 198,
+      "community": 33,
       "norm_label": "getjurnalyears()"
     },
     {
@@ -22390,7 +22390,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_entities_jurnal_api_get_jurnal_stats_getjurnalstatsbyyear",
-      "community": 198,
+      "community": 33,
       "norm_label": "getjurnalstatsbyyear()"
     },
     {
@@ -22760,7 +22760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_pimpinan_api_get_pimpinan_detail",
-      "community": 201,
+      "community": 86,
       "norm_label": "get-pimpinan-detail.ts"
     },
     {
@@ -22770,7 +22770,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_entities_pimpinan_api_get_pimpinan_detail_getpimpinandetail",
-      "community": 201,
+      "community": 86,
       "norm_label": "getpimpinandetail()"
     },
     {
@@ -22780,7 +22780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_entities_pimpinan_api_get_pimpinan_list",
-      "community": 207,
+      "community": 86,
       "norm_label": "get-pimpinan-list.ts"
     },
     {
@@ -22790,7 +22790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_entities_pimpinan_api_get_pimpinan_list_getpimpinanlist",
-      "community": 207,
+      "community": 86,
       "norm_label": "getpimpinanlist()"
     },
     {
@@ -23690,7 +23690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload",
-      "community": 112,
+      "community": 22,
       "norm_label": "service-payload.ts"
     },
     {
@@ -23700,7 +23700,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_isodate",
-      "community": 112,
+      "community": 22,
       "norm_label": "isodate"
     },
     {
@@ -23710,7 +23710,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_jsonobject",
-      "community": 112,
+      "community": 22,
       "norm_label": "jsonobject"
     },
     {
@@ -23720,7 +23720,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_dokumenschema",
-      "community": 112,
+      "community": 22,
       "norm_label": "dokumenschema"
     },
     {
@@ -23730,7 +23730,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_jurnalpayloadschema",
-      "community": 112,
+      "community": 22,
       "norm_label": "jurnalpayloadschema"
     },
     {
@@ -23740,7 +23740,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_jurnalpatchschema",
-      "community": 112,
+      "community": 22,
       "norm_label": "jurnalpatchschema"
     },
     {
@@ -23750,7 +23750,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_dokumenpatchschema",
-      "community": 112,
+      "community": 22,
       "norm_label": "dokumenpatchschema"
     },
     {
@@ -23760,7 +23760,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_pimpinanpayloadschema",
-      "community": 112,
+      "community": 22,
       "norm_label": "pimpinanpayloadschema"
     },
     {
@@ -23770,7 +23770,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_features_jurnal_sync_model_service_payload_pimpinanpatchschema",
-      "community": 112,
+      "community": 22,
       "norm_label": "pimpinanpatchschema"
     },
     {
@@ -23870,7 +23870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_pimpinan_sync_lib_upsert_pimpinan",
-      "community": 86,
+      "community": 0,
       "norm_label": "upsert-pimpinan.ts"
     },
     {
@@ -23880,7 +23880,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_features_pimpinan_sync_lib_upsert_pimpinan_pimpinanpayload",
-      "community": 86,
+      "community": 0,
       "norm_label": "pimpinanpayload"
     },
     {
@@ -23890,7 +23890,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_features_pimpinan_sync_lib_upsert_pimpinan_upsertpimpinan",
-      "community": 86,
+      "community": 0,
       "norm_label": "upsertpimpinan()"
     },
     {
@@ -23900,7 +23900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token",
-      "community": 22,
+      "community": 104,
       "norm_label": "verify-token.ts"
     },
     {
@@ -23910,7 +23910,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_signatureinput",
-      "community": 22,
+      "community": 104,
       "norm_label": "signatureinput"
     },
     {
@@ -23920,7 +23920,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_signatureverificationinput",
-      "community": 22,
+      "community": 104,
       "norm_label": "signatureverificationinput"
     },
     {
@@ -23930,7 +23930,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_signaturepayload",
-      "community": 22,
+      "community": 104,
       "norm_label": "signaturepayload()"
     },
     {
@@ -23940,7 +23940,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_safeequalhex",
-      "community": 22,
+      "community": 104,
       "norm_label": "safeequalhex()"
     },
     {
@@ -23950,7 +23950,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_verifytoken",
-      "community": 22,
+      "community": 104,
       "norm_label": "verifytoken()"
     },
     {
@@ -23970,7 +23970,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_createservicesignature",
-      "community": 22,
+      "community": 104,
       "norm_label": "createservicesignature()"
     },
     {
@@ -23980,7 +23980,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_features_service_auth_lib_verify_token_verifyservicesignature",
-      "community": 22,
+      "community": 104,
       "norm_label": "verifyservicesignature()"
     },
     {
@@ -24010,7 +24010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_service_events_lib_process_service_event",
-      "community": 86,
+      "community": 22,
       "norm_label": "process-service-event.ts"
     },
     {
@@ -24020,7 +24020,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_features_service_events_lib_process_service_event_serviceeventinput",
-      "community": 86,
+      "community": 22,
       "norm_label": "serviceeventinput"
     },
     {
@@ -24030,7 +24030,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_features_service_events_lib_process_service_event_serviceeventresult",
-      "community": 86,
+      "community": 22,
       "norm_label": "serviceeventresult"
     },
     {
@@ -24080,7 +24080,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_shared_lib_db_index_databaseexecutor",
-      "community": 86,
+      "community": 0,
       "norm_label": "databaseexecutor"
     },
     {
@@ -24460,7 +24460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_widgets_stats_section_ui_activity_panel",
-      "community": 33,
+      "community": 135,
       "norm_label": "activity-panel.tsx"
     },
     {
@@ -24470,7 +24470,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_widgets_stats_section_ui_activity_panel_activefilter",
-      "community": 33,
+      "community": 135,
       "norm_label": "activefilter"
     },
     {
@@ -24480,7 +24480,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_widgets_stats_section_ui_activity_panel_activitypanelprops",
-      "community": 33,
+      "community": 135,
       "norm_label": "activitypanelprops"
     },
     {
@@ -24490,7 +24490,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_widgets_stats_section_ui_activity_panel_formatdateindo",
-      "community": 33,
+      "community": 135,
       "norm_label": "formatdateindo()"
     },
     {
@@ -24500,7 +24500,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_widgets_stats_section_ui_activity_panel_activitypanel",
-      "community": 33,
+      "community": 135,
       "norm_label": "activitypanel()"
     },
     {
@@ -24700,7 +24700,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_widgets_stats_section_ui_trend_chart_trendchartinner",
-      "community": 26,
+      "community": 33,
       "norm_label": "trendchartinner()"
     },
     {
@@ -24802,6 +24802,16 @@
       "id": "tests_centralized_approval_workflow_test_cookieget",
       "community": 210,
       "norm_label": "cookieget"
+    },
+    {
+      "label": "dokumen-uploader.test.tsx",
+      "file_type": "code",
+      "source_file": "tests/dokumen-uploader.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_dokumen_uploader_test",
+      "community": 151,
+      "norm_label": "dokumen-uploader.test.tsx"
     },
     {
       "label": "workflow-jurnal.spec.ts",
@@ -25000,7 +25010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_service_auth_test",
-      "community": 22,
+      "community": 104,
       "norm_label": "service_auth.test.ts"
     },
     {
@@ -25030,7 +25040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_service_pimpinan_test",
-      "community": 86,
+      "community": 0,
       "norm_label": "service_pimpinan.test.ts"
     },
     {
@@ -25970,7 +25980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill",
-      "community": 103,
+      "community": 157,
       "norm_label": "skill.md"
     },
     {
@@ -25980,7 +25990,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_setup",
-      "community": 103,
+      "community": 157,
       "norm_label": "setup"
     },
     {
@@ -26100,7 +26110,7 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_commands",
-      "community": 103,
+      "community": 157,
       "norm_label": "commands"
     },
     {
@@ -26110,7 +26120,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_routing_rules",
-      "community": 103,
+      "community": 157,
       "norm_label": "routing rules"
     },
     {
@@ -26120,7 +26130,7 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_pin_unpin",
-      "community": 103,
+      "community": 157,
       "norm_label": "pin / unpin"
     },
     {
@@ -26130,7 +26140,7 @@
       "source_location": "L165",
       "_origin": "ast",
       "id": "github_skills_impeccable_skill_hooks",
-      "community": 103,
+      "community": 157,
       "norm_label": "hooks"
     },
     {
@@ -26300,7 +26310,7 @@
       "source_location": "L199",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_responsive_design",
-      "community": 135,
+      "community": 90,
       "norm_label": "responsive design"
     },
     {
@@ -26310,7 +26320,7 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_mobile_first_write_it_right",
-      "community": 135,
+      "community": 90,
       "norm_label": "mobile-first: write it right"
     },
     {
@@ -26320,7 +26330,7 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_breakpoints_content_driven",
-      "community": 135,
+      "community": 90,
       "norm_label": "breakpoints: content-driven"
     },
     {
@@ -26330,7 +26340,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_detect_input_method_not_just_screen_size",
-      "community": 135,
+      "community": 90,
       "norm_label": "detect input method, not just screen size"
     },
     {
@@ -26340,7 +26350,7 @@
       "source_location": "L237",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_safe_areas_handle_the_notch",
-      "community": 135,
+      "community": 90,
       "norm_label": "safe areas: handle the notch"
     },
     {
@@ -26350,7 +26360,7 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_responsive_images_get_it_right",
-      "community": 135,
+      "community": 90,
       "norm_label": "responsive images: get it right"
     },
     {
@@ -26360,7 +26370,7 @@
       "source_location": "L262",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_srcset_with_width_descriptors",
-      "community": 135,
+      "community": 90,
       "norm_label": "srcset with width descriptors"
     },
     {
@@ -26370,7 +26380,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_picture_element_for_art_direction",
-      "community": 135,
+      "community": 90,
       "norm_label": "picture element for art direction"
     },
     {
@@ -26380,7 +26390,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_layout_adaptation_patterns",
-      "community": 135,
+      "community": 90,
       "norm_label": "layout adaptation patterns"
     },
     {
@@ -26390,7 +26400,7 @@
       "source_location": "L298",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_testing_don_t_trust_devtools_alone",
-      "community": 135,
+      "community": 90,
       "norm_label": "testing: don't trust devtools alone"
     },
     {
@@ -26400,7 +26410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native",
-      "community": 8,
+      "community": 130,
       "norm_label": "adapt.native.md"
     },
     {
@@ -26410,7 +26420,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_assess_adaptation_challenge",
-      "community": 8,
+      "community": 130,
       "norm_label": "assess adaptation challenge"
     },
     {
@@ -26420,7 +26430,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_adaptation_strategies",
-      "community": 185,
+      "community": 130,
       "norm_label": "adaptation strategies"
     },
     {
@@ -26430,7 +26440,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_phone_tablet_ipad_large_screens",
-      "community": 185,
+      "community": 130,
       "norm_label": "phone \u2192 tablet (ipad / large screens)"
     },
     {
@@ -26440,7 +26450,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_orientation_foldables",
-      "community": 185,
+      "community": 130,
       "norm_label": "orientation & foldables"
     },
     {
@@ -26450,7 +26460,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_platform_platform_ios_android",
-      "community": 185,
+      "community": 130,
       "norm_label": "platform \u2192 platform (ios \u2194 android)"
     },
     {
@@ -26460,7 +26470,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_web_native_porting_a_website_or_web_app",
-      "community": 185,
+      "community": 130,
       "norm_label": "web \u2192 native (porting a website or web app)"
     },
     {
@@ -26470,7 +26480,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_adapt_native_implement_verify",
-      "community": 8,
+      "community": 130,
       "norm_label": "implement & verify"
     },
     {
@@ -26480,7 +26490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_android",
-      "community": 8,
+      "community": 130,
       "norm_label": "android.md"
     },
     {
@@ -26560,7 +26570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate",
-      "community": 8,
+      "community": 73,
       "norm_label": "animate.md"
     },
     {
@@ -26570,7 +26580,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_register",
-      "community": 8,
+      "community": 73,
       "norm_label": "register"
     },
     {
@@ -26580,7 +26590,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_assess_animation_opportunities",
-      "community": 8,
+      "community": 73,
       "norm_label": "assess animation opportunities"
     },
     {
@@ -26590,7 +26600,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_plan_animation_strategy",
-      "community": 8,
+      "community": 73,
       "norm_label": "plan animation strategy"
     },
     {
@@ -26600,7 +26610,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_implement_animations",
-      "community": 142,
+      "community": 73,
       "norm_label": "implement animations"
     },
     {
@@ -26610,7 +26620,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_entrance_animations",
-      "community": 142,
+      "community": 73,
       "norm_label": "entrance animations"
     },
     {
@@ -26620,7 +26630,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_micro_interactions",
-      "community": 142,
+      "community": 73,
       "norm_label": "micro-interactions"
     },
     {
@@ -26630,7 +26640,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_state_transitions",
-      "community": 142,
+      "community": 73,
       "norm_label": "state transitions"
     },
     {
@@ -26640,7 +26650,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_navigation_flow",
-      "community": 142,
+      "community": 73,
       "norm_label": "navigation & flow"
     },
     {
@@ -26650,7 +26660,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_feedback_guidance",
-      "community": 142,
+      "community": 73,
       "norm_label": "feedback & guidance"
     },
     {
@@ -26660,7 +26670,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_delight_moments",
-      "community": 142,
+      "community": 73,
       "norm_label": "delight moments"
     },
     {
@@ -26750,7 +26760,7 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_animate_verify_quality",
-      "community": 8,
+      "community": 73,
       "norm_label": "verify quality"
     },
     {
@@ -26910,7 +26920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native",
-      "community": 8,
+      "community": 130,
       "norm_label": "audit.native.md"
     },
     {
@@ -26980,7 +26990,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_generate_report",
-      "community": 153,
+      "community": 130,
       "norm_label": "generate report"
     },
     {
@@ -26990,7 +27000,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_audit_health_score",
-      "community": 153,
+      "community": 130,
       "norm_label": "audit health score"
     },
     {
@@ -27000,7 +27010,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_platform_conformance_verdict",
-      "community": 153,
+      "community": 130,
       "norm_label": "platform conformance verdict"
     },
     {
@@ -27010,7 +27020,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_executive_summary",
-      "community": 153,
+      "community": 130,
       "norm_label": "executive summary"
     },
     {
@@ -27020,7 +27030,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_detailed_findings_by_severity",
-      "community": 153,
+      "community": 130,
       "norm_label": "detailed findings by severity"
     },
     {
@@ -27030,7 +27040,7 @@
       "source_location": "L107",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_patterns_systemic_issues",
-      "community": 153,
+      "community": 130,
       "norm_label": "patterns & systemic issues"
     },
     {
@@ -27040,7 +27050,7 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_positive_findings",
-      "community": 153,
+      "community": 130,
       "norm_label": "positive findings"
     },
     {
@@ -27050,7 +27060,7 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_audit_native_recommended_actions",
-      "community": 8,
+      "community": 130,
       "norm_label": "recommended actions"
     },
     {
@@ -27500,7 +27510,7 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_ux_writing",
-      "community": 57,
+      "community": 66,
       "norm_label": "ux writing"
     },
     {
@@ -27510,7 +27520,7 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_the_button_label_problem",
-      "community": 57,
+      "community": 66,
       "norm_label": "the button label problem"
     },
     {
@@ -27520,7 +27530,7 @@
       "source_location": "L200",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_error_messages_the_formula",
-      "community": 57,
+      "community": 66,
       "norm_label": "error messages: the formula"
     },
     {
@@ -27530,7 +27540,7 @@
       "source_location": "L204",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_error_message_templates",
-      "community": 57,
+      "community": 66,
       "norm_label": "error message templates"
     },
     {
@@ -27540,7 +27550,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_don_t_blame_the_user",
-      "community": 57,
+      "community": 66,
       "norm_label": "don't blame the user"
     },
     {
@@ -27550,7 +27560,7 @@
       "source_location": "L218",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_empty_states_are_opportunities",
-      "community": 57,
+      "community": 66,
       "norm_label": "empty states are opportunities"
     },
     {
@@ -27560,7 +27570,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_voice_vs_tone",
-      "community": 57,
+      "community": 66,
       "norm_label": "voice vs tone"
     },
     {
@@ -27570,7 +27580,7 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_writing_for_accessibility",
-      "community": 57,
+      "community": 66,
       "norm_label": "writing for accessibility"
     },
     {
@@ -27580,7 +27590,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_writing_for_translation",
-      "community": 57,
+      "community": 66,
       "norm_label": "writing for translation"
     },
     {
@@ -27590,7 +27600,7 @@
       "source_location": "L242",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_plan_for_expansion",
-      "community": 57,
+      "community": 66,
       "norm_label": "plan for expansion"
     },
     {
@@ -27600,7 +27610,7 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_translation_friendly_patterns",
-      "community": 57,
+      "community": 66,
       "norm_label": "translation-friendly patterns"
     },
     {
@@ -27610,7 +27620,7 @@
       "source_location": "L257",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_consistency_the_terminology_problem",
-      "community": 57,
+      "community": 66,
       "norm_label": "consistency: the terminology problem"
     },
     {
@@ -27620,7 +27630,7 @@
       "source_location": "L270",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_avoid_redundant_copy",
-      "community": 57,
+      "community": 66,
       "norm_label": "avoid redundant copy"
     },
     {
@@ -27630,7 +27640,7 @@
       "source_location": "L274",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_loading_states_274",
-      "community": 57,
+      "community": 66,
       "norm_label": "loading states"
     },
     {
@@ -27640,7 +27650,7 @@
       "source_location": "L278",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_confirmation_dialogs_use_sparingly",
-      "community": 57,
+      "community": 66,
       "norm_label": "confirmation dialogs: use sparingly"
     },
     {
@@ -27650,7 +27660,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_clarify_form_instructions",
-      "community": 57,
+      "community": 66,
       "norm_label": "form instructions"
     },
     {
@@ -28100,7 +28110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_craft_flow",
-      "community": 66,
+      "community": 89,
       "norm_label": "craft flow"
     },
     {
@@ -28110,7 +28120,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_gates_do_not_compress",
-      "community": 66,
+      "community": 89,
       "norm_label": "gates: do not compress"
     },
     {
@@ -28120,7 +28130,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_0_project_foundation",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 0: project foundation"
     },
     {
@@ -28130,7 +28140,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_1_shape_the_design",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 1: shape the design"
     },
     {
@@ -28140,7 +28150,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_2_load_references",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 2: load references"
     },
     {
@@ -28150,7 +28160,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_3_visual_direction_assets_harness_gated",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 3: visual direction & assets (harness-gated)"
     },
     {
@@ -28160,7 +28170,7 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_4_build_to_production_quality",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 4: build to production quality"
     },
     {
@@ -28170,7 +28180,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_production_bar",
-      "community": 66,
+      "community": 89,
       "norm_label": "production bar"
     },
     {
@@ -28180,7 +28190,7 @@
       "source_location": "L101",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_5_iterate_visually",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 5: iterate visually"
     },
     {
@@ -28190,7 +28200,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_craft_step_6_present",
-      "community": 66,
+      "community": 89,
       "norm_label": "step 6: present"
     },
     {
@@ -29560,7 +29570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks",
-      "community": 199,
+      "community": 157,
       "norm_label": "hooks.md"
     },
     {
@@ -29570,7 +29580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks_impeccable_hooks",
-      "community": 199,
+      "community": 157,
       "norm_label": "/impeccable hooks"
     },
     {
@@ -29580,7 +29590,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks_routing",
-      "community": 199,
+      "community": 157,
       "norm_label": "routing"
     },
     {
@@ -29590,7 +29600,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks_flow",
-      "community": 199,
+      "community": 157,
       "norm_label": "flow"
     },
     {
@@ -29600,7 +29610,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks_intentional_findings",
-      "community": 199,
+      "community": 157,
       "norm_label": "intentional findings"
     },
     {
@@ -29610,7 +29620,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks_constraints",
-      "community": 199,
+      "community": 157,
       "norm_label": "constraints"
     },
     {
@@ -29620,7 +29630,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_hooks_failure_modes",
-      "community": 199,
+      "community": 157,
       "norm_label": "failure modes"
     },
     {
@@ -29990,7 +30000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_ios",
-      "community": 8,
+      "community": 130,
       "norm_label": "ios.md"
     },
     {
@@ -31100,7 +31110,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_the_toolkit",
-      "community": 128,
+      "community": 71,
       "norm_label": "the toolkit"
     },
     {
@@ -31110,7 +31120,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_make_transitions_feel_cinematic",
-      "community": 128,
+      "community": 71,
       "norm_label": "make transitions feel cinematic"
     },
     {
@@ -31120,7 +31130,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_tie_animation_to_scroll_position",
-      "community": 128,
+      "community": 71,
       "norm_label": "tie animation to scroll position"
     },
     {
@@ -31130,7 +31140,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_render_beyond_css",
-      "community": 128,
+      "community": 71,
       "norm_label": "render beyond css"
     },
     {
@@ -31140,7 +31150,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_make_data_feel_alive",
-      "community": 128,
+      "community": 71,
       "norm_label": "make data feel alive"
     },
     {
@@ -31150,7 +31160,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_animate_complex_properties",
-      "community": 128,
+      "community": 71,
       "norm_label": "animate complex properties"
     },
     {
@@ -31160,7 +31170,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_push_performance_boundaries",
-      "community": 128,
+      "community": 71,
       "norm_label": "push performance boundaries"
     },
     {
@@ -31170,7 +31180,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_overdrive_interact_with_the_device",
-      "community": 128,
+      "community": 71,
       "norm_label": "interact with the device"
     },
     {
@@ -31230,7 +31240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_polish",
-      "community": 103,
+      "community": 74,
       "norm_label": "polish.md"
     },
     {
@@ -31240,7 +31250,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_polish_design_system_discovery",
-      "community": 103,
+      "community": 74,
       "norm_label": "design system discovery"
     },
     {
@@ -31250,7 +31260,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_polish_pre_polish_assessment",
-      "community": 103,
+      "community": 74,
       "norm_label": "pre-polish assessment"
     },
     {
@@ -31400,7 +31410,7 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_polish_polish_checklist",
-      "community": 103,
+      "community": 74,
       "norm_label": "polish checklist"
     },
     {
@@ -31410,7 +31420,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_polish_final_verification",
-      "community": 103,
+      "community": 74,
       "norm_label": "final verification"
     },
     {
@@ -31420,7 +31430,7 @@
       "source_location": "L234",
       "_origin": "ast",
       "id": "github_skills_impeccable_reference_polish_clean_up",
-      "community": 103,
+      "community": 74,
       "norm_label": "clean up"
     },
     {
@@ -99768,6 +99778,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/dokumen-uploader.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_dokumen_uploader_test",
+      "target": "src_entities_jurnal_model_submission_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/workflow_jurnal_lifecycle.test.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -99795,6 +99816,17 @@
       "weight": 1.0,
       "source": "src_features_jurnal_submission_ui_components_foto_uploader_client_props",
       "target": "src_entities_jurnal_model_submission_schema_dokumentasiitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dokumen-uploader.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_dokumen_uploader_test",
+      "target": "src_entities_jurnal_model_submission_schema_dokumenpendukungitemschema",
       "confidence_score": 1.0
     },
     {
@@ -102114,6 +102146,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dokumen-uploader.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_dokumen_uploader_test",
+      "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -102121,6 +102164,17 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "src_features_jurnal_submission_ui_jurnal_submit_form_client",
+      "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_dokumenuploader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/dokumen-uploader.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_dokumen_uploader_test",
       "target": "src_features_jurnal_submission_ui_components_dokumen_uploader_client_dokumenuploader",
       "confidence_score": 1.0
     },
@@ -113794,5 +113848,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "15923ac208c1232b461fa95c3e4579ebde326939"
+  "built_at_commit": "04467e78cc5d7c4c2d94861a942b54e5cbeb13da"
 }
