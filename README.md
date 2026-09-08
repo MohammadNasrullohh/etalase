@@ -1,36 +1,38 @@
 # ALAS — Arsip Langkah Bawaslu Kebumen
 
-ALAS adalah portal arsip publik dan dashboard visibilitas **read-only** untuk kegiatan serta pimpinan Bawaslu Kebumen. Lawet Hub tetap menjadi source of truth dan satu-satunya tempat workflow authoring; ALAS menyimpan proyeksi publiknya sendiri di PostgreSQL.
+ALAS adalah portal arsip publik dan antarmuka pengelolaan kegiatan serta pimpinan Bawaslu Kebumen. Lawet Hub bertindak sebagai *single source of truth* utama data institusional; alur authoring dan persetujuan terintegrasi secara terpusat melalui REST API Lawet Hub (ADR-0005), sementara ALAS menyimpan proyeksi publiknya sendiri di PostgreSQL untuk akses warga yang cepat dan independen.
 
 ## Status arsitektur
 
-- Lawet Hub mengirim desired state melalui transactional outbox ke Direct Service API ALAS.
-- Operasi tulis Service API memakai bearer token, HMAC-SHA256, replay window, dan event ID idempoten.
-- Sesi dashboard ALAS memperoleh JWT Lawet Hub dengan scope `alas:dashboard:read`; token tersebut hanya boleh memakai `GET`, `HEAD`, dan `OPTIONS`.
+- Lawet Hub mengirim *desired state* publikasi melalui *transactional outbox* ke Direct Service API ALAS.
+- Operasi tulis Direct Service API memakai bearer token, HMAC-SHA256, replay window, dan event ID idempoten.
+- Sesi pengguna ALAS berkomunikasi langsung ke REST API Lawet Hub untuk alur authoring jurnal dan antrean persetujuan kasubag/approver secara terpusat (ADR-0005).
 - ALAS dan Lawet Hub adalah repository mandiri. Keduanya berkomunikasi melalui HTTP dan konfigurasi environment, tanpa import source, package dependency, file link, symlink, atau submodule silang.
 - Next.js App Router disusun dengan adaptasi Feature-Sliced Design (FSD) dan dependency direction diperiksa di CI.
 
 ```mermaid
 flowchart LR
-    Staff[Staf dan approver] -->|workflow tulis| Lawet[Lawet Hub]
+    Staff[Staf dan Approver] -->|authoring & approval| Web[ALAS UI / Dashboard]
+    Web -->|REST API sesi terautentikasi| Lawet[Lawet Hub API]
     Lawet -->|desired state dalam transaksi| Outbox[(alas_sync_outbox)]
     Outbox -->|Bearer + HMAC + event ID| Service[ALAS Service API]
-    Service --> Projection[(alas-db)]
-    Public[Pengunjung] --> Web[ALAS publik]
-    Web --> Projection
-    Dashboard[Dashboard ALAS] -->|JWT dashboard-read; read only| Lawet
+    Service --> Projection[(alas-db PostgreSQL)]
+    Public[Warga / Publik] --> Web
+    Web -->|baca arsip terbit| Projection
 ```
 
 ## Dokumentasi utama
 
 | Dokumen | Isi |
 | --- | --- |
-| [Integrasi Lawet Hub](INTEGRATION.md) | Kontrak HTTP, autentikasi, idempotency, retry, reconciliation, dan konfigurasi dua aplikasi. |
+| [Integrasi Lawet Hub](docs/architecture/INTEGRATION.md) | Kontrak HTTP, autentikasi, idempotency, retry, reconciliation, dan konfigurasi dua aplikasi. |
 | [Arsitektur](docs/architecture/ARCHITECTURE.md) | Batas sistem, alur data, FSD, dan quality gates. |
+| [Desain Sistem](docs/architecture/design.md) | Panduan glassmorphism, palet warna, tokens UI, dan kontras. |
 | [Testing](docs/architecture/TESTING.md) | Lapisan test dan perintah verifikasi. |
-| [ERD](docs/architecture/ERD.md) | Struktur data ALAS. |
-| [Runbook](docs/ops/RUNBOOK.md) | Operasi dan deployment. |
-| [ADR](docs/adr/) | Keputusan arsitektur yang telah diterima; ADR bersifat immutable. |
+| [ERD](docs/architecture/ERD.md) | Struktur data PostgreSQL ALAS. |
+| [Produk & PRD](docs/product/PRODUCT.md) | Tujuan produk, cakupan, batasan, dan PRD lengkap ([v1.1](docs/product/ALAS_PRD_v1.1_final.md) & [v1.2](docs/product/ALAS_PRD_v1.2.md)). |
+| [Runbook](docs/ops/RUNBOOK.md) | Operasi, deployment, migrasi, dan troubleshooting. |
+| [ADR](docs/adr/) | Keputusan arsitektur yang telah diterima (ADR-0001 s.d. ADR-0005). |
 
 ## Tech stack
 
@@ -52,9 +54,12 @@ src/
 ├── features/   # use case dan interaksi pengguna
 ├── entities/   # model domain, API, dan UI entitas
 └── shared/     # infrastruktur dan UI tanpa pengetahuan domain
-drizzle/        # schema dan migration Drizzle
-tests/          # test Vitest dan integration test
-scripts/        # repository/architecture checks
+public/         # aset web statis dan upload media runtime
+assets/         # aset branding resmi
+drizzle/        # schema dan migration PostgreSQL
+tests/          # test Vitest dan Playwright e2e
+scripts/        # repository/architecture isolation checks
+nginx/          # konfigurasi reverse proxy produksi
 docs/           # architecture, ADR, product, ops, dan audit
 ```
 
@@ -144,7 +149,7 @@ Salin `.env.example`; jangan commit nilai rahasia.
 | `PATCH /api/service/pimpinan/:sourceId` | Perbarui pimpinan. |
 | `DELETE /api/service/pimpinan/:sourceId` | Nonaktifkan pimpinan. |
 
-Semua endpoint service membutuhkan bearer token. `POST`, `PATCH`, dan `DELETE` juga membutuhkan `X-ALAS-Event-Id`, `X-ALAS-Timestamp`, serta `X-ALAS-Signature`. Detail payload dan canonical signing string ada di [INTEGRATION.md](INTEGRATION.md).
+Semua endpoint service membutuhkan bearer token. `POST`, `PATCH`, dan `DELETE` juga membutuhkan `X-ALAS-Event-Id`, `X-ALAS-Timestamp`, serta `X-ALAS-Signature`. Detail payload dan canonical signing string ada di [INTEGRATION.md](docs/architecture/INTEGRATION.md).
 
 ## Security dan data integrity
 
@@ -152,9 +157,9 @@ Semua endpoint service membutuhkan bearer token. `POST`, `PATCH`, dan `DELETE` j
 - `service_events.event_id` menjadi idempotency ledger; claim event dan mutasi domain terjadi dalam satu transaksi.
 - HMAC memverifikasi timestamp, method, pathname, dan SHA-256 body; perbandingan signature menggunakan constant-time comparison.
 - Reconciliation Lawet Hub mengantrekan ulang desired state secara idempoten dan outbox memakai row locking `SKIP LOCKED` saat delivery.
-- Dashboard token tidak memiliki refresh token dan ditolak pada method mutasi oleh Lawet Hub.
+- Sesi authoring dan antrean approval terhubung langsung ke REST API terpusat Lawet Hub (ADR-0005) dengan otentikasi berbasis peran/capability.
 - Media terlindungi diproksi server-side, dibatasi prefix, memakai timeout, dan selalu `Cache-Control: private, no-store`.
-- Workflow submit, upload, approve, dan reject tidak dijalankan oleh ALAS; pengguna diarahkan ke Lawet Hub.
+- Publikasi ke etalase publik ALAS terjadi melalui Direct Service API setelah proses persetujuan selesai di Lawet Hub.
 
 ## Pengujian dan quality gates
 
