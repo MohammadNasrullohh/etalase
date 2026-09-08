@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "drizzle/migrations/meta/_journal.json": {
-    "mtime": 1785766520.9998822,
-    "ast_hash": "ffbc903d753c46abf41dc0d861b06db8",
+    "mtime": 1788824628.0740204,
+    "ast_hash": "d3eaaf65088d2be024e525c967b3f5a5",
     "semantic_hash": ""
   },
   "drizzle/schema.ts": {
@@ -85,7 +85,7 @@
     "semantic_hash": ""
   },
   "src/app/api/service/jurnal/route.ts": {
-    "mtime": 1785767367.5670328,
+    "mtime": 1788824611.650197,
     "ast_hash": "bd9d7e6b611d6a3a0b4c4236ab079eeb",
     "semantic_hash": ""
   },
@@ -375,18 +375,18 @@
     "semantic_hash": ""
   },
   "src/entities/jurnal/api/approve-jurnal.action.ts": {
-    "mtime": 1785981654.1924107,
-    "ast_hash": "20fdfa8f2030349315eb4765b31a4d82",
+    "mtime": 1788824514.9955523,
+    "ast_hash": "d0a9aac090eb6a2239745f35d9b1f0de",
     "semantic_hash": ""
   },
   "src/features/jurnal-approval/ui/approval-queue.client.tsx": {
-    "mtime": 1788783963.408002,
-    "ast_hash": "5c7fe5a9eb705b2f2e180e84553e3102",
+    "mtime": 1788824535.5350626,
+    "ast_hash": "d5c89e9340732a1c6e2e549697e09322",
     "semantic_hash": ""
   },
   "src/features/lawet-auth/api/login.action.ts": {
-    "mtime": 1785768643.6127834,
-    "ast_hash": "7253093c26943c6f443b9071169a5fe4",
+    "mtime": 1788824508.1276333,
+    "ast_hash": "54713b7c8b3d76d7a3eafc2b239d441a",
     "semantic_hash": ""
   },
   "src/features/lawet-auth/ui/login-form.client.tsx": {
@@ -1265,8 +1265,8 @@
     "semantic_hash": ""
   },
   "src/app/(authoring)/approval/[id]/page.tsx": {
-    "mtime": 1788784289.7618659,
-    "ast_hash": "c83a16ba0e15d0ae0552598ef5ceb43e",
+    "mtime": 1788824527.049361,
+    "ast_hash": "de45830b02a7e7a37c5e477e2b1c046b",
     "semantic_hash": ""
   },
   "src/features/jurnal-approval/ui/jurnal-progress-tracker.tsx": {
@@ -1370,8 +1370,8 @@
     "semantic_hash": ""
   },
   "tests/lawet_dashboard_boundary.test.ts": {
-    "mtime": 1785814581.7390933,
-    "ast_hash": "cf87f6747b58f1ac8882d06e95367b90",
+    "mtime": 1788824606.8769698,
+    "ast_hash": "0303857ac96c8dd7da60688cd5d775cc",
     "semantic_hash": ""
   },
   "tests/production_compose_security.test.ts": {
@@ -1535,8 +1535,8 @@
     "semantic_hash": ""
   },
   "tests/alas_local_workflow.test.ts": {
-    "mtime": 1785981692.7139616,
-    "ast_hash": "7dd6a0cdb20689de5ae56b82a6016de3",
+    "mtime": 1788824646.0240922,
+    "ast_hash": "4c08b7b8ba5a3a56961719c157195de7",
     "semantic_hash": ""
   },
   "tests/e2e/workflow-jurnal.spec.ts": {
@@ -1634,9 +1634,29 @@
     "ast_hash": "c9ad94cdcebcbf0c0db00d1a5aa0aa74",
     "semantic_hash": ""
   },
-  "public/uploads/hero/hero-55345e8e-aa5d-4519-b851-7b4cb322c142.webp": {
-    "mtime": 1788822441.806,
-    "ast_hash": "39fc47afcd009912f1172ae5b46f39db",
+  "drizzle/migrations/0008_tearful_hellcat.sql": {
+    "mtime": 1788824628.0745435,
+    "ast_hash": "402ffa0a6d9e24caf05a951bd7c661d5",
+    "semantic_hash": ""
+  },
+  "drizzle/migrations/meta/0008_snapshot.json": {
+    "mtime": 1788824628.0740204,
+    "ast_hash": "3a7d541198214d6167a23241c5981826",
+    "semantic_hash": ""
+  },
+  "tests/centralized_approval_workflow.test.ts": {
+    "mtime": 1788824490.5435793,
+    "ast_hash": "df8f2be1a865024da87958fc8287dec7",
+    "semantic_hash": ""
+  },
+  "docs/adr/0005-centralized-lawet-hub-approval-workflow.md": {
+    "mtime": 1788824450.9429672,
+    "ast_hash": "d011888c9d4d82b4b6badcb70ce2f0d1",
+    "semantic_hash": ""
+  },
+  "public/uploads/hero/hero-a4719e5a-0199-492c-a8b9-f081b57f17b8.webp": {
+    "mtime": 1788824375.354,
+    "ast_hash": "9a7ba96bf23b5568a2ad6fcf7b4938a4",
     "semantic_hash": ""
   }
 }

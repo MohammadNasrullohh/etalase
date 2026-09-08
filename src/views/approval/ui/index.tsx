@@ -16,7 +16,7 @@ export function ApprovalView() {
               <SiteTitle /> <span className="text-[var(--color-category-amber-text)]">Approval</span>
             </h1>
             <p className="text-[var(--color-text-muted)]">
-              Dashboard persetujuan jurnal (Terhubung ke Lawet Hub)
+              Dashboard verifikasi dan persetujuan jurnal
             </p>
           </div>
         </header>

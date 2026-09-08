@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { AlertCircle, CheckCircle2, Clock3, ExternalLink, Folder, Plus, UsersRound } from 'lucide-react'
+import { AlertCircle, CheckCircle2, Clock3, Folder, Plus, UsersRound } from 'lucide-react'
 import {
   getJurnalWorkspaceAction,
   type JurnalWorkspace,
@@ -81,13 +81,10 @@ export default async function JurnalSayaPage() {
             <Folder className="h-7 w-7" /> Jurnal Saya
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)]">
-            Staf mengajukan jurnal, Kasubag meninjau, lalu jurnal yang disetujui masuk proses publish ke ALAS. Perubahan data tetap dikerjakan di Lawet Hub sebagai sumber utama.
+            Staf mengajukan jurnal, Kasubag meninjau, dan jurnal yang disetujui langsung diterbitkan ke portal ALAS.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Link href="/lawet?to=manage" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--glass-border-default)] bg-[var(--color-surface-raised)] px-4 text-sm font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-canvas-raised)] transition-colors shadow-sm">
-            Kelola CRUD <ExternalLink className="h-4 w-4" />
-          </Link>
           <Link href="/pengajuan" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-accent)] px-4 text-sm font-semibold text-[var(--color-text-on-accent)] hover:bg-[var(--color-accent-hover)] transition-colors shadow-sm">
             <Plus className="h-4 w-4" /> Tambah jurnal
           </Link>
@@ -119,7 +116,7 @@ export default async function JurnalSayaPage() {
         <JournalSection
           id="mine-heading"
           title="Jurnal milik saya"
-          description="Draft dapat diedit atau dihapus melalui Lawet Hub. Jurnal terbit tetap tersedia sebagai riwayat laporan."
+          description="Draft yang sedang diajukan dan jurnal terbit tetap tersedia sebagai riwayat laporan."
           items={workspace.mine}
           icon={<Folder className="h-5 w-5" />}
         />

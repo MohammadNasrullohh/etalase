@@ -54,7 +54,7 @@ export function JurnalSubmitForm() {
           <FileText className="w-6 h-6 text-[var(--color-accent-hover)]" />
           Pengajuan Jurnal
         </h2>
-        <p className="text-sm text-[var(--color-text-muted)] mt-2">Isi form berikut untuk mengajukan jurnal ke sistem Lawet Hub.</p>
+        <p className="text-sm text-[var(--color-text-muted)] mt-2">Isi formulir berikut untuk mengajukan draf jurnal kegiatan.</p>
       </div>
 
       {error && (

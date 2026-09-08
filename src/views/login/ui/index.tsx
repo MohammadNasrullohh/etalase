@@ -27,14 +27,14 @@ export function LoginView() {
             <SiteTitle /> <span className="text-[var(--color-category-amber)]">AUTHORING</span>
           </h1>
           <p className="text-[var(--color-text-muted)] text-sm leading-relaxed max-w-md">
-            Portal ini terhubung langsung secara aman dengan sistem otentikasi Lawet Hub. Segala proses pengajuan dan persetujuan akan diproses sesuai standar berlapis Bawaslu Kebumen.
+            Portal otentikasi terpadu internal. Segala proses pengajuan dan persetujuan akan diproses sesuai standar tata kelola Bawaslu Kebumen.
           </p>
           <div className="mt-8 flex gap-4">
             <div className="px-3 py-1 border border-[var(--color-accent)]/40 text-[var(--color-accent-active-text)] bg-[var(--color-accent)]/15 text-[10px] font-mono tracking-widest uppercase rounded-full">
               Secured Connection
             </div>
             <div className="px-3 py-1 border border-[var(--glass-border-default)] text-[var(--color-text-muted)] bg-[var(--color-surface-raised)] text-[10px] font-mono tracking-widest uppercase rounded-full">
-              Lawet Hub API
+              Portal Terintegrasi
             </div>
           </div>
         </div>

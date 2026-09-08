@@ -67,7 +67,7 @@ export async function GET(request: NextRequest, { params }: { params: { path: st
       headers
     })
   } catch {
-    return new NextResponse('Lawet Hub tidak merespons', {
+    return new NextResponse('Server media tidak merespons', {
       status: 502,
       headers: { 'Cache-Control': 'private, no-store' },
     })

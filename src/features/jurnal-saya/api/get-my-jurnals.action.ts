@@ -144,7 +144,7 @@ async function fetchLawetList(endpoint: string, token: string): Promise<JsonReco
   if (!response.ok) {
     const body = await response.json().catch(() => null)
     const detail = isRecord(body) ? readString(body.detail) : undefined
-    throw new Error(detail || `Lawet Hub merespons ${response.status}`)
+    throw new Error(detail || `Server merespons ${response.status}`)
   }
 
   return extractList(await response.json())

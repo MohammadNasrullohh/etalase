@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Clock,
   ExternalLink,
-  FilePenLine,
   FileText,
   ShieldCheck,
   Trash2,
@@ -73,7 +72,6 @@ function formatDate(value: string) {
 export function MyJurnalCard({ item }: { item: MyJurnalItem }) {
   const status = STATUS_META[item.status]
   const StatusIcon = status.icon
-  const canEdit = item.scope === 'mine' && (item.status === 'draft' || item.status === 'rejected')
   const isPendingReview = item.scope === 'subordinate' && item.status === 'draft'
 
   return (
@@ -96,22 +94,28 @@ export function MyJurnalCard({ item }: { item: MyJurnalItem }) {
         {item.owner_name ? <p className="flex items-center gap-2"><UserRound className="h-4 w-4" /><span className="text-[var(--color-text-primary)] font-medium">{item.owner_name}</span>{item.divisi ? ` · ${item.divisi}` : ''}</p> : null}
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        {canEdit ? (
-          <Link href={`/lawet?to=edit&id=${encodeURIComponent(item.source_id)}`} className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] px-3 text-xs font-semibold text-[var(--color-text-on-accent)] hover:bg-[var(--color-accent-hover)] transition-colors shadow-sm">
-            <FilePenLine className="h-4 w-4" /> Edit
-          </Link>
-        ) : null}
-        {isPendingReview ? (
-          <Link href={`/approval/${encodeURIComponent(item.source_id)}`} className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] px-3 text-xs font-semibold text-[var(--color-text-on-accent)] hover:bg-[var(--color-accent-hover)] transition-colors shadow-sm">
-            <ShieldCheck className="h-4 w-4" /> Review
-          </Link>
-        ) : null}
-        <Link href={`/lawet?to=${isPendingReview ? 'approval' : 'manage'}&id=${encodeURIComponent(item.source_id)}`} className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-3 text-xs font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-canvas-raised)] transition-colors shadow-sm">
-          {canEdit ? <Trash2 className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
-          {canEdit ? 'Kelola / Hapus' : isPendingReview ? 'Proses di Lawet' : 'Buka di Lawet'}
-        </Link>
-      </div>
+      {(isPendingReview || item.link_publikasi) ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {isPendingReview ? (
+            <Link
+              href={`/approval/${encodeURIComponent(item.source_id)}`}
+              className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] px-3 text-xs font-semibold text-[var(--color-text-on-accent)] hover:bg-[var(--color-accent-hover)] transition-colors shadow-sm"
+            >
+              <ShieldCheck className="h-4 w-4" /> Review
+            </Link>
+          ) : null}
+          {item.link_publikasi ? (
+            <a
+              href={item.link_publikasi}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--glass-border-default)] bg-[var(--color-surface-overlay)] px-3 text-xs font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-canvas-raised)] transition-colors shadow-sm"
+            >
+              <ExternalLink className="h-4 w-4" /> Buka Publikasi
+            </a>
+          ) : null}
+        </div>
+      ) : null}
     </article>
   )
 }
