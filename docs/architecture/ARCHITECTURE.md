@@ -46,11 +46,11 @@ Endpoint publik yang tersedia:
 | `GET /api/pimpinan/:id` | Detail pimpinan. |
 | `GET /api/health` | Pemeriksaan koneksi database dan uptime proses. |
 
-### Visibilitas workflow
+### Workflow authoring dan persetujuan
 
-Layout grup rute historis `(authoring)` memanggil `getMeAction`. Token Lawet Hub disimpan sebagai cookie HTTP-only bernama `lawet_token` dan diterbitkan dengan scope `alas:dashboard:read`; Lawet Hub menolak token itu pada seluruh method mutasi. Pengunjung tanpa sesi dialihkan ke `/login`; halaman `/approval` dijaga pada server berdasarkan capability `can_approve`, dengan fallback kompatibilitas untuk peran `level >= 2`.
+Layout grup rute `(authoring)` memanggil `getMeAction`. Token sesi Lawet Hub disimpan sebagai cookie HTTP-only bernama `lawet_token`. Pengunjung tanpa sesi dialihkan ke `/login`; halaman `/approval` dijaga pada server berdasarkan capability `can_approve`, dengan fallback kompatibilitas untuk peran `level >= 2`.
 
-ALAS dapat menampilkan draft dan jurnal terbit milik pengguna, antrean serta jurnal terbit bawahan dalam cakupan divisi approver, detail review, media terlindungi, dan laporan PDF bulanan. Pembuatan, edit, hapus, upload, approval, dan rejection dilakukan di Lawet Hub; kontrol ALAS mengarah ke layar `LAWET_PUBLIC_URL` yang sesuai. Persetujuan Kasubag di Lawet Hub memulai publish melalui outbox ke ALAS. Keputusan security boundary lengkap ada di [ADR-0002](../adr/0002-dashboard-jwt-read-boundary.md).
+ALAS menampilkan draf dan jurnal terbit milik pengguna, antrean persetujuan, serta jurnal terbit bawahan dalam cakupan divisi approver. Alur authoring dan tindakan persetujuan (approve/reject) memanggil REST API terpusat Lawet Hub secara langsung (ADR-0005), dan persetujuan yang disetujui memicu pengiriman proyeksi publik ke ALAS melalui Direct Service API. Keputusan arsitektur ini tercatat di [ADR-0005](../adr/0005-centralized-lawet-hub-approval-workflow.md) yang menggantikan ADR-0002 dan ADR-0004.
 
 ### Service API
 

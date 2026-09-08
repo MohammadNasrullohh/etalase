@@ -27,10 +27,10 @@ flowchart LR
 | --- | --- |
 | [Integrasi Lawet Hub](docs/architecture/INTEGRATION.md) | Kontrak HTTP, autentikasi, idempotency, retry, reconciliation, dan konfigurasi dua aplikasi. |
 | [Arsitektur](docs/architecture/ARCHITECTURE.md) | Batas sistem, alur data, FSD, dan quality gates. |
-| [Desain Sistem](docs/architecture/design.md) | Panduan glassmorphism, palet warna, tokens UI, dan kontras. |
+| [Desain Sistem](docs/architecture/DESIGN_SYSTEM.md) | Panduan glassmorphism, palet warna, tokens UI, dan kontras. |
 | [Testing](docs/architecture/TESTING.md) | Lapisan test dan perintah verifikasi. |
 | [ERD](docs/architecture/ERD.md) | Struktur data PostgreSQL ALAS. |
-| [Produk & PRD](docs/product/PRODUCT.md) | Tujuan produk, cakupan, batasan, dan PRD lengkap ([v1.1](docs/product/ALAS_PRD_v1.1_final.md) & [v1.2](docs/product/ALAS_PRD_v1.2.md)). |
+| [Produk & PRD](docs/product/PRODUCT.md) | Tujuan produk, cakupan, batasan, dan [PRD lengkap](docs/product/PRD.md). |
 | [Runbook](docs/ops/RUNBOOK.md) | Operasi, deployment, migrasi, dan troubleshooting. |
 | [ADR](docs/adr/) | Keputusan arsitektur yang telah diterima (ADR-0001 s.d. ADR-0005). |
 
