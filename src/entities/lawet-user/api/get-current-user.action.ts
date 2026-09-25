@@ -23,7 +23,7 @@ export async function getMeAction(): Promise<LawetUser | null> {
     if (token === 'dummy-kasubag-token') {
       return {
         id: 'dummy-kasubag-1',
-        name: 'Kasubag Humas',
+        name: 'Kasubag PPS',
         username: 'kasubag',
         division: { id: 'div-2', name: 'KASUBAG' },
         role: { id: 'r2', name: 'Kasubag', level: 2, can_approve: true, is_superadmin: false }
