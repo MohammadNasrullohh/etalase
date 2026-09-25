@@ -421,9 +421,9 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
         </div>
 
         <div className="overflow-x-auto min-h-[300px]">
-          <table className="w-full text-left text-sm text-gray-600">
+          <table className="w-full text-left text-sm text-gray-600 border border-gray-200/50">
             <thead>
-              <tr className="border-b border-gray-200/50 bg-[#F8FAFC]">
+              <tr className="border-b border-gray-200/50 bg-[#F8FAFC] divide-x divide-gray-200/50">
                 <th className="py-3 px-4 font-semibold">No</th>
                 <th className="py-3 px-4 font-semibold">Judul Jurnal</th>
                 <th className="py-3 px-4 font-semibold whitespace-nowrap">Pembuat</th>
@@ -438,7 +438,7 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
               {currentItems.length > 0 ? currentItems.map((item, idx) => {
                 const isPub = item.status === 'published';
                 return (
-                <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50/50">
+                <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50/50 divide-x divide-gray-100">
                   <td className="py-3 px-4">{(validCurrentPage - 1) * itemsPerPage + idx + 1}</td>
                   <td className="py-3 px-4 font-medium text-blue-900">{item.judul || 'Untitled'}</td>
                   <td className="py-3 px-4 whitespace-nowrap">{item.owner_name || 'Staff'}</td>
