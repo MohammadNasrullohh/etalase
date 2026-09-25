@@ -232,28 +232,28 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
             
             <div className="p-5 flex-1 flex flex-col min-w-0 min-h-0">
               {/* Calendar Nav */}
-              <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center gap-2">
+              <div className="flex justify-between items-center mb-6 gap-1">
+                <div className="flex items-center gap-1 shrink-0">
                   <button 
                     onClick={() => setCalendarDate(new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1, 1))}
-                    className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-0.5 hover:bg-gray-100 rounded-full transition-colors"
                   >
                     <ChevronLeft size={16} className="text-[#142B42]" />
                   </button>
-                  <h4 className="text-[12px] font-bold text-[#142B42] uppercase tracking-wider">
+                  <h4 className="text-[11px] font-bold text-[#142B42] uppercase tracking-wider min-w-[70px] text-center">
                     {MONTH_NAMES[calendarDate.getMonth()]}
                   </h4>
                   <button 
                     onClick={() => setCalendarDate(new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 1))}
-                    className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-0.5 hover:bg-gray-100 rounded-full transition-colors"
                   >
                     <ChevronRight size={16} className="text-[#142B42]" />
                   </button>
                 </div>
-                <div className="flex bg-[#F0F4F8] rounded-full p-1 items-center">
-                  <div className="text-[10px] px-3 py-1 font-bold text-[#7B8EA0] cursor-pointer hover:text-[#142B42]">Hari</div>
-                  <div className="text-[10px] px-3 py-1 font-bold text-[#7B8EA0] cursor-pointer hover:text-[#142B42]">Minggu</div>
-                  <div className="text-[10px] px-3 py-1 font-bold bg-[#254360] text-white rounded-full shadow-sm">Bulan</div>
+                <div className="flex bg-[#F0F4F8] rounded-full p-1 items-center shrink-0">
+                  <div className="text-[9px] px-2 py-1 font-bold text-[#7B8EA0] cursor-pointer hover:text-[#142B42]">Hari</div>
+                  <div className="text-[9px] px-2 py-1 font-bold text-[#7B8EA0] cursor-pointer hover:text-[#142B42]">Minggu</div>
+                  <div className="text-[9px] px-2 py-1 font-bold bg-[#254360] text-white rounded-full shadow-sm">Bulan</div>
                 </div>
               </div>
             
@@ -276,11 +276,11 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
                 const hasPublished = allItems.some(j => j.tanggal_kegiatan && j.tanggal_kegiatan.startsWith(localISOTime) && j.status === 'published');
                 
                 return (
-                  <div key={localISOTime} className="flex flex-col items-center justify-center h-10">
+                  <div key={localISOTime} className="flex flex-col items-center justify-start pt-1 h-10 relative">
                     <button 
                       type="button"
                       onClick={() => setSelectedDate(isSelected ? null : localISOTime)}
-                      className={`h-7 w-7 rounded-full flex items-center justify-center text-[12px] transition-colors ${
+                      className={`h-7 w-7 rounded-full flex items-center justify-center text-[11.5px] transition-colors ${
                         isSelected ? 'bg-[#396094] text-white font-bold shadow-sm' : 
                         isToday ? 'bg-[#EEF2F6] text-[#396094] font-bold' : 
                         'text-[#142B42] hover:bg-[#F6F9FC] font-medium'
@@ -289,10 +289,10 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
                       {date.getDate()}
                     </button>
                     {/* Activity Dots / Today Label */}
-                    <div className="h-2 flex items-center gap-[2px] mt-0.5">
-                      {isToday && <span className="text-[5px] font-bold text-[#396094]">HARI INI</span>}
+                    <div className="absolute bottom-[2px] w-full flex justify-center items-center gap-[2px]">
+                      {isToday && <span className="text-[6.5px] font-bold text-[#396094] uppercase tracking-tighter" style={{ transform: 'scale(0.85)', whiteSpace: 'nowrap' }}>HARI INI</span>}
                       {!isToday && hasDraft && <div className="w-1 h-1 rounded-full bg-[#F4BF4F]"></div>}
-                      {!isToday && hasPublished && <div className="w-2 h-1 rounded-full bg-[#F7921C]"></div>}
+                      {!isToday && hasPublished && <div className="w-1.5 h-1 rounded-full bg-[#F7921C]"></div>}
                     </div>
                   </div>
                 );
