@@ -61,9 +61,9 @@ export const DokumentasiSection = ({ photos = [] }: { photos?: Array<{url: strin
           )}
 
           {/* Cards Grid */}
-          <div className={`grid grid-cols-1 gap-6 md:gap-8 mx-auto ${photos.length === 1 ? 'max-w-[486px]' : photos.length === 2 ? 'md:grid-cols-2 max-w-[800px]' : 'md:grid-cols-3'}`}>
+          <div className={`flex md:grid overflow-x-auto snap-x snap-mandatory md:overflow-visible hide-scrollbar gap-6 md:gap-8 mx-auto -mx-4 px-4 pb-4 md:mx-auto md:px-0 md:pb-0 ${photos.length === 1 ? 'md:max-w-[486px]' : photos.length === 2 ? 'md:grid-cols-2 md:max-w-[800px]' : 'md:grid-cols-3'}`}>
             {photos.length > 0 ? visiblePhotos.map((foto, idx) => (
-              <div key={`${startIndex}-${idx}`} className="relative flex flex-col items-center justify-center bg-[#F8FAFD] rounded-[32px] p-3 hover:shadow-xl transition-all duration-300 group cursor-pointer w-full h-[400px] md:h-[486px]">
+              <div key={`${startIndex}-${idx}`} className="min-w-[85vw] snap-center md:min-w-0 md:snap-none relative flex flex-col items-center justify-center bg-[#F8FAFD] rounded-[32px] p-3 hover:shadow-xl transition-all duration-300 group cursor-pointer w-full shrink-0 md:shrink h-[400px] md:h-[486px]">
                 <div className="w-full h-full rounded-[30px] overflow-hidden relative">
                   <img src={foto?.url} alt={foto?.judul} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 idle-animate" />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
@@ -74,7 +74,7 @@ export const DokumentasiSection = ({ photos = [] }: { photos?: Array<{url: strin
                 </div>
               </div>
             )) : (
-              <div className="col-span-full text-center text-gray-400 p-10">Belum ada dokumentasi tersedia.</div>
+              <div className="min-w-full md:col-span-full text-center text-gray-400 p-10">Belum ada dokumentasi tersedia.</div>
             )}
           </div>
 
