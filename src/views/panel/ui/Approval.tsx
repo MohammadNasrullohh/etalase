@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import type { JurnalWorkspace } from '@/features/jurnal-saya/api/get-my-jurnals.action';
 
@@ -19,7 +19,15 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
   
 
-  const [selectedQueue, setSelectedQueue] = useState(subordinates[0]?.id || null);
+  const [selectedQueue, setSelectedQueue] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const [isRejectModalOpen, setIsRejectModalOpen] = useState(false);
 
@@ -34,13 +42,13 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
 
 
-  const selectedItem = subordinates.find(item => item.id === selectedQueue) || subordinates[0];
+  const selectedItem = subordinates.find(item => item.id === selectedQueue) || (!isMobile ? subordinates[0] : null);
 
 
 
   return (
 
-    <div className="px-8 pt-8 pb-8">
+    <div className="px-4 md:px-8 pt-4 md:pt-8 pb-8">
 
       <div className="flex flex-col md:flex-row gap-8">
 
@@ -144,7 +152,7 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
           <div className="rounded-[16px] border border-[#D9E2EC] bg-white flex flex-col overflow-hidden">
 
             <div className="bg-[#0F3963] px-8 pt-6 pb-6 flex flex-col relative text-white rounded-t-[16px]">
-              <button onClick={() => setSelectedItem(null)} className="md:hidden flex items-center gap-2 text-white/80 hover:text-white mb-4 text-sm font-medium w-fit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg> Kembali</button>
+              <button onClick={() => setSelectedQueue(null)} className="md:hidden flex items-center gap-2 text-white/80 hover:text-white mb-4 text-sm font-medium w-fit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg> Kembali</button>
 
               <h2 className="text-[20px] font-bold leading-[1.4] mb-8 pr-12 text-white">
 
@@ -657,6 +665,8 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
   );
 
 }
+
+
 
 
 

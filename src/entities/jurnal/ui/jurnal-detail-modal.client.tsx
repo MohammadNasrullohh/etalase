@@ -118,35 +118,23 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({
 
 
   return (
-
-    <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm" style={{ fontFamily: 'Poppins' }}>
-
+    <div className="fixed inset-0 z-[150] flex items-end sm:items-center justify-center p-0 sm:p-6 bg-black/50 backdrop-blur-sm" style={{ fontFamily: 'Poppins' }}>
       <div 
-
         className="absolute inset-0"
-
         onClick={onClose}
-
       ></div>
 
-
-
-      <div className="relative w-full max-w-[760px] max-h-[90vh] min-h-[400px] bg-[#F1F6FC] rounded-[24px] shadow-2xl overflow-y-auto overflow-x-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
-
+      <div className="relative w-full max-w-[760px] max-h-[92vh] sm:max-h-[90vh] min-h-[400px] bg-[#F1F6FC] rounded-t-[32px] sm:rounded-[24px] shadow-2xl overflow-y-auto overflow-x-hidden flex flex-col animate-in slide-in-from-bottom sm:zoom-in-95 duration-200">
         
+        {/* Mobile Drag Indicator */}
+        <div className="sm:hidden w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-3 mb-1 shrink-0"></div>
 
         {/* Close Button */}
-
         <button 
-
           onClick={onClose}
-
-          className="absolute top-6 right-6 z-10 text-[#9CA3AF] hover:text-[#142B42] transition-colors p-2 bg-white rounded-full shadow-sm hover:shadow-md"
-
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-[#9CA3AF] hover:text-[#142B42] transition-colors p-2 bg-white rounded-full shadow-sm hover:shadow-md active:scale-95"
         >
-
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
 
 
@@ -160,8 +148,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({
           </div>
 
         ) : (
-
-          <div className="p-8 sm:p-10 pb-8">
+          <div className="p-5 sm:p-10 pb-8">
 
             
 
@@ -220,7 +207,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({
               </div>
             )}
 
-            <hr className="border-[#E2E8F0] mb-8 -mx-10" />
+            <hr className="border-[#E2E8F0] mb-8 -mx-5 sm:-mx-10" />
 
 
 
