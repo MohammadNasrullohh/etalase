@@ -16,7 +16,7 @@ describe('JurnalCard UI component', () => {
       />
     )
     expect(screen.getByText('MOU Universitas')).toBeInTheDocument()
-    expect(screen.getByText('MoU')).toBeInTheDocument()
+    expect(screen.getByText('Mou')).toBeInTheDocument()
     expect(screen.getByText('#test')).toBeInTheDocument()
     expect(screen.getByText('#alas')).toBeInTheDocument()
   })

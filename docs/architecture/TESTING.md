@@ -12,20 +12,23 @@ ALAS menggunakan Vitest dan React Testing Library. Konfigurasi berada di `vitest
 | Security boundary | `tests/lawet_dashboard_boundary.test.ts` | Scope dashboard read-only dan media proxy. |
 | Integration data | `tests/*integration*.test.ts`, `tests/*delivery*.test.ts` | Transaksi dan migrasi dengan PostgreSQL Testcontainers. |
 | Architecture fitness | `scripts/check-repository-isolation*.mjs`, `.dependency-cruiser.cjs` | Isolasi repository dan arah dependency FSD. |
+| Feature test coverage (TDD) | `scripts/check-feature-test-coverage*.mjs` | Gate CI TDD untuk memastikan feature baru memiliki file test. |
 
-Test baru diletakkan di `tests/` dan dinamai `*.test.ts` atau `*.test.tsx`. Perubahan pada route atau kontrak integrasi harus menambah atau memperbarui test pemiliknya; perubahan tampilan minimal memverifikasi state yang terlihat pengguna.
+Test baru diletakkan di `tests/` atau co-located dalam direktori feature dan dinamai `*.test.ts` atau `*.test.tsx`. Perubahan pada route atau kontrak integrasi harus menambah atau memperbarui test pemiliknya; perubahan tampilan minimal memverifikasi state yang terlihat pengguna.
 
 ## Menjalankan
 
 ```bash
 npm run boundary:test
+npm run coverage:test
+npm run coverage:gate
 npm run arch:check
 npm run test:unit
 npm run test:integration
 npm run test:watch
 ```
 
-`boundary:test` menguji positive/negative fixture checker, sedangkan `arch:check` memindai repository aktual lalu menjalankan dependency-cruiser. `npm test` menjalankan semua test satu kali; `test:unit` tidak memerlukan database, sedangkan `test:integration` memerlukan PostgreSQL lokal pada koneksi test default atau `TEST_DATABASE_URL`. Test berbasis Testcontainers juga memerlukan Docker aktif. Untuk validasi produksi, jalankan juga:
+`boundary:test` menguji positive/negative fixture checker isolasi repository, `coverage:test` menguji unit test coverage gate, sedangkan `arch:check` memindai repository aktual lalu menjalankan dependency-cruiser. `coverage:gate` memvalidasi bahwa setiap feature baru memiliki test (TDD gate di CI). `npm test` menjalankan semua test satu kali; `test:unit` tidak memerlukan database, sedangkan `test:integration` memerlukan PostgreSQL lokal pada koneksi test default atau `TEST_DATABASE_URL`. Test berbasis Testcontainers juga memerlukan Docker aktif. Untuk validasi produksi, jalankan juga:
 
 ```bash
 npm run build

@@ -3,9 +3,24 @@ import { JurnalSubmissionPayload } from '@/entities/jurnal/model/submission-sche
 import { db } from '@/shared/lib/db'
 
 // Mock cookies
-const cookieGet = vi.hoisted(() => vi.fn(() => ({ value: 'test-token' })))
+const cookieGet = vi.hoisted(() => vi.fn(() => ({ value: 'dummy-staff-token' })))
 vi.mock('next/headers', () => ({
   cookies: () => ({ get: cookieGet }),
+}))
+
+vi.mock('next/cache', () => ({
+  revalidatePath: vi.fn(),
+}))
+
+// Mock Lawet User
+vi.mock('@/entities/lawet-user', () => ({
+  getMeAction: vi.fn().mockResolvedValue({
+    id: 1,
+    name: 'Staf Test',
+    username: 'staftest',
+    role: { name: 'staf', can_approve: false },
+    division: { name: 'Divisi Hukum' }
+  })
 }))
 
 // Mock DB

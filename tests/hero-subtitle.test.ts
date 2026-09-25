@@ -3,7 +3,7 @@ import { DEFAULT_HERO_SUBTITLE, MAX_HERO_SUBTITLE_LENGTH, normalizeHeroSubtitle 
 
 describe('hero subtitle settings', () => {
   it('uses the public archive name as the default subtitle', () => {
-    expect(DEFAULT_HERO_SUBTITLE).toBe('Arsip Langkah Bawaslu Kebumen')
+    expect(DEFAULT_HERO_SUBTITLE).toBe('Arsip Jurnal Bawaslu Kebumen')
   })
 
   it('normalizes whitespace and rejects invalid subtitles', () => {

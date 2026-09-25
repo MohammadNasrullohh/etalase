@@ -11,10 +11,13 @@ describe('SearchBar component', () => {
   })
 
   it('triggers onChange callback when text is entered', () => {
+    vi.useFakeTimers()
     const handleChange = vi.fn()
     render(<SearchBar value="" onChange={handleChange} />)
     const input = screen.getByPlaceholderText('Cari jurnal...')
     fireEvent.change(input, { target: { value: 'MoU' } })
+    vi.advanceTimersByTime(350)
     expect(handleChange).toHaveBeenCalledWith('MoU')
+    vi.useRealTimers()
   })
 })
