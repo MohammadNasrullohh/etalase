@@ -89,7 +89,7 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
                   <span className="text-[#7B8EA0] text-[10px] font-medium">{item.tanggal_kegiatan || '-'}</span>
                   
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-[4px] border ${item.is_published ? 'border-[#22C55E] text-[#22C55E] bg-[#22C55E]/10' : 'border-[#EF4444] text-[#EF4444] bg-[#EF4444]/10'}`}>
+                  <span className={`ml-auto text-[10px] font-bold px-2.5 py-1 rounded-[6px] border ${item.is_published ? 'border-[#22C55E] text-[#22C55E] bg-[#22C55E]/10' : 'border-[#EF4444] text-[#EF4444] bg-[#EF4444]/10'}`}>
                     {item.is_published ? 'Publik' : 'Private'}
                   </span>
                 </div>
