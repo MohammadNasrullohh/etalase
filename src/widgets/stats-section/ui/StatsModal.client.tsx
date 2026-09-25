@@ -306,7 +306,22 @@ export const StatsModal = ({ isOpen, onClose, data, activeCard = 'overview' }: S
                           {mitraChartData.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={entry.color} />
                           ))}
-                          <LabelList dataKey="label" position="right" fill="#6B7280" fontSize={12} fontWeight={600} />
+                          <LabelList 
+                            content={(props: any) => {
+                              const { x, y, width, height, value } = props;
+                              // The "value" here is the raw numeric value from the Bar (e.g. 3)
+                              // We need to calculate percentage manually, or find the item
+                              const total = mitraChartData.reduce((acc, curr) => acc + curr.value, 0);
+                              const percentage = total > 0 ? Math.round((value / total) * 100) : 0;
+                              return (
+                                <g transform={`translate(${x + width + 8}, ${y + height / 2})`}>
+                                  <text x={0} y={0} fill="#6B7280" fontSize={12} fontWeight={600} dy={4} textAnchor="start">
+                                    {value} <tspan fill="#9CA3AF" fontWeight={400}>({percentage}%)</tspan>
+                                  </text>
+                                </g>
+                              );
+                            }}
+                          />
                         </Bar>
                       </BarChart>
                     </ResponsiveContainer>
