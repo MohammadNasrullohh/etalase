@@ -48,7 +48,7 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
         {/* Left Column: Queue List */}
 
-        <div className="w-full md:w-[469px] flex flex-col shrink-0">
+        <div className={`w-full md:w-[469px] shrink-0 flex-col ${selectedItem ? 'hidden md:flex' : 'flex'}`}>
 
           <div className="mb-6">
 
@@ -137,13 +137,14 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
         {/* Right Column: Details Preview */}
 
-        <div className="flex-1 min-w-0 flex flex-col">
+        <div className={`flex-1 min-w-0 flex-col ${!selectedItem ? 'hidden md:flex' : 'flex'}`}>
 
           {selectedItem ? (
 
           <div className="rounded-[16px] border border-[#D9E2EC] bg-white flex flex-col overflow-hidden">
 
-            <div className="bg-[#0F3963] px-8 pt-8 pb-6 flex flex-col relative text-white rounded-t-[16px]">
+            <div className="bg-[#0F3963] px-8 pt-6 pb-6 flex flex-col relative text-white rounded-t-[16px]">
+              <button onClick={() => setSelectedItem(null)} className="md:hidden flex items-center gap-2 text-white/80 hover:text-white mb-4 text-sm font-medium w-fit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg> Kembali</button>
 
               <h2 className="text-[20px] font-bold leading-[1.4] mb-8 pr-12 text-white">
 
@@ -656,6 +657,8 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
   );
 
 }
+
+
 
 
 

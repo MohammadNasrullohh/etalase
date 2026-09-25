@@ -258,7 +258,7 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
 
       {/* Jurnal List Section */}
       <div className="bg-white rounded-[24px] p-8 shadow-sm mb-10">
-        <div className="flex justify-between items-start mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 w-full">
           <div className="flex gap-4">
             <div className="mt-1 text-[#142B42]">
               <User size={24} strokeWidth={2} />
@@ -273,22 +273,22 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
             </div>
           </div>
           
-          <div className="flex bg-[#F6F9FC] p-1.5 rounded-full">
+          <div className="flex bg-[#F6F9FC] p-1.5 rounded-full w-full md:w-auto overflow-x-auto hide-scrollbar">
             <button 
-              onClick={() => setActiveTab('Semua')}
-              className={`px-6 py-2 rounded-full text-[14px] font-semibold transition-colors ${activeTab === 'Semua' ? 'bg-[#142B42] text-white' : 'text-[#7B8EA0] hover:bg-gray-100'}`}
+              onClick={() => { setActiveTab('Semua'); setCurrentPage(1); }}
+              className={`flex-1 md:flex-none px-6 py-2 rounded-full text-[14px] font-semibold transition-colors whitespace-nowrap ${activeTab === 'Semua' ? 'bg-[#142B42] text-white' : 'text-[#7B8EA0] hover:bg-gray-100'}`}
             >
               Semua
             </button>
             <button 
-              onClick={() => setActiveTab('Draft')}
-              className={`px-6 py-2 rounded-full text-[14px] font-semibold transition-colors ${activeTab === 'Draft' ? 'bg-[#142B42] text-white' : 'text-[#7B8EA0] hover:bg-gray-100'}`}
+              onClick={() => { setActiveTab('Draft'); setCurrentPage(1); }}
+              className={`flex-1 md:flex-none px-6 py-2 rounded-full text-[14px] font-semibold transition-colors whitespace-nowrap ${activeTab === 'Draft' ? 'bg-[#142B42] text-white' : 'text-[#7B8EA0] hover:bg-gray-100'}`}
             >
               Draft
             </button>
             <button 
-              onClick={() => setActiveTab('Terbit')}
-              className={`px-6 py-2 rounded-full text-[14px] font-semibold transition-colors ${activeTab === 'Terbit' ? 'bg-[#142B42] text-white' : 'text-[#7B8EA0] hover:bg-gray-100'}`}
+              onClick={() => { setActiveTab('Terbit'); setCurrentPage(1); }}
+              className={`flex-1 md:flex-none px-6 py-2 rounded-full text-[14px] font-semibold transition-colors whitespace-nowrap ${activeTab === 'Terbit' ? 'bg-[#142B42] text-white' : 'text-[#7B8EA0] hover:bg-gray-100'}`}
             >
               Terbit
             </button>

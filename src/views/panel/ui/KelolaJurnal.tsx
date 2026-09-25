@@ -388,8 +388,8 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
 
       {/* Table Section */}
       <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm flex-1 min-w-0 flex flex-col w-full">
-        <div className="flex justify-between items-center mb-6">
-          <div className="relative w-[300px]">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
+          <div className="relative w-full lg:w-[300px]">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
             <input 
               type="text" 
@@ -399,22 +399,22 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
               className="w-full h-10 pl-10 pr-4 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500" 
             />
           </div>
-          <div className="flex bg-gray-100 rounded-full p-1">
+          <div className="flex bg-gray-100 rounded-full p-1 w-full sm:w-auto overflow-x-auto hide-scrollbar">
             <button 
               onClick={() => { setActiveTab('Semua'); setCurrentPage(1); }}
-              className={`px-5 py-1.5 text-sm rounded-full font-medium transition-colors ${activeTab === 'Semua' ? 'bg-[#142B42] text-white shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}
+              className={`flex-1 sm:flex-none px-5 py-1.5 text-sm rounded-full font-medium transition-colors whitespace-nowrap ${activeTab === 'Semua' ? 'bg-[#142B42] text-white shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}
             >
               Semua
             </button>
             <button 
               onClick={() => { setActiveTab('Draft'); setCurrentPage(1); }}
-              className={`px-5 py-1.5 text-sm rounded-full font-medium transition-colors ${activeTab === 'Draft' ? 'bg-[#142B42] text-white shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}
+              className={`flex-1 sm:flex-none px-5 py-1.5 text-sm rounded-full font-medium transition-colors whitespace-nowrap ${activeTab === 'Draft' ? 'bg-[#142B42] text-white shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}
             >
               Draft
             </button>
             <button 
               onClick={() => { setActiveTab('Terbit'); setCurrentPage(1); }}
-              className={`px-5 py-1.5 text-sm rounded-full font-medium transition-colors ${activeTab === 'Terbit' ? 'bg-[#142B42] text-white shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}
+              className={`flex-1 sm:flex-none px-5 py-1.5 text-sm rounded-full font-medium transition-colors whitespace-nowrap ${activeTab === 'Terbit' ? 'bg-[#142B42] text-white shadow-sm' : 'text-gray-600 hover:bg-gray-200'}`}
             >
               Terbit
             </button>
