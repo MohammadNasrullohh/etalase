@@ -41,6 +41,11 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
     return items;
   }, [listToRender, activeTab]);
 
+  const itemsPerPage = 6;
+  const totalPages = Math.max(1, Math.ceil(filteredList.length / itemsPerPage));
+  const validCurrentPage = Math.min(currentPage, totalPages);
+  const currentItems = filteredList.slice((validCurrentPage - 1) * itemsPerPage, validCurrentPage * itemsPerPage);
+
 
 
   const allItems = workspace ? [...workspace.mine, ...workspace.subordinates] : [];
@@ -290,7 +295,7 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {filteredList.map((item, idx) => {
+          {currentItems.map((item, idx) => {
             const isPub = item.status === 'published';
             return (
               <div key={idx} className="bg-[#FFFEFE] border border-[#142B42] rounded-[12px] p-4 flex flex-col transition-all hover:shadow-md w-full min-h-[185px]">
@@ -373,11 +378,24 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
           })}
           
           {filteredList.length === 0 && (
-            <div className="col-span-3 py-10 text-center text-[#7B8EA0] font-medium">
+            <div className="col-span-1 md:col-span-3 py-10 text-center text-[#7B8EA0] font-medium">
               {hasSubordinates ? 'Tidak ada jurnal bawahan' : 'Belum ada jurnal yang diajukan'}
             </div>
           )}
         </div>
+
+        {totalPages > 1 && (
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8 pt-6 border-t border-gray-100">
+            <span className="text-xs text-[#7B8EA0] font-medium">Menampilkan {currentItems.length} dari {filteredList.length} jurnal</span>
+            <div className="flex gap-2">
+              <button disabled={validCurrentPage === 1} onClick={() => setCurrentPage(p => Math.max(1, p - 1))} className="w-8 h-8 flex items-center justify-center rounded border border-gray-200 text-[#7B8EA0] hover:bg-gray-50 disabled:opacity-50">«</button>
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button key={i} onClick={() => setCurrentPage(i + 1)} className={`w-8 h-8 flex items-center justify-center rounded border ${validCurrentPage === i + 1 ? 'bg-[#142B42] text-white border-[#142B42]' : 'border-gray-200 text-[#7B8EA0] hover:bg-gray-50'}`}>{i + 1}</button>
+              ))}
+              <button disabled={validCurrentPage === totalPages} onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} className="w-8 h-8 flex items-center justify-center rounded border border-gray-200 text-[#7B8EA0] hover:bg-gray-50 disabled:opacity-50">»</button>
+            </div>
+          </div>
+        )}
       </div>
       {/* DELETE CONFIRMATION POPUP */}
       {deletePopup && (
