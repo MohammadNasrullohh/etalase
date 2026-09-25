@@ -29,6 +29,9 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
   const [isRejecting, setIsRejecting] = useState(false);
 
+  const [rejectReason, setRejectReason] = useState("");
+  const [rejectError, setRejectError] = useState("");
+
 
 
   const selectedItem = subordinates.find(item => item.id === selectedQueue) || subordinates[0];
@@ -39,7 +42,7 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
     <div className="px-8 pt-8 pb-8">
 
-      <div className="flex flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-8">
 
         
 
@@ -482,21 +485,38 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 backdrop-blur-sm">
 
-          <div className="bg-white rounded-[10px] p-8 w-[734px] shadow-2xl flex flex-col">
+          <div className="bg-white rounded-[10px] p-8 w-[90%] max-w-[734px] shadow-2xl flex flex-col">
 
             <h2 className="text-[#142B42] text-[27px] font-bold mb-3">Tolak Jurnal ini?</h2>
 
             <p className="text-[#5D6A77] text-[16px] leading-relaxed mb-6">
 
-              Jurnal <span className="font-bold text-[#142B42]">{selectedItem.judul}</span> akan dikembalikan ke staf pengaju untuk direvisi.
+              Jurnal <span className="font-bold text-[#142B42]">{selectedItem.judul}</span> akan dikembalikan ke staf pengaju untuk direvisi. Sertakan alasan agar staf tahu apa yang perlu diperbaiki.
 
             </p>
+
+            <div className="flex flex-col mb-6">
+              <label className="text-[#142B42] text-[16px] font-bold mb-2">Catatan Pengembalian</label>
+              <textarea 
+                className={`w-full border ${rejectError ? 'border-red-500 focus:border-red-500' : 'border-[#E2E8F0] focus:border-[#0091FF]'} rounded-[6px] p-3 text-[14px] outline-none min-h-[140px] resize-none transition-colors`}
+                placeholder="Jelaskan bagian yang perlu diperbaiki...."
+                value={rejectReason}
+                onChange={(e) => {
+                  setRejectReason(e.target.value);
+                  if (rejectError) setRejectError("");
+                }}
+              />
+              {rejectError && <span className="text-red-500 text-[12px] mt-1">{rejectError}</span>}
+            </div>
 
             <div className="flex justify-end gap-3">
 
               <button 
 
-                onClick={() => setIsRejectModalOpen(false)}
+                onClick={() => {
+                  setIsRejectModalOpen(false);
+                  setRejectError("");
+                }}
 
                 disabled={isRejecting}
 
@@ -512,9 +532,15 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
                 onClick={async () => {
 
+                  if (!rejectReason.trim()) {
+                    setRejectError("Harap isi catatan pengembalian.");
+                    return;
+                  }
+                  
+                  setRejectError("");
                   setIsRejecting(true);
 
-                  await tolakJurnalAction(selectedItem.id);
+                  await tolakJurnalAction(selectedItem.id, rejectReason);
 
                   setIsRejecting(false);
 
@@ -550,15 +576,30 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 backdrop-blur-sm">
 
-          <div className="bg-white rounded-[10px] p-8 w-[734px] shadow-2xl flex flex-col">
+          <div className="bg-white rounded-[24px] p-8 w-[90%] max-w-[734px] shadow-2xl flex flex-col">
+
+            <div className="w-[56px] h-[56px] bg-[#E1F3EA] rounded-full flex items-center justify-center mb-6 shrink-0">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0F9347" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
 
             <h2 className="text-[#142B42] text-[27px] font-bold mb-3">Setujui Jurnal ini?</h2>
 
             <p className="text-[#5D6A77] text-[16px] leading-relaxed mb-6">
 
-              Anda akan menyetujui <span className="font-bold">{selectedItem.judul}</span>.
+              Anda akan menyetujui <span className="font-bold text-[#142B42]">{selectedItem.judul}</span>. Setelah disetujui, jurnal ini terkunci dan tidak dapat diubah lagi oleh siapa pun.
 
             </p>
+
+            <div className="w-full bg-[#EEF1F6] border border-[#ABABAB] rounded-[10px] p-6 flex flex-col gap-5 mb-8">
+              <div className="flex justify-between items-center text-[16px]">
+                <span className="text-[#5D6A77]">Diajukan oleh</span>
+                <span className="font-bold text-[#5D6A77]">Staff {selectedItem.divisi || 'HUMAS'}</span>
+              </div>
+              <div className="flex justify-between items-center text-[16px]">
+                <span className="text-[#5D6A77]">Tanggal Kegiatan</span>
+                <span className="font-bold text-[#5D6A77]">{selectedItem.tanggal_kegiatan ? new Date(selectedItem.tanggal_kegiatan).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : '-'}</span>
+              </div>
+            </div>
 
             <div className="flex justify-end gap-3">
 

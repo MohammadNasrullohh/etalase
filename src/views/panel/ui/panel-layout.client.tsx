@@ -276,7 +276,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="h-screen flex overflow-y-auto bg-[#F4F7FB]" style={{ fontFamily: 'Poppins' }}>
+      <div className="h-screen flex flex-col md:flex-row overflow-y-auto bg-[#F4F7FB]" style={{ fontFamily: 'Poppins' }}>
         
         {/* TOAST NOTIFICATION */}
       {toast && (
@@ -291,7 +291,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
       )}
 
       {/* SIDEBAR */}
-      <aside className="w-[417px] bg-[#F1F6FC] border-r border-[#87BFFF]/80 flex flex-col justify-between shrink-0 sticky top-0 h-screen overflow-y-auto">
+      <aside className="w-full md:w-[320px] xl:w-[417px] bg-[#F1F6FC] border-b md:border-b-0 border-r border-[#87BFFF]/80 flex flex-col justify-between shrink-0 md:sticky top-0 md:h-screen overflow-y-auto">
         
         <div>
           {/* Logo */}
@@ -316,7 +316,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
               <>
                 <button 
                   onClick={() => handleMenuClick('tambah')}
-                  className={`w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'tambah' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
+                  className={`w-full xl:w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'tambah' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
                 >
                   <div className={`w-[42px] h-[42px] rounded-[10px] flex items-center justify-center shrink-0 ${activeMenu === 'tambah' ? 'bg-[#F7921C] text-white shadow-md' : 'bg-white text-[#F7921C] shadow-sm border border-[#E2E8F0]'}`}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
@@ -329,7 +329,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
 
                 <button 
                   onClick={() => handleMenuClick('jurnal')}
-                  className={`w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'jurnal' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
+                  className={`w-full xl:w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'jurnal' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
                 >
                   <div className={`w-[42px] h-[42px] rounded-[10px] flex items-center justify-center shrink-0 ${activeMenu === 'jurnal' ? 'bg-[#F7921C] text-white shadow-md' : 'bg-white text-[#F7921C] shadow-sm border border-[#E2E8F0]'}`}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
@@ -347,7 +347,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
               <>
                 <button 
                   onClick={() => handleMenuClick('kelola')}
-                  className={`w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'kelola' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
+                  className={`w-full xl:w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'kelola' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
                 >
                   <div className={`w-[42px] h-[42px] rounded-[10px] flex items-center justify-center shrink-0 ${activeMenu === 'kelola' ? 'bg-[#F7921C] text-white shadow-md' : 'bg-white text-[#F7921C] shadow-sm border border-[#E2E8F0]'}`}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
@@ -360,7 +360,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
 
                 <button 
                   onClick={() => handleMenuClick('approval')}
-                  className={`w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'approval' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
+                  className={`w-full xl:w-[289px] h-[75px] flex items-center gap-4 px-5 rounded-[11px] transition-all text-left ${activeMenu === 'approval' ? 'bg-[#FEB143]/25' : 'hover:bg-white'}`}
                 >
                   <div className={`w-[42px] h-[42px] rounded-[10px] flex items-center justify-center shrink-0 ${activeMenu === 'approval' ? 'bg-[#F7921C] text-white shadow-md' : 'bg-white text-[#F7921C] shadow-sm border border-[#E2E8F0]'}`}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M16 13H8"></path><path d="M16 17H8"></path><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -380,7 +380,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
         <div className="p-6 px-10 border-t border-[#E2E8F0] flex flex-col gap-4 items-start">
           <button 
             onClick={() => router.push('/')}
-            className="w-[307px] h-[71px] flex items-center justify-center gap-2 bg-[#F1F6FC] border-2 border-[#005EBB] text-[#396094] hover:bg-[#E2EDF8] rounded-[11px] text-[18px] font-semibold transition-colors"
+            className="w-full xl:w-[307px] h-[71px] flex items-center justify-center gap-2 bg-[#F1F6FC] border-2 border-[#005EBB] text-[#396094] hover:bg-[#E2EDF8] rounded-[11px] text-[18px] font-semibold transition-colors"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             Kembali ke Beranda
@@ -392,7 +392,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
               await logoutAction();
               router.push('/');
             }}
-            className="w-[302px] h-[77px] flex items-center justify-between px-5 bg-[#DBEBFF] rounded-[12px] cursor-pointer hover:bg-[#ffcdd2] hover:text-red-700 transition-colors group"
+            className="w-full xl:w-[302px] h-[77px] flex items-center justify-between px-5 bg-[#DBEBFF] rounded-[12px] cursor-pointer hover:bg-[#ffcdd2] hover:text-red-700 transition-colors group"
             title="Logout"
           >
             <div className="flex items-center gap-3">
@@ -411,7 +411,7 @@ export default function PanelLayoutClient({ activeMenu, workspace, error, user, 
       </aside>
 
       {/* MAIN CONTENT */}
-      <main className="flex-1 flex flex-col min-h-screen bg-[#F1F6FC]">
+      <main className="flex-1 min-w-0 flex flex-col min-h-screen bg-[#F1F6FC]">
         
         {/* Dynamic Header */}
           <header className="h-[143px] bg-[#F1F6FC] border-b border-[#87BFFF]/80 flex items-center px-10 shrink-0">

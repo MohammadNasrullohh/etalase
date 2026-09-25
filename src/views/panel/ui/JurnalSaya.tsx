@@ -79,6 +79,22 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
     }));
   }, [allItems]);
 
+  const pieStaffData = useMemo(() => {
+    const counts: Record<string, number> = {};
+    // Only count subordinates for the staff chart if applicable
+    const sourceItems = hasSubordinates ? workspace!.subordinates : allItems;
+    sourceItems.forEach(item => {
+      const name = item.owner_name || 'Tanpa Nama';
+      counts[name] = (counts[name] || 0) + 1;
+    });
+    const STAFF_COLORS = ['#6366F1', '#F87171', '#FBBF24', '#38BDF8', '#A78BFA', '#34D399'];
+    return Object.entries(counts).map(([name, value], index) => ({
+      name,
+      value,
+      color: STAFF_COLORS[index % STAFF_COLORS.length]
+    }));
+  }, [allItems, hasSubordinates, workspace]);
+
   if (error) {
     return <div className="p-10 text-red-500">{error}</div>;
   }
@@ -130,8 +146,8 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
         </div>
       </div>
 
-      {/* 3 Charts */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {/* Analytics Charts */}
+      <div className={`grid grid-cols-1 ${hasSubordinates ? 'md:grid-cols-4' : 'md:grid-cols-3'} gap-6 mb-8`}>
         {/* Bar Chart */}
         <div className="bg-white rounded-[16px] border border-[#E5E7EB] p-6 shadow-sm h-[320px] flex flex-col">
           <div className="flex justify-between items-center mb-6">
@@ -204,6 +220,34 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
             ))}
           </div>
         </div>
+
+        {/* Staff Pie Chart (Kasubag Only) */}
+        {hasSubordinates && (
+          <div className="bg-white rounded-[16px] border border-[#E5E7EB] p-6 shadow-sm h-[320px] flex flex-col items-center">
+            <h4 className="text-sm font-bold text-[#142B42] w-full text-left mb-2">Staff Uploud Jurnal</h4>
+            <div className="flex-1 w-full flex items-center justify-center">
+              <ResponsiveContainer width="100%" height="80%">
+                <PieChart>
+                  <Pie data={pieStaffData} cx="50%" cy="50%" innerRadius={0} outerRadius={80} dataKey="value" stroke="none">
+                    {pieStaffData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex justify-center flex-wrap gap-3 mt-2 w-full text-[10px] text-[#7B8EA0] font-medium">
+              {pieStaffData.map((entry, index) => (
+                <div key={index} className="flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }}></div>
+                  {entry.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
 
       {/* Jurnal List Section */}
@@ -245,11 +289,11 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {filteredList.map((item, idx) => {
             const isPub = item.status === 'published';
             return (
-              <div key={idx} className="bg-[#FFFEFE] border border-[#142B42] rounded-[12px] p-4 flex flex-col transition-all hover:shadow-md w-full min-h-[185px] h-full">
+              <div key={idx} className="bg-[#FFFEFE] border border-[#142B42] rounded-[12px] p-4 flex flex-col transition-all hover:shadow-md w-full min-h-[185px]">
                 <div className="flex justify-between items-start gap-1 mb-3">
                   <span className="bg-[#E7F2FE] text-[#3B82F6] px-2 h-[20px] rounded-[10px] text-[9px] font-bold flex items-center gap-1 whitespace-nowrap shrink-0 overflow-hidden">
                     <FileText size={10} strokeWidth={2.5} className="shrink-0" /> 
@@ -292,6 +336,12 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
                     {item.divisi ? `Staf ${item.divisi}` : 'Staf Divisi Pengawasan'}
                   </div>
                 </div>
+
+                {item.status === 'rejected' && item.workflow_notes && (
+                  <div className="mb-3 bg-[#FEF2F2] border border-[#FCA5A5] rounded-[6px] p-2 text-[#991B1B] text-[10px]">
+                    <span className="font-bold">Catatan Pengembalian:</span> {item.workflow_notes}
+                  </div>
+                )}
 
                 <div className="w-full">
                   {isPub ? (

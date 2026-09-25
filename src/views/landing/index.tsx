@@ -465,14 +465,15 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
           id={selectedJurnalId}
           isOpen={!!selectedJurnalId}
           onClose={() => setSelectedJurnalId(null)}
+          isLoggedIn={!!user}
         />
       </div>
 
       {/* Login Modal Overlay */}
       {isLoginOpen && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/60 overflow-y-auto" onClick={() => setIsLoginOpen(false)}>
+        <div className="fixed inset-0 z-[110] flex justify-center p-4 bg-black/60 overflow-y-auto items-start md:items-center py-10" onClick={() => setIsLoginOpen(false)}>
           <div 
-            className="relative w-full max-w-[1306px] min-h-[840px] bg-white rounded-[64px] flex overflow-hidden shadow-2xl mx-auto flex-col md:flex-row" 
+            className="relative w-full max-w-[1306px] min-h-[auto] max-h-[90vh] bg-white rounded-[64px] flex overflow-hidden shadow-2xl mx-auto flex-col md:flex-row" 
             onClick={(e) => e.stopPropagation()} 
             style={{ fontFamily: 'Poppins' }}
           >
@@ -485,7 +486,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
             <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white">
               <img src="/assets/login-illustration.png" alt="Login Illustration" className="w-full max-w-[500px] object-contain" />
             </div>
-            <div className="w-full md:w-1/2 flex flex-col justify-center px-10 lg:px-24 py-12 relative bg-white">
+            <div className="w-full md:w-1/2 flex flex-col justify-center px-10 lg:px-24 py-12 relative bg-white overflow-y-auto">
               <div className="flex justify-center mb-10">
                 <img src="/assets/login-logo.png" alt="ETALASE" className="h-[120px] object-contain" />
               </div>
@@ -520,7 +521,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                         )}
                       </button>
                     </div>
-                    <div className="flex justify-between gap-4">
+                    <div className="flex justify-center gap-4 sm:gap-6">
                       {[0, 1, 2, 3].map((index) => (
                         <input 
                           key={index} 
@@ -530,7 +531,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                           value={pin[index]}
                           onChange={(e) => handlePinChange(index, e.target.value)}
                           onKeyDown={(e) => handlePinKeyDown(index, e)}
-                          className="w-[118px] h-[114px] bg-[#F2F5FF] rounded-[10px] text-center text-[40px] font-bold text-[#142B42] outline-none border-2 border-transparent focus:border-[#4F83F5] transition-colors [&::-ms-reveal]:hidden [&::-ms-clear]:hidden" 
+                          className="flex-1 aspect-square max-w-[100px] max-h-[100px] bg-[#F2F5FF] rounded-[16px] text-center text-[40px] font-bold text-[#142B42] outline-none border-2 border-transparent focus:border-[#4F83F5] transition-colors [&::-ms-reveal]:hidden [&::-ms-clear]:hidden" 
                         />
                       ))}
                     </div>
@@ -540,7 +541,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
                         {loginError}
                       </div>
                     )}
-                    <div className="flex justify-end mt-4">
+                    <div className="flex justify-end mt-4 mb-8">
                       <button className="text-[#F14141] font-medium text-[14px] hover:underline">
                         lupa PIN
                       </button>
