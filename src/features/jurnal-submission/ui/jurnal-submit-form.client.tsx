@@ -15,14 +15,16 @@ export function JurnalSubmitForm() {
 
   const [payload, setPayload] = useState<JurnalSubmissionPayload>({
     judul: '',
+    ringkasan: '',
     tanggal_kegiatan: '',
-    kategori: 'sosialisasi',
+    kategori: 'Penanganan Pelanggaran',
     dokumentasi: [],
     dokumen_pendukung: [],
     pihak_terkait: [],
     custom_fields: [],
     tags: [],
-    link_publikasi: ''
+    link_publikasi: '',
+    is_published: true
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +36,8 @@ export function JurnalSubmitForm() {
       const res = await submitJurnalAction(payload)
       if (res.success) {
         setSuccess(true)
-        setPayload({ ...payload, judul: '', tags: [] })
+        setPayload({ ...payload, judul: '',
+    ringkasan: '', tags: [] })
       } else {
         setError(res.error || 'Gagal mengirim jurnal')
       }
@@ -83,7 +86,7 @@ export function JurnalSubmitForm() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Tanggal */}
           <div>
             <label className="block text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-2 font-mono flex items-center gap-1.5">
@@ -110,16 +113,26 @@ export function JurnalSubmitForm() {
               onChange={e => setPayload({ ...payload, kategori: e.target.value })}
               className="w-full bg-[var(--color-surface-overlay)] border border-[var(--glass-border-default)] rounded-xl px-4 py-3 text-sm text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)] transition-colors shadow-sm"
             >
-              <option value="sosialisasi">Sosialisasi</option>
-              <option value="rapat">Rapat</option>
-              <option value="koordinasi">Koordinasi</option>
-              <option value="pengawasan">Pengawasan</option>
-              <option value="lainnya">Lainnya</option>
+              <option value="Penanganan Pelanggaran">Penanganan Pelanggaran</option>
+              <option value="Penyelesaian Sengketa">Penyelesaian Sengketa</option>
             </select>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+            <label className="block text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-2 font-mono flex items-center gap-1.5">
+              <FileText className="w-3.5 h-3.5 text-[var(--color-accent-hover)]" /> Ringkasan Kegiatan *
+            </label>
+            <textarea
+              required
+              value={payload.ringkasan || ''}
+              onChange={e => setPayload({ ...payload, ringkasan: e.target.value })}
+              className="w-full bg-[var(--color-surface-overlay)] border border-[var(--glass-border-default)] rounded-xl px-4 py-3 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]/60 focus:outline-none focus:border-[var(--color-accent)] transition-colors shadow-sm min-h-[120px]"
+              placeholder="Tuliskan ringkasan singkat mengenai kegiatan jurnal..."
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-2 font-mono flex items-center gap-1.5">
               <Tag className="w-3.5 h-3.5 text-[var(--color-accent-hover)]" /> Tags (Pisahkan dengan koma)

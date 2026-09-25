@@ -21,10 +21,16 @@ export interface MyJurnalItem {
   kategori: string
   status: JurnalWorkflowStatus
   scope: JurnalScope
+  is_published?: boolean
   owner_id?: string
   owner_name?: string
   divisi?: string
   link_publikasi?: string
+  dokumentasi?: any[]
+  dokumen_pendukung?: any[]
+  pihak_terkait?: any[]
+tags?: string[]
+  deskripsi?: string
   created_at?: string
   updated_at?: string
 }
@@ -74,7 +80,7 @@ function normalizeStatus(value: unknown, fallback: JurnalWorkflowStatus): Jurnal
 function normalizeJurnal(
   item: JsonRecord,
   fallbackStatus: JurnalWorkflowStatus,
-  scope: JurnalScope,
+  scope: JurnalScope
 ): MyJurnalItem | null {
   const id = readString(item.id) || readString(item.source_id)
   const judul = readString(item.judul)
@@ -204,12 +210,70 @@ export async function getJurnalWorkspaceAction(): Promise<JurnalWorkspace> {
     .filter((item): item is MyJurnalItem => Boolean(item))
     .filter((item) => !isOwnedBy(item, user.id, user.name))
 
+  let subs = sortJurnals(uniqueJurnals([...subordinateDrafts, ...subordinatePublished]));
+  
+
+
+  // Fetch local ALAS DB records
+  const { db } = await import('@/shared/lib/db');
+  const { jurnal } = await import('../../../../drizzle/schema');
+  const localJurnals = await db.select().from(jurnal);
+
+  const localMine: MyJurnalItem[] = localJurnals
+    .filter(j => j.redaksi === user.name)
+    .map(j => ({
+      id: j.id,
+      source_id: j.source_id,
+      judul: j.judul,
+      tanggal_kegiatan: String(j.tanggal_kegiatan),
+      kategori: j.kategori,
+      status: j.workflow_status as JurnalWorkflowStatus,
+      scope: 'mine',
+      is_published: j.is_published,
+      owner_name: j.redaksi || '',
+      divisi: j.divisi || '', link_publikasi: j.link_publikasi || undefined,
+      dokumentasi: (j.dokumentasi as any[]) || [],
+      dokumen_pendukung: (j.dokumen_pendukung as any[]) || [],
+      pihak_terkait: (j.pihak_terkait as any[]) || [],
+tags: (j.tags as string[]) || [],
+      deskripsi: Array.isArray(j.custom_fields) 
+        ? (j.custom_fields as any[]).find(f => f.label === 'Ringkasan')?.value || ''
+        : '',
+      created_at: String(j.created_at),
+      updated_at: String(j.updated_at),
+    }));
+
+  const localSubs: MyJurnalItem[] = canReview ? localJurnals
+    .filter(j => j.redaksi !== user.name && ['publish_pending', 'published', 'rejected'].includes(j.workflow_status as string))
+    .map(j => ({
+      id: j.id,
+      source_id: j.source_id,
+      judul: j.judul,
+      tanggal_kegiatan: String(j.tanggal_kegiatan),
+      kategori: j.kategori,
+      status: j.workflow_status as JurnalWorkflowStatus,
+      scope: 'subordinate',
+      is_published: j.is_published,
+      owner_name: j.redaksi || '',
+      divisi: j.divisi || '', link_publikasi: j.link_publikasi || undefined,
+      dokumentasi: (j.dokumentasi as any[]) || [],
+      dokumen_pendukung: (j.dokumen_pendukung as any[]) || [],
+      pihak_terkait: (j.pihak_terkait as any[]) || [],
+tags: (j.tags as string[]) || [],
+      deskripsi: Array.isArray(j.custom_fields) 
+        ? (j.custom_fields as any[]).find(f => f.label === 'Ringkasan')?.value || ''
+        : '',
+      created_at: String(j.created_at),
+      updated_at: String(j.updated_at),
+    })) : [];
+
   return {
-    mine: sortJurnals(uniqueJurnals([...mineDrafts, ...minePublished])),
-    subordinates: sortJurnals(uniqueJurnals([...subordinateDrafts, ...subordinatePublished])),
+    mine: sortJurnals(uniqueJurnals([...mineDrafts, ...minePublished, ...localMine])),
+    subordinates: sortJurnals(uniqueJurnals([...subs, ...localSubs])),
     canReview,
     viewerName: user.name,
     divisionName: user.division?.name,
     warnings,
   }
 }
+

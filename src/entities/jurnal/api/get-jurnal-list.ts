@@ -8,6 +8,7 @@ interface GetJurnalListParams {
   cursor?: string
   limit?: number
   date?: string
+  tahun?: string
 }
 
 type CursorItem = Pick<typeof jurnal.$inferSelect, 'id' | 'tanggal_kegiatan'>
@@ -28,11 +29,15 @@ function decodeJurnalCursor(cursor: string): CursorItem | null {
   }
 }
 
-export async function getJurnalList({ q = '', kategori = '', cursor = '', limit = 20, date = '' }: GetJurnalListParams) {
-  let conditions = [eq(jurnal.is_published, true)]
+export async function getJurnalList({ q = '', kategori = '', cursor = '', limit = 20, date = '', tahun = '' }: GetJurnalListParams) {
+  let conditions = [eq(jurnal.is_published, true), eq(jurnal.workflow_status, 'published')]
 
   if (date) {
     conditions.push(eq(jurnal.tanggal_kegiatan, date))
+  }
+  
+  if (tahun) {
+    conditions.push(sql`EXTRACT(YEAR FROM ${jurnal.tanggal_kegiatan}) = ${tahun}`)
   }
 
   if (kategori) {
@@ -49,24 +54,22 @@ export async function getJurnalList({ q = '', kategori = '', cursor = '', limit 
     )
   }
 
-  const cursorItem = cursor ? decodeJurnalCursor(cursor) : null
-  if (cursorItem) {
-    conditions.push(
-      or(
-        lt(jurnal.tanggal_kegiatan, cursorItem.tanggal_kegiatan),
-        and(
-          eq(jurnal.tanggal_kegiatan, cursorItem.tanggal_kegiatan),
-          lt(jurnal.id, cursorItem.id)
-        )
-      )!
-    )
-  }
+  // Count total items
+  const countResult = await db.select({ count: sql<number>`count(*)` })
+    .from(jurnal)
+    .where(and(...conditions))
+  const totalCount = Number(countResult[0]?.count || 0)
+
+  // Offset pagination
+  const page = Number(cursor) || 1; 
+  const offset = (page - 1) * limit;
 
   // Daftar publik hanya mengambil kolom yang benar-benar dikirim ke kartu jurnal.
   const items = await db.select({
     id: jurnal.id,
     source_id: jurnal.source_id,
     judul: jurnal.judul,
+      ringkasan: jurnal.ringkasan,
     tanggal_kegiatan: jurnal.tanggal_kegiatan,
     kategori: jurnal.kategori,
     link_publikasi: jurnal.link_publikasi,
@@ -81,7 +84,9 @@ export async function getJurnalList({ q = '', kategori = '', cursor = '', limit 
     .from(jurnal)
     .where(and(...conditions))
     .orderBy(sql`${jurnal.tanggal_kegiatan} DESC`, sql`${jurnal.id} DESC`)
-    .limit(limit + 1)
+    .limit(limit)
+    .offset(offset)
 
-  return items
+  return { items, totalCount }
 }
+

@@ -7,15 +7,15 @@ export async function GET(request: NextRequest) {
     const q = searchParams.get('q') || ''
     const kategori = searchParams.get('kategori') || ''
     const date = searchParams.get('date') || ''
+    const tahun = searchParams.get('tahun') || ''
     const cursor = searchParams.get('cursor') || ''
     const summaryOnly = searchParams.get('view') === 'summary'
     const limit = Math.min(Math.max(parseInt(searchParams.get('limit') || '20', 10), 1), 50)
 
-    const rawItems = await getJurnalList({ q, kategori, cursor, limit, date })
+    const { items: rawItems, totalCount } = await getJurnalList({ q, kategori, cursor, limit, date, tahun })
 
-    const hasMore = rawItems.length > limit
-    const pageItems = rawItems.slice(0, limit)
-    const nextCursor = hasMore ? encodeJurnalCursor(pageItems[pageItems.length - 1]) : null
+    const totalPages = Math.ceil(totalCount / limit)
+    const pageItems = rawItems
 
     const transformedItems = pageItems.map(item => {
       const docs = Array.isArray(item.dokumen_pendukung) ? item.dokumen_pendukung : []
@@ -28,6 +28,7 @@ export async function GET(request: NextRequest) {
       const summary = {
         id: item.id,
         judul: item.judul,
+        ringkasan: item.ringkasan,
         tanggal_kegiatan: item.tanggal_kegiatan,
         kategori: item.kategori,
         thumbnail_url: thumbnailUrl,
@@ -53,8 +54,9 @@ export async function GET(request: NextRequest) {
       status: "ok",
       data: transformedItems,
       pagination: {
-        next_cursor: nextCursor,
-        has_more: hasMore,
+        total_count: totalCount,
+        total_pages: totalPages,
+        current_page: Number(cursor) || 1
       }
     })
   } catch (error: any) {

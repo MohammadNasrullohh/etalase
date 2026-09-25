@@ -10,6 +10,27 @@ export async function getMeAction(): Promise<LawetUser | null> {
     const token = cookies().get('lawet_token')?.value
     if (!token) return null
 
+    // --- DUMMY PROFILES FOR UI TESTING ---
+    if (token === 'dummy-staff-token') {
+      return {
+        id: 'dummy-staff-1',
+        name: 'Staff',
+        username: 'staff',
+        division: { id: 'div-1', name: 'Devisi Pengawasan' },
+        role: { id: 'r1', name: 'Staff', level: 1, can_approve: false, is_superadmin: false }
+      }
+    }
+    if (token === 'dummy-kasubag-token') {
+      return {
+        id: 'dummy-kasubag-1',
+        name: 'Kasubag Humas',
+        username: 'kasubag',
+        division: { id: 'div-2', name: 'KASUBAG' },
+        role: { id: 'r2', name: 'Kasubag', level: 2, can_approve: true, is_superadmin: false }
+      }
+    }
+    // -------------------------------------
+
     const res = await fetch(`${LAWET_API_URL}/api/v1/auth/me`, {
       method: 'GET',
       headers: {

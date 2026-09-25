@@ -13,6 +13,7 @@ import {
 } from '@/entities/jurnal/api/get-jurnal-stats'
 import { getCategoryLabel } from '@/shared/ui/colors'
 import { TrendingUp, PieChart, Layers } from 'lucide-react'
+import { StatsModal } from './StatsModal.client'
 
 interface StatsData {
   years: number[]
@@ -35,6 +36,8 @@ interface ActiveFilter {
 
 const StatsSectionInner: React.FC = () => {
   const router = useRouter()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [activeCard, setActiveCard] = useState<'overview' | 'kategori' | 'mitra' | 'berita'>('overview')
   const [data, setData] = useState<StatsData | null>(null)
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
@@ -214,163 +217,100 @@ const StatsSectionInner: React.FC = () => {
     router.replace('/', { scroll: false })
     document.getElementById('section-arsip')?.scrollIntoView({ behavior: 'smooth' })
   }
-
   return (
     <section
       id="section-stats"
       ref={sectionRef}
-      className="relative w-full bg-[var(--color-canvas)] py-16 lg:py-20"
+      className="relative w-full pt-12 pb-8"
+      style={{ fontFamily: 'Poppins' }}
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-10">
 
-        {/* ── Section header & Chart Mode Switcher ── */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-          <div>
-            <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[var(--color-text-muted)] mb-1">
-              Bawaslu Kebumen
-            </p>
-            <h2
-              className="text-2xl sm:text-3xl font-serif font-bold text-[var(--color-text-primary)]"
-              style={{ letterSpacing: '0.02em' }}
-            >
+        {/* Title Area */}
+        <div className="mb-6 flex flex-col items-start text-left">
+          <div className="flex items-center gap-2.5 mb-[2px]">
+            <div className="w-[4px] h-[26px] bg-[#F7921C] rounded-[2px]"></div>
+            <h2 className="text-[#142B42] text-[24px] font-bold tracking-tight leading-none">
               Rekapitulasi Kegiatan
             </h2>
           </div>
-
-          {/* Chart Mode Tabs */}
-          <div className="flex items-center gap-1.5 p-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border-subtle)] self-start sm:self-auto">
-            <button
-              onClick={() => { setChartMode('trend'); setActiveFilter(null) }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
-                chartMode === 'trend'
-                  ? 'bg-[var(--color-surface-overlay)] text-[var(--color-text-primary)] font-bold shadow-sm border border-[var(--color-border-subtle)]'
-                  : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
-              }`}
-            >
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span>Tren Bulanan</span>
-            </button>
-
-            <button
-              onClick={() => { setChartMode('kategori'); setActiveFilter(null) }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
-                chartMode === 'kategori'
-                  ? 'bg-[var(--color-surface-overlay)] text-[var(--color-text-primary)] font-bold shadow-sm border border-[var(--color-border-subtle)]'
-                  : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
-              }`}
-            >
-              <PieChart className="w-3.5 h-3.5" />
-              <span>Kategori</span>
-            </button>
-
-            <button
-              onClick={() => { setChartMode('divisi'); setActiveFilter(null) }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
-                chartMode === 'divisi'
-                  ? 'bg-[var(--color-surface-overlay)] text-[var(--color-text-primary)] font-bold shadow-sm border border-[var(--color-border-subtle)]'
-                  : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
-              }`}
-            >
-              <Layers className="w-3.5 h-3.5" />
-              <span>Divisi</span>
-            </button>
-          </div>
+          <p className="text-[#5D6A77] text-[15px] ml-[14px]">
+            Ringkasan aktivitas dan informasi terkini
+          </p>
         </div>
 
-        {/* ── KPI Metric Strip ── */}
-        <KpiMetricStrip
-          kpi={data?.kpi_summary}
-          selectedYear={selectedYear}
-          onFilterCategory={handleKpiFilterCategory}
-          onViewAll={handleViewAll}
-        />
-
-        {/* ── Main content grid: Chart (60%) + Activity Panel (40%) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
-
-          {/* Left: Chart area */}
-          <div className="lg:col-span-3 relative min-h-[320px] glass-card p-4 sm:p-6 flex flex-col justify-center">
-            {loading ? (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex gap-1.5">
-                  {[0, 1, 2].map(i => (
-                    <div
-                      key={i}
-                      className="w-1.5 h-6 rounded-full animate-pulse bg-[var(--color-border-default)]"
-                      style={{ animationDelay: `${i * 150}ms` }}
-                    />
-                  ))}
-                </div>
+        {/* 4 KPI Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          
+          {/* Card 1 */}
+          <div 
+            onClick={() => { setActiveCard('overview'); setIsModalOpen(true); }}
+            className="w-full bg-white rounded-[20px] p-6 flex flex-col justify-between cursor-pointer border border-[#E2E8F0] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#142B42" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M6 10h2l2-3 3 6 2-3h3"/></svg>
+              <span className="text-[#142B42] text-[15px] font-bold">Total Kegiatan</span>
+            </div>
+            <div>
+              <div className="text-[#142B42] text-[28px] font-bold mb-1 leading-none">{data?.kpi_summary?.total_kegiatan ?? 0}</div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#5D6A77] text-[13px]">Tahun {selectedYear || new Date().getFullYear()}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#142B42" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
               </div>
-            ) : chartMode === 'trend' ? (
-              <TrendChart
-                data={monthlyTrendData}
-                year={selectedYear ?? 2026}
-                isVisible={isSectionVisible}
-                onMonthClick={handleMonthClick}
-              />
-            ) : chartMode === 'kategori' ? (
-              <BarChart
-                data={categoryChartData}
-                isVisible={isSectionVisible}
-                mode="kategori"
-                onBarClick={handleBarClick}
-              />
-            ) : (
-              <BarChart
-                data={divisionChartData}
-                isVisible={isSectionVisible}
-                mode="divisi"
-                onBarClick={handleBarClick}
-              />
-            )}
+            </div>
           </div>
 
-          {/* Right: Activity & Drilldown Panel */}
-          <div className="lg:col-span-2 min-h-[320px]">
-            <ActivityPanel
-              highlights={displayedHighlights}
-              selectedYear={selectedYear}
-              totalKegiatan={totalKegiatan}
-              activeFilter={activeFilter}
-              onClearFilter={() => setActiveFilter(null)}
-              onSelectActivity={handleSelectActivity}
-              onViewArchiveWithFilter={handleViewArchiveWithFilter}
-            />
+          {/* Card 2 */}
+              <div onClick={() => { setActiveCard('kategori'); setIsModalOpen(true); }} className="w-full bg-white border border-[#F7921C]/40 rounded-[20px] p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 transition-all shadow-[0_4px_20px_rgba(247,146,28,0.08)] hover:shadow-[0_8px_30px_rgba(247,146,28,0.15)]">
+            <div className="flex items-center gap-3 mb-6">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#142B42" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+              <span className="text-[#142B42] text-[15px] font-bold">Kategori Terbanyak</span>
+            </div>
+            <div>
+              <div className="text-[#142B42] text-[24px] font-bold mb-1 leading-tight capitalize line-clamp-2">{data?.kpi_summary?.top_category?.kategori || '-'}</div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#5D6A77] text-[13px]">Dokumen Terverifikasi</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F7921C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* ── Year selector ── */}
-        <div
-          className="flex items-center gap-2 sm:gap-3 pt-5 overflow-x-auto no-scrollbar"
-          style={{ borderTop: '1px solid var(--color-border-subtle)' }}
-        >
-          <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-muted)] flex-shrink-0 mr-2">
-            Pilih Tahun:
-          </span>
-          {(data?.years ?? []).map(year => {
-            const isSelected = year === selectedYear
-            return (
-              <button
-                key={year}
-                onClick={() => handleYearClick(year)}
-                className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-mono transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] ${
-                  isSelected
-                    ? 'bg-[var(--color-accent)] text-[#1C1815] font-bold shadow-sm'
-                    : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] border border-[var(--color-border-subtle)]'
-                }`}
-                style={{
-                  letterSpacing: '0.05em',
-                }}
-              >
-                {year}
-              </button>
-            )
-          })}
+          {/* Card 3 */}
+              <div onClick={() => { setActiveCard('mitra'); setIsModalOpen(true); }} className="w-full bg-white border border-[#E2E8F0] rounded-[20px] p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+            <div className="flex items-center gap-3 mb-6">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#142B42" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span className="text-[#142B42] text-[15px] font-bold">Mitra Kolaborasi</span>
+            </div>
+            <div>
+              <div className="text-[#142B42] text-[28px] font-bold mb-1 leading-none">{data?.kpi_summary?.total_mitra ?? 0}</div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#5D6A77] text-[13px]">Instansi</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#142B42" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+              <div onClick={() => { setActiveCard('berita'); setIsModalOpen(true); }} className="w-full bg-white border border-[#F7921C]/40 rounded-[20px] p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 transition-all shadow-[0_4px_20px_rgba(247,146,28,0.08)] hover:shadow-[0_8px_30px_rgba(247,146,28,0.15)]">
+            <div className="flex items-center gap-3 mb-6">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#142B42" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="10" cy="13" r="2"/><line x1="11.5" y1="14.5" x2="14" y2="17"/></svg>
+              <span className="text-[#142B42] text-[15px] font-bold">Terekspos Berita</span>
+            </div>
+            <div>
+              <div className="text-[#142B42] text-[28px] font-bold mb-1 leading-none">{data?.kpi_summary?.published_media_count ?? 0}</div>
+              <div className="flex items-center justify-between">
+                <span className="text-[#5D6A77] text-[13px]">Kegiatan</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F7921C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+      <StatsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} data={data} activeCard={activeCard} />
     </section>
   )
 }
 
 export const StatsSection = memo(StatsSectionInner)
+

@@ -6,6 +6,17 @@ const LAWET_API_URL = process.env.LAWET_API_URL as string
 
 export async function loginAction(username: string, pin: string) {
   try {
+    // --- DUMMY ACCOUNTS FOR UI TESTING ---
+    if (username === 'staff' && pin === '1234') {
+      cookies().set({ name: 'lawet_token', value: 'dummy-staff-token', httpOnly: true, path: '/' })
+      return { success: true, user: { name: 'Staff Tester' } }
+    }
+    if (username === 'kasubag' && pin === '1234') {
+      cookies().set({ name: 'lawet_token', value: 'dummy-kasubag-token', httpOnly: true, path: '/' })
+      return { success: true, user: { name: 'Kasubag Tester' } }
+    }
+    // -------------------------------------
+
     const res = await fetch(`${LAWET_API_URL}/api/v1/auth/login`, {
       method: 'POST',
       headers: {
@@ -50,3 +61,4 @@ export async function logoutAction() {
   cookies().delete('lawet_token')
   return { success: true }
 }
+

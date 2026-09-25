@@ -1,24 +1,24 @@
 :root {
-  /* Semantic color roles — Warm Vintage Bookish Cream Theme (High Contrast) */
-  --color-canvas: #F4F0E6;
-  --color-canvas-raised: #EFEAE0;
-  --color-base: #F4F0E6;
-  --color-surface-raised: #FAF7F0;
-  --color-surface-overlay: #FFFDF8;
-  --color-surface: #FAF7F0;
-  --color-text-primary: #1C1815;       /* Dark warm espresso (High Contrast: 14:1) */
-  --color-text-on-accent: #1C1815;
-  --color-text-inverse-muted: #4A4237;  /* High contrast muted body text (7.5:1) */
-  --color-text-muted: #6E6354;          /* Secondary metadata text (5.2:1 - WCAG AA) */
+  /* Semantic color roles - Modern Bright & Cool Figma Theme */
+  --color-canvas: #F1F6FC;
+  --color-canvas-raised: #FFFFFF;
+  --color-base: #F1F6FC;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-overlay: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #142B42;       /* Figma Dark Navy */
+  --color-text-on-accent: #FFFFFF;
+  --color-text-inverse-muted: #5D6A77; 
+  --color-text-muted: #7B8EA0;          /* Figma Muted Text */
   
-  --color-accent: #F5B748;              /* Warm golden amber button accent */
-  --color-accent-hover: #E5A838;
-  --color-accent-focus: #D99B26;
-  --color-accent-active-text: #1C1815;
+  --color-accent: #F7921C;              /* Figma Orange */
+  --color-accent-hover: #e08316;
+  --color-accent-focus: #c26c11;
+  --color-accent-active-text: #FFFFFF;
 
   /* Semantic Borders */
-  --color-border-subtle: #E4DDD0;
-  --color-border-default: #D6CBB5;
+  --color-border-subtle: #E5E7EB;
+  --color-border-default: #DCE8FE;
   --color-border-strong: #C8BEAB;
 
   /* Category & Badge Accent Colors */

@@ -10,13 +10,10 @@ export const ACCENT_COLORS = {
 export const CATEGORY_COLORS = new Proxy<Record<string, string>>({}, {
   get: (_target, prop) => {
     if (typeof prop !== 'string') return undefined
-    const normalized = prop.toLowerCase()
+    const normalized = prop.toLowerCase().trim()
     const colorMap: Record<string, string> = {
-      mou:       ACCENT_COLORS.violet,
-      audiensi:  ACCENT_COLORS.cyan,
-      pelaporan: ACCENT_COLORS.amber,
-      sengketa:  ACCENT_COLORS.ember,
-      lainnya:   ACCENT_COLORS.violet,
+      'penanganan pelanggaran': ACCENT_COLORS.ember,
+      'penyelesaian sengketa':  ACCENT_COLORS.cyan,
     }
     if (colorMap[normalized]) return colorMap[normalized]
 
@@ -38,29 +35,25 @@ export const CATEGORY_COLORS = new Proxy<Record<string, string>>({}, {
 export const CATEGORY_LABELS = new Proxy<Record<string, string>>({}, {
   get: (_target, prop) => {
     if (typeof prop !== 'string') return undefined
-    const normalized = prop.toLowerCase()
+    const normalized = prop.toLowerCase().trim()
     const labelMap: Record<string, string> = {
-      mou:       'MoU',
-      audiensi:  'Audiensi',
-      pelaporan: 'Pelaporan',
-      sengketa:  'Sengketa',
-      lainnya:   'Lainnya',
+      'penanganan pelanggaran': 'Penanganan Pelanggaran',
+      'penyelesaian sengketa':  'Penyelesaian Sengketa',
     }
     if (labelMap[normalized]) return labelMap[normalized]
-    return prop.charAt(0).toUpperCase() + prop.slice(1)
+    
+    // Capitalize words
+    return prop.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
   }
 })
 
 export const CATEGORY_STYLES = new Proxy<Record<string, React.CSSProperties>>({}, {
   get: (_target, prop) => {
     if (typeof prop !== 'string') return undefined
-    const normalized = prop.toLowerCase()
+    const normalized = prop.toLowerCase().trim()
     const styleMap: Record<string, React.CSSProperties> = {
-      mou:       { background: '#EBF7ED', color: '#1B6E37', border: '1px solid #C4E8CB' },
-      audiensi:  { background: '#EDF5FB', color: '#195B8B', border: '1px solid #C4DFE8' },
-      pelaporan: { background: '#FDF5E6', color: '#8A5E14', border: '1px solid #F0DDB8' },
-      sengketa:  { background: '#FDF0EC', color: '#9E3B14', border: '1px solid #F2C9B8' },
-      lainnya:   { background: '#F4F0E6', color: '#595045', border: '1px solid #D8CFB8' },
+      'penanganan pelanggaran':  { background: '#FDF0EC', color: '#9E3B14', border: '1px solid #F2C9B8' },
+      'penyelesaian sengketa':  { background: '#EDF5FB', color: '#195B8B', border: '1px solid #C4DFE8' },
     }
     if (styleMap[normalized]) return styleMap[normalized]
 
@@ -74,15 +67,15 @@ export const CATEGORY_STYLES = new Proxy<Record<string, React.CSSProperties>>({}
 
 export function getCategoryLabel(kategori: string): string {
   if (!kategori) return ''
-  return CATEGORY_LABELS[kategori.toLowerCase()]
+  return CATEGORY_LABELS[kategori.toLowerCase().trim()]
 }
 
 export function getCategoryColor(kategori: string): string {
   if (!kategori) return ACCENT_COLORS.violet
-  return CATEGORY_COLORS[kategori.toLowerCase()]
+  return CATEGORY_COLORS[kategori.toLowerCase().trim()]
 }
 
 export function getCategoryStyle(kategori: string): React.CSSProperties {
-  if (!kategori) return CATEGORY_STYLES.lainnya
-  return CATEGORY_STYLES[kategori.toLowerCase()]
+  if (!kategori) return CATEGORY_STYLES['penanganan pelanggaran']
+  return CATEGORY_STYLES[kategori.toLowerCase().trim()]
 }

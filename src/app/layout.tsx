@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { getHeroSettings } from '@/entities/site-settings/api/get-site-settings'
 import { SiteTitleProvider } from '@/entities/site-settings/ui/site-title.client'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export async function generateMetadata(): Promise<Metadata> {
-  const { title } = await getHeroSettings()
+  const title = 'ETALASE'
 
   return {
-    title: `${title} — Arsip Langkah Bawaslu Kebumen`,
+    title: `${title} — Arsip Jurnal Bawaslu Kebumen`,
     description: 'Portal arsip publik read-only untuk kegiatan dan pimpinan Bawaslu Kebumen.',
     icons: {
       icon: '/assets/logo.png',
@@ -25,11 +21,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { title } = await getHeroSettings()
+  const title = 'ETALASE'
 
   return (
     <html lang="id">
-      <body className={inter.className}>
+      <body className="font-sans text-gray-900 antialiased">
         <SiteTitleProvider title={title}>{children}</SiteTitleProvider>
       </body>
     </html>

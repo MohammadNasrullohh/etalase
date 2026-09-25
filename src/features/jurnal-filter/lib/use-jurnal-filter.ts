@@ -9,11 +9,15 @@ export function useJurnalFilter() {
 
   const q = searchParams.get('q') ?? ''
   const kategori = searchParams.get('kategori') ?? ''
+  const tahun = searchParams.get('tahun') ?? ''
+  const date = searchParams.get('date') ?? ''
 
-  const setFilter = useDebouncedCallback((newQ: string, newKategori: string) => {
+  const setFilter = useDebouncedCallback((newQ: string, newKategori: string, newTahun?: string, newDate?: string) => {
     const params = new URLSearchParams()
     if (newQ) params.set('q', newQ)
     if (newKategori) params.set('kategori', newKategori)
+    if (newTahun) params.set('tahun', newTahun)
+    if (newDate) params.set('date', newDate)
     
     router.replace(`/?${params.toString()}`, { scroll: false })
   }, 300)
@@ -22,5 +26,5 @@ export function useJurnalFilter() {
     router.replace('/', { scroll: false })
   }
 
-  return { q, kategori, setFilter, resetFilter }
+  return { q, kategori, tahun, date, setFilter, resetFilter }
 }

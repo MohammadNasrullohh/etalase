@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Search, X } from 'lucide-react'
 
 interface SearchBarProps {
@@ -15,14 +15,20 @@ export const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
     setLocalVal(value)
   }, [value])
 
+  const timerRef = useRef<NodeJS.Timeout>()
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value
     setLocalVal(val)
-    onChange(val)
+    if (timerRef.current) clearTimeout(timerRef.current)
+    timerRef.current = setTimeout(() => {
+      onChange(val)
+    }, 300)
   }
 
   const handleClear = () => {
     setLocalVal('')
+    if (timerRef.current) clearTimeout(timerRef.current)
     onChange('')
   }
 

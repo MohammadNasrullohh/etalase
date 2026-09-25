@@ -1,4 +1,4 @@
-export const DEFAULT_HERO_SUBTITLE = 'Arsip Langkah Bawaslu Kebumen'
+export const DEFAULT_HERO_SUBTITLE = 'Arsip Jurnal Bawaslu Kebumen'
 export const MAX_HERO_SUBTITLE_LENGTH = 100
 
 export function normalizeHeroSubtitle(value: unknown): string | null {

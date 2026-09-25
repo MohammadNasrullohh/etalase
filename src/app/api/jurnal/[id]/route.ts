@@ -1,46 +1,97 @@
 import { NextResponse, NextRequest } from 'next/server'
+
 import { getJurnalDetail } from '@/entities/jurnal/api/get-jurnal-detail'
 
+
+
 export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
+
   try {
+
     const id = params.id
+
     const item = await getJurnalDetail(id, true)
+
     
+
     if (!item) {
+
       return NextResponse.json(
+
         { status: "error", message: "not found" },
+
         { status: 404 }
+
       )
+
     }
+
+
 
     const docs = Array.isArray(item.dokumen_pendukung) ? item.dokumen_pendukung : []
-    const publicDocs = docs.filter((d: any) => d && d.is_public === true)
+
+    const publicDocs = docs;
+
+
 
     const transformedItem = {
+
       id: item.id,
+
       source_id: item.source_id,
+
       judul: item.judul,
+      ringkasan: item.ringkasan,
+
       tanggal_kegiatan: item.tanggal_kegiatan,
+
       kategori: item.kategori,
+
       link_publikasi: item.link_publikasi,
+
       pihak_terkait: item.pihak_terkait,
+
       dokumentasi: item.dokumentasi,
+
       dokumen_pendukung: publicDocs.map(({ is_public, ...rest }: any) => rest),
+
       custom_fields: item.custom_fields,
+
       tags: item.tags,
+
       redaksi: item.redaksi,
+
       created_at: item.created_at,
+
     }
 
+
+
     return NextResponse.json({
+
       status: "ok",
+
       data: transformedItem
+
     })
+
   } catch (error: any) {
+
     return NextResponse.json(
+
       { status: "error", message: error.message },
+
       { status: 500 }
+
     )
+
   }
+
 }
+
 export const dynamic = 'force-dynamic'
+
+
+
+
+

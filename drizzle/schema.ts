@@ -5,6 +5,7 @@ export const jurnal = pgTable('jurnal', {
   id:               uuid('id').primaryKey().defaultRandom(),
   source_id:        uuid('source_id').notNull().unique(),
   judul:            text('judul').notNull(),
+    ringkasan:        text('ringkasan'),
   tanggal_kegiatan: date('tanggal_kegiatan').notNull(),
   kategori:         varchar('kategori', { length: 50 }).notNull(),
   link_publikasi:   text('link_publikasi'),

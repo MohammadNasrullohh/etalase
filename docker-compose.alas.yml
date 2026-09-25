@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   alas-db:
-    image: postgres:16-alpine
+    image: postgres:16
     container_name: alas-db
     environment:
       POSTGRES_DB: alas

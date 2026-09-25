@@ -1,9 +1,12 @@
 'use server'
 
 import { cookies } from 'next/headers'
+import { getMeAction } from '@/entities/lawet-user'
 import { JurnalSubmissionPayload, jurnalSubmissionSchema } from '../model/submission-schema'
 import { db } from '@/shared/lib/db'
 import { jurnal, alasOutbox } from '../../../../drizzle/schema'
+import { eq } from 'drizzle-orm'
+import { revalidatePath } from 'next/cache'
 
 export async function submitJurnalAction(payload: JurnalSubmissionPayload) {
   const token = cookies().get('lawet_token')?.value
@@ -12,17 +15,21 @@ export async function submitJurnalAction(payload: JurnalSubmissionPayload) {
     return { success: false, error: 'Unauthorized. Silakan login kembali.' }
   }
 
+  const user = await getMeAction();
+  if (!user) {
+    return { success: false, error: 'User tidak ditemukan.' }
+  }
+
   try {
     // 1. Zod Validation
     const validatedData = jurnalSubmissionSchema.parse(payload)
 
-    // 2. Generate UUIDs
-    const sourceId = crypto.randomUUID() // Generate a new UUID for the source_id
+    const isUpdate = !!validatedData.id;
+    const sourceId = isUpdate ? validatedData.id! : crypto.randomUUID();
 
-    // 3. Insert into ALAS DB (Local Write Proxy)
-    await db.insert(jurnal).values({
-      source_id: sourceId,
+    const data = {
       judul: validatedData.judul,
+      ringkasan: validatedData.ringkasan || null,
       tanggal_kegiatan: validatedData.tanggal_kegiatan,
       kategori: validatedData.kategori,
       link_publikasi: validatedData.link_publikasi || null,
@@ -31,18 +38,35 @@ export async function submitJurnalAction(payload: JurnalSubmissionPayload) {
       pihak_terkait: validatedData.pihak_terkait,
       custom_fields: validatedData.custom_fields,
       tags: validatedData.tags,
-      is_published: false,
-      workflow_status: 'submitted',
-      version: 1,
-    })
+      is_published: validatedData.is_published,
+      workflow_status: (user.division?.name?.toLowerCase().includes('kasubag') || user.role?.can_approve || user.role?.is_superadmin) ? 'published' : 'publish_pending',
+    };
+
+    if (isUpdate) {
+      await db.update(jurnal).set({
+        ...data,
+        version: 2
+      }).where(eq(jurnal.id, validatedData.id!));
+    } else {
+      await db.insert(jurnal).values({
+        id: sourceId,
+        source_id: sourceId,
+        ...data,
+        redaksi: user.name,
+        divisi: user.division?.name || 'Staf',
+        version: 1,
+      });
+    }
 
     // 4. Insert into Outbox for async sync to Lawet Hub
     await db.insert(alasOutbox).values({
       source_id: sourceId,
-      operation: 'CREATE_JURNAL',
+      operation: isUpdate ? 'UPDATE_JURNAL' : 'CREATE_JURNAL',
       payload: validatedData,
       status: 'pending'
-    })
+    });
+
+    revalidatePath('/panel');
 
     return { success: true, data: { source_id: sourceId } }
   } catch (error: any) {

@@ -63,7 +63,7 @@ export function AuthoringShellClient({ isApprover, isAdmin, user, children }: Pr
           </div>
           
           <div className="hidden lg:flex items-center text-[var(--color-text-muted)] text-sm font-medium">
-            Panel Arsip Langkah Bawaslu Kebumen
+            Panel Arsip Jurnal Bawaslu Kebumen
           </div>
           
           <div className="flex items-center">

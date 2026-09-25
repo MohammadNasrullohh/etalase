@@ -12,6 +12,7 @@ type JurnalDetail = {
   judul: string
   tanggal_kegiatan: string
   kategori: string
+  ringkasan?: string | null
   created_by?: string | null
   divisi?: string | null
   link_publikasi?: string | null
@@ -42,17 +43,21 @@ export default async function ApprovalDetailPage({ params }: { params: { id: str
       <div className="mx-auto max-w-5xl">
         <Link href="/approval" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-primary)]">
           <ArrowLeft className="h-4 w-4" /> Kembali ke Approval
-        </Link>
-
-        <div className="mt-6 border-b border-[var(--glass-border-subtle)] pb-7">
+        </Link>        <div className="mt-6 border-b border-[var(--glass-border-subtle)] pb-7">
           <p className="text-sm font-medium text-[var(--color-accent-hover)]">Menunggu persetujuan</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-[-0.025em] text-balance">{jurnal.judul}</h1>
           <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--color-text-muted)]">
             <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4 text-[var(--color-accent-hover)]" />{formatDate(jurnal.tanggal_kegiatan)}</span>
-            <span>Oleh: {jurnal.submitter?.name || jurnal.created_by || '—'}</span>
-            <span>Divisi: {jurnal.divisi || '—'}</span>
+            <span className="inline-flex items-center gap-2"><Tags className="h-4 w-4 text-[var(--color-accent-hover)]" />{jurnal.kategori}</span>
+            {jurnal.created_by ? <span className="inline-flex items-center gap-2"><UsersRound className="h-4 w-4 text-[var(--color-accent-hover)]" />{jurnal.submitter?.name ?? jurnal.created_by}</span> : null}
           </div>
         </div>
+
+        {jurnal.ringkasan && (
+          <div className="mt-8 text-[15px] leading-[1.75] text-[var(--color-text-primary)]">
+            {jurnal.ringkasan}
+          </div>
+        )}
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <div className="space-y-8">

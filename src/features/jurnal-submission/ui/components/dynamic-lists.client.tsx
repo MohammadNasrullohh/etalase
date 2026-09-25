@@ -34,6 +34,19 @@ export function PihakTerkaitInput({ value, onChange }: PihakTerkaitProps) {
       
       {value.length > 0 && (
         <div className="space-y-3 mt-4">
+          <datalist id="saran-instansi">
+            <option value="KPU" />
+            <option value="Bawaslu" />
+            <option value="Dinas" />
+            <option value="Pemda" />
+            <option value="Pemerintah Desa" />
+            <option value="Universitas" />
+            <option value="Sekolah" />
+            <option value="Polres" />
+            <option value="TNI" />
+            <option value="LSM" />
+            <option value="Ormas" />
+          </datalist>
           {value.map((item, i) => (
             <div key={i} className="flex gap-3 items-start bg-[var(--color-surface-raised)] p-2.5 rounded-lg border border-[var(--color-border-subtle)]">
               <input
@@ -48,6 +61,7 @@ export function PihakTerkaitInput({ value, onChange }: PihakTerkaitProps) {
                 placeholder="Instansi (Opsional)"
                 value={item.instansi || ''}
                 onChange={(e) => updateRow(i, 'instansi', e.target.value)}
+                list="saran-instansi"
                 className="flex-1 min-w-0 bg-transparent border-b border-[var(--color-border-subtle)] px-2 py-1 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-ember-bright)]"
               />
               <button
@@ -61,6 +75,13 @@ export function PihakTerkaitInput({ value, onChange }: PihakTerkaitProps) {
           ))}
         </div>
       )}
+      
+      <div className="mt-3 text-[11px] text-[var(--color-text-muted)]">
+        💡 <strong>Tips Statistik:</strong> Sistem otomatis mengelompokkan instansi: 
+        <span className="font-mono bg-[var(--color-surface-raised)] px-1 rounded ml-1">KPU, Bawaslu, Dinas, Pemda</span> → Pemda. 
+        <span className="font-mono bg-[var(--color-surface-raised)] px-1 rounded ml-1">Sekolah, Kampus</span> → Pendidikan. 
+        <span className="font-mono bg-[var(--color-surface-raised)] px-1 rounded ml-1">LSM, Ormas</span> → Ormas.
+      </div>
     </div>
   )
 }
@@ -97,6 +118,19 @@ export function CustomFieldsInput({ value, onChange }: CustomFieldsProps) {
       
       {value.length > 0 && (
         <div className="space-y-3 mt-4">
+          <datalist id="saran-instansi">
+            <option value="KPU" />
+            <option value="Bawaslu" />
+            <option value="Dinas" />
+            <option value="Pemda" />
+            <option value="Pemerintah Desa" />
+            <option value="Universitas" />
+            <option value="Sekolah" />
+            <option value="Polres" />
+            <option value="TNI" />
+            <option value="LSM" />
+            <option value="Ormas" />
+          </datalist>
           {value.map((item, i) => (
             <div key={i} className="flex gap-3 items-start bg-[var(--color-surface-raised)] p-2.5 rounded-lg border border-[var(--color-border-subtle)]">
               <input
@@ -124,6 +158,13 @@ export function CustomFieldsInput({ value, onChange }: CustomFieldsProps) {
           ))}
         </div>
       )}
+      
+      <div className="mt-3 text-[11px] text-[var(--color-text-muted)]">
+        💡 <strong>Tips Statistik:</strong> Sistem otomatis mengelompokkan instansi: 
+        <span className="font-mono bg-[var(--color-surface-raised)] px-1 rounded ml-1">KPU, Bawaslu, Dinas, Pemda</span> → Pemda. 
+        <span className="font-mono bg-[var(--color-surface-raised)] px-1 rounded ml-1">Sekolah, Kampus</span> → Pendidikan. 
+        <span className="font-mono bg-[var(--color-surface-raised)] px-1 rounded ml-1">LSM, Ormas</span> → Ormas.
+      </div>
     </div>
   )
 }
