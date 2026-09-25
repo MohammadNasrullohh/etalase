@@ -148,7 +148,7 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
               </h2>
 
-              <div className="flex items-center gap-6 text-[11px] font-medium opacity-90 text-white">
+              <div className="flex items-center gap-6 text-[11px] font-medium opacity-90 text-white w-full">
 
                 <div className="flex items-center gap-2">
 
@@ -166,7 +166,7 @@ export default function Approval({ workspace }: { workspace: JurnalWorkspace | n
 
                 </div>
                 
-                <div className={`flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border ${selectedItem.is_published ? 'border-green-400 text-green-400 bg-green-400/10' : 'border-red-400 text-red-400 bg-red-400/10'}`}>
+                <div className={`ml-auto flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border ${selectedItem.is_published ? 'border-green-400 text-green-400 bg-green-400/10' : 'border-red-400 text-red-400 bg-red-400/10'}`}>
                   {selectedItem.is_published ? (
                     <>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
