@@ -74,6 +74,7 @@ describe('ALAS Local Write Workflow', () => {
       pihak_terkait: [],
       custom_fields: [],
       tags: [],
+      is_published: false,
     }
     const invalidRes = await submitJurnalAction(invalidPayload)
     expect(invalidRes.success).toBe(false)

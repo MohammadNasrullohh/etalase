@@ -23,10 +23,8 @@ describe('Jurnal Stats & Analytics API Query Integration', () => {
       tanggal_kegiatan: '2026-03-10',
       kategori: 'mou',
       divisi: 'Divisi Hukum dan Sengketa',
-      pihak_terkait: ['Polres Kebumen', 'Kejaksaan Negeri'],
+      pihak_terkait: [{ nama: 'Polres Kebumen' }, { nama: 'Kejaksaan Negeri' }],
       link_publikasi: 'https://kebumen.bawaslu.go.id/berita/mou',
-      is_published: true,
-      workflow_status: 'published'
     })
 
     // Item 2: Audiensi in March 2026, Divisi SDMOD, with 1 partner, no link
@@ -36,10 +34,8 @@ describe('Jurnal Stats & Analytics API Query Integration', () => {
       tanggal_kegiatan: '2026-03-25',
       kategori: 'audiensi',
       divisi: 'Divisi SDM dan Organisasi',
-      pihak_terkait: ['KPU Kebumen'],
+      pihak_terkait: [{ nama: 'KPU Kebumen' }],
       link_publikasi: '',
-      is_published: true,
-      workflow_status: 'published'
     })
 
     // Item 3: Pelaporan in August 2026, Divisi Penanganan Pelanggaran, draft (unpublished)
@@ -49,9 +45,7 @@ describe('Jurnal Stats & Analytics API Query Integration', () => {
       tanggal_kegiatan: '2026-08-05',
       kategori: 'pelaporan',
       divisi: 'Divisi Penanganan Pelanggaran',
-      pihak_terkait: ['Pelapor A'],
-      is_published: false,
-      workflow_status: 'draft'
+      pihak_terkait: [{ nama: 'Pelapor A' }],
     })
     // Ensure item 3 is unpublished
     await db.update(jurnal).set({ is_published: false }).where(eq(jurnal.source_id, sourceC))

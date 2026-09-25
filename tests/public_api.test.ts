@@ -59,8 +59,8 @@ describe('Public API Queries Integration', () => {
   it('should list only published items', async () => {
     const list = await getJurnalList({ limit: 50 })
     
-    const hasSource1 = list.some(item => item.source_id === source1)
-    const hasSource2 = list.some(item => item.source_id === source2)
+    const hasSource1 = list.items.some(item => item.source_id === source1)
+    const hasSource2 = list.items.some(item => item.source_id === source2)
 
     expect(hasSource1).toBe(true)
     expect(hasSource2).toBe(false)
@@ -86,11 +86,11 @@ describe('Public API Queries Integration', () => {
 
   it('should search query by tags', async () => {
     const searchRes = await getJurnalList({ q: 'kunci' })
-    const hasItem = searchRes.some(item => item.id === id1)
+    const hasItem = searchRes.items.some(item => item.id === id1)
     expect(hasItem).toBe(true)
     
     const searchResNone = await getJurnalList({ q: 'randomkeywordnotexists' })
-    const hasItemNone = searchResNone.some(item => item.id === id1)
+    const hasItemNone = searchResNone.items.some(item => item.id === id1)
     expect(hasItemNone).toBe(false)
   })
 })
