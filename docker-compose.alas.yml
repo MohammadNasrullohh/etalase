@@ -33,7 +33,7 @@ services:
       ALAS_SERVICE_TOKEN: ${ALAS_SERVICE_TOKEN}
       ALAS_WEBHOOK_SECRET: ${ALAS_WEBHOOK_SECRET}
       ALAS_REPLAY_WINDOW_SECONDS: ${ALAS_REPLAY_WINDOW_SECONDS:-300}
-      LAWET_API_URL: ${LAWET_API_URL:-http://host.docker.internal:2002}
+      LAWET_API_URL: ${DOCKER_LAWET_API_URL:-http://host.docker.internal:2002}
       HERO_UPLOAD_DIR: /app/public/uploads/hero
       ALAS_ADMIN_ROLE_LEVEL: ${ALAS_ADMIN_ROLE_LEVEL:-3}
     volumes:
