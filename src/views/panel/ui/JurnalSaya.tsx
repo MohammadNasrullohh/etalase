@@ -18,6 +18,7 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
   const [deletePopup, setDeletePopup] = useState<string | null>(null);
   const [detailPopup, setDetailPopup] = useState<string | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   
   const [toast, setToast] = useState<{message: string, type: 'info'|'success'|'error'} | null>(null);
   const showToast = (message: string, type: 'info'|'success'|'error' = 'info') => {
