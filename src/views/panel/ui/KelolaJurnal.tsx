@@ -103,6 +103,7 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
     const counts: Record<string, number> = {};
     allItems.forEach(item => {
       const name = item.owner_name || 'Tanpa Nama';
+      if (name.toLowerCase().includes('kasubag')) return;
       counts[name] = (counts[name] || 0) + 1;
     });
     const STAFF_COLORS = ['#6366F1', '#F87171', '#FBBF24', '#38BDF8', '#A78BFA', '#34D399'];
@@ -366,7 +367,7 @@ export default function KelolaJurnal({ workspace, error }: { workspace: JurnalWo
 
         {/* Chart 4: Staff Upload Jurnal */}
         <div className="bg-white rounded-[22px] border-[0.5px] border-black/10 p-5 shadow-sm h-[273px] flex flex-col min-w-0 min-h-0">
-          <h4 className="text-sm font-semibold text-[#142B42] mb-2">Staff Uploud Jurnal</h4>
+          <h4 className="text-sm font-semibold text-[#142B42] mb-2">Staff Upload Jurnal</h4>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie data={pieStaffData} cx="50%" cy="45%" innerRadius={0} outerRadius={70} dataKey="value">
