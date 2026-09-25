@@ -17,16 +17,16 @@ export async function getMeAction(): Promise<LawetUser | null> {
       'dummy-staff-token': {
         id: 'dummy-staff-1',
         name: 'Agus',
-        username: 'Staff PPS',
+        username: 'Agus',
         division: { id: 'div-1', name: 'Divisi Pengawasan' },
-        role: { id: 'r1', name: 'Staff PPS', level: 1, can_approve: false, is_superadmin: false }
+        role: { id: 'r1', name: 'Agus', level: 1, can_approve: false, is_superadmin: false }
       },
       'dummy-staff-2-token': {
         id: 'dummy-staff-2',
         name: 'Budi',
         username: 'staff_budi',
         division: { id: 'div-1', name: 'Divisi Pengawasan' },
-        role: { id: 'r1', name: 'Staff PPS', level: 1, can_approve: false, is_superadmin: false }
+        role: { id: 'r1', name: 'Agus', level: 1, can_approve: false, is_superadmin: false }
       },
       'dummy-kasubag-token': {
         id: 'dummy-kasubag-1',
