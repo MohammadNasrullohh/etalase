@@ -5,6 +5,8 @@ import { db } from '@/shared/lib/db'
 import { jurnal } from '../../drizzle/schema'
 import { eq, desc } from 'drizzle-orm'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const user = await getMeAction()
   
