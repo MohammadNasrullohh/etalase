@@ -240,9 +240,9 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({
             )}
 
 
-            {/* Dokumen Pendukung */}
+            {/* Dokumen Pendukung (Hanya tampil jika login) */}
 
-            {item.dokumen_pendukung && item.dokumen_pendukung.length > 0 && (
+            {isLoggedIn && item.dokumen_pendukung && item.dokumen_pendukung.length > 0 && (
 
               <div className="mb-10">
 
