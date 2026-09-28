@@ -87,7 +87,7 @@ export const JurnalList: React.FC<JurnalListProps> = ({
     cards.forEach((card) => observerRef.current?.observe(card))
 
     return () => observerRef.current?.disconnect()
-  }, [data, setActiveId, onActiveDateChange, scrollContainerRef])
+  }, [data, setActiveId, onActiveDateChange, scrollContainerRef, navigatingRef])
 
   const actualItems = data?.data || []
   const totalPages = data?.pagination?.total_pages || 1

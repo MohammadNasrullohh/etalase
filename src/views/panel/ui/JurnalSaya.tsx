@@ -49,7 +49,7 @@ export default function JurnalSaya({ workspace, error }: { workspace: JurnalWork
 
 
 
-  const allItems = workspace ? [...workspace.mine, ...workspace.subordinates] : [];
+  const allItems = useMemo(() => workspace ? [...workspace.mine, ...workspace.subordinates] : [], [workspace]);
   
   const total = allItems.length;
   const published = allItems.filter(i => i.status === 'published').length;
