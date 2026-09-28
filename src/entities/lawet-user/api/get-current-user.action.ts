@@ -13,6 +13,7 @@ export async function getMeAction(): Promise<LawetUser | null> {
     // --- BLUEPRINT: MULTIPLE DUMMY PROFILES FOR UI TESTING ---
     // Untuk menambahkan user staff/kasubag lain tanpa merusak arsitektur API Lawet Hub asli,
     // cukup tambahkan data user di objek DUMMY_USERS ini dengan format kunci token yang unik.
+    if (process.env.NODE_ENV !== 'production' && process.env.ENABLE_MOCK_AUTH === 'true') {
     const DUMMY_USERS: Record<string, any> = {
       'dummy-staff-token': {
         id: 'dummy-staff-1',
@@ -40,6 +41,7 @@ export async function getMeAction(): Promise<LawetUser | null> {
     if (DUMMY_USERS[token]) {
       return DUMMY_USERS[token];
     }
+  }
     // -------------------------------------
 
     const res = await fetch(`${LAWET_API_URL}/api/v1/auth/me`, {

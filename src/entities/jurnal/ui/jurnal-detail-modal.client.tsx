@@ -240,9 +240,9 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({
             )}
 
 
-            {/* Dokumen Pendukung (Hanya tampil jika login) */}
+            {/* Dokumen Pendukung */}
 
-            {isLoggedIn && item.dokumen_pendukung && item.dokumen_pendukung.length > 0 && (
+            {item.dokumen_pendukung && item.dokumen_pendukung.length > 0 && (
 
               <div className="mb-10">
 
@@ -259,7 +259,7 @@ export const JurnalDetailModal: React.FC<JurnalDetailModalProps> = ({
                   {item.dokumen_pendukung.map((doc: any, i: number) => {
                     const hasUrl = !!doc.url;
                     return (
-                    <a key={i} href={doc.url || undefined} target={hasUrl ? "_blank" : undefined} rel={hasUrl ? "noreferrer" : undefined} className={`flex items-center justify-between p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-[12px] transition-colors group ${hasUrl ? 'hover:bg-[#F1F5F9] cursor-pointer' : 'opacity-70 cursor-not-allowed'}`} onClick={(e) => { if (!hasUrl) { e.preventDefault(); alert('URL dokumen tidak ditemukan atau belum terunggah dengan sempurna.'); } }}>
+                    <a key={i} href={doc.url || undefined} target={hasUrl ? "_blank" : undefined} rel={hasUrl ? "noreferrer" : undefined} className={`flex items-center justify-between p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-[12px] transition-colors group ${hasUrl ? 'hover:bg-[#F1F5F9] cursor-pointer' : 'opacity-70 cursor-not-allowed'}`} onClick={(e) => { if (!hasUrl) { e.preventDefault();  } }}>
 
                       <div className="flex items-center gap-3">
 

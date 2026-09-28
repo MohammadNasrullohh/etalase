@@ -8,6 +8,7 @@ export async function loginAction(username: string, pin: string) {
   try {
     // --- BLUEPRINT: MULTIPLE DUMMY ACCOUNTS FOR UI TESTING ---
     // Tambahkan kredensial untuk user dummy di bawah ini.
+    if (process.env.NODE_ENV !== 'production' && process.env.ENABLE_MOCK_AUTH === 'true') {
     const DUMMY_ACCOUNTS: Record<string, { pin: string, token: string, name: string }> = {
       'staff': { pin: '1234', token: 'dummy-staff-token', name: 'Agus' },
       'staff_budi': { pin: '1234', token: 'dummy-staff-2-token', name: 'Budi' },
@@ -18,6 +19,7 @@ export async function loginAction(username: string, pin: string) {
       cookies().set({ name: 'lawet_token', value: DUMMY_ACCOUNTS[username].token, httpOnly: true, path: '/' })
       return { success: true, user: { name: DUMMY_ACCOUNTS[username].name } }
     }
+  }
     // -------------------------------------
 
     const res = await fetch(`${LAWET_API_URL}/api/v1/auth/login`, {

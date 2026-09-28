@@ -14,13 +14,13 @@ export async function GET(_request: NextRequest, { params }: { params: { id: str
 
     const item = await getJurnalDetail(id, false)
     
-    if (item && item.workflow_status !== 'published') {
+    if (item && (!item.is_published || item.workflow_status !== 'published')) {
       if (!user) {
         return NextResponse.json({ status: "error", message: "not found" }, { status: 404 })
       }
       // Strict check: Only Kasubag or the owner can view
-      const isOwner = user.name === item.redaksi;
-      const isKasubag = user.role?.name?.toLowerCase().includes('kasubag') || user.role?.can_approve;
+      const isOwner = Boolean(user.name && user.name === item.redaksi);
+      const isKasubag = Boolean(user.role?.name?.toLowerCase().includes('kasubag') || user.role?.can_approve);
       if (!isOwner && !isKasubag) {
         return NextResponse.json({ status: "error", message: "not found" }, { status: 404 })
       }
