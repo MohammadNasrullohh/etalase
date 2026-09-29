@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { SearchBar } from '@/features/jurnal-filter/ui/search-bar.client'
@@ -28,6 +29,7 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeDate, setActiveDate] = useState<string | null>(null)
   const [selectedJurnalId, setSelectedJurnalId] = useState<string | null>(null)
+  const [activeSection, setActiveSection] = useState('Beranda')
   const [isLoginOpen, setIsLoginOpen] = React.useState(false)
   const [isKategoriOpen, setIsKategoriOpen] = useState(false)
   const [isTahunOpen, setIsTahunOpen] = useState(false)
@@ -128,6 +130,17 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
       setIsScrolled(currentScrollY > 150);
+
+      const kalender = document.getElementById('section-kalender')?.offsetTop || Infinity;
+      const arsip = document.getElementById('section-arsip')?.offsetTop || Infinity;
+      const dokumentasi = document.getElementById('section-dokumentasi')?.offsetTop || Infinity;
+      
+      const scrollPos = currentScrollY + window.innerHeight / 3;
+
+      if (scrollPos >= dokumentasi) setActiveSection('Dokumentasi');
+      else if (scrollPos >= arsip) setActiveSection('Jurnal');
+      else if (scrollPos >= kalender) setActiveSection('E-kalender');
+      else setActiveSection('Beranda');
     }, 100);
 
     return () => {
@@ -188,13 +201,28 @@ const LandingView: React.FC<{ heroImagePath: string; heroTitle: string; heroSubt
               <img src="/assets/hero-logo-etalase.png" alt="ETALASE" className="h-[28px] md:h-[45px] object-contain" />
             </div>
             <div className="hidden lg:flex items-center gap-[60px]">
-              <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="text-[#142B42] font-semibold text-[15px] relative">
-                Beranda
-                <div className="absolute -bottom-1.5 left-0 w-full h-[2px] bg-[#142B42]"></div>
-              </button>
-              <button onClick={() => document.getElementById('section-kalender')?.scrollIntoView({behavior: 'smooth'})} className="text-[#5D6A77] font-medium text-[15px] hover:text-[#F7921C] transition-colors">E-kalender</button>
-              <button onClick={() => document.getElementById('section-arsip')?.scrollIntoView({behavior: 'smooth'})} className="text-[#5D6A77] font-medium text-[15px] hover:text-[#F7921C] transition-colors">Jurnal</button>
-              <button onClick={() => document.getElementById('section-dokumentasi')?.scrollIntoView({behavior: 'smooth'})} className="text-[#5D6A77] font-medium text-[15px] hover:text-[#F7921C] transition-colors">Dokumentasi</button>
+              {[
+                { id: 'Beranda', label: 'Beranda', action: () => { setActiveSection('Beranda'); window.scrollTo({top: 0, behavior: 'smooth'}) } },
+                { id: 'E-kalender', label: 'E-kalender', action: () => { setActiveSection('E-kalender'); document.getElementById('section-kalender')?.scrollIntoView({behavior: 'smooth'}) } },
+                { id: 'Jurnal', label: 'Jurnal', action: () => { setActiveSection('Jurnal'); document.getElementById('section-arsip')?.scrollIntoView({behavior: 'smooth'}) } },
+                { id: 'Dokumentasi', label: 'Dokumentasi', action: () => { setActiveSection('Dokumentasi'); document.getElementById('section-dokumentasi')?.scrollIntoView({behavior: 'smooth'}) } }
+              ].map((tab) => (
+                <button 
+                  key={tab.id}
+                  onClick={tab.action}
+                  className={`${activeSection === tab.id ? 'text-[#142B42] font-semibold' : 'text-[#5D6A77] font-medium hover:text-[#F7921C]'} text-[15px] relative transition-colors`}
+                >
+                  {tab.label}
+                  {activeSection === tab.id && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1.5 left-0 w-full h-[2px] bg-[#142B42]"
+                      initial={false}
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+              ))}
             </div>
             <button 
               className="bg-[#F7921C] hover:bg-[#e08316] transition-colors text-white font-semibold text-xs md:text-[15px] px-4 md:px-0 w-auto md:w-[154px] h-[36px] md:h-[67px] rounded-full md:rounded-[34px] flex items-center justify-center gap-1.5 md:gap-2 cursor-pointer shadow-sm active:scale-95"
